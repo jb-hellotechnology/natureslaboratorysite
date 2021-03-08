@@ -1,0 +1,15 @@
+*
+
+!assets
+
+!perch
+
+perch/*
+
+!perch/templates/
+!perch/templates/**
+
+!.gitignore
+
+
+

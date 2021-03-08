@@ -8,7 +8,7 @@
 			<div class="blog">
 				<?php
 				if(!perch_get('s')){   
-					echo '<h1 class="span">WelshRev Blog</h1>';
+					echo '<h1 class="span">A Great Blog</h1>';
 			    }
 			    ?>
 				<div>

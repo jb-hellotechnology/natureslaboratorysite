@@ -1,6 +1,7 @@
 *
 
 !assets
+!assets/**
 
 # To include a subdirectory (perch/templates/) the parent directory needs 'unignoring'
 # first. The first line unignores the perch directory, then the next ignores everything within 

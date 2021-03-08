@@ -17,5 +17,6 @@ perch/*
 
 !.gitignore
 
-
+# Include cPanel GitHub config
+!.cpanel.yml
 

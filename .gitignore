@@ -20,3 +20,5 @@ perch/*
 # Include cPanel GitHub config
 !.cpanel.yml
 
+# Include .htaccess
+!.htaccess

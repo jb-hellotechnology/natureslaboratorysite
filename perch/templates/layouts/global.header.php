@@ -31,7 +31,7 @@
 
 <body>
 	<header>
-		<nav>
+		<nav class="restrict">
 			<?php
 			perch_pages_navigation();
 			?>

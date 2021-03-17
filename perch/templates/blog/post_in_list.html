@@ -1,12 +1,17 @@
 <perch:before>
-<ul class="hfeed listing"></perch:before>
+<ul class="hfeed listing">
+</perch:before>
     <li class="hentry">
         <h2><a href="<perch:blog id="postURL" />" rel="bookmark" class="entry-title"><perch:blog id="postTitle" /></a></h2>
-        <perch:if exists="image"><img src="<perch:blog id="image" type="image" width="50" height="50" crop="true" />" alt="<perch:blog id="postTitle" />" /></perch:if>
         <p class="entry-published date"><perch:blog id="postDateTime" format="%d %B %Y" /></p>
+        <div class="author">
+            <perch:if exists="image"><img src="<perch:blog id="image" type="image" width="50" height="50" crop="true" />" alt="<perch:blog id="postTitle" />" /></perch:if>
+            <perch:if exists="authorGivenName">
+                <p class="p-author h-card"><perch:blog id="authorGivenName" type="hidden" /> <perch:blog id="authorFamilyName" type="hidden" /></p>
+            </perch:if>  
+        </div>
         <div class="description entry-summary">
         <perch:blog id="excerpt" type="textarea" textile="true" />
-        <p>Comments: <perch:blog id="postCommentCount"/></p>
         </div>
     </li>
 <perch:after>

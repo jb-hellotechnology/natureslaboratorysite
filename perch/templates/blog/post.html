@@ -1,8 +1,6 @@
 <article class="h-entry">
 	<h1>
-        <a href="<perch:blog id="postURL" type="hidden" />" rel="bookmark" class="p-name">
-            <perch:blog id="postTitle" type="text" label="Title" required="true" size="xl autowidth" order="1" />
-        </a>
+        <perch:blog id="postTitle" type="text" label="Title" required="true" size="xl autowidth" order="1" />
     </h1>
 	<p class="meta">
         <time class="dt-published" datetime="<perch:blog id="postDateTime" type="date" label="Date" time="true" format="Y-m-d H:i:s" divider-before="Publishing" />">
@@ -28,5 +26,6 @@
     </div>
 </article>
 
+<perch:blog id="postURL" type="hidden" />
 <perch:blog id="excerpt" type="textarea" label="Excerpt" markdown="true" order="3" suppress="true" size="s" />
 <perch:blog id="image" type="image" width="50" height="50" crop="true" suppress="true" />

@@ -33,7 +33,10 @@
 	<header>
 		<nav class="restrict">
 			<?php
-			perch_pages_navigation();
+			$blog = "/blog" . "/";
+			if ($_SERVER["REQUEST_URI"] != $blog && !perch_get('s')) {
+				perch_pages_navigation();
+			}
 			?>
 		</nav>
 	</header>

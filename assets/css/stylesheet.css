@@ -232,10 +232,53 @@ nav > ul > li > a:hover {
 
 .aside-wrapper {
     background-color: rgb(56, 56, 56);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.blog-post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+}
+
+.blog-post-header ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    justify-self: flex-end;
+}
+
+.blog-post-header ul li a {
+    padding: 0.5rem;
+    display: block;
+    text-decoration: none;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+.blog-post-header ul li a:hover {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.blog-post-header > a {
+    text-decoration: none;
+}
+
+.blog-post-header .title-small {
+    color: var(--bg-color);
+    max-width: none;
+}
+
+.navigation {
+    display: flex;
+    gap: 10px;
 }
 
 aside {
-    width: 100%;
     height: 60px;
     color: var(--bg-color);
     display: flex;
@@ -245,17 +288,24 @@ aside {
     gap: 5px;
 }
 
-aside > h2 {
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.search > h2 {
     font-size: 1.2rem;
 }
 
-aside > form {
+.search > form {
     display: flex;
     gap: 10px;
 }
 
-aside > form input {
-    padding: 0.4rem;
+.search input {
+    padding: 0.3rem;
     background-color: var(--bg-color);
     border: none;
 }
@@ -304,4 +354,8 @@ footer.restrict {
 .author img {
     width: 40px;
     height: auto;
+}
+
+.h-entry {
+    
 }

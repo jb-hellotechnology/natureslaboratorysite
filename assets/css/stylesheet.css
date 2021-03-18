@@ -181,10 +181,6 @@ h2, h3 {
     width: 100%;
 }
 
-.hentry {
-
-}
-
 .hentry h2 a {
     color: var(--text-color);
 }
@@ -317,9 +313,6 @@ aside {
     border: none;
 }
 
-aside > form .form-button {
-}
-
 .title-wrapper {
     background-color: var(--theme);
 }
@@ -361,13 +354,6 @@ footer.restrict {
 .author img {
     width: 40px;
     height: auto;
-}
-
-.h-entry {
-    
-}
-
-time {
 }
 
 .post-details {

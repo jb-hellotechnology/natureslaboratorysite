@@ -1,7 +1,10 @@
 <?php include($_SERVER['DOCUMENT_ROOT'].'/perch/runtime.php'); ?>
 <?php
 	perch_layout('global.header'); 
-	$heroImageUrl = perch_content('Default Hero Image', true);
+	perch_content_create("Default Hero Image", array(
+		"template" => 'blog_hero.html'
+	));
+	$heroImageUrl = perch_content("Default Hero Image", true);
 	if (perch_blog_post_field(perch_get('s'), 'heroImage', true)) {
 		$heroImageUrl = perch_blog_post_field(perch_get('s'), 'heroImage', true);
 	}

@@ -1,10 +1,14 @@
 <?php include($_SERVER['DOCUMENT_ROOT'].'/perch/runtime.php'); ?>
 <?php
 	perch_layout('global.header'); 
+	$heroImageUrl = perch_content('Default Hero Image', true);
+	if (perch_blog_post_field(perch_get('s'), 'heroImage', true)) {
+		$heroImageUrl = perch_blog_post_field(perch_get('s'), 'heroImage', true);
+	}
 ?>
     
     <div class="wrap">
-		<div class="restrict title-wrapper">
+		<div class="title-wrapper <?php if(!perch_get('s')){ echo "main"; } ?>" style="background-image: url(<?php echo $heroImageUrl ?>);">
 			<?php
 			echo '<h1 class="span title">';
 			if(!perch_get('s')){   
@@ -38,8 +42,8 @@
 
 			</aside> -->
 		</div>
-	    <div class="restrict">
-			<div class="blog">
+	    <div>
+			<div class="blog restrict narrow">
 
 
 				<div class="blog-content-wrapper">
@@ -58,7 +62,6 @@
 			       	}
 			    ?>
 				</div>
-				<div class="break"></div>
 
 			    
 			    

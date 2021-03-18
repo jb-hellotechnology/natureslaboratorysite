@@ -210,9 +210,6 @@ nav > ul > li > a:hover {
 }
 
 .blog {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     background-color: var(--bg-color);
 }
 
@@ -235,7 +232,7 @@ nav > ul > li > a:hover {
 }
 
 .title-wrapper {
-    background-color: var(--theme);
+    background-color: var(--text-color);
 }
 
 .blog-post-header {
@@ -243,7 +240,6 @@ nav > ul > li > a:hover {
     justify-content: space-between;
     align-items: center;
     min-height: 50px;
-    padding: 5px 0;
 }
 
 .blog-nav {
@@ -257,14 +253,14 @@ nav > ul > li > a:hover {
     padding: 0.5rem;
     display: block;
     text-decoration: none;
-    background-color: var(--theme);
+    background-color: var(--text-color);
     color: var(--bg-color);
     font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
 }
 
 .blog-nav li a:hover {
     background-color: var(--bg-color);
-    color: var(--theme);
+    color: var(--text-color);
 }
 
 .blog-post-header > a {
@@ -313,19 +309,34 @@ aside {
     border: none;
 }
 
+nav {
+    background-color: var(--text-color);
+}
+
 .title-wrapper {
-    background-color: var(--theme);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-wrapper.main {
+    height: 600px;
 }
 
 .title {
     text-align: center;
     color: var(--bg-color);
-    padding: 60px 30px 110px 30px;
-    max-width: none;
-    width: 100%;
+    position: relative;
+    top: -10px;
+    background: rgba(0, 0, 0, 0.356);
+    padding: 0.5rem 1rem;
 }
 
-footer.restrict {
+footer{
     background-color: var(--text-color);
     color: var(--bg-color);
     padding-top: 0.5rem;
@@ -354,12 +365,21 @@ footer.restrict {
 .author img {
     width: 40px;
     height: auto;
+    border-radius: 50%;
 }
 
 .post-details {
     display: flex;
     margin-bottom: 15px;
     gap: 5px;
+    align-items: center;
+}
+
+.post-details img {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+    margin-right: 5px;
 }
 
 .post-details > :is(p, time)  {
@@ -374,4 +394,19 @@ footer.restrict {
 
 .post-details.list > :is(p, time)  {
     font-size: 1.15rem;
+}
+
+.gist {
+    overflow: auto;
+    max-width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .navigation {
+        display: none;
+    }
+
+    .title-wrapper.main {
+        height: 300px;
+    }
 }

@@ -31,11 +31,11 @@
 
 <body>
 	<header>
-		<nav class="restrict title-wrapper">
+		<nav>
 			<?php
 			$isBlog = perch_page_attribute('pageNavText', array(), true) == "Blog";
 
-			echo '<div class="blog-post-header"><a href="';
+			echo '<div class="blog-post-header restrict"><a href="';
 			if ($isBlog) {
 				echo '/blog/">';
 			} else {

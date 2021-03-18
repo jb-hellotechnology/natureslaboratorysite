@@ -2,9 +2,11 @@
 <ul class="hfeed listing">
 </perch:before>
     <li class="hentry">
-        <perch:if exists="image"><img src="<perch:blog id="image" type="image" width="50" height="50" crop="true" />" alt="<perch:blog id="postTitle" />" /></perch:if>
         <h2><a href="<perch:blog id="postURL" />" rel="bookmark" class="entry-title"><perch:blog id="postTitle" /></a></h2>
         <div class="post-details list">
+            <perch:if exists="authorImage">
+                <img src="<perch:blog id="authorImage" type="image" width="100" height="100" crop="true" label="Author Image" order="4" />" alt="<perch:blog id="authorGivenName" />" />
+            </perch:if>
             <perch:if exists="authorGivenName">
                 <p class="p-author h-card"><perch:blog id="authorGivenName" type="hidden" /> <perch:blog id="authorFamilyName" type="hidden" /></p>
                 <p> - </p>

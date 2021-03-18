@@ -31,12 +31,32 @@
 
 <body>
 	<header>
-		<nav class="restrict">
+		<nav class="restrict title-wrapper">
 			<?php
-			$blog = "/blog" . "/";
-			if ($_SERVER["REQUEST_URI"] != $blog && !perch_get('s')) {
-				perch_pages_navigation();
+			$isBlog = perch_page_attribute('pageNavText', array(), true) == "Blog";
+
+			echo '<div class="blog-post-header"><a href="';
+			if ($isBlog) {
+				echo '/blog/">';
+			} else {
+				echo '/home">';
 			}
+
+			echo '<h3 class="title-small">';
+			if ($isBlog) {
+				echo 'The Nature\'s Laboratory Blog';
+			} else {
+				echo 'Nature\'s Laboratory';
+			}
+			echo '</h3></a>
+
+			<div class="navigation">';
+			perch_pages_navigation([
+				'template' => 'blog_nav.html'
+			]);
+			perch_layout('search');
+
+			echo '</div></div>';
 			?>
 		</nav>
 	</header>

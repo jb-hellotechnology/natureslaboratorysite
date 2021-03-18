@@ -6,26 +6,16 @@
     <div class="wrap">
 		<div class="restrict title-wrapper">
 			<?php
-			echo '<div class="blog-post-header"><a href="/blog/">
-					<h3 class="title-small">';
-			if (perch_get('s')) {
-				echo 'The Nature\'s Laboratory Blog';
-			}
-			echo '</h3></a>
-					<div class="navigation">';
-					perch_pages_navigation();
-					perch_layout('search');
-					
-			echo '</div></div>';
-			
-			?>
-			<?php
+			echo '<h1 class="span title">';
 			if(!perch_get('s')){   
-				echo '<h1 class="span title">The Nature\'s Laboratory Blog</h1>';
+				echo 'The Nature\'s Laboratory Blog';
+			} else {
+				perch_blog_post_field(perch_get('s'), 'postTitle');
 			}
+			echo '</h1>';
 			?>
 		</div>
-		<div class="restrict aside-wrapper" style="<?php if (perch_get('s')){ echo "display: none"; } ?>">
+		<div class="restrict aside-wrapper" style="<?php if (true){ echo "display: none"; } ?>">
 			<!-- <aside>
 
 				<?php 

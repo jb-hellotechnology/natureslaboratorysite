@@ -14,9 +14,8 @@
 			echo '</h3></a>
 					<div class="navigation">';
 					perch_pages_navigation();
-					if (perch_get('s')) {
-						perch_layout('search');
-					}
+					perch_layout('search');
+					
 			echo '</div></div>';
 			
 			?>
@@ -27,30 +26,27 @@
 			?>
 		</div>
 		<div class="restrict aside-wrapper" style="<?php if (perch_get('s')){ echo "display: none"; } ?>">
-			<aside>
-				<?php
-					perch_layout('search');
-				?>
+			<!-- <aside>
 
 				<?php 
-					perch_blog_categories(); 
+					// perch_blog_categories(); 
 				?>
 		
 				<?php 
-					perch_blog_custom(array(
-					'count'      => 10,
-					'template'   => 'post_in_list_minimal.html',
-					'sort'       => 'postDateTime',
-					'sort-order' => 'DESC',
-					'section'    => 'posts'
-					));
+					// perch_blog_custom(array(
+					// 'count'      => 10,
+					// 'template'   => 'post_in_list_minimal.html',
+					// 'sort'       => 'postDateTime',
+					// 'sort-order' => 'DESC',
+					// 'section'    => 'posts'
+					// ));
 				?>
 				
 				<?php 
-					perch_blog_tags();
+					// perch_blog_tags();
 				?>
 
-			</aside>
+			</aside> -->
 		</div>
 	    <div class="restrict">
 			<div class="blog">

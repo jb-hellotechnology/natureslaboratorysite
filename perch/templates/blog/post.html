@@ -21,11 +21,22 @@
             <img src="<perch:blog id="image" type="image" width="320" height="240" crop="true" label="Image" order="4" />" alt="<perch:blog id="postTitle" />" />
         </div>
     </perch:if>
-    <div class="description e-content">
-    	<perch:blog id="postDescHTML" type="textarea" label="Post" order="2" editor="markitup" markdown="true" size="xxl autowidth" required="true" />
+    <div class="description e-content flow">
+        <perch:blog id="postDescHTML" type="textarea" label="Post" order="2" editor="markitup" markdown="true" size="xxl autowidth" required="true" />
+        <perch:blocks>
+            <perch:block type="iframe" label="iframe">
+                <perch:if exists="url">
+                    <iframe src="<perch:content type="text" id="url" label="iframe URL" />"></iframe>
+                </perch:if>
+            </perch:block>
+        
+            <perch:block type="text" label="Text">
+                <perch:template path="content/text_block.html" />
+            </perch:block> 
+        </perch:blocks>
     </div>
 </article>
 
-<perch:blog id="postURL" type="hidden" />
+<perch:blog id="postURL" type="hidden" suppress="true" />
 <perch:blog id="excerpt" type="textarea" label="Excerpt" markdown="true" order="3" suppress="true" size="s" />
 <perch:blog id="image" type="image" width="50" height="50" crop="true" suppress="true" />

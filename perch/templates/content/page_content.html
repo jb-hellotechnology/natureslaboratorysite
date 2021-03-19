@@ -27,4 +27,12 @@
             <perch:after></div></perch:after>
         </perch:repeater>
     </perch:block>
+
+    <perch:block label="Hero" type="hero">
+        <div class="title-wrapper" style="background-image: url(<perch:content type="image" id="hero-image" label="Hero Image" width="2000" height="700" crop="true" />)" >
+			<h1 class="span title">
+                <perch:content label="Heading" id="heading" type="text" />
+            </h1>
+		</div>
+    </perch:block>
 </perch:blocks>

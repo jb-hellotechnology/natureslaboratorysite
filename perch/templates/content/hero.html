@@ -1,0 +1,14 @@
+
+<perch:if exists="mainHeroImage">
+    <div class="title-wrapper" style="background-image: url(<perch:content type="image" id="mainHeroImage" height="700" width="2000" crop="true" />)" >
+        <h1 class="span title">
+            <perch:content id="title" label="Title" type="text" />
+        </h1>
+    </div>
+<perch:else>
+    <div class="title wrapper">
+        <h1 class="span title">
+            <perch:content id="title" label="Title" type="text" />
+        </h1>
+    </div>
+</perch:if>

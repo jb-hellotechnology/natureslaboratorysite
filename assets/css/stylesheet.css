@@ -29,6 +29,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    transition: 200ms transform;
     /* padding: 2rem 0; */
 }
 
@@ -171,8 +172,7 @@ h2, h3 {
     color: var(--text-color);
 }
 
-nav > ul {
-    width: 100%;
+/* nav > ul {
     list-style-type: none;
     display: flex;
     justify-content: flex-end;
@@ -189,7 +189,7 @@ nav > ul > li > a {
 nav > ul > li > a:hover {
     background-color: var(--text-color);
     color: var(--bg-color);
-}
+} */
 
 .wrap {
     flex-grow: 2;
@@ -258,10 +258,27 @@ nav > ul > li > a:hover {
     max-width: none;
 }
 
-.navigation {
+/* .navigation {
     display: flex;
     gap: 10px;
 }
+
+.topNav, .hamburger {
+    list-style-type: none;
+}
+
+.navigation li.hide {
+	display: none;
+}
+
+.hamburger {
+    position: absolute;
+}
+
+.hamburger.hide {
+    opacity: 0;
+} */
+
 
 aside {
     height: 60px;
@@ -293,10 +310,6 @@ aside {
     padding: 0.3rem;
     background-color: var(--bg-color);
     border: none;
-}
-
-nav {
-    background-color: var(--text-color);
 }
 
 .title-wrapper {
@@ -470,9 +483,6 @@ footer{
 }
 
 @media screen and (max-width: 768px) {
-    .navigation {
-        display: none;
-    }
 
     .title-wrapper.main {
         height: 300px;
@@ -500,3 +510,339 @@ footer{
         font-size: var(--size-600);
     }
 }
+
+/* Nav */
+
+header {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+header .restrict {
+    display: grid;
+    grid-template-columns: 300px auto;
+    align-items: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+header h3 {
+    white-space: nowrap;
+}
+
+.navigation {
+    display: flex;
+    position: relative;
+	justify-content: flex-end;
+	align-items: center;
+	grid-row: auto;
+	grid-column: auto;
+	gap: 20px;
+}
+
+.navItem.hide, .hamburgerItem.hide {
+    display: none;
+}
+
+.navLink {
+    color: var(--bg-color);
+    background-color: var(--text-color);
+    padding: 1rem;
+    text-decoration: none;
+    display: block;
+}
+
+.navLink:hover {
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+.search {
+    margin-left: 10px;
+}
+
+.topNav, .hamburger {
+    list-style-type: none;
+}
+
+.topNav {
+    display: flex;
+    flex-wrap: wrap;
+	justify-content: end;
+	align-items: center;
+}
+
+.hamburger {
+    position: fixed;
+    height: 100vh;
+    top: 0px;
+    right: 0px;
+    transform: translateX(0%);
+    background-color: white;
+    padding: 50px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+}
+
+.hamburgerButton {
+    font-size: 1rem;
+    color: var(--bg-color);
+    background-color: var(--text-color);
+    border: none;
+    position: relative;
+    top: 2px;
+}
+
+.hamburger.hide {
+    transform: translateX(100%)
+}
+
+.hamburgerButton.hide {
+    display: none;
+}
+
+.hamburgerItem > .search {
+    margin: 0;
+}
+
+.hamburgerLink {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+/* .navigation {
+	display: flex;
+	height: 140px;
+	grid-row: auto;
+	grid-column: auto;
+	justify-content: flex-end;
+	align-items: center;
+	opacity: 0;
+	gap: 20px;
+	z-index: 10;
+}
+
+.navigation.show {
+	opacity: 1;
+}
+
+.navigation li.hide {
+	display: none;
+}
+
+.topNav {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: end;
+	align-items: center;
+}
+
+.navItem, .hamburgerItem, .navChildItem, .hamburgerChildItem {
+	line-height: 14px;
+	font-size: 1.2rem;
+	position: relative;
+	margin: 0;
+	display: flex;
+}
+
+.navItem {
+	justify-content: flex-end;
+}
+
+.navChildItems, .hamburgerChildItems {
+	position: absolute;
+	opacity: 1;
+	pointer-events: all;
+	min-width: 100%;
+}
+
+.navChildItems.hide, .hamburgerChildItems.hide {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.navChildItems {
+	display: flex;
+	flex-direction: column;
+}
+
+.navChildItem, .hamburgerChildItem {
+	background-color: var(--primary);
+}
+
+.navChildLink, .hamburgerLink, .hamburgerChildLink {
+	color:white;
+	width: 100%;
+	text-align: right;
+}
+
+.navLink, .hamburgerLink, .navChildLink, .hamburgerChildLink {
+	padding: 0.7rem 1rem;
+	font-size: 1.2rem;
+	line-height: normal;
+	text-decoration: none;
+	white-space: nowrap;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 10px;
+}
+
+.navLink {
+	flex-direction: row-reverse;
+}
+
+.navLink i {
+	margin: -10px 0;
+}
+
+.hamburgerWrapper {
+	position: relative;
+}
+
+.hamburger {
+	position: absolute;
+	background-color: var(--primary);
+	color: white;
+	display: flex;
+	flex-direction: column;
+	text-align: right;
+	right: 0px;
+	top: 35px;
+	opacity: 1;
+	pointer-events: auto;
+	transition: 150ms;
+}
+
+.hamburger.hide {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.hamburgerButton {
+	position: relative;
+	top: 1px;
+	cursor: pointer;
+	background-color: white;
+	color: black;
+	text-shadow: none;
+	margin: 0px;
+	padding: 0px;
+	min-width: 17px;
+	display: block;
+}
+
+.hamburgerButton:hover {
+	/* To override earlier style */
+    /*
+	background-color: white;
+	color: black;
+}
+
+.hamburgerItem {
+	margin-right: 0;
+	width: 280px;
+}
+
+.linkIcon {
+	display: block;
+	min-width: 15px;
+}
+
+.linkIcon.hide {
+	display: none;
+}
+
+.hamburger.mobile>li[data-children="true"] {
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-template-rows: auto auto;
+	grid-template-areas: "icon link" "sublinks sublinks";
+	justify-self: stretch;
+}
+
+.hamburger.mobile .hamburgerChildLink {
+	grid-area: link;
+}
+
+.hamburger.mobile li > .linkIcon {
+	grid-area: icon;
+	justify-self: start;
+	align-self: center;
+	height: 100%;
+	display: flex;
+	padding: 0 20px;
+	cursor: pointer;
+	width: 58px;
+}
+
+.hamburger.mobile li > .linkIcon:hover {
+	background-color: var(--secondary);
+}
+
+.hamburger.mobile li > .linkIcon.spin::before {
+	transform: rotate(180deg);
+}
+
+.hamburger.mobile li > .linkIcon::before {
+	margin: auto;
+	transform: rotate(0deg);
+	transition: transform 150ms;
+}
+
+.hamburger.mobile .hamburgerChildItems {
+	position: relative;
+	opacity: 1;
+	color: white;
+	z-index: 10;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+	grid-area: sublinks;
+}
+
+.hamburger.mobile .hamburgerChildItems.hide {
+	pointer-events: all;
+}
+
+.hamburger.mobile .hamburgerChildLink {
+	background-color: var(--grey);
+	color: var(--primary);
+}
+
+
+/* Hover Control */
+
+/* .navigation li:hover {
+	background-color: var(--primary);
+}
+
+.navigation li:hover > a {
+	color: white;
+}
+
+.navigation a:hover {
+	background-color: var(--secondary);
+	color: white;
+}
+
+.hamburger.mobile .hamburgerChildLink:hover {
+	background-color: var(--secondary);
+	color: white;
+}
+
+@media screen and (max-width: 768px) {
+	.navigation {
+		height: 70px;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+}
+
+@media screen and (max-width: 520px) {
+	.navigation {
+		height: 50px;
+	}
+}  */

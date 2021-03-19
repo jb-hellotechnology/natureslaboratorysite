@@ -5,5 +5,6 @@
 		</div>
 	</footer>
 	</body>
-
+	<script src="/assets/js/bundle.js"></script>
+	<script src="https://kit.fontawesome.com/6b035dc64a.js" crossorigin="anonymous"></script>
 	</html>

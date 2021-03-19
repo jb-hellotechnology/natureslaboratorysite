@@ -8,7 +8,7 @@
 	$query = perch_get('q');
     perch_content_search($query, array(
         'count' => 5,
-        'from-path' => '/blog',
+        'from-path' => '/',
         'excerpt-chars' => 300,
         'template' => 'search-result.html'
     ));

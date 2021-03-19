@@ -112,11 +112,25 @@ export class Hamburger extends NavMenu {
 
     // Public Null
     showOne() {
+        let linkRevealed = false;
         for (let i = this.links.length - 1; i >= 0; i--) {
             const link = this.links[i];
+            if (link.node.classList.contains("priority")) {
+                continue;
+            }
             if (link.isHidden()) {
                 link.show()
+                linkRevealed = true;
                 break;
+            }
+        }
+        if (!linkRevealed) {
+            for (let i = this.links.length - 1; i >= 0; i--) {
+                const link = this.links[i];
+                if (link.isHidden()) {
+                    link.show()
+                    break;
+                }
             }
         }
     }
@@ -147,11 +161,27 @@ export class TopNav extends NavMenu {
 
     // Public Null
     hideOne() {
+        let linkHidden = false;
         for (let i = this.links.length - 1; i >= 0; i--) {
             const link = this.links[i];
+            if (link.node.classList.contains("priority")) {
+                continue;
+            }
             if (!link.isHidden()) {
                 link.hide()
+                linkHidden = true;
                 break;
+            }
+        }
+        console.log(linkHidden);
+        
+        if (!linkHidden) {
+            for (let i = this.links.length - 1; i >= 0; i--) {
+                const link = this.links[i];
+                if (!link.isHidden()) {
+                    link.hide()
+                    break;
+                }
             }
         }
     }

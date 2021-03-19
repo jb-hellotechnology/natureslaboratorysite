@@ -72,7 +72,6 @@ export default class Navigation {
                 this.moveOneToHamburger();
                 failsafe++;
             }
-            console.log(failsafe);
             if (failsafe >= 1000) {
                 throw new Error("Infinite Loop at handleResize()");
             }
@@ -105,7 +104,6 @@ export default class Navigation {
         let navigationRect = this.fullNav.getBoundingClientRect();
         let navWidth = navigationRect.right - navigationRect.left;
         let linksWidth = this.topNav.totalWidth;
-        console.log(linksWidth);
 
         // 50 is icon width, refactor later to use actual icon width
         if (linksWidth > navWidth - 50) {

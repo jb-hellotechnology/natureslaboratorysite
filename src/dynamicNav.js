@@ -10,17 +10,18 @@ const implementNav = () => {
         navigationArray = [...navigationArray, navigation];
     }
     if (navigationArray) {
+        var t0 = performance.now();
         window.onload = () => {
             formatTitle();
             navigationArray.forEach(nav => {
                 nav.handleResize()
                 nav.show();
             });
-            setTimeout(() => {
-                navigationArray.forEach(nav => {
-                    nav.fullNav.parentNode.classList.remove("hide")
-                })
-            }, 20)
+            navigationArray.forEach(nav => {
+                nav.fullNav.parentNode.classList.remove("hide")
+            })
+            // setTimeout(() => {
+            // }, 5)
         };
 
         window.addEventListener("resize", () => {
@@ -29,6 +30,8 @@ const implementNav = () => {
             })
             formatTitle();
         });
+        var t1 = performance.now();
+        console.log("JS took " + (t1 - t0) + " milliseconds");
     }
 }
 

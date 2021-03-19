@@ -10,14 +10,15 @@
 	}
 ?>
     
-    <div class="wrap">
-		<div class="title-wrapper <?php if(!perch_get('s')){ echo "main"; } ?>" style="background-image: url(<?php echo $heroImageUrl ?>);">
+		<div class="title-wrapper <?php if(!perch_get('s') && !perch_get('q')){ echo "main"; } ?>" style="background-image: url(<?php echo $heroImageUrl ?>);">
 			<?php
 			echo '<h1 class="span title">';
-			if(!perch_get('s')){   
-				echo 'The Nature\'s Laboratory Blog';
-			} else {
+			if(perch_get('s')){   
 				perch_blog_post_field(perch_get('s'), 'postTitle');
+			} else if (perch_get('q')) {
+				echo "Search";
+			} else {
+				echo 'The Nature\'s Laboratory Blog';
 			}
 			echo '</h1>';
 			?>
@@ -54,7 +55,14 @@
 			    <?php 
 			        if(perch_get('s')){
 				        perch_blog_post(perch_get('s')); 
-			        }else{
+			        } else if (perch_get('q')) {
+						perch_content_search(perch_get('q'), array(
+							'count' => 5,
+							'from-path' => '/blog',
+							'excerpt-chars' => 300,
+							'template' => 'search-result.html'
+						));
+					} else {
 				        perch_blog_custom(array(
 						  'count'      => 10,
 						  'template'   => 'post_in_list.html',
@@ -70,7 +78,6 @@
 			    
 			</div>
 	    </div>
-    </div>
 
     <?php 
 	    perch_layout('global.footer'); 

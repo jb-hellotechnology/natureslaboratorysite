@@ -516,18 +516,25 @@ footer{
 header {
     background-color: var(--text-color);
     color: var(--bg-color);
+    height: 56px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
 header .restrict {
     display: grid;
-    grid-template-columns: 300px auto;
+    grid-template-columns: auto auto;
     align-items: center;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
 }
 
 header h3 {
     white-space: nowrap;
+}
+
+header a {
+    text-decoration: none;
+    color: var(--bg-color);
 }
 
 .navigation {
@@ -537,7 +544,11 @@ header h3 {
 	align-items: center;
 	grid-row: auto;
 	grid-column: auto;
-	gap: 20px;
+    opacity: 0;
+}
+
+.navigation.show {
+    opacity: 1;
 }
 
 .navItem.hide, .hamburgerItem.hide {
@@ -570,6 +581,7 @@ header h3 {
     flex-wrap: wrap;
 	justify-content: end;
 	align-items: center;
+    overflow: hidden;
 }
 
 .hamburger {

@@ -63,16 +63,29 @@
 			?>
 		
 		<div class="restrict">
-			<h3 class="title-small">
-				<?php
-					$isBlog = perch_page_attribute('pageNavText', array(), true) == "Blog";
-					if ($isBlog) {
-						echo 'The Nature\'s Laboratory Blog';
-					} else {
-						echo 'Nature\'s Laboratory';
+			<?php 
+				$url = $_SERVER["REQUEST_URI"];
+				$urlArray = explode("/", $url);
+				$link = "/";
+				foreach ($urlArray as $str) {
+					if ($str == "blog") {
+						$link = "/blog";
 					}
-				?>
-			</h3>
+				}
+				if(perch_page_url(array(), true))
+			?>
+			<a href="<?php echo $link ?>">
+				<h3 class="title-small">
+					<?php
+						$isBlog = perch_page_attribute('pageNavText', array(), true) == "Blog";
+						if ($isBlog) {
+							echo 'The Nature\'s Laboratory Blog';
+						} else {
+							echo 'Nature\'s Laboratory';
+						}
+					?>
+				</h3>
+			</a>
 			<nav class="navigation">
 				<?php
 				perch_pages_navigation(array(

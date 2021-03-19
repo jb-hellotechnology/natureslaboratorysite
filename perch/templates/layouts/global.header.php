@@ -62,7 +62,7 @@
 			
 			?>
 		
-		<div class="restrict">
+		<div class="restrict hide">
 			<?php 
 				$url = $_SERVER["REQUEST_URI"];
 				$urlArray = explode("/", $url);

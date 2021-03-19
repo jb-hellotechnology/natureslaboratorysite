@@ -526,6 +526,11 @@ header .restrict {
     display: grid;
     grid-template-columns: auto auto;
     align-items: center;
+    opacity: 1;
+}
+
+header .restrict.hide {
+    opacity: 0;
 }
 
 header h3 {

@@ -22,3 +22,6 @@ perch/*
 
 # Include .htaccess
 !.htaccess
+
+!src
+!src/**

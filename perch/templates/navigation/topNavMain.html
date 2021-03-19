@@ -1,6 +1,9 @@
 <perch:before><ul class="topNav"></perch:before>
 <li 
-    class="<perch:if exists="current_page">selected</perch:if><perch:if exists="ancestor_page">ancestor</perch:if> navItem"
+    class="<perch:if exists="current_page">selected </perch:if>
+            <perch:if exists="ancestor_page">ancestor </perch:if> 
+            <perch:if id="pageNavText" value="Home" match="eq">priority </perch:if>
+            navItem"
     data-children="<perch:if exists="subitems">true<perch:else>false</perch:if>"
 >
     <a href="<perch:pages id="pagePath" />" class="navLink">
@@ -12,7 +15,7 @@
     <perch:pages id="subitems" encode="false"/>
 </li>
 <perch:after>
-    <li class="navItem search">
+    <li class="navItem search priority">
         <perch:template path="/content/search.html" />
     </li>
 </ul>

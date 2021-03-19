@@ -94,7 +94,9 @@
 				?>
 				<div class="hamburgerWrapper">
 					<button class="hamburgerButton">
-						<i class="fas fa-bars"></i>
+						<div></div>
+						<div></div>
+						<div></div>
 					</button>
 					<?php
 					perch_pages_navigation(array(

@@ -1,6 +1,9 @@
 <perch:before><ul class="hamburger hide"></perch:before>
     <li 
-        class="<perch:if exists="current_page">selected</perch:if><perch:if exists="ancestor_page">ancestor</perch:if> hamburgerItem"
+        class="<perch:if exists="current_page">selected</perch:if>
+               <perch:if exists="ancestor_page">ancestor</perch:if> 
+               <perch:if id="pageNavText" value="Home" match="eq">priority </perch:if>
+               hamburgerItem"
         data-children="<perch:if exists="subitems">true<perch:else>false</perch:if>"
     >
         <perch:if exists="subitems">
@@ -15,7 +18,7 @@
         <perch:pages id="subitems" encode="false"/>
     </li>
     <perch:after>
-        <li class="hamburgerItem"> 
+        <li class="hamburgerItem priority"> 
             <perch:template path="/content/search.html" />
         </li>
     </ul>

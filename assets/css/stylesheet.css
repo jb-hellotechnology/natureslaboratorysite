@@ -139,28 +139,6 @@ h2, h3 {
     --flow-space: var(--size-900);
 }
 
-@media (min-width: 45em) {
-    h1 {
-        font-size: var(--size-900);
-    }
-    h2 {
-        font-size: var(--size-700);
-    }
-    p {
-        font-size: var(--size-500);
-    }
-    figcaption {
-        font-size: var(--size-400);
-    }
-    blockquote p {
-        font-size: var(--size-600);
-        max-width: 40ch;
-    }
-    .post time {
-        font-size: var(--size-600);
-    }
-}
-
 .restrict {
 	max-width: 1280px;
 	margin: 0 auto;
@@ -322,7 +300,7 @@ nav {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 300px;
+    height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -389,7 +367,6 @@ footer{
 
 .post-details > :is(p, time)  {
     font-style: italic;
-    font-size: 1.3rem;
     opacity: 0.8;
 }
 
@@ -406,6 +383,68 @@ footer{
     max-width: 100%;
 }
 
+.cards {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 40px;
+    width: auto;
+}
+
+.card {
+    width: 250px;
+    box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.103);;
+}
+
+.card-content {
+    padding: 5px 10px 13px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 4px;
+    height: 250px;
+}
+
+.card-text h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.card-text p {
+    font-size: 0.98rem;
+}
+
+.card button {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    min-width: 100px;
+    justify-self: end;
+    align-self: flex-end;
+}
+
+@media screen and (max-width: 1000px) {
+    .card {
+        min-width: 250px;
+        width: 200px;
+    }
+
+    .card-content {
+        padding: 10px;
+        padding-top: 5px;
+    }
+
+    .card-text h2 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .card-text p {
+        font-size: 0.98rem;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .navigation {
         display: none;
@@ -413,5 +452,27 @@ footer{
 
     .title-wrapper.main {
         height: 300px;
+    }
+}
+
+@media (min-width: 45em) {
+    h1 {
+        font-size: var(--size-900);
+    }
+    h2 {
+        font-size: var(--size-700);
+    }
+    p {
+        font-size: var(--size-500);
+    }
+    figcaption {
+        font-size: var(--size-400);
+    }
+    blockquote p {
+        font-size: var(--size-600);
+        max-width: 40ch;
+    }
+    .post time {
+        font-size: var(--size-600);
     }
 }

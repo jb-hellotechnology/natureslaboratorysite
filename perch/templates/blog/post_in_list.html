@@ -4,16 +4,7 @@
     <li class="hentry">
         <h2><a href="<perch:blog id="postURL" />" rel="bookmark" class="entry-title"><perch:blog id="postTitle" /></a></h2>
         <div class="post-details list">
-            <perch:if exists="authorImage">
-                <img src="<perch:blog id="authorImage" type="image" width="100" height="100" crop="true" label="Author Image" order="4" />" alt="<perch:blog id="authorGivenName" />" />
-            </perch:if>
-            <perch:if exists="authorGivenName">
-                <p class="p-author h-card"><perch:blog id="authorGivenName" type="hidden" /> <perch:blog id="authorFamilyName" type="hidden" /></p>
-                <p> - </p>
-            </perch:if>    
-            <time class="dt-published" datetime="<perch:blog id="postDateTime" type="date" label="Date" time="true" format="Y-m-d H:i:s" divider-before="Publishing" />">
-                <perch:blog id="postDateTime" type="date" time="true" format="%d %B %Y" /> 
-            </time>
+            <perch:template path="blog/post_details.html" />
         </div>
         <div class="description entry-summary">
         <perch:blog id="excerpt" type="textarea" textile="true" />

@@ -7,16 +7,14 @@
         <ul class="search-result-list">
 </perch:before>
 
-        <li class="<perch:search id="perch_item_odd" />">
+        <li class="<perch:search id="perch_item_odd" /> search-result">
             <h2><a href="<perch:search id="result_url" />"><perch:search id="result_title" /></a></h2>
             <perch:if exists="result_excerpt"><p class="excerpt">&hellip;<perch:search id="result_excerpt" encode="false" />&hellip;</p></perch:if>
             <p>
                 <a href="<perch:search id="result_url" />">
-                    <perch:if exists="result_pageNavText">
-                        <perch:search id="result_pageNavText" />
-                    <perch:else>
-                        <perch:search id="result_url" />
-                    </perch:if>
+                    <button class="btn">
+                        View
+                    </button>
                 </a>
             </p>
         </li>

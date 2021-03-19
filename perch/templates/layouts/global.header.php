@@ -39,7 +39,7 @@
 			if ($isBlog) {
 				echo '/blog/">';
 			} else {
-				echo '/home">';
+				echo '/">';
 			}
 
 			echo '<h3 class="title-small">';
@@ -52,7 +52,8 @@
 
 			<div class="navigation">';
 			perch_pages_navigation([
-				'template' => 'blog_nav.html'
+				'template' => 'blog_nav.html',
+				'hide-default-doc' => true
 			]);
 			perch_layout('search');
 

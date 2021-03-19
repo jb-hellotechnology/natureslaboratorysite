@@ -3,9 +3,10 @@
 	perch_layout('global.header');
 ?>
 
-<?php
-    
-	$query = perch_get('q');
+<div class="restrict narrow">
+    <?php
+
+    $query = perch_get('q');
     perch_content_search($query, array(
         'count' => 5,
         'from-path' => '/',
@@ -13,7 +14,8 @@
         'template' => 'search-result.html'
     ));
 
-?>
+    ?>
+</div>
 
 <?php
     perch_layout('global.footer');

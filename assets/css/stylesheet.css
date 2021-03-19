@@ -414,14 +414,21 @@ footer{
     font-size: 0.98rem;
 }
 
-.card button {
+.btn {
     background-color: var(--text-color);
     color: var(--bg-color);
-    border: none;
+    border: 1px solid var(--text-color);
     padding: 0.5rem 1rem;
     min-width: 100px;
     justify-self: end;
     align-self: flex-end;
+    cursor: pointer;
+    transition: 150ms;
+}
+
+.btn:hover {
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 .search-result-title {
@@ -430,6 +437,12 @@ footer{
 
 .search-result-list {
     list-style-type: none;
+}
+
+.search-result {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 @media screen and (max-width: 1000px) {

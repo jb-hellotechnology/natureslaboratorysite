@@ -10,7 +10,7 @@
 	}
 ?>
     
-		<div class="title-wrapper <?php if(!perch_get('s') && !perch_get('q')){ echo "main"; } ?>" style="background-image: url(<?php echo $heroImageUrl ?>);">
+		<div class="title-wrapper" style="background-image: url(<?php echo $heroImageUrl ?>);">
 			<?php
 			echo '<h1 class="span title">';
 			if(perch_get('s')){   

@@ -10,9 +10,7 @@
             <perch:template path="blog/post_details.html" />
         </div>
         
-        <div class="post-tags">
-            <perch:layout path="tags" slug="<perch:blog id="postSlug">"/>
-        </div>
+        <perch:layout path="tags" slug="<perch:blog id="postSlug">"/>
     
 	</p>
     <perch:if exists="image">

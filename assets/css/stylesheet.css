@@ -945,20 +945,42 @@ header a {
     padding: 10px 0;
 }
 
-.post-tags ul {
+.post-tags {
     list-style-type: none;
     display: flex;
     gap: 10px;
     padding: 20px 0;
+    flex-wrap: wrap;
 }
 
-.post-tags ul li {
+.post-tags li {
     background: rgb(85, 107, 168);
     padding: 0.4rem 0.8rem;
     border-radius: 5px;
+    display: block;
 }
 
-.post-tags ul li a {
+.post-tags button {
+    background: var(--bg-color);
+    color: rgb(85, 107, 168);
+    border: 1px solid rgb(85, 107, 168);
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    display: block;
+    cursor: pointer;
+}
+
+.post-tags button:hover {
+    background: rgb(85, 107, 168);
+    color: var(--bg-color);
+}
+
+
+.post-tags li.hide, .post-tags button.hide {
+    display: none;
+}
+
+.post-tags li a {
     color: var(--bg-color);
     text-decoration: none;
 }

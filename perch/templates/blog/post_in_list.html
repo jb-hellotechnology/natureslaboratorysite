@@ -6,9 +6,7 @@
         <div class="post-details list">
             <perch:template path="blog/post_details.html" />
         </div>
-        <div class="post-tags">
-            <perch:layout path="tags" slug="<perch:blog id="postSlug">"/>
-        </div>
+        <perch:layout path="tags" slug="<perch:blog id="postSlug">"/>
         <div class="description entry-summary">
         <perch:blog id="excerpt" type="textarea" textile="true" />
         </div>

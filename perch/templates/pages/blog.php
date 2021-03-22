@@ -1,5 +1,6 @@
 <?php include($_SERVER['DOCUMENT_ROOT'].'/perch/runtime.php'); ?>
 <?php
+	// echo $_SERVER['QUERY_STRING'];
 	perch_layout('global.header'); 
 	// Decides to show either the default hero or specific blog hero image
 	// Need to add different options for the different sections?
@@ -23,16 +24,8 @@
     
 		<div class="title-wrapper" style="background-image: url(
 		<?php 
-		if ($heroImageUrl) {
-			echo $heroImageUrl; 
-		} else {
-			perch_content_custom("Sections", array(
-				"template" => "section_image.html",
-				"data" => [
-					"title"=>perch_get("section")
-				]
-			));
-		}
+		echo $heroImageUrl; 
+		
 		?>
 		);">
 			<?php
@@ -53,7 +46,7 @@
 			?>
 		</div>
 	    <div class="page-content">
-			<div class="blog restrict <?php if(perch_get("section") || (perch_get("s") || (perch_get("q")))){ echo "narrow"; } ?>">
+			<div class="blog restrict <?php if($_SERVER["QUERY_STRING"]){ echo "narrow"; } ?>">
 
 
 				<div class="blog-content-wrapper">
@@ -80,6 +73,17 @@
 								'section'=> perch_get("section")
 							]
 						  ));
+					} else if (perch_get("tag")) {
+						perch_blog_custom(array(
+							'count'      => 10,
+							'template'   => 'post_in_list.html',
+							'sort'       => 'postDateTime',
+							'sort-order' => 'DESC',
+							'tag'=> perch_get("tag"),
+							'data' => [
+								'section'=> 'post'
+							]
+						  ));
 					} else {
 						perch_blog_sections(array(
 							"template"=>"section_list.html",
@@ -92,7 +96,7 @@
 			</div>
 			<?php
 
-				if (!(perch_get("s") || perch_get("section") || perch_get("q"))) {
+				if (!$_SERVER["QUERY_STRING"]) {
 					echo '<div class="blog restrict narrow">';
 					echo '<div class="blog-content-wrapper">';
 					echo "<h3>Recent Posts</h3>";

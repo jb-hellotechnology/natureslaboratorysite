@@ -1,5 +1,6 @@
 <IfModule mod_rewrite.c>  
     RewriteEngine on  
+    RewriteRule ^blog/tag/([a-zA-Z-]+)$ /blog/index.php?tag=$1 [L,B]
     RewriteRule ^blog/([a-zA-Z-]+)/([a-zA-Z0-9-]+)$ /blog/index.php?section=$1&s=$2 [L]
     RewriteRule ^blog/([a-zA-Z-]+)$ /blog/index.php?section=$1 [L,B]
 </IfModule>

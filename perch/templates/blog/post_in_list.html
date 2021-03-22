@@ -6,6 +6,13 @@
         <div class="post-details list">
             <perch:template path="blog/post_details.html" />
         </div>
+        <perch:categories id="categories" set="blog" label="Categories" display-as="checkboxes">
+            <perch:before><div class="categories list"></perch:before>
+            <a href="/blog/<perch:category id="catSlug" type="slug" />" class="p-category">
+                <perch:category id="catTitle" type="text" />
+            </a>
+            <perch:after></div></perch:after>
+        </perch:categories>
         <div class="description entry-summary">
         <perch:blog id="excerpt" type="textarea" textile="true" />
         </div>

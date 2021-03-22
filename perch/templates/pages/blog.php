@@ -52,29 +52,6 @@
 			echo '</h1>';
 			?>
 		</div>
-		<div class="restrict aside-wrapper" style="<?php if (true){ echo "display: none"; } ?>">
-			<!-- <aside>
-
-				<?php 
-					// perch_blog_categories(); 
-				?>
-		
-				<?php 
-					// perch_blog_custom(array(
-					// 'count'      => 10,
-					// 'template'   => 'post_in_list_minimal.html',
-					// 'sort'       => 'postDateTime',
-					// 'sort-order' => 'DESC',
-					// 'section'    => 'posts'
-					// ));
-				?>
-				
-				<?php 
-					// perch_blog_tags();
-				?>
-
-			</aside> -->
-		</div>
 	    <div>
 			<div class="blog restrict <?php if(perch_get("cat") || (perch_get("s") || (perch_get("q")))){ echo "narrow"; } ?>">
 
@@ -93,33 +70,6 @@
 							'template' => 'search-result.html'
 						));
 					} else if (perch_get("cat")) {
-						// $array = perch_content_custom("Sections", array(
-						// 	'skip-template'=> true
-						// ));
-						// foreach ($array as $key => $value) {
-						// 	echo $key . "<br/>";
-						// 	foreach ($value as $subKey => $subValue) {
-						// 		if ($subKey == "repeater") {
-						// 			echo "--- " . $subKey . "<br/>";
-						// 			foreach ($subValue as $subSubKey => $subSubValue) {
-						// 				echo "------ " . $subSubKey . "<br/>";
-						// 				foreach ($subSubValue as $anotherKey => $anotherValue) {
-						// 					if ($anotherKey == "image") {
-						// 						echo "--------- " . $anotherKey ."<br/>";
-						// 						foreach ($anotherValue as $imageKey => $imageValue) {
-						// 							echo "------------ " . $imageKey . ": " . $imageValue . "</br>";
-						// 						}
-						// 					} else {
-						// 						echo "--------- " . $anotherKey . ": " . $anotherValue . "<br/>";
-						// 					}
-						// 				}
-						// 			}
-						// 		} else {
-						// 			echo "--- " . $subKey . ": " . $subValue . "<br/>";
-						// 		}
-						// 	}
-						// }
-						//echo $array[0]['repeater'][0]['image']['title'];
 						perch_blog_custom(array(
 							'count'      => 10,
 							'template'   => 'post_in_list.html',
@@ -132,14 +82,6 @@
 							]
 						  ));
 					} else {
-				        // perch_blog_custom(array(
-						//   'count'      => 10,
-						//   'template'   => 'post_in_list.html',
-						//   'sort'       => 'postDateTime',
-						//   'sort-order' => 'DESC',
-						//   'section'    => 'posts',
-						  
-						// ));
 						perch_categories(array(
 							"set" => "blog",
 							"template"=>"blog_category.html"
@@ -147,10 +89,27 @@
 			       	}
 			    ?>
 				</div>
-
-			    
-			    
 			</div>
+			<?php
+
+				if (!(perch_get("s") || perch_get("cat") || perch_get("q"))) {
+					echo '<div class="blog restrict narrow">';
+					echo '<div class="blog-content-wrapper">';
+					echo "<h3>Recent Posts</h3>";
+					perch_blog_custom(array(
+						'count'      => 10,
+						'template'   => 'post_in_list.html',
+						'sort'       => 'postDateTime',
+						'sort-order' => 'DESC',
+						'section'    => 'posts',
+						'data' => [
+							'category'=>'post'
+						]
+						));
+					echo "</div></div>";
+				}
+
+				?>
 	    </div>
 
     <?php 

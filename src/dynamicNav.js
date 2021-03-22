@@ -16,10 +16,8 @@ const implementNav = () => {
             navigationArray.forEach(nav => {
                 nav.handleResize()
                 nav.show();
-            });
-            navigationArray.forEach(nav => {
                 nav.fullNav.parentNode.classList.remove("hide")
-            })
+            });
             // setTimeout(() => {
             // }, 5)
         };

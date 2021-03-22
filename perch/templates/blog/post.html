@@ -9,13 +9,10 @@
         <div class="post-details">
             <perch:template path="blog/post_details.html" />
         </div>
-        <perch:categories id="categories" set="blog" label="Categories" display-as="checkboxes">
-            <perch:before><div class="categories"></perch:before>
-            <a href="/blog/<perch:category id="catSlug" type="slug" />" class="p-category">
-                <perch:category id="catTitle" type="text" />
-            </a>
-            <perch:after></div></perch:after>
-        </perch:categories>
+        
+        <div class="post-tags">
+            <perch:layout path="tags" slug="<perch:blog id="postSlug">"/>
+        </div>
     
 	</p>
     <perch:if exists="image">

@@ -1,12 +1,13 @@
 <perch:before>
-<ul>
+<div class="sectionList">
 </perch:before>
-	<li>
-		<a href="/blog/section.php?s=<perch:blog id="sectionSlug" />">
-			<perch:blog id="sectionTitle" />
-		</a>
-	</li>
-
+<div class="section">
+	<a href="/blog/<perch:blog id="sectionSlug" />">
+		<div style="background-image: url(<perch:blog id="image" type="image" >)" class="background">
+			<h4><perch:blog id="sectionTitle" /></h4>
+		</div>
+	</a>
+</div>
 <perch:after>
-</ul>
-</perch:after>
+</div>
+</perch:after> 

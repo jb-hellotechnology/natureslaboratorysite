@@ -6,17 +6,17 @@
 	perch_content_create("Default Hero Image", array(
 		"template" => 'blog_hero.html'
 	));
-	perch_content_create("Sections", array(
-		"template" => "section.html"
-	));
+	// perch_content_create("Sections", array(
+	// 	"template" => "section.html"
+	// ));
 
 	$heroImageUrl = perch_content("Default Hero Image", true);
-	$category = "blog/" . perch_get("cat");
+	$category = "blog/" . perch_get("section");
 	if (perch_blog_post_field(perch_get('s'), 'heroImage', true)) {
 		$heroImageUrl = perch_blog_post_field(perch_get('s'), 'heroImage', true);
-	} else if (perch_get("cat")) {
-		$heroImageUrl = perch_category($category, array(
-			"template"=>"category_hero.html"
+	} else if (perch_get("section")) {
+		$heroImageUrl = perch_blog_section(perch_get("section"), array(
+			"template"=>"section_image.html"
 		), true);;
 	}
 ?>
@@ -42,10 +42,10 @@
 				perch_blog_post_field(perch_get('s'), 'postTitle');
 			} else if (perch_get('q')) {
 				echo "Search";
-			} else if (perch_get('cat')) {
-				perch_category($category, array(
-					"template"=>"category_title.html"
-				));;
+			} else if (perch_get('section')) {
+				perch_blog_section(perch_get("section"), array(
+					"template"=>"section_title.html"
+				));
 			} else {
 				echo 'The Nature\'s Laboratory Blog';
 			}
@@ -53,7 +53,7 @@
 			?>
 		</div>
 	    <div class="page-content">
-			<div class="blog restrict <?php if(perch_get("cat") || (perch_get("s") || (perch_get("q")))){ echo "narrow"; } ?>">
+			<div class="blog restrict <?php if(perch_get("section") || (perch_get("s") || (perch_get("q")))){ echo "narrow"; } ?>">
 
 
 				<div class="blog-content-wrapper">
@@ -69,30 +69,30 @@
 							'excerpt-chars' => 300,
 							'template' => 'search-result.html'
 						));
-					} else if (perch_get("cat")) {
+					} else if (perch_get("section")) {
 						perch_blog_custom(array(
 							'count'      => 10,
 							'template'   => 'post_in_list.html',
 							'sort'       => 'postDateTime',
 							'sort-order' => 'DESC',
-							'section'    => 'posts',
-							'category' => perch_get("cat"),
+							'section'    => perch_get("section"),
 							'data' => [
-								'category'=> perch_get("cat")
+								'section'=> perch_get("section")
 							]
 						  ));
 					} else {
-						perch_categories(array(
-							"set" => "blog",
-							"template"=>"blog_category.html"
+						perch_blog_sections(array(
+							"template"=>"section_list.html",
+							"include-empty"=>true,
+							"cache"
 						));
-			       	}
+						}
 			    ?>
 				</div>
 			</div>
 			<?php
 
-				if (!(perch_get("s") || perch_get("cat") || perch_get("q"))) {
+				if (!(perch_get("s") || perch_get("section") || perch_get("q"))) {
 					echo '<div class="blog restrict narrow">';
 					echo '<div class="blog-content-wrapper">';
 					echo "<h3>Recent Posts</h3>";
@@ -101,9 +101,8 @@
 						'template'   => 'post_in_list.html',
 						'sort'       => 'postDateTime',
 						'sort-order' => 'DESC',
-						'section'    => 'posts',
 						'data' => [
-							'category'=>'post'
+							'section'=>'post'
 						]
 						));
 					echo "</div></div>";

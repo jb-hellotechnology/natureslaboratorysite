@@ -2,17 +2,13 @@
 <ul class="hfeed listing">
 </perch:before>
     <li class="hentry">
-        <h2><a href="<perch:blog id="category">/<perch:blog id="postSlug">" rel="bookmark" class="entry-title"><perch:blog id="postTitle" /></a></h2>
+        <h2><a href="<perch:blog id="section">/<perch:blog id="postSlug">" rel="bookmark" class="entry-title"><perch:blog id="postTitle" /></a></h2>
         <div class="post-details list">
             <perch:template path="blog/post_details.html" />
         </div>
-        <perch:categories id="categories" set="blog" label="Categories" display-as="checkboxes">
-            <perch:before><div class="categories list"></perch:before>
-            <a href="/blog/<perch:category id="catSlug" type="slug" />" class="p-category">
-                <perch:category id="catTitle" type="text" />
-            </a>
-            <perch:after></div></perch:after>
-        </perch:categories>
+        <div class="post-tags">
+            <perch:layout path="tags" slug="<perch:blog id="postSlug">"/>
+        </div>
         <div class="description entry-summary">
         <perch:blog id="excerpt" type="textarea" textile="true" />
         </div>

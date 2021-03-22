@@ -197,8 +197,6 @@ nav > ul > li > a:hover {
 
 .blog {
     background-color: var(--bg-color);
-    padding-top: 2rem;
-    padding-bottom: 2rem;
 }
 
 .blog-content-wrapper {
@@ -206,6 +204,14 @@ nav > ul > li > a:hover {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 }
 
 /* .break {

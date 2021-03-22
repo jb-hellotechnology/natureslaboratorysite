@@ -52,7 +52,7 @@
 			echo '</h1>';
 			?>
 		</div>
-	    <div>
+	    <div class="page-content">
 			<div class="blog restrict <?php if(perch_get("cat") || (perch_get("s") || (perch_get("q")))){ echo "narrow"; } ?>">
 
 

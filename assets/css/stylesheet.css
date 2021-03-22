@@ -874,3 +874,34 @@ header a {
 		height: 50px;
 	}
 }  */
+
+.categoryList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.category a .background {
+    height: 250px;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.background h4 {
+    position: absolute;
+    bottom: 20px;
+    background: var(--text-color);
+    color: var(--bg-color);
+    padding: 1rem;
+    padding-left: 2rem;
+    font-size: var(--size-600);
+    transition: 150ms transform;
+    left: -1rem;
+    transform: translateX(0);
+}
+
+.category a:hover .background h4 {
+    transform: translateX(1rem);
+}

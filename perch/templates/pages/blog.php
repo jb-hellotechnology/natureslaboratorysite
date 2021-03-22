@@ -88,7 +88,7 @@
 						perch_blog_sections(array(
 							"template"=>"section_list.html",
 							"include-empty"=>true,
-							"cache"
+							"cache"=>false
 						));
 						}
 			    ?>

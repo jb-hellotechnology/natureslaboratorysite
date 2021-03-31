@@ -90,7 +90,7 @@
 							"include-empty"=>true,
 							"cache"=>false
 						));
-						}
+					}
 			    ?>
 				</div>
 			</div>

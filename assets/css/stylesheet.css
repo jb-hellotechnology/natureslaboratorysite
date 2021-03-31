@@ -17,7 +17,7 @@
     --text-color: #252525;
     --seconday: rgb(56, 56, 56);
     --theme: rgb(6, 107, 2);
-    --temp: rgb(206, 82, 0)
+    --temp: rgb(206, 82, 0);
 }
 
 
@@ -331,10 +331,11 @@ aside {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 400px;
+    min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 2rem;
 }
 
 .title-wrapper.main {
@@ -910,6 +911,21 @@ header a {
     overflow: hidden;
 }
 
+.wipe {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    /* transform: translateX(0%); */
+    clip-path: circle(0% at 0% 100%);
+    width: 101%;
+    height: 100%;
+    background: var(--bg-color);
+    /* opacity: 80%; */
+    pointer-events: none;
+    transition: 400ms ease-out;
+}
+
+
 .background h4 {
     position: absolute;
     bottom: 20px;
@@ -918,13 +934,31 @@ header a {
     padding: 1rem;
     padding-left: 2rem;
     font-size: var(--size-600);
-    transition: 150ms transform;
+    transition: 400ms transform;
     left: -1rem;
     transform: translateX(0);
 }
 
+.background p {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 20px;
+    z-index: 10;
+}
+
 .section a:hover .background h4 {
     transform: translateX(1rem);
+}
+
+.section a:hover .background .wipe {
+    /* transform: translateX(100%); */
+    clip-path: circle(150% at 0% 100%);
+}
+
+.section a:hover .background p {
+    opacity: 1;
+    transition: 200ms;
+    transition-delay: 400ms;
 }
 
 .p-category {

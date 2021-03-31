@@ -1,7 +1,3 @@
-
-
-
-
 <perch:blog id="postTitle" type="text" label="Title" required="true" size="xl autowidth" order="1" suppress="true" />
 <perch:blog id="heroImage" type="image" width="2560" height="1000" crop="true" label="Hero Image" suppress="true"/>
 <article class="h-entry">
@@ -9,15 +5,13 @@
         <div class="post-details">
             <perch:template path="blog/post_details.html" />
         </div>
-        
         <div class="post-tags">
-            <perch:layout path="tags" slug="<perch:blog id="postSlug">"/>
+            <perch:layout path="tags" slug="<perch:blog id="postSlug">" />
         </div>
-    
 	</p>
     <perch:if exists="image">
         <div>
-            <img src="<perch:blog id="authorImage" type="image" width="100" height="100" crop="true" label="Author Image" order="4" />" alt="<perch:blog id="authorGivenName" />" />
+            <img src="<perch:blog id="authorImage" type="image" width="100" height="100" crop="true" label="Author Image" order="4" />" alt="<perch:blog id="authorGivenName" label="Author Name" type="text" />" />
         </div>
     </perch:if>
     <div class="description e-content flow">
@@ -25,5 +19,5 @@
     </div>
 </article>
 
-<perch:blog id="postURL" type="hidden" suppress="true" />
-<perch:blog id="excerpt" type="textarea" label="Excerpt" markdown="true" order="3" suppress="true" size="s" />
+<perch:blog id="postURL" suppress="true" label="Post URL" />
+<perch:blog id="excerpt" type="textarea" label="Excerpt" editor="markitup" markdown="true" order="3" suppress="true" size="s" />

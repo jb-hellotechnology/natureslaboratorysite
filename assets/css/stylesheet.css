@@ -172,25 +172,6 @@ h2, h3 {
     color: var(--text-color);
 }
 
-/* nav > ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-nav > ul > li > a {
-    display: block;
-    text-decoration: none;
-    padding: 1rem;
-    transition: 150ms background-color;
-}
-
-nav > ul > li > a:hover {
-    background-color: var(--text-color);
-    color: var(--bg-color);
-} */
-
 .wrap {
     flex-grow: 2;
 }
@@ -218,13 +199,6 @@ nav > ul > li > a:hover {
     margin-bottom: 40px;
 }
 
-/* .break {
-    height: 1px;
-    background-color: rgb(199, 199, 199);
-    width: 100%;
-    margin-bottom: 40px;
-} */
-
 .aside-wrapper {
     background-color: rgb(56, 56, 56);
     display: flex;
@@ -235,6 +209,12 @@ nav > ul > li > a:hover {
 .title-wrapper {
     background-color: var(--text-color);
 }
+
+.title.small {
+    font-size: var(--size-600);
+    max-width: 25ch;
+}
+
 
 .blog-post-header {
     display: flex;
@@ -272,27 +252,6 @@ nav > ul > li > a:hover {
     color: var(--bg-color);
     max-width: none;
 }
-
-/* .navigation {
-    display: flex;
-    gap: 10px;
-}
-
-.topNav, .hamburger {
-    list-style-type: none;
-}
-
-.navigation li.hide {
-	display: none;
-}
-
-.hamburger {
-    position: absolute;
-}
-
-.hamburger.hide {
-    opacity: 0;
-} */
 
 
 aside {
@@ -523,7 +482,7 @@ footer{
     h2 {
         font-size: var(--size-700);
     }
-    p, li {
+    p, li, button {
         font-size: var(--size-500);
     }
     figcaption {
@@ -535,6 +494,16 @@ footer{
     }
     .post time {
         font-size: var(--size-600);
+    }
+
+    .post-tags button {
+        font-size: 1.2rem;
+        letter-spacing: -0.1rem;
+    }
+
+    .title.small {
+        font-size: var(--size-800);
+        max-width: 25ch;
     }
 }
 
@@ -667,241 +636,6 @@ header a {
     text-decoration: none;
 }
 
-/* .navigation {
-	display: flex;
-	height: 140px;
-	grid-row: auto;
-	grid-column: auto;
-	justify-content: flex-end;
-	align-items: center;
-	opacity: 0;
-	gap: 20px;
-	z-index: 10;
-}
-
-.navigation.show {
-	opacity: 1;
-}
-
-.navigation li.hide {
-	display: none;
-}
-
-.topNav {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: end;
-	align-items: center;
-}
-
-.navItem, .hamburgerItem, .navChildItem, .hamburgerChildItem {
-	line-height: 14px;
-	font-size: 1.2rem;
-	position: relative;
-	margin: 0;
-	display: flex;
-}
-
-.navItem {
-	justify-content: flex-end;
-}
-
-.navChildItems, .hamburgerChildItems {
-	position: absolute;
-	opacity: 1;
-	pointer-events: all;
-	min-width: 100%;
-}
-
-.navChildItems.hide, .hamburgerChildItems.hide {
-	opacity: 0;
-	pointer-events: none;
-}
-
-.navChildItems {
-	display: flex;
-	flex-direction: column;
-}
-
-.navChildItem, .hamburgerChildItem {
-	background-color: var(--primary);
-}
-
-.navChildLink, .hamburgerLink, .hamburgerChildLink {
-	color:white;
-	width: 100%;
-	text-align: right;
-}
-
-.navLink, .hamburgerLink, .navChildLink, .hamburgerChildLink {
-	padding: 0.7rem 1rem;
-	font-size: 1.2rem;
-	line-height: normal;
-	text-decoration: none;
-	white-space: nowrap;
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	gap: 10px;
-}
-
-.navLink {
-	flex-direction: row-reverse;
-}
-
-.navLink i {
-	margin: -10px 0;
-}
-
-.hamburgerWrapper {
-	position: relative;
-}
-
-.hamburger {
-	position: absolute;
-	background-color: var(--primary);
-	color: white;
-	display: flex;
-	flex-direction: column;
-	text-align: right;
-	right: 0px;
-	top: 35px;
-	opacity: 1;
-	pointer-events: auto;
-	transition: 150ms;
-}
-
-.hamburger.hide {
-	opacity: 0;
-	pointer-events: none;
-}
-
-.hamburgerButton {
-	position: relative;
-	top: 1px;
-	cursor: pointer;
-	background-color: white;
-	color: black;
-	text-shadow: none;
-	margin: 0px;
-	padding: 0px;
-	min-width: 17px;
-	display: block;
-}
-
-.hamburgerButton:hover {
-	/* To override earlier style */
-    /*
-	background-color: white;
-	color: black;
-}
-
-.hamburgerItem {
-	margin-right: 0;
-	width: 280px;
-}
-
-.linkIcon {
-	display: block;
-	min-width: 15px;
-}
-
-.linkIcon.hide {
-	display: none;
-}
-
-.hamburger.mobile>li[data-children="true"] {
-	display: grid;
-	grid-template-columns: auto auto;
-	grid-template-rows: auto auto;
-	grid-template-areas: "icon link" "sublinks sublinks";
-	justify-self: stretch;
-}
-
-.hamburger.mobile .hamburgerChildLink {
-	grid-area: link;
-}
-
-.hamburger.mobile li > .linkIcon {
-	grid-area: icon;
-	justify-self: start;
-	align-self: center;
-	height: 100%;
-	display: flex;
-	padding: 0 20px;
-	cursor: pointer;
-	width: 58px;
-}
-
-.hamburger.mobile li > .linkIcon:hover {
-	background-color: var(--secondary);
-}
-
-.hamburger.mobile li > .linkIcon.spin::before {
-	transform: rotate(180deg);
-}
-
-.hamburger.mobile li > .linkIcon::before {
-	margin: auto;
-	transform: rotate(0deg);
-	transition: transform 150ms;
-}
-
-.hamburger.mobile .hamburgerChildItems {
-	position: relative;
-	opacity: 1;
-	color: white;
-	z-index: 10;
-	max-height: 0;
-	overflow: hidden;
-	transition: max-height 0.2s ease-out;
-	grid-area: sublinks;
-}
-
-.hamburger.mobile .hamburgerChildItems.hide {
-	pointer-events: all;
-}
-
-.hamburger.mobile .hamburgerChildLink {
-	background-color: var(--grey);
-	color: var(--primary);
-}
-
-
-/* Hover Control */
-
-/* .navigation li:hover {
-	background-color: var(--primary);
-}
-
-.navigation li:hover > a {
-	color: white;
-}
-
-.navigation a:hover {
-	background-color: var(--secondary);
-	color: white;
-}
-
-.hamburger.mobile .hamburgerChildLink:hover {
-	background-color: var(--secondary);
-	color: white;
-}
-
-@media screen and (max-width: 768px) {
-	.navigation {
-		height: 70px;
-		margin-top: auto;
-		margin-bottom: auto;
-	}
-}
-
-@media screen and (max-width: 520px) {
-	.navigation {
-		height: 50px;
-	}
-}  */
-
 .sectionList {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -999,7 +733,7 @@ header a {
     flex-wrap: wrap;
 }
 
-.post-tags li {
+.post-tags a, .post-tags button {
     background: rgb(85, 107, 168);
     padding: 0.4rem 0.8rem;
     border-radius: 5px;
@@ -1014,6 +748,7 @@ header a {
     border-radius: 5px;
     display: block;
     cursor: pointer;
+    height: 100%;
 }
 
 .post-tags button:hover {

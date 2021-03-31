@@ -17,6 +17,8 @@ for (let i = 0; i < tagsArray.length; i++) {
                 tagRevealButton.classList.add("hide");
             }
         })
-        tags.appendChild(tagRevealButton);
+        let tagRevealButtonWrapper = document.createElement("LI");
+        tagRevealButtonWrapper.appendChild(tagRevealButton)
+        tags.appendChild(tagRevealButtonWrapper);
     }
 }

@@ -409,6 +409,18 @@ footer{
     font-size: 1.15rem;
 }
 
+.e-content :is(p, h1, h2, h3, h4, h5, h6):first-child {
+    margin-top: 15px;
+}
+
+.e-content ul {
+    padding-left: 20px;
+}
+
+.e-content blockquote {
+    font-size: var(--size-400);
+}
+
 .gist {
     overflow: auto;
     max-width: 100%;
@@ -511,14 +523,14 @@ footer{
     h2 {
         font-size: var(--size-700);
     }
-    p {
+    p, li {
         font-size: var(--size-500);
     }
     figcaption {
         font-size: var(--size-400);
     }
     blockquote p {
-        font-size: var(--size-600);
+        font-size: var(--size-500);
         max-width: 40ch;
     }
     .post time {
@@ -983,7 +995,7 @@ header a {
     list-style-type: none;
     display: flex;
     gap: 10px;
-    padding: 20px 0;
+    margin: 20px 0;
     flex-wrap: wrap;
 }
 

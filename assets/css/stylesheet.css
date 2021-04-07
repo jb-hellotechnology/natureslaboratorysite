@@ -373,6 +373,10 @@ footer{
 }
 
 .e-content ul {
+    list-style-type: disc;
+}
+
+.e-content ul {
     padding-left: 20px;
 }
 

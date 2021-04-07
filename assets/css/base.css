@@ -1,3 +1,5 @@
+
+
 /* =[RES]= CSS Reset - derivative of YUI Reset CSS - http://developer.yahoo.com/yui/reset/#code ===== */
 
 html, body, div, pre, form, fieldset, input, h1, h2, h3, h4, h5, h6, p, textarea, ul, ol, li, dl, dt, dd, blockquote, th, td,
@@ -109,8 +111,8 @@ main {
     align-items: stretch;
 }
 
-body.no-scroll {
-    overflow-y: hidden;
+input {
+    box-sizing: border-box;
 }
 
 /* Layout */
@@ -453,12 +455,14 @@ body.no-scroll {
 }
 
 .c-search {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto;
     gap: 5px;
 }
 
 .c-search__input, .c-search__submit {
     padding: 0.2rem;
+    height: 100%;
 }
 
 .c-hero {

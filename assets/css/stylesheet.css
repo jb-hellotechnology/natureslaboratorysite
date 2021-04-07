@@ -486,7 +486,16 @@ footer{
     h2 {
         font-size: var(--size-700);
     }
-    :is(p, li, button):not(.c-navbar__element, .c-navbar__sub-element, .c-hamburger__element, .c-hamburger__sub-element, .c-search__submit, .c-search__input, .post-tags>li) {
+    :is(p, li, button)
+    :not(
+    .c-navbar__element, 
+    .c-navbar__sub-element, 
+    .c-hamburger__element, 
+    .c-hamburger__sub-element, 
+    .c-search__submit, 
+    .c-search__input, 
+    .post-tags>li,
+    .post-tags>li>button) {
         font-size: var(--size-500);
     }
     figcaption {

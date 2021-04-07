@@ -1,21 +1,24 @@
-<perch:before><ul class="topNav"></perch:before>
+<perch:before><ul class="c-navbar"></perch:before>
 <li 
     class="<perch:if exists="current_page">selected </perch:if>
-            <perch:if exists="ancestor_page">ancestor </perch:if> 
-            <perch:if id="pageNavText" value="Home" match="eq">priority </perch:if>
-            navItem"
-    data-children="<perch:if exists="subitems">true<perch:else>false</perch:if>"
+            <perch:if exists="ancestor_page">ancestor </perch:if>
+            c-navbar__element"
 >
-    <a href="<perch:pages id="pagePath" />" class="navLink">
-        <perch:if exists="subitems">
-            <i class="fas fa-angle-down linkIcon"></i>
-        </perch:if>
-        <perch:pages id="pageNavText" />
-    </a>
+    
+    <perch:if exists="subitems">
+        <button class="c-navbar__button c-navbar__button--hover-invert">
+            <perch:pages id="pageNavText" />
+            <i class="fas fa-angle-down c-icon"></i>
+        </button>
+    <perch:else>
+        <a href="<perch:pages id="pagePath" />" class="c-navbar__link c-navbar__link--hover-invert">
+            <perch:pages id="pageNavText" />
+        </a>
+    </perch:if>
     <perch:pages id="subitems" encode="false"/>
 </li>
 <perch:after>
-    <li class="navItem search priority">
+    <li class="c-navbar__element c-navbar__search">
         <perch:template path="/content/search.html" />
     </li>
 </ul>

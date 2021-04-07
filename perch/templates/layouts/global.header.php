@@ -26,85 +26,39 @@
 	<noscript>
 		<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 	</noscript>
+	<link rel="stylesheet" href="/assets/css/base.css?v=<?php echo rand(); ?>">
 	<link rel="stylesheet" href="/assets/css/stylesheet.css?v=<?php echo rand(); ?>">
 </head>
 
 <body>
-	<header>
-		
-			<?php
-			// $isBlog = perch_page_attribute('pageNavText', array(), true) == "Blog";
-
-			// echo '<div class="blog-post-header restrict"><a href="';
-			// if ($isBlog) {
-			// 	echo '/blog/">';
-			// } else {
-			// 	echo '/">';
-			// }
-
-			// echo '<h3 class="title-small">';
-			// if ($isBlog) {
-			// 	echo 'The Nature\'s Laboratory Blog';
-			// } else {
-			// 	echo 'Nature\'s Laboratory';
-			// }
-			// echo '</h3></a>
-
-			// <div class="navigation">';
-			// perch_pages_navigation([
-			// 	'template' => 'blog_nav.html',
-			// 	'hide-default-doc' => true
-			// ]);
-			// perch_layout('search');
-
-			// echo '</div></div>';
-
-			
-			?>
-		
-		<div class="restrict hide">
-			<?php 
-				$url = $_SERVER["REQUEST_URI"];
-				$urlArray = explode("/", $url);
-				$link = "/";
-				foreach ($urlArray as $str) {
-					if ($str == "blog") {
-						$link = "/blog";
-					}
-				}
-				if(perch_page_url(array(), true))
-			?>
-			<a href="<?php echo $link ?>">
+	<div class="l-wrap l-wrap--bg-secondary l-sticky-top l-border-bottom-grey">
+		<nav class="l-restrict c-banner">
+			<a href="/" class="c-banner__logo">
 				<h3 class="title-small">
-					<?php
-						$isBlog = perch_page_attribute('pageNavText', array(), true) == "Blog";
-						if ($isBlog) {
-							echo 'The Nature\'s Laboratory Blog';
-						} else {
-							echo 'Nature\'s Laboratory';
-						}
-					?>
+					NL
 				</h3>
 			</a>
-			<nav class="navigation">
+			<div class="c-navigation" data-breakpoint="768" data-type="dynamic">
 				<?php
-				perch_pages_navigation(array(
-					'template' => array('topNavMain.html', 'topNavSub.html')
-				));
+					perch_pages_navigation(array(
+						'template' => array('topNavMain.html', 'topNavSub.html')
+					));
 				?>
-				<div class="hamburgerWrapper">
-					<button class="hamburgerButton">
-						<div></div>
-						<div></div>
-						<div></div>
+				<div class="c-hamburger hide">
+					<button class="c-hamburger__button">
+						<div class="c-hamburger__line"></div>
+						<div class="c-hamburger__line"></div>
+						<div class="c-hamburger__line"></div>
 					</button>
 					<?php
-					perch_pages_navigation(array(
-						'template' => array('hamburgerMain.html', 'hamburgerSub.html')
-					))
+						perch_pages_navigation(array(
+							'template' => array('hamburgerMain.html', 'hamburgerSub.html')
+						))
 					?>
 				</div>
-			</nav>
-		</div>
-	</header>
+			</div>
+
+		</nav>
+	</div>
+		
 	<div class="wrap">

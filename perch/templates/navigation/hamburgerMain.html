@@ -1,24 +1,23 @@
-<perch:before><ul class="hamburger hide"></perch:before>
+<perch:before><ul class="c-hamburger__menu" data-type="slideover" data-expand="accordian"></perch:before>
     <li 
         class="<perch:if exists="current_page">selected</perch:if>
                <perch:if exists="ancestor_page">ancestor</perch:if> 
-               <perch:if id="pageNavText" value="Home" match="eq">priority </perch:if>
-               hamburgerItem"
-        data-children="<perch:if exists="subitems">true<perch:else>false</perch:if>"
+               c-hamburger__element"
     >
         <perch:if exists="subitems">
-            <i class="fas fa-angle-down mobile linkIcon hide"></i>
+            <button class="c-hamburger__element-button c-hamburger__element-button--hover-invert">
+                <i class="fas fa-chevron-down c-icon"></i>
+                <perch:pages id="pageNavText" />
+            </button>
+        <perch:else>
+            <a href="<perch:pages id="pagePath" />" class="c-hamburger__link c-hamburger__link--hover-invert">
+                <perch:pages id="pageNavText" />
+            </a>
         </perch:if>
-        <a href="<perch:pages id="pagePath" />" class="hamburgerLink">
-            <perch:if exists="subitems">
-                <i class="fas fa-angle-left linkIcon hide"></i>
-            </perch:if>
-            <perch:pages id="pageNavText" />
-        </a>
         <perch:pages id="subitems" encode="false"/>
     </li>
     <perch:after>
-        <li class="hamburgerItem priority"> 
+        <li class="c-hamburger__element c-hamburger__search"> 
             <perch:template path="/content/search.html" />
         </li>
     </ul>

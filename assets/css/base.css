@@ -113,3 +113,22 @@ main {
 body.no-scroll {
     overflow-y: hidden;
 }
+
+@media (min-width: 45em) {
+    h1 {
+        font-size: var(--size-900);
+    }
+
+    h2 {
+        font-size: var(--size-700);
+    }
+
+    figcaption {
+        font-size: var(--size-400);
+    }
+
+    blockquote p {
+        font-size: var(--size-500);
+        max-width: 40ch;
+    }
+}

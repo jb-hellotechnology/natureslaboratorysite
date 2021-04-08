@@ -373,7 +373,7 @@ blockquote {
 .c-footer {
     background-color: var(--primary-color);
     color: var(--secondary-color);
-    padding: 1rem 0;
+    padding: 1rem var(--side-padding);
 }
 
 .c-ordered-list {
@@ -792,4 +792,18 @@ blockquote {
 
 .c-post blockquote {
     font-size: var(--size-400);
+}
+
+@media (min-width: 45em) {
+    :is(p, li, button):not(
+    .c-navbar__element, 
+    .c-navbar__sub-element, 
+    .c-hamburger__element, 
+    .c-hamburger__sub-element, 
+    .c-search__submit, 
+    .c-search__input, 
+    .c-post-tags li,
+    .c-post-tags button) {
+        font-size: var(--size-500);
+    }
 }

@@ -1,31 +1,40 @@
 <perch:blocks>
     <perch:block label="Text" type="text">
-        <div class="restrict narrow flow">
-            <perch:content type="textarea" id="text" editor="redactor" lable="Text" html/>
+        <div class="l-block">
+            <div class="l-row">
+                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-centered l-flow">
+                    <perch:content type="textarea" id="text" editor="redactor" lable="Text" html/>
+                </div>
+            </div>
         </div>
     </perch:block>
 
     <perch:block label="Cards" type="cards">
-        <perch:repeater label="Card Container" type="container" max="3">
-            <perch:before><div class="cards restrict"></perch:before>
-                <div class="card">
-                    <img src="<perch:content label="Card Image" type="image" height="300" width="300" crop="true" id="image" />" alt="<perch:content type="text" label="Card Image Alt" id="image-alt">">
-                    <div class="card-content">
-                        <div class="card-text">
-                            <h2><perch:content type="text" label="Card Title" id="title" /></h2>
-                            <p><perch:content type="textarea" label="Card Text" id="text" count="words" /></p>
-                        </div>
-                        <perch:if exists="link">
-                            <a href="<perch:content type="text" id="link" label="Link" />" target="_blank">
-                                <button class="btn">
-                                    <perch:content type="text" id="link-label" label="Link Label" />
-                                </button>
-                            </a>
-                        </perch:if>
-                    </div>
+        <div class="l-block">
+            <div class="l-row">
+                <div class="col-12 col-sm-10 col-centered">
+                    <perch:repeater label="Card Container" type="container" max="3">
+                        <perch:before><div class="c-cards"></perch:before>
+                            <div class="c-card">
+                                <img class="c-card__img" src="<perch:content label="Card Image" type="image" height="300" width="300" crop="true" id="image" />" alt="<perch:content type="text" label="Card Image Alt" id="image-alt">">
+                                <div class="c-card__content">
+                                    <h3 class="c-card__title"><perch:content type="text" label="Card Title" id="title" /></h3>
+                                    <p class="c-card__text"><perch:content type="textarea" label="Card Text" id="text" count="words" /></p>
+                                    
+                                    <perch:if exists="link">
+                                        <a class="c-card__button-link" href="<perch:content type="text" id="link" label="Link" />" target="_blank">
+                                            <button class="c-button">
+                                                <perch:content type="text" id="link-label" label="Link Label" />
+                                            </button>
+                                        </a>
+                                    </perch:if>
+                                </div>
+                            </div>
+                        <perch:after></div></perch:after>
+                    </perch:repeater>
                 </div>
-            <perch:after></div></perch:after>
-        </perch:repeater>
+            </div>
+        </div>
     </perch:block>
 
     <perch:block label="Hero" type="hero">

@@ -10,11 +10,11 @@
 	perch_content("Hero");
 ?>
 
-<div class="content">
+<main>
 	<?php 
 		perch_content('Page Content'); 
 	?>
-</div>
+</main>
 
 
 <?php perch_layout('global.footer'); ?>

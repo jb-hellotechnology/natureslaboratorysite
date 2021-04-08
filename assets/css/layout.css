@@ -62,9 +62,9 @@
     text-align: right;
 }
 
-/* .l-block:first-child {
+.l-block:first-child {
     padding-top: 2rem;
-} */
+}
 
 .l-block--dark {
     background-color: var(--primary-color);

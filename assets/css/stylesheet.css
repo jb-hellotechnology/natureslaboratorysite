@@ -1,111 +1,11 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* Color Overrides */
 
 :root {
-    --size-300: 0.75rem;
-    --size-400: 1rem;
-    --size-500: 1.33rem;
-    --size-600: 1.77rem;
-    --size-700: 2.36rem;
-    --size-800: 3.15rem;
-    --size-900: 4.2rem;
-
-    --bg-color: #f3f3f3;
-    --text-color: #252525;
+    --secondary-color: #f3f3f3;
+    --primary-color: #252525;
     --seconday: rgb(56, 56, 56);
     --theme: rgb(6, 107, 2);
     --temp: rgb(206, 82, 0);
-}
-
-
-body {
-    background: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.5;
-    font-family: Georgia, serif;
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    transition: 200ms transform;
-    /* padding: 2rem 0; */
-}
-
-/* a:not([class]) {
-    color: currentColor;
-} */
-
-:focus {
-    outline: 2px dashed;
-    outline-offset: 0.25rem;
-}
-
-main:focus {
-    outline: none;
-}
-
-[href]:hover {
-    text-decoration: none;
-}
-
-h1, h2, h3, h4 {
-    font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
-    line-height: 1.3;
-}
-
-h1, h2 {
-    font-weight: 900;
-}
-
-h1 {
-    font-size: var(--size-700);
-}
-
-h2 {
-    font-size: var(--size-600);
-}
-
-h3 {
-    font-size: var(--size-600);
-}
-
-img {
-    max-width: min(55rem, 100%);
-}
-
-figcaption {
-    font-size: var(--size-300);
-    font-style: italic;
-    margin-top: 1rem;
-}
-
-blockquote {
-    padding-left: var(--size-600);
-    border-left: 5px solid;
-    font-style: italic;
-}
-
-::selection {
-    color: #fff;
-    background: rgba(0, 0, 0, 0.99);
-}
-
-.flow>*+* {
-    margin-top: var(--flow-space, 1em);
-}
-
-p, li {
-    max-width: 60ch;
-}
-
-h1 {
-    max-width: 15ch;
-}
-
-h2, h3 {
-    max-width: 25ch;
 }
 
 .content {
@@ -169,7 +69,7 @@ h2, h3 {
 
 
 .hentry h2 a {
-    color: var(--text-color);
+    color: var(--primary-color);
 }
 
 .wrap {
@@ -177,7 +77,7 @@ h2, h3 {
 }
 
 .blog {
-    background-color: var(--bg-color);
+    background-color: var(--secondary-color);
 }
 
 .blog-content-wrapper {
@@ -207,7 +107,7 @@ h2, h3 {
 }
 
 .title-wrapper {
-    background-color: var(--text-color);
+    background-color: var(--primary-color);
 }
 
 .title.small {
@@ -234,14 +134,14 @@ h2, h3 {
     padding: 0.5rem;
     display: block;
     text-decoration: none;
-    background-color: var(--text-color);
-    color: var(--bg-color);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
 }
 
 .blog-nav li a:hover {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 .blog-post-header > a {
@@ -249,14 +149,14 @@ h2, h3 {
 }
 
 .blog-post-header .title-small {
-    color: var(--bg-color);
+    color: var(--secondary-color);
     max-width: none;
 }
 
 
 aside {
     height: 60px;
-    color: var(--bg-color);
+    color: var(--secondary-color);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -282,7 +182,7 @@ aside {
 
 .search input {
     padding: 0.3rem;
-    background-color: var(--bg-color);
+    background-color: var(--secondary-color);
     border: none;
 }
 
@@ -303,7 +203,7 @@ aside {
 
 .title {
     text-align: center;
-    color: var(--bg-color);
+    color: var(--secondary-color);
     position: relative;
     top: -10px;
     background: rgba(0, 0, 0, 0.356);
@@ -311,8 +211,8 @@ aside {
 }
 
 footer{
-    background-color: var(--text-color);
-    color: var(--bg-color);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     width: 100%;
@@ -341,7 +241,6 @@ footer{
     height: auto;
     border-radius: 50%;
 }
-
 .post-details {
     display: flex;
     gap: 5px;
@@ -368,20 +267,30 @@ footer{
     font-size: 1.15rem;
 }
 
-.e-content :is(p, h1, h2, h3, h4, h5, h6):first-child {
-    margin-top: 15px;
+.post-details {
+    display: flex;
+    gap: 5px;
+    align-items: center;
 }
 
-.e-content ul {
-    list-style-type: disc;
+.post-details img {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+    margin-right: 5px;
 }
 
-.e-content ul {
-    padding-left: 20px;
+.post-details > :is(p, time)  {
+    font-style: italic;
+    opacity: 0.8;
 }
 
-.e-content blockquote {
-    font-size: var(--size-400);
+.post-details.list {
+    margin-bottom: 5px;
+}
+
+.post-details.list > :is(p, time)  {
+    font-size: 1.15rem;
 }
 
 .gist {
@@ -421,9 +330,9 @@ footer{
 }
 
 .btn {
-    background-color: var(--text-color);
-    color: var(--bg-color);
-    border: 1px solid var(--text-color);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 1px solid var(--primary-color);
     padding: 0.5rem 1rem;
     min-width: 100px;
     justify-self: end;
@@ -433,8 +342,8 @@ footer{
 }
 
 .btn:hover {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 .search-result-title {
@@ -522,9 +431,8 @@ footer{
 /* Nav */
 
 header {
-    background-color: var(--text-color);
-    color: var(--bg-color);
-    height: 56px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -547,7 +455,7 @@ header h3 {
 
 header a {
     text-decoration: none;
-    color: var(--bg-color);
+    color: var(--secondary-color);
 }
 
 .navigation {
@@ -569,16 +477,16 @@ header a {
 }
 
 .navLink {
-    color: var(--bg-color);
-    background-color: var(--text-color);
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
     padding: 1rem;
     text-decoration: none;
     display: block;
 }
 
 .navLink:hover {
-    color: var(--text-color);
-    background-color: var(--bg-color);
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
 }
 
 .search {
@@ -614,8 +522,8 @@ header a {
 
 .hamburgerButton {
     font-size: 1rem;
-    color: var(--bg-color);
-    background-color: var(--text-color);
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
     border: none;
     position: relative;
     margin-left: 15px;
@@ -628,7 +536,7 @@ header a {
 .hamburgerButton > div {
     width: 15px;
     height: 2px;
-    background-color: var(--bg-color);
+    background-color: var(--secondary-color);
 }
 
 .hamburger.hide {
@@ -644,7 +552,7 @@ header a {
 }
 
 .hamburgerLink {
-    color: var(--text-color);
+    color: var(--primary-color);
     text-decoration: none;
 }
 
@@ -677,7 +585,7 @@ header a {
     clip-path: circle(0% at 0% 100%);
     width: 101%;
     height: 100%;
-    background: var(--bg-color);
+    background: var(--secondary-color);
     /* opacity: 80%; */
     pointer-events: none;
     transition: 400ms ease-out;
@@ -687,8 +595,8 @@ header a {
 .background h4 {
     position: absolute;
     bottom: 20px;
-    background: var(--text-color);
-    color: var(--bg-color);
+    background: var(--primary-color);
+    color: var(--secondary-color);
     padding: 1rem;
     padding-left: 2rem;
     font-size: var(--size-600);
@@ -699,7 +607,7 @@ header a {
 
 .background p {
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--primary-color);
     padding: 20px;
     z-index: 10;
 }
@@ -721,7 +629,7 @@ header a {
 
 .p-category {
     background: rgb(85, 107, 168);
-    color: var(--bg-color);
+    color: var(--secondary-color);
     text-decoration: none;
     padding: 0.4rem 0.8rem;
     border-radius: 5px;
@@ -753,7 +661,7 @@ header a {
 }
 
 .post-tags button {
-    background: var(--bg-color);
+    background: var(--secondary-color);
     color: rgb(85, 107, 168);
     border: 1px solid rgb(85, 107, 168);
     padding: 0.4rem 0.8rem;
@@ -765,7 +673,7 @@ header a {
 
 .post-tags button:hover {
     background: rgb(85, 107, 168);
-    color: var(--bg-color);
+    color: var(--secondary-color);
 }
 
 
@@ -774,6 +682,6 @@ header a {
 }
 
 .post-tags li a {
-    color: var(--bg-color);
+    color: var(--secondary-color);
     text-decoration: none;
 }

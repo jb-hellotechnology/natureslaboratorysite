@@ -1,23 +1,27 @@
 <perch:blog id="postTitle" type="text" label="Title" required="true" size="xl autowidth" order="1" suppress="true" />
 <perch:blog id="heroImage" type="image" width="2560" height="1000" crop="true" label="Hero Image" suppress="true"/>
-<article class="h-entry">
-	<p class="meta">
-        <div class="post-details">
-            <perch:template path="blog/post_details.html" />
-        </div>
-        
-        <perch:layout path="tags" slug="<perch:blog id="postSlug">"/>
-    
-	</p>
-    <perch:if exists="image">
-        <div>
-            <img src="<perch:blog id="authorImage" type="image" width="100" height="100" crop="true" label="Author Image" order="4" />" alt="<perch:blog id="authorGivenName" label="Author Name" type="text" />" />
-        </div>
-    </perch:if>
-    <div class="description e-content flow">
-        <perch:template path="content/blocks/post_blocks.html" />
+<div class="l-row">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-centered">
+        <article class="c-article">
+            <p class="meta">
+                <div class="c-post-details">
+                    <perch:template path="blog/post_details.html" />
+                </div>
+                
+                <perch:layout path="tags" slug="<perch:blog id="postSlug">"/>
+            
+            </p>
+            <perch:if exists="image">
+                <div>
+                    <img src="<perch:blog id="authorImage" type="image" width="100" height="100" crop="true" label="Author Image" order="4" />" alt="<perch:blog id="authorGivenName" label="Author Name" type="text" />" />
+                </div>
+            </perch:if>
+            <div class="c-post l-flow">
+                <perch:template path="content/blocks/post_blocks.html" />
+            </div>
+        </article>
     </div>
-</article>
+</div>
 
 <perch:blog id="postURL" suppress="true" label="Post URL" />
 <perch:blog id="excerpt" type="textarea" label="Excerpt" editor="markitup" markdown="true" order="3" suppress="true" size="s" />

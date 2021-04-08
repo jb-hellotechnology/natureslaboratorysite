@@ -468,8 +468,6 @@ blockquote {
 .c-card {
     width: 100%;
     box-shadow: var(--box-shadow);
-    opacity: 0;
-    transform: translateY(-1rem);
     transition: 700ms ease;
     max-width: 300px;
 }
@@ -480,11 +478,6 @@ blockquote {
 
 .c-card--rounded .c-card__img {
     border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
-}
-
-.c-card.show {
-    transform: translateY(0rem);
-    opacity: 1;
 }
 
 .c-card__img {
@@ -807,3 +800,60 @@ blockquote {
         font-size: var(--size-500);
     }
 }
+
+/* Animations */
+
+.c-animated {
+    transition: 500ms ease;
+}
+
+.c-animated--fade-up {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.c-animated--fade-up.show {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.c-animated--fade-down {
+    opacity: 0;
+    transform: translateY(-50px);
+}
+
+.c-animated--fade-left {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.c-animated--fade-left.show {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+.c-animated--fade-right {
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+.c-animated--fade-right.show {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+.c-animated--fade-down.show {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.c-animated--fade {
+    opacity: 0;
+}
+
+.c-animated--fade.show {
+    opacity: 1;
+}
+
+
+

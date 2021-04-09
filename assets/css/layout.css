@@ -120,6 +120,10 @@
     grid-column-end: end;
 }
 
+.l-block--no-top-padding {
+    padding-top: 0;
+}
+
 
 /* Structure */
 

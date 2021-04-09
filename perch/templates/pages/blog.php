@@ -87,7 +87,7 @@ if (perch_blog_post_field(perch_get('s'), 'heroImage', true)) {
 	<?php
 
 	if (!$_SERVER["QUERY_STRING"]) {
-		echo '<div class="l-block">';
+		echo '<div class="l-block l-block--no-top-padding">';
 		echo '<div class="l-row">';
 		echo '<div class="col-lg-6 col-md-8 col-sm-10 col-centered col-12 c-posts">';
 		echo "<h3>Recent Posts</h3>";

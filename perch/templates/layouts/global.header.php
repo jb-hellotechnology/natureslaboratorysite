@@ -33,13 +33,12 @@
 </head>
 
 <body>
-	<div class="l-wrap l-wrap--bg-secondary l-sticky-top l-border-bottom-grey">
+	<div class="l-wrap l-wrap--bg-white l-sticky-top l-border-bottom-grey">
 		<nav class="l-restrict c-banner">
-			<a href="/" class="c-banner__logo">
-				<h3 class="title-small">
-					NL
-				</h3>
-			</a>
+			<?php
+				perch_content_create("Logo", ["template" => "banner_logo.html"]);
+				perch_content("Logo");
+			?>
 			<div class="c-navigation" data-breakpoint="768" data-type="dynamic">
 				<?php
 					perch_pages_navigation(array(

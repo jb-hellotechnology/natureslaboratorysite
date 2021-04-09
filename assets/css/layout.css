@@ -11,6 +11,11 @@
     z-index: 10;
 }
 
+.l-wrap--bg-white {
+    background-color: white;
+    z-index: 10;
+}
+
 .l-restrict {
     max-width: 1280px;
     width: 100%;

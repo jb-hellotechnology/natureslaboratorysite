@@ -216,8 +216,8 @@
 
 .c-hamburger__link, .c-hamburger__element-button, .c-hamburger__sub-link {
     padding: 1rem;
-    background-color: rgb(228, 228, 228);
-    color: white;
+    /* background-color: rgb(228, 228, 228); */
+    /* color: white; */
     /* display: block; */
 }
 
@@ -225,7 +225,7 @@
 .c-hamburger__link--hover-invert, 
 .c-hamburger__element-button--hover-invert, 
 .c-hamburger__sub-link--hover-invert {
-    background-color: var(--secondary-color);
+    /* background-color: var(--secondary-color); */
     color: var(--primary-color);
 }
 

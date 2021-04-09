@@ -109,6 +109,14 @@
                                             <perch:content id="companyPhone" label="Company Phone" type="text">
                                         </p>
                                     </perch:if>
+                                    <perch:if exists="companyWebsite">
+                                        <p class="c-threes-table__phone c-threes-table__detail"><i class="fas fa-globe c-threes-table__icon"></i></p>
+                                        <a href="<perch:content id="companyWebsite">">
+                                            <p class="c-threes-table__website c-threes-table__detail">
+                                                <perch:content id="companyWebsite" label="Company Website" type="text">
+                                            </p>
+                                        </a>
+                                    </perch:if>
                                     <perch:if exists="companyAddress1">
                                         <p class="c-threes-table__phone c-threes-table__detail"><i class="fas fa-address-card c-threes-table__icon"></i></p>
                                     </perch:if>

@@ -65,4 +65,51 @@
             </h1>
 		</div>
     </perch:block>
+
+    <perch:block label="Threes Table" type="table">
+        <div class="l-block <perch:content type="checkbox" label="No Top Padding" value="l-block--no-top-padding" id="top-padding"> l-block--<perch:content type="select" label="Style" options="white, light-grey, dark" id="style">">
+            <div class="l-row c-section">
+                <h2 class="c-section__title"><perch:content id="title" label="Company" type="text" ></h2>
+                <table class="c-threes-table">
+                    <thead class="c-threes-table__head">
+                        <tr class="c-threes-table__row">
+                            <th class="c-threes-table__heading">
+                                
+                            </th>
+                            <th class="c-threes-table__heading">
+                                Economic
+                            </th>
+                            <th class="c-threes-table__heading">
+                                Social
+                            </th>
+                            <th class="c-threes-table__heading">
+                                Cultural/Spiritual
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="c-threes-table__body">
+                        <perch:repeater label="Companies" type="companies">
+                            <tr class="c-threes-table__row">
+                                <td class="c-threes-table__company">
+                                    <perch:content id="companyName" label="Company Name" type="text">
+                                </td>
+                                <td class="c-threes-table__cell">
+                                    <h4 class="c-threes-table__cell-mobile-title">Economic</h4>
+                                    <perch:content id="companyEconomic" label="Economic" type="textarea">
+                                </td>
+                                <td class="c-threes-table__cell">
+                                    <h4 class="c-threes-table__cell-mobile-title">Social</h4>
+                                    <perch:content id="companySocial" label="Social" type="textarea">
+                                </td>
+                                <td class="c-threes-table__cell">
+                                    <h4 class="c-threes-table__cell-mobile-title">Cultural/Spiritual</h4>
+                                    <perch:content id="companyCultural" label="Cultural" type="textarea">
+                                </td>
+                            </tr>
+                        </perch:repeater>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </perch:block>
 </perch:blocks>

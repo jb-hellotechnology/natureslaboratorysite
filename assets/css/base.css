@@ -33,35 +33,6 @@ caption, th {
     text-align: left;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-size: 100%;
-    font-weight: normal;
-}
-
-h1, h2 {
-    font-weight: 900;
-}
-
-h1 {
-    font-size: var(--size-700);
-}
-
-h2 {
-    font-size: var(--size-600);
-}
-
-h3 {
-    font-size: var(--size-600);
-}
-
-q:before, q:after {
-    content: '';
-}
-
-abbr, acronym {
-    border: 0;
-}
-
 :root {
     --size-300: 0.75rem;
     --size-400: 1rem;
@@ -80,6 +51,39 @@ abbr, acronym {
     --box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.103);
     --side-padding: 20px;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+h1, h2 {
+    font-weight: 900;
+}
+
+h1 {
+    font-size: var(--size-700);
+    line-height: var(--size-700);
+}
+
+h2 {
+    font-size: var(--size-600);
+    line-height: var(--size-600);
+}
+
+h3 {
+    font-size: var(--size-600);
+    line-height: var(--size-600);
+}
+
+q:before, q:after {
+    content: '';
+}
+
+abbr, acronym {
+    border: 0;
+}
+
 
 h1, h2, h3, h4 {
     font-family: var(--header-font);
@@ -118,14 +122,17 @@ body.no-scroll {
 @media (min-width: 45em) {
     h1 {
         font-size: var(--size-900);
+        line-height: var(--size-900);
     }
 
     h2 {
         font-size: var(--size-700);
+        line-height: var(--size-700);
     }
 
     figcaption {
         font-size: var(--size-400);
+        line-height: var(--size-400);
     }
 
     blockquote p {

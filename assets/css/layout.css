@@ -67,8 +67,12 @@
     text-align: right;
 }
 
-.l-block:first-child {
+.l-block-top-padding-small {
     padding-top: 2rem;
+}
+
+.l-block-top-padding-none {
+    padding-top: 0;
 }
 
 .l-block--dark {

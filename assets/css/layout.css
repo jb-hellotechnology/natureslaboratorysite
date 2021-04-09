@@ -2,7 +2,7 @@
 
 .l-wrap {
     /* max-width: 1280px; */
-    padding: 0 var(--side-padding);
+    padding: 0 var(--side-padding) 0 0.1rem;
     width: 100%;
 }
 

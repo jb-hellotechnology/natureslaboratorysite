@@ -932,6 +932,12 @@ blockquote {
     gap: 0.7rem;
 }
 
+.c-search__result-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 /* Animations */
 
 .c-animated {

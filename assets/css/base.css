@@ -136,7 +136,7 @@ body.no-scroll {
     }
 
     blockquote p {
-        font-size: var(--size-500);
+        /* font-size: var(--size-500); */
         max-width: 40ch;
     }
 }

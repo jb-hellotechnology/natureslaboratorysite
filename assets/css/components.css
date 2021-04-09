@@ -286,10 +286,15 @@
 .c-search {
     display: flex;
     gap: 5px;
+    padding-left: 1rem;
 }
 
 .c-search__input, .c-search__submit {
     padding: 0.2rem;
+}
+
+.c-hamburger__search .c-search {
+    padding: 0;
 }
 
 .c-hero {

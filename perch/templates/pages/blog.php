@@ -43,6 +43,14 @@ if (perch_blog_post_field(perch_get('s'), 'heroImage', true)) {
 <main>
 	<div class="l-block">
 			<?php
+			function postListBefore() {
+				echo '<div class="l-row">';
+				echo '<div class="col-lg-6 col-md-8 col-sm-10 col-centered col-12 c-posts">';
+			}
+
+			function postListAfter() {
+				echo "</div></div>";
+			}
 
 			if (perch_get('s')) {
 				perch_blog_post(perch_get('s'));
@@ -54,6 +62,8 @@ if (perch_blog_post_field(perch_get('s'), 'heroImage', true)) {
 					'template' => 'search-result.html'
 				));
 			} else if (perch_get("section")) {
+				
+				postListBefore();
 				perch_blog_custom(array(
 					'count'      => 10,
 					'template'   => 'post_in_list.html',
@@ -64,7 +74,9 @@ if (perch_blog_post_field(perch_get('s'), 'heroImage', true)) {
 						'section' => perch_get("section")
 					]
 				));
+				postListAfter();
 			} else if (perch_get("tag")) {
+				postListBefore();
 				perch_blog_custom(array(
 					'count'      => 10,
 					'template'   => 'post_in_list.html',
@@ -75,6 +87,7 @@ if (perch_blog_post_field(perch_get('s'), 'heroImage', true)) {
 						'section' => 'post'
 					]
 				));
+				postListAfter();
 			} else {
 				perch_blog_sections(array(
 					"template" => "section_list.html",

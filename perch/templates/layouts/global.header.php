@@ -27,17 +27,18 @@
 		<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 	</noscript>
 	<link rel="stylesheet" href="/assets/css/base.css?v=<?php echo rand(); ?>">
+	<link rel="stylesheet" href="/assets/css/layout.css?v=<?php echo rand(); ?>">
+	<link rel="stylesheet" href="/assets/css/components.css?v=<?php echo rand(); ?>">
 	<link rel="stylesheet" href="/assets/css/stylesheet.css?v=<?php echo rand(); ?>">
 </head>
 
 <body>
-	<div class="l-wrap l-wrap--bg-secondary l-sticky-top l-border-bottom-grey">
+	<div class="l-wrap l-wrap--bg-white l-sticky-top l-border-bottom-grey">
 		<nav class="l-restrict c-banner">
-			<a href="/" class="c-banner__logo">
-				<h3 class="title-small">
-					NL
-				</h3>
-			</a>
+			<?php
+				perch_content_create("Logo", ["template" => "banner_logo.html"]);
+				perch_content("Logo");
+			?>
 			<div class="c-navigation" data-breakpoint="768" data-type="dynamic">
 				<?php
 					perch_pages_navigation(array(
@@ -59,6 +60,5 @@
 			</div>
 
 		</nav>
-	</div>
-		
-	<div class="wrap">
+	</div>	
+	

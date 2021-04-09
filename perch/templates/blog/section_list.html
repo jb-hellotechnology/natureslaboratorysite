@@ -1,13 +1,13 @@
 <perch:before>
-<div class="sectionList">
+<div class="c-section-cards l-row">
 </perch:before>
-<div class="section">
-	<a href="/blog/<perch:blog id="sectionSlug" />">
-		<div style="background-image: url(<perch:blog id="image" type="image" >)" class="background">
-			<div class="wipe">
-				<p><perch:blog id="sectionDescription" /></p>
+<div class="c-section-card">
+	<a class="c-section-card__link" href="/blog/<perch:blog id="sectionSlug" />">
+		<div style="background-image: url(<perch:blog id="image" type="image" >)" class="c-section-card__background">
+			<div class="c-section-card__description-wrapper">
+				<p class="c-section-card__description"><perch:blog id="sectionDescription" /></p>
 			</div>
-			<h4><perch:blog id="sectionTitle" /></h4>
+			<h4 class="c-section-card__title"><perch:blog id="sectionTitle" /></h4>
 		</div>
 	</a>
 </div>

@@ -1,21 +1,29 @@
 <perch:before>
-<ul class="hfeed listing">
+    <ul class="c-posts__list">
 </perch:before>
-    <li class="hentry">
-        <h2><a href="/blog/<perch:blog id="section">/<perch:blog id="postSlug">" rel="bookmark" class="entry-title"><perch:blog id="postTitle" /></a></h2>
-        <div class="post-details list">
-            <perch:template path="blog/post_details.html" />
-        </div>
-        <perch:layout path="tags" slug="<perch:blog id="postSlug">"/>
-        <div class="description entry-summary">
+<li class="c-post-small">
+    <h2 class="c-post-small__title">
+        <a href="/blog/<perch:blog id="section">/<perch:blog id="postSlug">" 
+            rel="bookmark"
+            class="c-post-small__title-link">
+                <perch:blog id="postTitle" />
+        </a>
+    </h2>
+    <div class="c-post-details">
+        <perch:template path="blog/post_details.html" />
+    </div>
+    <perch:layout path="tags" slug="<perch:blog id="postSlug">"/>
+    <div class="c-post-small__description">
         <perch:blog id="excerpt" type="textarea" textile="true" />
-        </div>
-    </li>
+    </div>
+</li>
 <perch:after>
     </ul>
     <perch:if exists="paging">
         <div class="paging">
-            Page <perch:blog id="current_page" /> of <perch:blog id="number_of_pages" />
+            Page
+            <perch:blog id="current_page" /> of
+            <perch:blog id="number_of_pages" />
             <perch:blog id="page_links" encode="false" />
             <perch:if exists="not_first_page">
                 <a href="<perch:blog id="prev_url" encode="false" />">Previous</a>

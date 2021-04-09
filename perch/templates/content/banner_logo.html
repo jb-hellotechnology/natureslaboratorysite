@@ -1,0 +1,9 @@
+<perch:if exists="logo">
+    <a href="/" class="c-banner__logo">
+        <img class="c-banner__logo-img" src="<perch:content type="image" id="logo" label="Logo" height="100">" alt="logo">
+    </a>
+<perch:else>
+    <a href="/" class="c-banner__logo">
+        <h3 class="title-small"><perch:content id="logoText" label="Text Logo" type="text"></h3>
+    </a>
+</perch:if>

@@ -1,30 +1,61 @@
+
 <perch:blocks>
     <perch:block label="Text" type="text">
-        <div class="restrict narrow flow">
-            <perch:content type="textarea" id="text" editor="redactor" lable="Text" html/>
+        <div class="l-block l-block--top-padding-<perch:content type="select" label="No Top Padding" options="normal, small, none" id="top-padding">">
+            <div class="l-row">
+                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-centered l-flow c-animated c-animated--<perch:content type="select" id="animation" label="Animation" options="none, fade-up, fade-down, fade-left, fade-right">">
+                    <perch:content type="textarea" id="text" editor="redactor" lable="Text" html/>
+                </div>  
+            </div>
         </div>
     </perch:block>
 
     <perch:block label="Cards" type="cards">
-        <perch:repeater label="Card Container" type="container" max="3">
-            <perch:before><div class="cards restrict"></perch:before>
-                <div class="card">
-                    <img src="<perch:content label="Card Image" type="image" height="300" width="300" crop="true" id="image" />" alt="<perch:content type="text" label="Card Image Alt" id="image-alt">">
-                    <div class="card-content">
-                        <div class="card-text">
-                            <h2><perch:content type="text" label="Card Title" id="title" /></h2>
-                            <p><perch:content type="textarea" label="Card Text" id="text" count="words" /></p>
-                        </div>
-                        <perch:if exists="link">
-                            <a href="<perch:content type="text" id="link" label="Link" />" target="_blank">
-                                <button class="btn">
-                                    <perch:content type="text" id="link-label" label="Link Label" />
-                                </button>
-                            </a>
-                        </perch:if>
+        <div class="l-block l-block--top-padding-<perch:content type="select" label="No Top Padding" options="normal, small, none" id="top-padding">">
+            <div class="l-row">
+                <div class="col-12 col-sm-10 col-centered">
+                    <perch:repeater label="Card Container" type="container" max="3">
+                        <perch:before><div class="c-cards"></perch:before>
+                            <div class="c-card">
+                                <img class="c-card__img" src="<perch:content label="Card Image" type="image" height="300" width="300" crop="true" id="image" />" alt="<perch:content type="text" label="Card Image Alt" id="image-alt">">
+                                <div class="c-card__content">
+                                    <h3 class="c-card__title"><perch:content type="text" label="Card Title" id="title" /></h3>
+                                    <p class="c-card__text"><perch:content type="textarea" label="Card Text" id="text" count="words" /></p>
+                                    
+                                    <perch:if exists="link">
+                                        <a class="c-card__button-link" href="<perch:content type="text" id="link" label="Link" />" target="_blank">
+                                            <button class="c-button">
+                                                <perch:content type="text" id="link-label" label="Link Label" />
+                                            </button>
+                                        </a>
+                                    </perch:if>
+                                </div>
+                            </div>
+                        <perch:after></div></perch:after>
+                    </perch:repeater>
+                </div>
+            </div>
+        </div>
+    </perch:block>
+
+    <perch:block label="Left-Right Text" type="left-right-text">
+        <perch:repeater label="Blocks" type="block-container">
+            <div class="l-block l-block--top-padding-<perch:content type="select" label="No Top Padding" options="normal, small, none" id="top-padding"> l-block--<perch:content type="select" label="Style" options="white, light-grey, dark" id="style">">
+                <div class="l-row">
+                    <div class="l-block__content col-12 col-md-8 col-centered">
+                        <section class="c-section <perch:every nth-child="even">c-section--right</perch:every>  c-animated c-animated--fade-<perch:every nth-child="even">right<perch:else>left</perch:every> show">
+                            <div class="c-page-link c-section__title">
+                                <h3><perch:content type="text" id="title" label="Heading"></h3>
+                            </div>
+                            <div class="c-section__content">
+                                <p>
+                                    <perch:content id="sectionContent" type="textarea" label="Content"> 
+                                </p>
+                            </div>
+                        </section>
                     </div>
                 </div>
-            <perch:after></div></perch:after>
+            </div>
         </perch:repeater>
     </perch:block>
 
@@ -34,5 +65,106 @@
                 <perch:content label="Heading" id="heading" type="text" />
             </h1>
 		</div>
+    </perch:block>
+
+    <perch:block label="Threes Table" type="table">
+        <div class="l-block l-block--top-padding-<perch:content type="select" label="No Top Padding" options="normal, small, none" id="top-padding"> l-block--<perch:content type="select" label="Style" options="white, light-grey, dark" id="style">">
+            <div class="l-row">
+                <div class="c-section c-threes-table col-12 col-sm-10 col-md-8 col-lg-8 col-xl-12 col-centered">
+                    <h2 class="c-section__title"><perch:content id="title" label="Company" type="text" ></h2>
+                    <p class="c-threes-table__description">
+                        <perch:content type="textarea" label="Company Decription" id="description">
+                    </p>
+                    <div class="c-threes-table__table">
+                        <div class="c-threes-table__heading">
+                            
+                        </div>
+                        <div class="c-threes-table__heading">
+                            Economic
+                        </div>
+                        <div class="c-threes-table__heading">
+                            Social
+                        </div>
+                        <div class="c-threes-table__heading">
+                            Cultural/Spiritual
+                        </div>
+                        <perch:repeater label="Companies" type="companies">
+                            <div class="c-threes-table__company">
+                                <h4 class="c-threes-table__company-name">
+                                    <perch:content id="companyName" label="Company Name" type="text">
+                                </h4>
+                                <perch:if exists="logo">
+                                    <img class="c-threes-table__logo" src="<perch:content type="image" id="logo" label="Logo" height="100" crop>" alt="<perch:content id="companyName">" >
+                                </perch:if>
+                                <div class="c-threes-table__company-details">
+                                    <perch:if exists="companyEmail">
+                                        <p class="c-threes-table__phone c-threes-table__detail"><i class="fas fa-envelope c-threes-table__icon"></i></p>
+                                        <p class="c-threes-table__email c-threes-table__detail">
+                                            <perch:content id="companyEmail" label="Company Email" type="text">
+                                        </p>
+                                    </perch:if>
+                                    <perch:if exists="companyPhone">
+                                        <p class="c-threes-table__phone c-threes-table__detail"><i class="fas fa-phone-square-alt c-threes-table__icon"></i></p>
+                                        <p class="c-threes-table__phone c-threes-table__detail">
+                                            <perch:content id="companyPhone" label="Company Phone" type="text">
+                                        </p>
+                                    </perch:if>
+                                    <perch:if exists="companyWebsite">
+                                        <p class="c-threes-table__phone c-threes-table__detail"><i class="fas fa-globe c-threes-table__icon"></i></p>
+                                        <a href="<perch:content id="companyWebsite" label="Company Website" type="text">">
+                                            <p class="c-threes-table__website c-threes-table__detail">
+                                                <perch:content id="companyWebsite">
+                                            </p>
+                                        </a>
+                                    </perch:if>
+                                    <perch:if exists="companyAddress1">
+                                        <p class="c-threes-table__phone c-threes-table__detail"><i class="fas fa-address-card c-threes-table__icon"></i></p>
+                                    </perch:if>
+                                    <div class="c-threes-table__address-content">
+                                        <perch:if exists="companyAddress1">
+                                            <p class="c-threes-table__detail">
+                                                <perch:content id="companyAddress1" label="Address Line 1" type="text">
+                                            </p>
+                                        </perch:if>
+                                        <perch:if exists="companyAddress2">
+                                            <p class="c-threes-table__detail">
+                                                <perch:content id="companyAddress2" label="Address Line 2" type="text">
+                                            </p>
+                                        </perch:if>
+                                        <perch:if exists="companyAddress3">
+                                            <p class="c-threes-table__detail">
+                                                <perch:content id="companyAddress3" label="City" type="text">
+                                            </p>
+                                        </perch:if>
+                                        <perch:if exists="companyAddress4">
+                                            <p class="c-threes-table__detail">
+                                                <perch:content id="companyAddress4" label="County" type="text">
+                                            </p>
+                                        </perch:if>
+                                        <perch:if exists="companyAddress5">
+                                            <p class="c-threes-table__detail">
+                                                <perch:content id="companyAddress5" label="Postcode" type="text">
+                                            </p>
+                                        </perch:if>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="c-threes-table__cell">
+                                <h4 class="c-threes-table__cell-mobile-title">Economic</h4>
+                                <perch:content id="companyEconomic" label="Economic" type="textarea">
+                            </div>
+                            <div class="c-threes-table__cell">
+                                <h4 class="c-threes-table__cell-mobile-title">Social</h4>
+                                <perch:content id="companySocial" label="Social" type="textarea">
+                            </div>
+                            <div class="c-threes-table__cell">
+                                <h4 class="c-threes-table__cell-mobile-title">Cultural/Spiritual</h4>
+                                <perch:content id="companyCultural" label="Cultural" type="textarea">
+                            </div>
+                        </perch:repeater>
+                    </div>
+                </div>
+            </div>
+        </div>
     </perch:block>
 </perch:blocks>

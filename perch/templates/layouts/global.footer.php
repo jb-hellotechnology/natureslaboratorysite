@@ -1,6 +1,6 @@
-	</div>
-	<footer>
-		<div class="restrict">
+
+	<footer class="c-footer">
+		<div class="l-restrict">
 			<p class="copyright">&copy; 2021</p>
 		</div>
 	</footer>

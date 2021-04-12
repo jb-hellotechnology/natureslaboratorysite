@@ -1,4 +1,4 @@
-<perch:before><ul class="c-navbar"></perch:before>
+<perch:before><ul class="c-navbar c-navbar--centered"></perch:before>
 <li 
     class="<perch:if exists="current_page">selected </perch:if>
             <perch:if exists="ancestor_page">ancestor </perch:if>
@@ -18,8 +18,5 @@
     <perch:pages id="subitems" encode="false"/>
 </li>
 <perch:after>
-    <li class="c-navbar__element c-navbar__search">
-        <perch:template path="/content/search.html" />
-    </li>
 </ul>
 </perch:after>

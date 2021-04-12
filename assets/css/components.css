@@ -324,6 +324,12 @@
     background: var(--primary-color);
     min-height: 350px;
     color: white;
+    justify-content: space-between;
+}
+
+.c-hero--integrated-nav .c-hero__title--small {
+    max-width: none;
+    margin-bottom: 100px;
 }
 
 .c-hero--integrated-nav .c-hamburger__button div {
@@ -431,6 +437,10 @@
         margin-top: 0.3rem;
     }
 
+    .c-hero--integrated-nav .c-hero__title--small {
+        margin-bottom: 50px;
+    }
+    
 
 }
 
@@ -446,6 +456,10 @@
     .c-hero--integrated-nav {
         display: flex;
         flex-direction: column;
+    }
+
+    .c-hero--integrated-nav .c-hero__title--small {
+        margin-bottom: 30px;
     }
 }
 

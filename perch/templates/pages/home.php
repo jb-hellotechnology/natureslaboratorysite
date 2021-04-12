@@ -47,23 +47,25 @@
             <li class="c-navigation-temp__element"><a class="c-navigation-temp__link" href="/join-us">Join Us</a></li>
             <li class="c-navigation-temp__element"><a class="c-navigation-temp__link" href="/contact">Contact</a></li>
         </ul> -->
-        <div class="c-navigation" data-breakpoint="768" data-type="dynamic">
-            <?php
-                perch_pages_navigation(array(
-                    'template' => array('topNavMain.html', 'topNavSub.html')
-                ));
-            ?>
-            <div class="c-hamburger hide">
-                <button class="c-hamburger__button">
-                    <div class="c-hamburger__line"></div>
-                    <div class="c-hamburger__line"></div>
-                    <div class="c-hamburger__line"></div>
-                </button>
+        <div class="l-restrict c-banner">
+            <div class="c-navigation" data-breakpoint="768" data-type="dynamic">
                 <?php
                     perch_pages_navigation(array(
-                        'template' => array('hamburgerMain.html', 'hamburgerSub.html')
-                    ))
+                        'template' => array('topNavMain.html', 'topNavSub.html')
+                    ));
                 ?>
+                <div class="c-hamburger hide">
+                    <button class="c-hamburger__button">
+                        <div class="c-hamburger__line"></div>
+                        <div class="c-hamburger__line"></div>
+                        <div class="c-hamburger__line"></div>
+                    </button>
+                    <?php
+                        perch_pages_navigation(array(
+                            'template' => array('hamburgerMain.html', 'hamburgerSub.html')
+                        ))
+                    ?>
+                </div>
             </div>
         </div>
         <div class="c-hero__title c-hero__title--no-bg">

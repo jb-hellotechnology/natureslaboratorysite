@@ -69,7 +69,7 @@
             </div>
         </div>
     <?php
-                perch_content_create("Home Content", ["template" => "home.html"]);
+                perch_content_create("Home Content", ["template" => "home.html"]); 
                 perch_content("Home Content");
             ?>
 <?php

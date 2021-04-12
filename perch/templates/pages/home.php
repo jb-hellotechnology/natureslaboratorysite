@@ -36,12 +36,12 @@
 <body>
     <header class="c-hero c-hero--integrated-nav c-hero--dark l-wrap">
         <ul class="c-navigation-temp l-restrict l-restrict--wide">
-            <li class="c-navigation-temp__element"><a class="c-navigation-temp__link" href="#">Home</a></li>
-            <li class="c-navigation-temp__element"><a class="c-navigation-temp__link" href="#">About Us</a></li>
-            <li class="c-navigation-temp__element"><a class="c-navigation-temp__link" href="#">Research</a></li>
-            <li class="c-navigation-temp__element"><a class="c-navigation-temp__link" href="#">Manufacturing</a></li>
-            <li class="c-navigation-temp__element"><a class="c-navigation-temp__link" href="#">Join Us</a></li>
-            <li class="c-navigation-temp__element"><a class="c-navigation-temp__link" href="#">Contact</a></li>
+            <li class="c-navigation-temp__element"><a class="c-navigation-temp__link" href="/">Home</a></li>
+            <li class="c-navigation-temp__element"><a class="c-navigation-temp__link" href="/about-us">About Us</a></li>
+            <li class="c-navigation-temp__element"><a class="c-navigation-temp__link" href="/research">Research</a></li>
+            <li class="c-navigation-temp__element"><a class="c-navigation-temp__link" href="/manufacturing">Manufacturing</a></li>
+            <li class="c-navigation-temp__element"><a class="c-navigation-temp__link" href="/join-us">Join Us</a></li>
+            <li class="c-navigation-temp__element"><a class="c-navigation-temp__link" href="/contact">Contact</a></li>
         </ul>
         <div class="c-hero__title c-hero__title--no-bg">
             <img src="/perch/resources/natures-lab-logono-bg.png" alt="Nature's Laboratory Logo" class="c-hero__title-logo">
@@ -53,20 +53,20 @@
     <div class="l-block">
         <div class="l-row c-home-top">
             <div class="c-home-top__logo-wrapper">
-                <a href="#" class="c-home-top__logo-link"><img class="c-home-top__logo" src="/perch/resources/herbalapothecary.jpg" alt="Herbal Apothecary"></a>
-                <a href="#" class="c-button c-button--centered c-home-top__button">Herbal Medicine</a>
+                <a href="https://herbalapothecaryuk.com/" class="c-home-top__logo-link"><img class="c-home-top__logo" src="/perch/resources/herbalapothecary.jpg" alt="Herbal Apothecary"></a>
+                <a href="https://herbalapothecaryuk.com/" class="c-button c-button--centered c-home-top__button">Herbal Medicine</a>
             </div>
             <div class="c-home-top__logo-wrapper">
-                <a href="#" class="c-home-top__logo-link"><img class="c-home-top__logo" src="/perch/resources/beevital.png" alt="Bee Vital"></a>
-                <a href="#" class="c-button c-button--centered c-home-top__button">Apiceuticals</a>
+                <a href="http://www.beevitalpropolis.com/" class="c-home-top__logo-link"><img class="c-home-top__logo" src="/perch/resources/beevital.png" alt="Bee Vital"></a>
+                <a href="http://www.beevitalpropolis.com/" class="c-button c-button--centered c-home-top__button">Apiceuticals</a>
             </div>
             <div class="c-home-top__logo-wrapper">
-                <a href="#" class="c-home-top__logo-link"><img class="c-home-top__logo" src="/perch/resources/sweet-cecilys-logo.svg" alt="Sweet Cecily's"></a>
-                <a href="#" class="c-button c-button--centered c-home-top__button">Natural Skincare</a>
+                <a href="https://www.sweetcecilys.com/" class="c-home-top__logo-link"><img class="c-home-top__logo" src="/perch/resources/sweet-cecilys-logo.svg" alt="Sweet Cecily's"></a>
+                <a href="https://www.sweetcecilys.com/" class="c-button c-button--centered c-home-top__button">Natural Skincare</a>
             </div>
             <div class="c-home-top__logo-wrapper">
-                <a href="#" class="c-home-top__logo-link"><img class="c-home-top__logo" src="/perch/resources/threes-company-logo-small.png" alt="Threes Company"></a>
-                <a href="#" class="c-button c-button--centered c-home-top__button">Threes Company</a>
+                <a href="http://www.threescompany.info/" class="c-home-top__logo-link"><img class="c-home-top__logo" src="/perch/resources/threes-company-logo-small.png" alt="Threes Company"></a>
+                <a href="http://www.threescompany.info/" class="c-button c-button--centered c-home-top__button">Threes Company</a>
             </div>
             <div class="c-home-top__intro" style="background-image: url(/perch/resources/beeonflower.jpeg)">
                 <div class="c-home-top__intro-mask">
@@ -102,8 +102,8 @@
                     Visit www.threescompany.info.
                 </p>
                 <div class="c-home-top__threes-buttons">
-                    <a href="#" class="c-button">FutureHealth</a>
-                    <a href="#" class="c-button">BeeArc</a>
+                    <a href="https://futurehealthstore.com/" class="c-button">FutureHealth</a>
+                    <a href="https://beearc.com/" class="c-button">BeeArc</a>
                 </div>
             </div>
         </div>

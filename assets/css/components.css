@@ -826,7 +826,7 @@ blockquote {
     top: 0px;
     left: 0px;
     /* clip-path: circle(0% at 0% 100%); */
-    background-color: var(--secondary-color);
+    /*background-color: var(--secondary-color);*/
     /* opacity: 0; */
     backdrop-filter: blur(0px) opacity(0%);
     width: 101%;

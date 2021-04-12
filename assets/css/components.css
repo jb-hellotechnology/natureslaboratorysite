@@ -37,6 +37,10 @@
     width: 100%;
 }
 
+.c-navbar--centered {
+    justify-content: center;
+}
+
 .c-navbar__element {
     position: relative;
     height: 100%;
@@ -58,6 +62,11 @@
 .c-navbar__link--hover-invert:hover {
     color: var(--secondary-color);
     background: var(--primary-color);
+}
+
+.c-hero--dark .c-navbar__link--hover-invert:hover {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
 }
 
 .c-navbar__link--vertical {
@@ -124,10 +133,10 @@
     height: 100%;
     display: flex;
     text-decoration: none;
-    color: var(--primary-color);
+    color: inherit;
     white-space: nowrap;
     text-align: right;
-    background: white;
+    background: inherit;
     align-items: center;
     padding: 0 1rem;
     justify-content: flex-end;
@@ -308,10 +317,17 @@
 }
 
 .c-hero--integrated-nav {
-    display: grid;
-    grid-template-rows: 1fr auto 1fr;
+    /* display: grid;
+    grid-template-rows: 1fr auto 1fr; */
+    display: flex;
+    flex-direction: column;
     background: var(--primary-color);
     min-height: 350px;
+    color: white;
+}
+
+.c-hero--integrated-nav .c-hamburger__button div {
+    background-color: white;
 }
 
 
@@ -342,11 +358,35 @@
     max-width: 20ch;
 }
 
-.c-navigation-temp {
+.c-navigation-temp__button {
+    display: block;
+}
+
+.c-navigation-temp__button.hide {
+    display: none;
+}
+
+.c-navigation-temp__list {
     display: flex;
     width: 100%;
     justify-content: center;
     gap: 2rem;
+}
+
+.c-navigation-temp__list.mobile {
+    position: absolute;
+    display: flex;
+    width: auto;
+    justify-content: center;
+    opacity: 1;
+    transition: 150ms;
+    right: 0px;
+    text-align: right;
+}
+
+.c-navigation-temp__list.mobile.hide {
+    display: none;
+    opacity: 0;
 }
 
 .c-navigation-temp__link {
@@ -370,9 +410,28 @@
         font-size: var(--size-700);
     }
 
-    .c-navigation-temp {
+    .c-navigation-temp__list {
         gap: 0;
+        align-self: flex-end;
     }
+    
+    .c-navigation-temp__list {
+        flex-direction: column;
+    }
+
+    .c-hero--integrated-nav {
+        display: flex;
+        flex-direction: column;
+        min-height: 180px;
+        padding-bottom: 2rem;
+    }
+
+    .c-button.c-navigation-temp__button {
+        align-self: flex-end;
+        margin-top: 0.3rem;
+    }
+
+
 }
 
 @media screen and (max-width: 522px) {
@@ -382,10 +441,6 @@
     }
     .c-hero__title--small {
         font-size: var(--size-600);
-    }
-
-    .c-navigation-temp {
-        flex-direction: column;
     }
 
     .c-hero--integrated-nav {

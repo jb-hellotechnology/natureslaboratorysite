@@ -76,6 +76,11 @@ h3 {
     line-height: var(--size-600);
 }
 
+h4 {
+    font-size: var(--size-500);
+    font-weight: bold;
+}
+
 q:before, q:after {
     content: '';
 }
@@ -106,7 +111,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: var(--secondary-color);
+    /* background-color: var(--secondary-color); */
     overflow-x: hidden;
 }
 

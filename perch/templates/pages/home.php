@@ -68,13 +68,6 @@
                 </div>
             </div>
         </div>
-        <div class="c-hero__title c-hero__title--no-bg">
-            <img src="/perch/resources/natures-lab-logono-bg.png" alt="Nature's Laboratory Logo" class="c-hero__title-logo">
-            <h1>
-                The Immunity Community
-            </h1>
-        </div>
-    </header>
     <?php
                 perch_content_create("Home Content", ["template" => "home.html"]);
                 perch_content("Home Content");

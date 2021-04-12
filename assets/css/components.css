@@ -1083,7 +1083,7 @@ blockquote {
 .c-home-top {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem 0;
+    gap: 4rem 0;
 }
 
 .c-home-top__logos {
@@ -1110,7 +1110,7 @@ blockquote {
     flex-direction: column;
     gap: 1rem;
     grid-column-start: 4;
-    max-width: 230px;
+    max-width: 280px;
     justify-self: center;
 }
 
@@ -1153,7 +1153,7 @@ blockquote {
 }
 
 
-@media screen and (max-width: 1110px) {
+@media screen and (max-width: 1260px) {
     .c-home-top {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr auto auto;

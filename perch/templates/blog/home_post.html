@@ -1,0 +1,18 @@
+
+<article class="c-article">
+    <h2 class="c-article__title"><perch:blog id="postTitle"></h2>
+    <p class="meta">
+        <div class="c-post-details">
+            <perch:template path="blog/post_details.html" />
+        </div>
+        <perch:layout path="tags" slug="<perch:blog id="postSlug">"/>
+    </p>
+    <perch:if exists="image">
+        <div>
+            <img src="<perch:blog id="authorImage" type="image" width="100" height="100" crop="true" label="Author Image" order="4" />" alt="<perch:blog id="authorGivenName" label="Author Name" type="text" />" />
+        </div>
+    </perch:if>
+    <div class="c-post l-flow">
+        <perch:template path="content/blocks/post_blocks.html" />
+    </div>
+</article>

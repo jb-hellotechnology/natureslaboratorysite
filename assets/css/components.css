@@ -1339,6 +1339,10 @@ blockquote {
     max-width: none;
 }
 
+.c-article__title {
+    margin-bottom: 1rem;
+}
+
 
 
 

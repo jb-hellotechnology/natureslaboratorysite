@@ -826,6 +826,10 @@ blockquote {
     gap: 20px;
 }
 
+.c-section-card {
+    position: relative;
+}
+
 .c-section-card__background {
     height: 250px;
     background-position: center;
@@ -852,6 +856,18 @@ blockquote {
     color: var(--primary-color);
     padding: 20px;
     z-index: 10;
+    font-size: var(--size-500);
+}
+
+.c-section-card__overlay {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    /* background-color: var(--secondary-color); */
+    transition: 400ms ease;
+    backdrop-filter: blur(0px);
 }
 
 
@@ -859,20 +875,21 @@ blockquote {
     position: absolute;
     top: 0px;
     left: 0px;
-    /* clip-path: circle(0% at 0% 100%); */
-    /*background-color: var(--secondary-color);*/
-    /* opacity: 0; */
-    backdrop-filter: blur(0px) opacity(0%);
-    width: 101%;
+    width: 100%;
     height: 100%;
+    background-color: rgba(255, 255, 255, 0.274);
     pointer-events: none;
     transition: 400ms ease-out;
+    opacity: 0;
 }
 
 .c-section-card__background:hover .c-section-card__description-wrapper {
-    /* clip-path: circle(150% at 0% 100%); */
-    backdrop-filter: opacity(80%);
     opacity: 1;
+}
+
+.c-section-card__background:hover .c-section-card__overlay {
+    opacity: 1;
+    backdrop-filter: blur(7px);
 }
 
 .c-section-card__background:hover .c-section-card__title {

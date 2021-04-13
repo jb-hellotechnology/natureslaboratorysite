@@ -334,6 +334,7 @@
     grid-template-rows: 1fr auto 1fr; */
     display: flex;
     flex-direction: column;
+    padding-bottom: 3rem;
     background-color: var(--primary-color);
     min-height: 350px;
     color: white;
@@ -342,7 +343,6 @@
 
 .c-hero--integrated-nav .c-hero__title--small {
     max-width: none;
-    margin-bottom: 100px;
 }
 
 .c-hero--integrated-nav .c-hamburger__button div {
@@ -351,16 +351,19 @@
 
 
 
-.c-hero__title {
+.c-hero__title-wrapper {
     background: rgba(0, 0, 0, 0.356);
     color: white;
     padding: 1rem;
-    font-size: var(--size-900);
     text-align: center;
     margin: 2rem var(--side-padding);
     display: flex;
     align-items: center;
     z-index: 10;
+}
+
+.c-hero__title {
+    font-size: var(--size-900);
 }
 
 .c-hero__bg-mask {
@@ -372,7 +375,7 @@
     background-color: rgba(0, 0, 0, 0.192);
 }
 
-.c-hero__title--no-bg {
+.c-hero__title-wrapper--no-bg {
     background: none;
 }
 
@@ -433,6 +436,7 @@
 @media screen and (max-width: 798px) {
     .c-hero__title {
         font-size: var(--size-800);
+        line-height: var(--size-800);
     }
 
     .c-hero__title--small {
@@ -461,19 +465,22 @@
     }
 
     .c-hero--integrated-nav .c-hero__title--small {
-        margin-bottom: 50px;
     }
     
-
-}
-
-@media screen and (max-width: 522px) {
-    .c-hero__title {
-        font-size: var(--size-700);
+    .c-hero__title-wrapper {
         flex-direction: column;
         margin: 0;
         gap: 0.5rem;
     }
+
+}
+
+@media screen and (max-width: 522px) {
+
+    .c-hero__title {
+        font-size: var(--size-700);
+    }
+
     .c-hero__title--small {
         font-size: var(--size-600);
     }
@@ -484,7 +491,6 @@
     }
 
     .c-hero--integrated-nav .c-hero__title--small {
-        margin-bottom: 30px;
     }
 }
 

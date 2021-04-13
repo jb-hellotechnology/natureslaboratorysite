@@ -35,6 +35,8 @@
 <body>	
 	<?php
 		perch_content_create("Header", ["template" => "header.html"]);
+		perch_content_create("Icon", ["template" => "banner_logo.html"]);
+		perch_content("Icon");
 
 		$options = [
 			"data" => []

@@ -1,7 +1,7 @@
 
 <perch:blocks>
     <perch:block label="Text" type="text">
-        <div class="l-block l-block--top-padding-<perch:content type="select" label="No Top Padding" options="normal, small, none" id="top-padding">">
+        <div class="l-block l-block--top-padding-<perch:content type="select" label="Top Padding" options="normal, small, none" id="top-padding">">
             <div class="l-row">
                 <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-centered l-flow c-animated c-animated--<perch:content type="select" id="animation" label="Animation" options="none, fade-up, fade-down, fade-left, fade-right">">
                     <perch:content type="textarea" id="text" editor="redactor" lable="Text" html/>
@@ -11,7 +11,7 @@
     </perch:block>
 
     <perch:block label="Cards" type="cards">
-        <div class="l-block l-block--top-padding-<perch:content type="select" label="No Top Padding" options="normal, small, none" id="top-padding">">
+        <div class="l-block l-block--top-padding-<perch:content type="select" label="Top Padding" options="normal, small, none" id="top-padding">">
             <div class="l-row">
                 <div class="col-12 col-sm-10 col-centered">
                     <perch:repeater label="Card Container" type="container" max="3">
@@ -40,7 +40,7 @@
 
     <perch:block label="Left-Right Text" type="left-right-text">
         <perch:repeater label="Blocks" type="block-container">
-            <div class="l-block l-block--top-padding-<perch:content type="select" label="No Top Padding" options="normal, small, none" id="top-padding"> l-block--<perch:content type="select" label="Style" options="white, light-grey, dark" id="style">">
+            <div class="l-block l-block--top-padding-<perch:content type="select" label="Top Padding" options="normal, small, none" id="top-padding"> l-block--<perch:content type="select" label="Style" options="white, light-grey, dark" id="style">">
                 <div class="l-row">
                     <div class="l-block__content col-12 col-md-8 col-centered">
                         <section class="c-section <perch:every nth-child="even">c-section--right</perch:every>  c-animated c-animated--fade-<perch:every nth-child="even">right<perch:else>left</perch:every> show">
@@ -68,7 +68,7 @@
     </perch:block>
 
     <perch:block label="Threes Table" type="table">
-        <div class="l-block l-block--top-padding-<perch:content type="select" label="No Top Padding" options="normal, small, none" id="top-padding"> l-block--<perch:content type="select" label="Style" options="white, light-grey, dark" id="style">">
+        <div class="l-block l-block--top-padding-<perch:content type="select" label="Top Padding" options="normal, small, none" id="top-padding"> l-block--<perch:content type="select" label="Style" options="white, light-grey, dark" id="style">">
             <div class="l-row">
                 <div class="c-section c-threes-table col-12 col-sm-10 col-md-8 col-lg-8 col-xl-12 col-centered">
                     <h2 class="c-section__title"><perch:content id="title" label="Company" type="text" ></h2>
@@ -169,7 +169,7 @@
     </perch:block>
 
     <perch:block type="contactForm" label="Contact Form">
-        <div class="l-block l-block--top-padding-<perch:content type="select" label="No Top Padding" options="normal, small, none" id="top-padding"> l-block--<perch:content type="select" label="Style" options="white, light-grey, dark" id="style">">
+        <div class="l-block l-block--top-padding-<perch:content type="select" label="Top Padding" options="normal, small, none" id="top-padding"> l-block--<perch:content type="select" label="Style" options="white, light-grey, dark" id="style">">
             <section class="c-section">
                 <div class="c-section__content l-flow l-flow--roomy">
                     <div class="l-row">

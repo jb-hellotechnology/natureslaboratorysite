@@ -34,6 +34,8 @@
 
 <body>	
 	<?php
+		perch_content_create("Header", ["template" => "header.html"]);
+
 		if (perch_layout_var("title", true) && perch_layout_var("hero", true)) {
 			perch_content_custom("Header", [
 				"data" => [

@@ -36,27 +36,18 @@
 	<?php
 		perch_content_create("Header", ["template" => "header.html"]);
 
-		if (perch_layout_var("title", true) && perch_layout_var("hero", true)) {
-			perch_content_custom("Header", [
-				"data" => [
-					"customTitle" => perch_layout_var("title", true),
-					"customHero" => perch_layout_var("hero", true)
-				]
-			]);
-		} else if (perch_layout_var("title", true)) {
-			perch_content_custom("Header", [
-				"data" => [
-					"customTitle" => perch_layout_var("title", true)
-				]
-			]);
-		} else if (perch_layout_var("hero", true)) {
-			perch_content_custom("Header", [
-				"data" => [
-					"customHero" => perch_layout_var("hero", true)
-				]
-			]);
-		} else {
-			perch_content("Header");
+		$options = [
+			"data" => []
+		];
+		
+		if (perch_layout_var("title", true)) {
+			$options["data"]["customTitle"] = perch_layout_var("title", true);
 		}
+		
+		if (perch_layout_var("hero", true)) {
+			$options["data"]["customHero"] = perch_layout_var("hero", true);
+		}
+
+		perch_content_custom("Header", $options);
 	?>
 	

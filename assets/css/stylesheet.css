@@ -21,20 +21,42 @@
 }
 
 .c-navbar {
-    /* gap: 1rem; */
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 0.3rem 0;
+    align-items: center;
 }
 
 .c-navigation {
+    justify-content: space-between;
+    margin: 0.3rem 0;
+    height: auto;
 }
 
 .c-banner {
-    height: 40px;
+    height: auto;
     width: 100%;
+    position: relative;
+}
+
+.c-banner__logo {
+    margin: 0;
+}
+
+.c-banner__logo.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.c-banner__logo-img {
+    max-width: 140px;
+    z-index: 15;
 }
 
 .c-navbar__element {
     border-right: 1px solid white;
-    margin: 0.3rem 0;
     height: auto;
 }
 
@@ -50,6 +72,10 @@
 .c-navbar__link:hover {
     color: var(--theme);
     background-color: white;
+}
+
+.c-hamburger {
+    margin-left: auto;
 }
 
 .c-hamburger__button {

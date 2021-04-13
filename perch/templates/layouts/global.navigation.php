@@ -1,6 +1,13 @@
 <div class="l-restrict c-banner">
     <div class="c-navigation" data-breakpoint="768" data-type="dynamic">
+        
         <?php
+        $isHome = false;
+        if ($_SERVER["REQUEST_URI"] == "/") {
+            $isHome = true;
+        }
+        perch_content_custom("Icon", ["data" => ["isHome" => $isHome]]);
+        
         perch_pages_navigation(array(
             'template' => array('topNavMain.html', 'topNavSub.html')
         ));

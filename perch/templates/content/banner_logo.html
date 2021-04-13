@@ -1,5 +1,5 @@
 <perch:if exists="logo">
-    <a href="/" class="c-banner__logo">
+    <a href="/" class="c-banner__logo <perch:if id="isHome" value={true}>hide</perch:if>">
         <img class="c-banner__logo-img" src="<perch:content type="image" id="logo" label="Logo" height="100">" alt="logo">
     </a>
 <perch:else>

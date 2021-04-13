@@ -167,4 +167,44 @@
             </div>
         </div>
     </perch:block>
+
+    <perch:block type="contactForm" label="Contact Form">
+        <div class="l-block l-block--top-padding-<perch:content type="select" label="No Top Padding" options="normal, small, none" id="top-padding"> l-block--<perch:content type="select" label="Style" options="white, light-grey, dark" id="style">">
+            <section class="c-section">
+                <div class="c-section__content l-flow l-flow--roomy">
+                    <div class="l-row">
+                        <div class="col col-12 col-md-6 col-centered">
+				        <perch:form id="contact" method="post" app="perch_forms" class="c-form">
+                            <div class="c-form-section">
+                                <h4 class="c-form-section__title">
+                                    <strong>Get In Touch</strong>
+                                </h4>
+                                <div class="c-form-section__inputs">
+                                    <div class="c-form-input">
+                                        <label for="name" class="c-form-input__label">Name</label>
+                                        <perch:input type="name" placeholder="Your Name" id="name" class="c-form-input__input">
+                                    </div>
+                                    <div class="c-form-input">
+                                        <label for="email" class="c-form-input__label">Email</label>
+                                        <perch:input type="email" placeholder="Your Email" id="email" autocomplete="email" class="c-form-input__input">
+                                    </div>
+                                    <div class="c-form-input">
+                                        <label for="message" class="c-form-input__label">Message</label>
+                                        <perch:input type="textarea" class="c-form-input__textarea" id="message">
+                                    </div>
+                                </div>
+                            </div>
+                            <perch:input type="submit" id="submit" value="Submit" class="c-button" />
+                            <perch:success>
+                                <p class="success">
+                                    <perch:content id="success" type="text" label="Thank you message" />
+                                </p>
+                            </perch:success>
+                        </perch:form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </perch:block>
 </perch:blocks>

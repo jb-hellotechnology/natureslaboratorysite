@@ -344,7 +344,7 @@
 }
 
 .c-hero--integrated-nav .c-hero__title--small {
-    max-width: none;
+    max-width: 30ch;
 }
 
 .c-hero--integrated-nav .c-hamburger__button div {

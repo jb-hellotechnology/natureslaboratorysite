@@ -54,7 +54,7 @@ perch_layout('global.header', array(
 	?>
 <!-- </header> -->
 <main>
-	<div class="l-block">
+	<div class="l-block l-block--top-padding-small">
 			<?php
 			function postListBefore() {
 				echo '<div class="l-row">';

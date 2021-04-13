@@ -69,11 +69,11 @@
     text-align: right;
 }
 
-.l-block-top-padding-small {
+.l-block--top-padding-small {
     padding-top: 2rem;
 }
 
-.l-block-top-padding-none {
+.l-block--top-padding-none {
     padding-top: 0;
 }
 

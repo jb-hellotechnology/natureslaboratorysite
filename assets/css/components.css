@@ -1157,22 +1157,28 @@ blockquote {
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas: "logo" "logo" "button";
     border-right: 1px solid rgb(175, 175, 175);
-    justify-content: center;
     align-items: center;
+
 }
 
 .c-home-top__logo-link {
     grid-area: logo;
+    display: flex;
+    align-items: center;
+    width: min(230px, 100%);
+    margin: 0 auto;
 }
 
 .c-home-top__logo {
     max-width: 230px;
-    width: 100%;
+    width: min(230px, 100%);
     padding: 1rem 0;
 }
 
 .c-home-top__button {
     grid-area: button;
+    width: min(230px, 100%);
+    margin: 0 auto;
 }
 
 
@@ -1180,7 +1186,7 @@ blockquote {
     .c-home-top {
         padding-top: 0;
     }
-    
+
     .c-home-top__grid {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr auto auto;
@@ -1217,6 +1223,15 @@ blockquote {
         padding: 1rem;
         /* grid-column: auto; */
     }
+
+    .c-home-top__logo-link {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
 
     .c-home-top__intro {
         background-position: 30%;

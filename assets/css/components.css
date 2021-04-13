@@ -471,6 +471,8 @@
     .c-hero__title {
         font-size: var(--size-700);
         flex-direction: column;
+        margin: 0;
+        gap: 0.5rem;
     }
     .c-hero__title--small {
         font-size: var(--size-600);

@@ -1,15 +1,22 @@
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/perch/runtime.php'); ?>
 <?php
-// echo $_SERVER['QUERY_STRING'];
-perch_layout('global.header');
-// Decides to show either the default hero or specific blog hero image
-// Need to add different options for the different sections?
+
+$title;
+if (perch_get('s')) {
+	$title = perch_blog_post_field(perch_get('s'), 'postTitle', true);
+} else if (perch_get('q')) {
+	$title = "Search";
+} else if (perch_get('section')) {
+	perch_blog_section(perch_get("section"), array(
+		"template" => "section_title.html"
+	), true);
+} else {
+	$title = 'The Nature\'s Laboratory Blog';
+}
+
 perch_content_create("Default Hero Image", array(
 	"template" => 'blog_hero.html'
 ));
-// perch_content_create("Sections", array(
-// 	"template" => "section.html"
-// ));
 
 $heroImageUrl = perch_content("Default Hero Image", true);
 $category = "blog/" . perch_get("section");
@@ -20,26 +27,32 @@ if (perch_blog_post_field(perch_get('s'), 'heroImage', true)) {
 		"template" => "section_image.html"
 	), true);;
 }
+
+perch_layout('global.header', array(
+	"title" => $title,
+	"hero" => $heroImageUrl
+));
+
 ?>
 
-<header class="c-hero" style="background-image: url(<?php echo $heroImageUrl; ?>)">
+<!-- <header class="c-hero" style="background-image: url(<?php //echo $heroImageUrl; ?>)"> -->
 	<?php
 	// Renders either the blog title or the default blog landing page title
-	echo '<h1 class="c-hero__title">';
-	if (perch_get('s')) {
-		perch_blog_post_field(perch_get('s'), 'postTitle');
-	} else if (perch_get('q')) {
-		echo "Search";
-	} else if (perch_get('section')) {
-		perch_blog_section(perch_get("section"), array(
-			"template" => "section_title.html"
-		));
-	} else {
-		echo 'The Nature\'s Laboratory Blog';
-	}
-	echo '</h1>';
+	// echo '<h1 class="c-hero__title">';
+	// if (perch_get('s')) {
+	// 	perch_blog_post_field(perch_get('s'), 'postTitle');
+	// } else if (perch_get('q')) {
+	// 	echo "Search";
+	// } else if (perch_get('section')) {
+	// 	perch_blog_section(perch_get("section"), array(
+	// 		"template" => "section_title.html"
+	// 	));
+	// } else {
+	// 	echo 'The Nature\'s Laboratory Blog';
+	// }
+	// echo '</h1>';
 	?>
-</header>
+<!-- </header> -->
 <main>
 	<div class="l-block">
 			<?php

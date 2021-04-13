@@ -5,6 +5,7 @@
     justify-content: space-between;
     align-items: center;
     height: 60px;
+    z-index: 20;
 }
 
 .c-banner__logo {
@@ -26,6 +27,7 @@
     height: 100%;
     width: 100%;
     justify-content: flex-end;
+    z-index: 10;
 }
 
 .c-navbar {
@@ -142,6 +144,16 @@
     justify-content: flex-end;
     width: 100%;
     box-sizing: border-box;
+}
+
+.c-navbar__sub-link--fixed-size, 
+.c-hamburger__link--fixed-size, 
+.c-hamburger__element-button--fixed-size, 
+.c-navbar__button--fixed-size,
+.c-navbar__link--fixed-size,
+.c-hamburger__sub-link--fixed-size {
+    padding: 0.5rem 1rem;
+    height: auto;
 }
 
 
@@ -314,6 +326,7 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.137);
+    position: relative;
 }
 
 .c-hero--integrated-nav {
@@ -321,7 +334,7 @@
     grid-template-rows: 1fr auto 1fr; */
     display: flex;
     flex-direction: column;
-    background: var(--primary-color);
+    background-color: var(--primary-color);
     min-height: 350px;
     color: white;
     justify-content: space-between;
@@ -347,6 +360,16 @@
     margin: 2rem var(--side-padding);
     display: flex;
     align-items: center;
+    z-index: 10;
+}
+
+.c-hero__bg-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.192);
 }
 
 .c-hero__title--no-bg {
@@ -1080,7 +1103,7 @@ blockquote {
     gap: 1rem;
 }
 
-.c-home-top {
+.c-home-top__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 4rem 0;
@@ -1155,6 +1178,10 @@ blockquote {
 
 @media screen and (max-width: 1260px) {
     .c-home-top {
+        padding-top: 0;
+    }
+    
+    .c-home-top__grid {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr auto auto;
         gap: 2rem;
@@ -1207,7 +1234,7 @@ blockquote {
 }
 
 @media screen and (max-width: 350px) {
-    .c-home-top {
+    .c-home-top__grid {
         grid-template-columns: 1fr;
         grid-template-rows: none;
         grid-auto-rows: auto;

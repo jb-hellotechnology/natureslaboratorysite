@@ -1,0 +1,29 @@
+
+<header class="c-hero c-hero--integrated-nav l-wrap" 
+
+style="background-image: url(
+    <perch:if exists="customHero">
+        <perch:content id="customHero">
+    <perch:else>
+        <perch:content label="Hero Image" type="image" id="mainHeroImage" height="700" width="2000" crop="true" />
+    </perch:if>
+)">
+    <perch:layout path="global.navigation">
+    <perch:content type="checkbox" label="Background Mask" id="bgMask" suppress="true">
+    <perch:if exists="bgMask">
+        <div class="c-hero__bg-mask"></div>
+    </perch:if>
+    <div class="c-hero__title c-hero__title--<perch:content type="select" id="hero_type" options="default, no-bg" label="Text Background">">
+        <perch:if exists="logo">
+            <img src="<perch:content id="logo" type="image" label="Nature's Laboratory Logo">" alt="Nature's Laboratory Logo" class="c-hero__title-logo">
+        </perch:if>
+        <h1>
+            <perch:if exists="customTitle">
+                <perch:content id="customTitle">
+            <perch:else>
+                <perch:content id="title" label="Title" type="text" />
+            </perch:if>
+        </h1>
+    </div>
+</header>
+

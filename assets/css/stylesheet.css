@@ -3,8 +3,83 @@
 :root {
     --secondary-color: #f3f3f3;
     --primary-color: #252525;
-    --seconday: rgb(56, 56, 56);
-    --theme: rgb(6, 107, 2);
+    --theme: #3E6F5E;
     --temp: rgb(206, 82, 0);
 }
 
+/* Component Overrides */
+
+.c-navbar__sub-link, 
+.c-hamburger__link, 
+.c-hamburger__element-button, 
+.c-navbar__button,
+.c-navbar__link,
+.c-hamburger__sub-link {
+    /* background-color: white;
+    color: var(--primary-color); */
+    height: 100%;
+}
+
+.c-navbar {
+    /* gap: 1rem; */
+}
+
+.c-navigation {
+}
+
+.c-banner {
+    height: 40px;
+    width: 100%;
+}
+
+.c-navbar__element {
+    border-right: 1px solid white;
+    margin: 0.3rem 0;
+    height: auto;
+}
+
+.c-navbar__link {
+    padding: 0.5rem 1rem;
+    height: auto;
+}
+
+.c-navbar__element:first-child {
+    border-left: 1px solid white;
+}
+
+.c-navbar__link:hover {
+    color: var(--theme);
+    background-color: white;
+}
+
+.c-hamburger__button {
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+    padding: 0.5rem 1rem;
+    height: auto;
+    color: white;
+}
+
+.c-hamburger__button:hover {
+    background-color: white;
+    color: var(--theme);
+}
+
+.c-hamburger__icon {
+    margin: -10px 0;
+    margin-left: 0.2rem;
+}
+
+.c-hero__bg-mask {
+    background-color: var(--theme);
+}
+
+.c-button {
+    background-color: var(--theme);
+    border: 1px solid var(--theme)
+}
+
+.c-button:hover {
+    background-color: white;
+    color: var(--theme)
+}

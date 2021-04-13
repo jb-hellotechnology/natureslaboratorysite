@@ -332,13 +332,15 @@
 .c-hero--integrated-nav {
     /* display: grid;
     grid-template-rows: 1fr auto 1fr; */
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 3rem;
+    display: grid;
+    grid-template-rows: 60px auto 60px;
+    grid-template-columns: 100%;
+    align-items: center;
+    justify-content: center;
     background-color: var(--primary-color);
     min-height: 350px;
     color: white;
-    justify-content: space-between;
+    width: 100%;
 }
 
 .c-hero--integrated-nav .c-hero__title--small {
@@ -360,6 +362,7 @@
     display: flex;
     align-items: center;
     z-index: 10;
+    justify-content: center;
 }
 
 .c-hero__title {

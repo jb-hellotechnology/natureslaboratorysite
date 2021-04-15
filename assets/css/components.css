@@ -1289,7 +1289,7 @@ blockquote {
     display: flex;
     flex-direction: column;
     gap: 4rem 0;
-    border-left: 2px solid black;
+    border-left: 2px solid var(--theme);
 }
 
 .c-timeline__block {
@@ -1314,7 +1314,7 @@ blockquote {
     background-color: white;
     grid-area: marker;
     margin: 0;
-    border: 2px solid black;
+    border: 2px solid var(--theme);
     transform: translateX(calc(-50% - 1px));
 }
 

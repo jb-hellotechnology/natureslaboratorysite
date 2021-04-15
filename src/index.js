@@ -4,7 +4,6 @@ import './header.js';
 import './parseTags';
 import './webAddress';
 import '@natureslaboratory/responsive-nav';
-import "./timeline";
 
 implementPreviewImage();
 implementWordCount();

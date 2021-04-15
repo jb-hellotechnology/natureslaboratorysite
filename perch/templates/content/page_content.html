@@ -168,39 +168,79 @@
         </div>
     </perch:block>
 
-    <perch:block type="contactForm" label="Contact Form">
+    <perch:block type="contactSection" label="Contact Section">
         <div class="l-block l-block--top-padding-<perch:content type="select" label="Top Padding" options="normal, small, none" id="top-padding"> l-block--<perch:content type="select" label="Style" options="white, light-grey, dark" id="style">">
             <section class="c-section">
                 <div class="c-section__content l-flow l-flow--roomy">
                     <div class="l-row">
-                        <div class="col col-12 col-md-6 col-centered">
-				        <perch:form id="contact" method="post" app="perch_forms" class="c-form">
-                            <div class="c-form-section">
-                                <h4 class="c-form-section__title">
-                                    <strong>Get In Touch</strong>
-                                </h4>
-                                <div class="c-form-section__inputs">
-                                    <div class="c-form-input">
-                                        <label for="name" class="c-form-input__label">Name</label>
-                                        <perch:input type="name" placeholder="Your Name" id="name" class="c-form-input__input">
-                                    </div>
-                                    <div class="c-form-input">
-                                        <label for="email" class="c-form-input__label">Email</label>
-                                        <perch:input type="email" placeholder="Your Email" id="email" autocomplete="email" class="c-form-input__input">
-                                    </div>
-                                    <div class="c-form-input">
-                                        <label for="message" class="c-form-input__label">Message</label>
-                                        <perch:input type="textarea" class="c-form-input__textarea" id="message">
+                        <div class="col col-12 col-md-12 col-lg-10 col-centered c-contact">
+                            <div class="c-contact__map-details">
+                                <div class="c-map">
+                                    <iframe class="c-map__iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
+                                    src="https://www.openstreetmap.org/export/embed.html?bbox=-0.5987656116485597%2C54.46772442414997%2C-0.5916845798492433%2C54.470474048830305&amp;layer=mapnik" 
+                                    >
+                                    </iframe><br/>
+                                    <small><a href="https://www.openstreetmap.org/#map=18/54.46910/-0.59523">View Larger Map</a></small>
+                                </div>
+                                <div class="c-contact-details">
+                                    <p class="c-contact-details__icon-wrapper"><i class="fas fa-phone c-contact-details__icon"></i></p>
+                                    <p>
+                                        <a class="c-contact-details__link" href="tel:+441947602346">+44 (0)1947 602346</a>
+                                    </p>
+                                    <p class="c-contact-details__icon-wrapper"><i class="fas fa-at c-contact-details__icon"></i></p>
+                                    <p>
+                                        <a class="c-contact-details__link" href="mailto:info@natureslaboratory.co.uk">info@natureslaboratory.co.uk</a>
+                                    </p>
+                                    <p class="c-contact-details__icon-wrapper"><i class="fas fa-address-card c-contact-details__icon"></i></p>
+                                    <div class="c-section__address">
+                                        <p>
+                                            Nature's Laboratory
+                                        </p>
+                                        <p>
+                                            Unit 3b
+                                        </p>
+                                        <p>
+                                            Enterprise Way,
+                                        </p>
+                                        <p>
+                                            North Yorkshire,
+                                        </p>
+                                        <p>
+                                            YO22 4NH,
+                                        </p>
+                                        <p>
+                                            United Kingdom
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                            <perch:input type="submit" id="submit" value="Submit" class="c-button" />
-                            <perch:success>
-                                <p class="success">
-                                    <perch:content id="success" type="text" label="Thank you message" />
-                                </p>
-                            </perch:success>
-                        </perch:form>
+                            <perch:form id="contact" method="post" app="perch_forms" class="c-form">
+                                <h4 class="c-form-section__title">
+                                    <strong>Get In Touch</strong>
+                                </h4>
+                                <div class="c-form-section">
+                                    <div class="c-form-section__inputs">
+                                        <div class="c-form-input">
+                                            <label for="name" class="c-form-input__label">Name</label>
+                                            <perch:input type="name" placeholder="Your Name" id="name" class="c-form-input__input">
+                                        </div>
+                                        <div class="c-form-input">
+                                            <label for="email" class="c-form-input__label">Email</label>
+                                            <perch:input type="email" placeholder="Your Email" id="email" autocomplete="email" class="c-form-input__input">
+                                        </div>
+                                        <div class="c-form-input">
+                                            <label for="message" class="c-form-input__label">Message</label>
+                                            <perch:input type="textarea" class="c-form-input__textarea" id="message">
+                                        </div>
+                                    </div>
+                                </div>
+                                <perch:input type="submit" id="submit" value="Submit" class="c-button c-form__button" />
+                                <perch:success>
+                                    <p class="success">
+                                        <perch:content id="success" type="text" label="Thank you message" />
+                                    </p>
+                                </perch:success>
+                            </perch:form>
                         </div>
                     </div>
                 </div>

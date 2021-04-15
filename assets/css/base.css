@@ -44,6 +44,7 @@ caption, th {
     --primary-color: rgb(39, 39, 39);
     --secondary-color: white;
     --accent-color: rgb(202, 108, 0);
+    --light-grey: rgb(247, 247, 247);
     --header-font: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
     --default-font: Nunito, sans-serif;
     --border-radius-large: 25px;

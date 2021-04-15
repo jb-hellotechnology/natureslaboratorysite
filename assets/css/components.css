@@ -1343,7 +1343,7 @@ blockquote {
 
 @media screen and (min-width: 768px) {
     .c-timeline {
-        border-right: 2px solid black;
+        border-right: 2px solid var(--theme);
         border-left: none;
     }
     .c-timeline__block-right .c-timeline__block-content {

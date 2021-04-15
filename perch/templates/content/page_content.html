@@ -207,4 +207,29 @@
             </section>
         </div>
     </perch:block>
+
+    <perch:block type="timeline" label="Timeline">
+        <div class="l-block l-block--top-padding-<perch:content type="select" label="Top Padding" options="normal, small, none" id="top-padding"> l-block--<perch:content type="select" label="Style" options="white, light-grey, dark" id="style">">
+            <div class="l-row">
+                <div class="col-12 col-md-6 c-timeline">
+                    <perch:repeater label="Events" type="events">
+                        <div class="c-timeline__block c-timeline__block-<perch:every nth-child="odd">right</perch:every>">
+                            <div class="c-timeline__block-content">
+                                <h4 class="c-timeline__block-title">
+                                    <perch:content id="blockTitle" type="text" label="Title">
+                                </h4>
+                                <p class="c-timeline__block-date">
+                                    <perch:content id="blockDate" type="date" label="Date" format="%d %B %Y">
+                                </p>
+                                <div class="c-timeline__block-description l-flow">
+                                    <perch:content id="blockDescription" type="textarea" label="Description" editor="redactor" html>
+                                </div>
+                            </div>
+                            <div class="c-timeline__block-marker"></div>
+                        </div>
+                    </perch:repeater>
+                </div>
+            </div>
+        </div>
+    </perch:block>
 </perch:blocks>

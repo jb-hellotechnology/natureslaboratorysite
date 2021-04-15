@@ -36,7 +36,6 @@
 }
 
 .c-banner {
-    height: auto;
     width: 100%;
     position: relative;
 }
@@ -53,6 +52,12 @@
 .c-banner__logo-img {
     max-width: 140px;
     z-index: 15;
+}
+
+@media screen and (max-width: 522px) {
+    .c-banner__logo-img {
+        max-width: 100px;
+    }
 }
 
 .c-navbar__element {
@@ -108,4 +113,10 @@
 .c-button:hover {
     background-color: white;
     color: var(--theme)
+}
+
+
+#map {
+    height: 100%;
+    width: 100%;
 }

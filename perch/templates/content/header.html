@@ -13,11 +13,11 @@ style="background-image: url(
     <perch:if exists="bgMask">
         <div class="c-hero__bg-mask"></div>
     </perch:if>
-    <div class="c-hero__title c-hero__title--<perch:content type="select" id="hero_type" options="default, no-bg" label="Text Background">">
+    <div class="c-hero__title-wrapper c-hero__title-wrapper--<perch:content type="select" id="hero_type" options="default, no-bg" label="Text Background">">
         <perch:if exists="logo">
             <img src="<perch:content id="logo" type="image" label="Logo">" alt="Nature's Laboratory Logo" class="c-hero__title-logo">
         </perch:if>
-        <h1>
+        <h1 class="c-hero__title">
             <perch:if exists="customTitle">
                 <perch:content id="customTitle" type="hidden">
             <perch:else>

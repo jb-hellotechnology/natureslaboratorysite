@@ -272,4 +272,40 @@
             </div>
         </div>
     </perch:block>
+
+    <perch:block type="stafflist" label="Staff List">
+        <div class="l-block l-block--top-padding-<perch:content type="select" label="Top Padding" options="normal, small, none" id="top-padding"> l-block--<perch:content type="select" label="Style" options="white, light-grey, dark" id="style">">
+            <div class="l-row">
+                <div class="col-12 c-employees">
+                    <h2 class="c-employees__title">
+                        <perch:content id="employeesTitle" label="Department" type="text">
+                    </h2>
+                    <p class="c-employees__description">
+                        <perch:content type="textarea" label="Description" id="employeesDescription">
+                    </p>
+                    <div class="c-employees__list">
+                        <perch:repeater label="Staff" type="staff">
+                            <div class="c-employee">
+                                <div class="c-employee__image-wrapper">
+                                    <div class="c-employee__image-accent"></div>
+                                    <img class="c-employee__image" src="<perch:content type="image" height="300" width="300" crop id="employeeImage" label="Picture">" alt="<perch:content id="fullName" type="text" label="Full Name">">
+                                </div>
+                                <div class="c-employee__details">
+                                    <h3 class="c-employee__name">
+                                        <perch:content id="fullName">
+                                    </h3>
+                                    <p class="c-employee__job-title">
+                                        <perch:content id="jobTitle" label="Job Title" type="text">
+                                    </p>
+                                    <p class="c-employee__bio">
+                                        <perch:content id="employeeBio" type="text" label="Statement">
+                                    </p>
+                                </div>
+                            </div>
+                        </perch:repeater>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </perch:block>
 </perch:blocks>

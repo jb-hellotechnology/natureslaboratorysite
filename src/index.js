@@ -3,8 +3,7 @@ import {implementWordCount} from './wordCounter';
 import './header.js';
 import './parseTags';
 import './webAddress';
-// import '@natureslaboratory/responsive-nav';
-import "./dynamicNav";
+import '@natureslaboratory/responsive-nav';
 
 
 

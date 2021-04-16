@@ -9,10 +9,7 @@ style="background-image: url(
     </perch:if>
 )">
     <perch:layout path="global.navigation">
-    <perch:content type="checkbox" label="Background" id="bgMask" suppress="true">
-    <perch:if exists="bgMask">
-        <div class="c-hero__bg-mask"></div>
-    </perch:if>
+    <div class="c-hero__bg-mask"></div>
     <div class="c-hero__title-wrapper c-hero__title-wrapper--<perch:content type="select" id="hero_type" options="default, no-bg" label="Text Background">">
         <perch:if exists="logo">
             <img src="<perch:content id="logo" type="image" label="Logo">" alt="Nature's Laboratory Logo" class="c-hero__title-logo">

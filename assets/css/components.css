@@ -1432,7 +1432,7 @@ blockquote {
 .c-employees {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .c-employees__title {
@@ -1448,17 +1448,28 @@ blockquote {
 }
 
 .c-employees__list {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between; */
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
     gap: 2rem;
 }
 
 .c-employee {
-    width: min(350px, 100%);
+    /* width: min(350px, 100%); */
     box-shadow: var(--box-shadow);
     background-color: var(--light-grey);
     text-align: center;
     margin: 0 auto;
+}
+
+@media (min-width: 991px) {
+    .c-employee {
+        margin: 0;
+    }
 }
 
 .c-employee__name {

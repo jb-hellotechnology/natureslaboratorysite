@@ -164,6 +164,10 @@
     justify-content: center;
 }
 
+.l-row--centered {
+    justify-content: center;
+}
+
 .col-1 {
     flex: 0 0 8.33%;
     max-width: 8.33%;

@@ -1460,6 +1460,7 @@ blockquote {
 
 .c-employee {
     /* width: min(350px, 100%); */
+    max-width: 400px;
     box-shadow: var(--box-shadow);
     background-color: var(--light-grey);
     text-align: center;

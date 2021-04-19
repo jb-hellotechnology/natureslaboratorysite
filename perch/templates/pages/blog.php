@@ -11,7 +11,7 @@ if (perch_get('s')) {
 		"template" => "section_title.html"
 	), true);
 } else {
-	$title = 'The Nature\'s Laboratory Blog';
+	$title = 'News';
 }
 
 perch_content_create("Default Hero Image", array(
@@ -34,27 +34,8 @@ perch_layout('global.header', array(
 ));
 
 ?>
-
-<!-- <header class="c-hero" style="background-image: url(<?php //echo $heroImageUrl; ?>)"> -->
-	<?php
-	// Renders either the blog title or the default blog landing page title
-	// echo '<h1 class="c-hero__title">';
-	// if (perch_get('s')) {
-	// 	perch_blog_post_field(perch_get('s'), 'postTitle');
-	// } else if (perch_get('q')) {
-	// 	echo "Search";
-	// } else if (perch_get('section')) {
-	// 	perch_blog_section(perch_get("section"), array(
-	// 		"template" => "section_title.html"
-	// 	));
-	// } else {
-	// 	echo 'The Nature\'s Laboratory Blog';
-	// }
-	// echo '</h1>';
-	?>
-<!-- </header> -->
 <main>
-	<div class="l-block l-block--top-padding-small">
+	<div class="l-block l-block--centered l-block--top-padding-small">
 			<?php
 			function postListBefore() {
 				echo '<div class="l-row">';
@@ -70,7 +51,7 @@ perch_layout('global.header', array(
 			} else if (perch_get('q')) {
 				perch_content_search(perch_get('q'), array(
 					'count' => 5,
-					'from-path' => '/blog',
+					'from-path' => '/news',
 					'excerpt-chars' => 300,
 					'template' => 'search-result.html'
 				));
@@ -79,7 +60,7 @@ perch_layout('global.header', array(
 				postListBefore();
 				perch_blog_custom(array(
 					'count'      => 10,
-					'template'   => 'post_in_list.html',
+					'template'   => 'post_in_list_card.html',
 					'sort'       => 'postDateTime',
 					'sort-order' => 'DESC',
 					'section'    => perch_get("section"),
@@ -92,7 +73,7 @@ perch_layout('global.header', array(
 				postListBefore();
 				perch_blog_custom(array(
 					'count'      => 10,
-					'template'   => 'post_in_list.html',
+					'template'   => 'post_in_list_card.html',
 					'sort'       => 'postDateTime',
 					'sort-order' => 'DESC',
 					'tag' => perch_get("tag"),
@@ -115,11 +96,11 @@ perch_layout('global.header', array(
 	if (!$_SERVER["QUERY_STRING"]) {
 		echo '<div class="l-block l-block--no-top-padding">';
 		echo '<div class="l-row">';
-		echo '<div class="col-lg-6 col-md-8 col-sm-10 col-centered col-12 c-posts">';
+		echo '<div class="col-lg-8 col-md-10 col-sm-12 col-centered col-12 c-posts">';
 		echo "<h3>Recent Posts</h3>";
 		perch_blog_custom(array(
 			'count'      => 10,
-			'template'   => 'post_in_list.html',
+			'template'   => 'post_in_list_card.html',
 			'sort'       => 'postDateTime',
 			'sort-order' => 'DESC',
 			'data' => [

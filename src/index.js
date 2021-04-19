@@ -4,6 +4,7 @@ import './header.js';
 import './parseTags';
 import './webAddress';
 import '@natureslaboratory/responsive-nav';
+import './date';
 
 
 

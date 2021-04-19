@@ -7,7 +7,7 @@
 		</perch:if>
 		<div class="author">
 			<h2>
-				<a href="/blog/archive.php?author=<perch:blog id="authorSlug" type="text" />">
+				<a href="/news/archive.php?author=<perch:blog id="authorSlug" type="text" />">
 			    	<perch:blog id="authorGivenName" type="text" label="Given name" /> 
 			    	<perch:blog id="authorFamilyName" type="text" label="Given name" /> 
 				</a>
@@ -16,7 +16,7 @@
 
 			<perch:blog id="author_biog" type="textarea" label="Biography" textile="true" editor="markitup" />
 
-			<p><a href="/blog/archive.php?author=<perch:blog id="authorSlug" type="text" />"><perch:blog id="authorPostCount" /> 
+			<p><a href="/news/archive.php?author=<perch:blog id="authorSlug" type="text" />"><perch:blog id="authorPostCount" /> 
 				<perch:if id="authorPostCount" match="gt" value="1">posts<perch:else />post</perch:if></a></p>
 		</div>
 	</li>

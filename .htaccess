@@ -52,10 +52,9 @@ Header set Cache-Control "max-age=31536000, public"
 <filesMatch ".(css|js)$">
 Header set Cache-Control "max-age=31536000, public"
 </filesMatch>
-
 <IfModule mod_rewrite.c>  
     RewriteEngine on  
-    RewriteRule ^blog/tag/([a-zA-Z-]+)$ /blog/index.php?tag=$1 [L,B]
-    RewriteRule ^blog/([a-zA-Z-]+)/([a-zA-Z0-9-]+)$ /blog/index.php?section=$1&s=$2 [L]
-    RewriteRule ^blog/([a-zA-Z-]+)$ /blog/index.php?section=$1 [L,B]
+    RewriteRule ^news/tag/([a-zA-Z-]+)$ /news/index.php?tag=$1 [L,B]
+    RewriteRule ^news/([a-zA-Z-]+)/([a-zA-Z0-9-]+)$ /news/index.php?section=$1&s=$2 [L]
+    RewriteRule ^news/([a-zA-Z-]+)$ /news/index.php?section=$1 [L,B]
 </IfModule>

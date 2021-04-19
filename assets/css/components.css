@@ -1094,12 +1094,17 @@ blockquote {
 }
 
 .c-home-top__logos {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 400px;
+}
+
+.c-home-top__content {
+    display: grid;
+    grid-template-columns: 3fr 400px;
+    margin-top: 2rem;
 }
 
 .c-home-top__intro {
-    grid-column: 1 / span 3;
     background-size: cover;
 }
 
@@ -1108,16 +1113,15 @@ blockquote {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 3rem;
+    padding: 2rem;
 }
 
 .c-home-top__threes-description {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    grid-column-start: 4;
-    max-width: 280px;
+    max-width: 100%;
+    padding: 0 2rem;
     justify-self: center;
 }
 
@@ -1534,6 +1538,17 @@ blockquote {
     gap: 0.5rem;
 }
 
+.c-post-card__content {
+    display: flex;
+    flex-direction: column
+}
+
+.c-post-card--home {
+    background-color: rgba(255, 255, 255, 0.253);
+    padding: 1rem;
+    backdrop-filter: blur(8px);
+}
+
 .c-post-card__title {
     font-size: var(--size-400);
     line-height: normal;
@@ -1570,6 +1585,7 @@ blockquote {
 
 .c-post-card__date {
     opacity: 0.7;
+    margin-top: auto;
 }
 
 .c-post-card__author {}

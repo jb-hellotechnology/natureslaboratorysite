@@ -1108,12 +1108,20 @@ blockquote {
     background-size: cover;
 }
 
+.c-home-top__intro-section {
+    background-color: rgba(255, 255, 255, 0.253);
+    backdrop-filter: blur(6px);
+    padding: 1rem;
+    width: 100%;
+}
+
 .c-home-top__intro-mask {
     background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.911), rgba(255, 255, 255, 0.432));
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 2rem;
+    padding: 1rem;
+    gap: 2rem;
 }
 
 .c-home-top__threes-description {
@@ -1168,6 +1176,11 @@ blockquote {
     margin: 0 auto;
 }
 
+.c-home-top__intro-title {
+    max-width: none;
+    margin-bottom: 0.5rem;
+}
+
 .c-home-top__intro-link {
     color: black;
     text-decoration: none;
@@ -1201,6 +1214,10 @@ blockquote {
     .c-home-top__content {
         display: flex;
         flex-direction: column;
+    }
+
+    .c-home-top__threes-description {
+        padding: 0;
     }
 }
 
@@ -1303,7 +1320,6 @@ blockquote {
     width: 100%;
     gap: 2rem 6rem;
     text-align: left;
-    margin-top: 3rem;
 }
 
 .c-text-columns__item {
@@ -1575,9 +1591,9 @@ blockquote {
 }
 
 .c-post-card--home {
-    background-color: rgba(255, 255, 255, 0.253);
+    /* background-color: rgba(255, 255, 255, 0.253);
     padding: 1rem;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px); */
 }
 
 .c-post-card--home .c-post-card__details {

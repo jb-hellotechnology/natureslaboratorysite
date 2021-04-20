@@ -1190,6 +1190,10 @@ blockquote {
     margin-top: 1rem;
 }
 
+.c-button.c-home-top__intro-button:hover {
+    background-color: transparent;
+}
+
 @media screen and (max-width: 1260px) {
     .c-home-top {
         padding-top: 0;

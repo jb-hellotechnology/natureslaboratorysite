@@ -120,3 +120,11 @@
     height: 100%;
     width: 100%;
 }
+
+h1, h2 {
+    font-weight: 500;
+}
+
+.c-post-card__title {
+    font-weight: 700;
+}

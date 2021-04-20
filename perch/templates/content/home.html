@@ -21,7 +21,9 @@
     <div class="l-row c-home-top__content">
         <div class="c-home-top__intro" style="background-image: url(<perch:content type="image" label="Background Image" id="background" height="500" width="800"/>)">
             <div class="c-home-top__intro-mask">
+                <a href="/news/" class="c-home-top__intro-link"><h3 class="c-home-top__intro-title">Immunity Community News</h3></a>
                 <perch:layout path="home_blog" slug="<perch:content type="text" id="postInputSlug" label="Post Slug">">
+                <a href="/news/" class="c-home-top__intro-link"><button class="c-button c-home-top__intro-button">View all</button></a>
             </div>
         </div>
         <div class="c-home-top__threes-description">
@@ -31,18 +33,14 @@
                 We want to create the sustainable business model the future needs.
             </p>
             <p>
-                Businesses need strong immune systems. Threes Company organisations understand the core concepts of social, economic and cultural health.
-                They are able to adapt and thrive in a rapidly changing environment.
-            </p>
-            <p>
-                Threes Company is an open concept available to all organisations. Looking for a livelier, healthier and more sustainable future for your organisation?
-            </p>
-            <p>
                 Visit <span><a href="https://www.threescompany.info/">threescompany.info</a></span>.
             </p>
-            <div class="c-home-top__threes-buttons">
-                <a href="https://futurehealthstore.com/" class="c-button">FutureHealth</a>
-                <a href="https://beearc.com/" class="c-button">BeeArc</a>
+            <div class="c-home-top__threes-logos">
+                <perch:repeater id="logoWrapper" type="logos" label="Logos">
+                    <a href="<perch:content id="logoLink" label="Link" type="text">" class="c-home-top__threes-logo-link">
+                        <img src="<perch:content id="logo" lable="Logo" type="image" height="200" crop>" class="c-home-top__threes-logo">
+                    </a>
+                </perch:repeater>
             </div>
         </div>
     </div>

@@ -1168,6 +1168,15 @@ blockquote {
     margin: 0 auto;
 }
 
+.c-home-top__intro-link {
+    color: black;
+    text-decoration: none;
+}
+
+.c-home-top__intro-button {
+    margin-top: 1rem;
+}
+
 @media screen and (max-width: 1260px) {
     .c-home-top {
         padding-top: 0;
@@ -1240,6 +1249,23 @@ blockquote {
     .c-home-top__threes-description {
         grid-column: auto;
     }
+}
+
+.c-home-top__threes-logos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 130px), 1fr));
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.c-home-top__threes-logo-link {
+    display: flex;
+    justify-content: center;
+}
+
+.c-home-top__threes-logo {
+    max-height: 100px;
 }
 
 .cls-1 {
@@ -1554,6 +1580,10 @@ blockquote {
     backdrop-filter: blur(8px);
 }
 
+.c-post-card--home .c-post-card__details {
+    display: none;
+}
+
 .c-post-card__title {
     font-size: var(--size-400);
     line-height: normal;
@@ -1637,6 +1667,7 @@ blockquote {
     }
     
 }
+
 
 
 

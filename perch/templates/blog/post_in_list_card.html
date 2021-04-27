@@ -8,9 +8,8 @@
                         <perch:blog id="postTitle" />
                     </h2>
                 </a>
-                <perch:if exists="section">
-                    <p class="c-post-card__author"><a class="c-post-card__author-link" href="/news/<perch:blog id="authorSlug">"><perch:blog id="authorGivenName" type="hidden" label="Name" /> <perch:blog id="authorFamilyName" type="hidden" /></a> in <a class="c-post-card__author-link" href="/news/<perch:blog id="sectionSlug">"><perch:blog id="sectionTitle"/></a></p>
-                </perch:if>
+                <p class="c-post-card__author"><a class="c-post-card__author-link" href="/news/author/<perch:blog id="authorSlug">"><perch:blog id="authorGivenName" type="hidden" label="Name" /> <perch:blog id="authorFamilyName" type="hidden" /></a> in <a class="c-post-card__author-link" href="/news/<perch:blog id="sectionSlug">"><perch:blog id="sectionTitle"/></a></p>
+                
                 <div class="c-post-card__details">
                     <perch:if exists="authorImage">
                         <img class="c-post-card__image" src="<perch:blog id="authorImage">" alt="<perch:blog id="authorGivenName">">

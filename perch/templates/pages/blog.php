@@ -46,6 +46,11 @@ perch_layout('global.header', array(
 				echo "</div></div>";
 			}
 
+			function slugToString($slug) {
+				$splitSlug = explode("-", $slug);
+				return ucwords(join(" ", $splitSlug));
+			}
+
 			if (perch_get('s')) {
 				perch_blog_post(perch_get('s'));
 			} else if (perch_get('q')) {
@@ -80,6 +85,17 @@ perch_layout('global.header', array(
 					'data' => [
 						'section' => 'post'
 					]
+				));
+				postListAfter();
+			} else if (perch_get("author")){
+				postListBefore();
+				echo "<h3>Posts by " . slugToString(perch_get("author")) . "</h3>";
+				perch_blog_custom(array(
+					'count'      => 10,
+					'template'   => 'post_in_list_card.html',
+					'sort'       => 'postDateTime',
+					'sort-order' => 'DESC',
+					'author' => perch_get("author")
 				));
 				postListAfter();
 			} else {

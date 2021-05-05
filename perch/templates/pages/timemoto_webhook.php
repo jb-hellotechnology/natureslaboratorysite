@@ -6,11 +6,11 @@
 	
 	mail('jack@jackbarber.co.uk','test',$data['event']);
 	
-	if($data->event=='attendance.inserted'){
+	if($data['event']=='attendance.inserted'){
 		
-		$name = $data->data->userFullName;
-		$timeLoggedRounded = $data->data->timeLoggedRounded;
-		$attendanceStatus = $data->data->attendanceStatusId;
+		$name = $data['data']['userFullName'];
+		$timeLoggedRounded = $data['data']['timeLoggedRounded'];
+		$attendanceStatus = $data['data']['attendanceStatusId'];
 		
 		if($attendanceStatus == 0){
 			$attendanceStatus = 'clocked out';
@@ -18,7 +18,7 @@
 			$attendanceStatus = 'clocked in';
 		}
 		
-		timemoto_log($name,$timeLoggedRounded,$attendanceStatus,$data);
+		timemoto_log($name,$timeLoggedRounded,$attendanceStatus,$json);
 			
 	}
 ?>

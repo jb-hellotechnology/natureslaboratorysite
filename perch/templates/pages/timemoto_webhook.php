@@ -21,6 +21,4 @@
 		timemoto_log($name,$timeLoggedRounded,$attendanceStatus,$json);
 			
 	}
-	
-	timemoto_log('Jack Barber','2021-05-05 17:00:01',0,'');
 ?>

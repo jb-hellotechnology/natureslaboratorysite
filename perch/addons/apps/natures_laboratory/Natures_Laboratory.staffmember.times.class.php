@@ -25,4 +25,39 @@ class Natures_Laboratory_Staff_Member_Times extends PerchAPI_Factory
 		
 	}
 	
+	public function forMonth($month,$staffID){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_staff_time WHERE LEFT(timeStamp,7)="'.$month.'" AND staffID="'.$staffID.'" ORDER BY timeStamp ASC';
+		$data = $this->db->get_rows($sql);
+		
+		return $data;
+		
+	}
+	
+	public function startTime($date,$staffID){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_staff_time WHERE LEFT(timeStamp,10)="'.$date.'" AND staffID="'.$staffID.'" AND timeType="clock in" ORDER BY timeStamp ASC LIMIT 1';
+		$data = $this->db->get_row($sql);
+		
+		if(!$data){
+			$data['timeStamp']='';
+		}
+		
+		return $data;
+		
+	}
+	
+	public function endTime($date,$staffID){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_staff_time WHERE LEFT(timeStamp,10)="'.$date.'" AND staffID="'.$staffID.'" AND timeType="clock out" ORDER BY timeStamp DESC LIMIT 1';
+		$data = $this->db->get_row($sql);
+		
+		if(!$data){
+			$data['timeStamp']='';
+		}
+		
+		return $data;
+		
+	}
+	
 }

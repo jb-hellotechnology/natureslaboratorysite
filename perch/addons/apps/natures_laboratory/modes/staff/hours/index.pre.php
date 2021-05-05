@@ -11,4 +11,4 @@
     $details = $StaffMember->to_array();
 	
 	$times = array();
-    $times = $NaturesLaboratoryStaffTimes->all();
+    $times = $NaturesLaboratoryStaffTimes->forMonth(date('Y-m'),$_GET['id']);

@@ -4,9 +4,9 @@
 	$json = file_get_contents('php://input');
 	$data = json_decode($json,true);
 	
+	mail('jack@jackbarber.co.uk','test',$data);
+	
 	if($data->event=='attendance.inserted'){
-		
-		mail('jack@jackbarber.co.uk','test',$data);
 		
 		$name = $data->data->userFullName;
 		$timeLoggedRounded = $data->data->timeLoggedRounded;

@@ -1,0 +1,1 @@
+[18-Mar-2021 16:24:41 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 12288 bytes) in /home/natureslab/public_html/perch/core/lib/PerchImage.class.php on line 818

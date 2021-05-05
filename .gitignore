@@ -14,7 +14,9 @@ perch/*
 
 !perch/templates/
 !perch/templates/**
+!perch/addons/
 !perch/addons/**
+!perch/addons/apps/
 !perch/addons/apps/**
 !perch/addons/apps/natures_laboratory/
 !perch/addons/apps/natures_laboratory/**

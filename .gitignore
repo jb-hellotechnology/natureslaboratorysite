@@ -14,6 +14,8 @@ perch/*
 
 !perch/templates/
 !perch/templates/**
+!perch/addons/apps/natures_laboratory/
+!perch/addons/apps/natures_laboratory/**
 
 !.gitignore
 

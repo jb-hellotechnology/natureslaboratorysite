@@ -18,6 +18,8 @@
 			$attendanceStatus = 'clocked in';
 		}
 		
+		mail('jack@jackbarber.co.uk','test',$name);
+		
 		timemoto_log($name,$timeLoggedRounded,$attendanceStatus,$json);
 			
 	}

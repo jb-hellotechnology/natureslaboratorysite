@@ -4,7 +4,7 @@
 	$json = file_get_contents('php://input');
 	$data = json_decode($json,true);
 	
-	mail('jack@jackbarber.co.uk','test',$data);
+	mail('jack@jackbarber.co.uk','test',$data->event);
 	
 	if($data->event=='attendance.inserted'){
 		

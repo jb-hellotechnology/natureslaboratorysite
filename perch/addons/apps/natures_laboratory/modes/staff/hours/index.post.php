@@ -78,7 +78,7 @@
 			$queryDate = date("Y-m-d", mktime(0, 0, 0, date('m'), $i, date('Y')));
 			$start = $NaturesLaboratoryStaffTimes->startTime($queryDate,$_GET['id']);
 			$end = $NaturesLaboratoryStaffTimes->endTime($queryDate,$_GET['id']);
-			$hoursWorked = '0:0';
+			$hoursWorked = '00:00';
 			if($start['timeStamp']<>'' AND $end['timeStamp']<>''){
 				$time1 = $start['timeStamp'];
 				$time2 = $end['timeStamp'];
@@ -114,7 +114,10 @@
 			$i++;
 		}  
 		
-		$totalMinutes_h = convertToHoursMins($totalMinutes, '%02d:%02d');
+		$totalMinutes_h = "00:00";
+		if(convertToHoursMins($totalMinutes, '%02d:%02d')<>''){
+			$totalMinutes_h = convertToHoursMins($totalMinutes, '%02d:%02d');
+		}
 		$parts = explode(":",$totalMinutes_h);
 		$totalHours = $totalHours+$parts[0];
 		$totalMinutes = $parts[1];

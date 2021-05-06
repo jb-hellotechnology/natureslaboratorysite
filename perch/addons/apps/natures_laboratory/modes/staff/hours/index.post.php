@@ -89,6 +89,7 @@
 				$hoursWorked = "$hours:$mins";
 				$totalHours = $totalHours+$hours;
 				$totalMinutes = $totalMinutes+$mins;
+				echo $totalMinutes;
 			}
 			
 			$class = '';

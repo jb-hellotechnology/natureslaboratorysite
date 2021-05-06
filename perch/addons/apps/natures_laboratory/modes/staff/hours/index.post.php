@@ -78,7 +78,7 @@
 			$queryDate = date("Y-m-d", mktime(0, 0, 0, date('m'), $i, date('Y')));
 			$start = $NaturesLaboratoryStaffTimes->startTime($queryDate,$_GET['id']);
 			$end = $NaturesLaboratoryStaffTimes->endTime($queryDate,$_GET['id']);
-			$hours = '00:00';
+			$hoursWorked = '00:00';
 			if($start['timeStamp']<>'' AND $end['timeStamp']<>''){
 				$time1 = $start['timeStamp'];
 				$time2 = $end['timeStamp'];
@@ -86,9 +86,9 @@
 				$tmins = $diff/60;
 				$hours = floor($tmins/60);
 				$mins = $tmins%60;
-				$hours = "$hours:$mins";
+				$hoursWorked = "$hours:$mins";
 				$totalHours = $totalHours+$hours;
-				$totalMinutes = $totalMinutes+$minutes;
+				$totalMinutes = $totalMinutes+$mins;
 			}
 			
 			$class = '';
@@ -108,7 +108,7 @@
 				<td>".$humanDate."</td>
 				<td>";if($start['timeStamp']<>''){echo $start['timeStamp'];} echo "</td>
 				<td>";if($end['timeStamp']<>''){echo $end['timeStamp'];} echo "</td>
-				<td>$hours</td>
+				<td>$hoursWorked</td>
 			</tr>";
 			$i++;
 		}  
@@ -122,7 +122,7 @@
 				<tr><td><strong>Total Hours Worked</strong></td>
 				<td></td>
 				<td></td>
-				<td>$totalHours:$totalMinutues</td>
+				<td>$totalHours:$totalMinutes</td>
 		</tfoot>";
 		?>    
         </tbody>

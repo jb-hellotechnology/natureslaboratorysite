@@ -233,6 +233,10 @@
 					$parts = explode(":",$totalMinutes_h);
 					$totalHours = $totalHours+$parts[0];
 					$totalMinutes = $parts[1];
+					
+					if($totalMinutes==''){
+						$totalMinutes='00';
+					}
 	                
 	                echo "<td>$totalHours:$totalMinutes</td>";
 	            ?>

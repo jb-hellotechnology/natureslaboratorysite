@@ -104,7 +104,6 @@ class Natures_Laboratory_Staff_Member_Times extends PerchAPI_Factory
 			
 			$sql = 'SELECT * FROM perch3_natures_laboratory_staff_time WHERE timeStamp<="'.$date.'" AND staffID="'.$staff['natures_laboratory_staffID'].'" ORDER BY timeStamp DESC LIMIT 1';
 			$data2 = $this->db->get_row($sql);
-			print_r($sql);
 			if($data2['timeType']=='clock in'){
 				$string .= '1,';
 			}else{

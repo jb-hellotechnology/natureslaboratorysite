@@ -97,15 +97,21 @@ class Natures_Laboratory_Staff_Member_Times extends PerchAPI_Factory
 				$tmins = $diff/60;
 				$hours = floor($tmins/60);
 				$mins = $tmins%60;
+				if($mins==0){
+					$mins = '00';
+				}
+				if(strlen($mins)==1){
+					$mins = '0'.$mins;
+				}
 				$hoursWorked = "$hours:$mins";
 			
 				return $hoursWorked;
 				
 			}else{
-				return 0;
+				return;
 			}
 		}else{
-			return 0;
+			return;
 		}
 	}
 	

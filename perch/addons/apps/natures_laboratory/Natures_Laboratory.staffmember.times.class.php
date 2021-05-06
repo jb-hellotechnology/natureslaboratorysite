@@ -15,10 +15,30 @@ class Natures_Laboratory_Staff_Member_Times extends PerchAPI_Factory
 		$sql = 'SELECT * FROM perch3_natures_laboratory_staff WHERE name="'.$name.'" ORDER BY name ASC LIMIT 1';
 		$data = $this->db->get_row($sql);
 		
+		$timeParts = explode("T",$timeLoggedRounded);
+		$date_h = $timeParts[0];
+		$time_h = $timeParts[1];
+		
+		if (isset($data['natures_laboratory_staffDynamicFields'])) {
+            $dynamicFields = PerchUtil::json_safe_decode($data['natures_laboratory_staffDynamicFields'], true);
+        }
+        
+        if($dynamicFields['constrainDay']=='on'){
+	        
+	        if(substr($time_h, 0, 2)=='08'){
+				$time_h = "08:30:00";
+			}
+			
+			if(substr($time_h, 0, 2)=='17' OR substr($time_h, 0, 4)=='16:5'){
+				$time_h = "17:00:00";
+			}
+	        
+        }
+		
 		$time = array();
 	    $time['staffID'] = $data['natures_laboratory_staffID'];
 	    $time['timeType'] = $attendanceStatus;
-	    $time['timeStamp'] = str_replace("T", " ", $timeLoggedRounded);
+	    $time['timeStamp'] = $date_h." ".$time_h;
 	    $time['timemotoData'] = $timemotoData;
 
 	    $insert = $this->db->insert('perch3_natures_laboratory_staff_time', $time);

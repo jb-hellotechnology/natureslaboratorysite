@@ -122,7 +122,7 @@
 				<tr><td><strong>Total Hours Worked</strong></td>
 				<td></td>
 				<td></td>
-				<td>$totalHours:$totalMinutes</td>
+				<td><strong>$totalHours:$totalMinutes</strong></td>
 		</tfoot>";
 		?>    
         </tbody>

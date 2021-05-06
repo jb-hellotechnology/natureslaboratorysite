@@ -11,12 +11,12 @@
 		$attendanceStatus = $data['data']['attendanceStatusId'];
 		
 		if($attendanceStatus == 0){
-			$attendanceStatus = 'clocked out';
+			$attendanceStatus = 'clock in';
 		}elseif($attendanceStatus == 1){
-			$attendanceStatus = 'clocked in';
+			$attendanceStatus = 'clock out';
 		}
 		
-		timemoto_log($name,$timeLoggedRounded,$attendanceStatus,$json);
+		timemoto_log($name,$timeLoggedRounded,$attendanceStatus,addslashes($json));
 			
 	}
 ?>

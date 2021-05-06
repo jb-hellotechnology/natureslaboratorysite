@@ -94,12 +94,12 @@
 			$class = '';
 			
 			if($start['timeStamp']<>'' AND $end['timeStamp']=='' AND $queryDate<>$today){
-				$hours = 'ERROR';
+				$hoursWorked = 'ERROR';
 				$class = 'notification notification-warning';
 			}
 			
 			if($queryDate==$today){
-				$hours = 'TODAY';
+				$hoursWorked = 'TODAY';
 				$class = 'notification notification-success';
 			}
 			

@@ -96,20 +96,22 @@ class Natures_Laboratory_Staff_Member_Times extends PerchAPI_Factory
 		
 		$date = date('Y-m-d H:i:s');
 		
-		$array = array();
+		$string = '';
 		
 		foreach($data as $staff){
 			
 			$sql = 'SELECT * FROM perch3_natures_laboratory_staff_time WHERE timeStamp<="'.$date.'" AND staffID="'.$staff['natures_laboratory_staffID'].'" ORDER BY timeStamp DESC LIMIT 1';
 			$data2 = $this->db->get_row($sql);
-			if($data){
-				array_push($array, array('Name'=>$staff['name'],'Status'=>$data2['timeType']));
+			if($data2['timeType']=='clock in'){
+				$string .= '1,';
+			}else{
+				$string .= '0,';
 			}
 		
 		}
 		
-		$array = json_encode($array);
-		print_r($array);
+		$string = substr($string,0,-1);
+		echo $string;
 		
 	}
 	

@@ -69,6 +69,7 @@
         <tbody>
 	    <?php
 		$days = cal_days_in_month(CAL_GREGORIAN, date('m'), date('Y'));
+		$today = date('Y-m-d');
 		$i = 1;
 		while($i<=$days){
 			$humanDate = date("l jS F Y", mktime(0, 0, 0, date('m'), $i, date('Y')));
@@ -88,9 +89,14 @@
 			
 			$class = '';
 			
-			if($start['timeStamp']<>'' AND $end['timeStamp']==''){
+			if($start['timeStamp']<>'' AND $end['timeStamp']=='' AND $queryDate<>$today){
 				$hours = 'ERROR';
 				$class = 'notification notification-warning';
+			}
+			
+			if($queryDate==$today){
+				$hours = 'TODAY';
+				$class = 'notification notification-success';
 			}
 			
 			echo "

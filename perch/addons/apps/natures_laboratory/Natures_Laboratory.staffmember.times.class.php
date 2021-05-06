@@ -89,4 +89,28 @@ class Natures_Laboratory_Staff_Member_Times extends PerchAPI_Factory
 		}
 	}
 	
+	public function clockedIn(){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_staff ORDER BY name ASC';
+		$data = $this->db->get_rows($sql);
+		
+		$date = date('Y-m-d H:i:s');
+		
+		$array = array();
+		
+		foreach($data as $staff){
+			
+			$sql = 'SELECT * FROM perch3_natures_laboratory_staff_time WHERE timeStamp<="'.$date.'" AND staffID="'.$staff['natures_laboratory_staffID'].'" ORDER BY timeStamp DESC LIMIT 1';
+			$data2 = $this->db->get_row($sql);
+			if($data){
+				array_push($array, array('Name'=>$staff['name'],'Status'=>$data2['timeType']));
+			}
+		
+		}
+		
+		$array = json_encode($array);
+		print_r($array);
+		
+	}
+	
 }

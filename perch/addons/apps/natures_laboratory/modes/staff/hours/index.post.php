@@ -86,12 +86,15 @@
 				$hours = "$hours:$mins";
 			}
 			
+			$class = '';
+			
 			if($start['timeStamp']<>'' AND $end['timeStamp']==''){
 				$hours = 'ERROR';
+				$class = 'notification notification-warning';
 			}
 			
 			echo "
-			<tr>
+			<tr class='$class'>
 				<td>".$humanDate."</td>
 				<td>";if($start['timeStamp']<>''){echo $start['timeStamp'];} echo "</td>
 				<td>";if($end['timeStamp']<>''){echo $end['timeStamp'];} echo "</td>

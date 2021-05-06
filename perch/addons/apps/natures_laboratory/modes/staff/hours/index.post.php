@@ -71,6 +71,8 @@
 		$days = cal_days_in_month(CAL_GREGORIAN, date('m'), date('Y'));
 		$today = date('Y-m-d');
 		$i = 1;
+		$totalHours = 0;
+		$totalMinutes = 0;
 		while($i<=$days){
 			$humanDate = date("l jS F Y", mktime(0, 0, 0, date('m'), $i, date('Y')));
 			$queryDate = date("Y-m-d", mktime(0, 0, 0, date('m'), $i, date('Y')));
@@ -85,6 +87,8 @@
 				$hours = floor($tmins/60);
 				$mins = $tmins%60;
 				$hours = "$hours:$mins";
+				$totalHours = $totalHours+$hours;
+				$totalMinutes = $totalMinutes+$minutes;
 			}
 			
 			$class = '';
@@ -108,6 +112,18 @@
 			</tr>";
 			$i++;
 		}  
+		
+		$totalMinutes_h = convertToHoursMins($totalMinutes, '%02d:%02d');
+		$parts = explode(":",$totalMinutes_h);
+		$totalHours = $totalHours+$parts[0];
+		$totalMinutes = $parts[1];
+		
+		echo "<tfoot>
+				<tr><td><strong>Total Hours Worked</strong></td>
+				<td></td>
+				<td></td>
+				<td>$totalHours:$totalMinutues</td>
+		</tfoot>";
 		?>    
         </tbody>
 	</table>
@@ -140,5 +156,14 @@
     </table>
 
 <?php 
+
+	function convertToHoursMins($time, $format = '%02d:%02d') {
+	    if ($time < 1) {
+	        return;
+	    }
+	    $hours = floor($time / 60);
+	    $minutes = ($time % 60);
+	    return sprintf($format, $hours, $minutes);
+	}
 
     echo $HTML->main_panel_end();

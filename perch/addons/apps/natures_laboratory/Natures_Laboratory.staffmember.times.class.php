@@ -96,9 +96,9 @@ class Natures_Laboratory_Staff_Member_Times extends PerchAPI_Factory
 		
 		$date = date('Y-m-d H:i:s');
 		
-		$string = '';
+		$date = date("Y-m-d H:i:s", mktime(date('H')+1, date('m'), date('s'), date('m'), date('d'), date('Y')));
 		
-		date_default_timezone_set('Europe/London');
+		$string = '';
 		
 		foreach($data as $staff){
 			

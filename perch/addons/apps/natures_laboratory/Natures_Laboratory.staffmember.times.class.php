@@ -98,6 +98,8 @@ class Natures_Laboratory_Staff_Member_Times extends PerchAPI_Factory
 		
 		$string = '';
 		
+		date_default_timezone_set('Europe/London');
+		
 		foreach($data as $staff){
 			
 			$sql = 'SELECT * FROM perch3_natures_laboratory_staff_time WHERE timeStamp<="'.$date.'" AND staffID="'.$staff['natures_laboratory_staffID'].'" ORDER BY timeStamp DESC LIMIT 1';

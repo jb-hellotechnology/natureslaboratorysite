@@ -78,7 +78,7 @@
 			$queryDate = date("Y-m-d", mktime(0, 0, 0, date('m'), $i, date('Y')));
 			$start = $NaturesLaboratoryStaffTimes->startTime($queryDate,$_GET['id']);
 			$end = $NaturesLaboratoryStaffTimes->endTime($queryDate,$_GET['id']);
-			$hoursWorked = '00:00';
+			$hoursWorked = '0:0';
 			if($start['timeStamp']<>'' AND $end['timeStamp']<>''){
 				$time1 = $start['timeStamp'];
 				$time2 = $end['timeStamp'];

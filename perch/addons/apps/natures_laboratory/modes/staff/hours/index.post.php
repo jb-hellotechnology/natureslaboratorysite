@@ -76,10 +76,24 @@
 
     echo $HTML->main_panel_start(); 
     
+    $date = $_GET['date'];
+    
+    if($date<>''){
+	    $parts = explode("-",$date);
+	    $month = $parts[1];
+	    $year = $parts[0];
+	    $monthHuman = date("F", mktime(0, 0, 0, $month, 1, $year));
+    }else{
+    	$month = date('m');
+    	$monthHuman = date('F');
+    	$year = date('Y');
+    }
+    
+    
     if($staffID){
     
     ?>
-	<h2><?php echo date('F Y'); ?></h2>
+	<h2><?php echo "$monthHuman $year" ?></h2>
 	
 	<table class="d">
         <thead>
@@ -92,14 +106,14 @@
         </thead>
         <tbody>
 	    <?php
-		$days = cal_days_in_month(CAL_GREGORIAN, date('m'), date('Y'));
+		$days = cal_days_in_month(CAL_GREGORIAN, $month, $year);
 		$today = date('Y-m-d');
 		$i = 1;
 		$totalHours = 0;
 		$totalMinutes = 0;
 		while($i<=$days){
-			$humanDate = date("l jS F Y", mktime(0, 0, 0, date('m'), $i, date('Y')));
-			$queryDate = date("Y-m-d", mktime(0, 0, 0, date('m'), $i, date('Y')));
+			$humanDate = date("l jS F Y", mktime(0, 0, 0, $month, $i, $year));
+			$queryDate = date("Y-m-d", mktime(0, 0, 0, $month, $i, $year));
 			$start = $NaturesLaboratoryStaffTimes->startTime($queryDate,$_GET['id']);
 			$end = $NaturesLaboratoryStaffTimes->endTime($queryDate,$_GET['id']);
 			$hoursWorked = '00:00';
@@ -187,9 +201,9 @@
 	}else{
 
 ?>
-	<h2><?php echo date('F Y'); ?></h2>
+	<h2><?php echo "$monthHuman $year" ?></h2>
 	<?php
-		$days = cal_days_in_month(CAL_GREGORIAN, date('m'), date('Y'));
+		$days = cal_days_in_month(CAL_GREGORIAN, $month, $year);
 	?>
 	<table class="d">
         <thead>
@@ -216,7 +230,7 @@
 	                $totalHours = 0;
 	                $totalMinutes = 0;
 	                while($i<=$days){
-		                $hoursWorked = $NaturesLaboratoryStaffTimes->hoursWorked($Staff->natures_laboratory_staffID(),date('Y'),date('m'),$i);
+		                $hoursWorked = $NaturesLaboratoryStaffTimes->hoursWorked($Staff->natures_laboratory_staffID(),$year,$month,$i);
 		                $parts = explode(":",$hoursWorked);
 		                $hours = $parts[0];
 		                $minutes = $parts[1];

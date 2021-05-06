@@ -12,7 +12,12 @@
 	    $details = $StaffMember->to_array();
 		
 		$times = array();
-	    $times = $NaturesLaboratoryStaffTimes->forMonth(date('Y-m'),$_GET['id']);
+		if($_GET['date']){
+			$date = $_GET['date'];
+		}else{
+			$date = date('Y-m');
+		}
+	    $times = $NaturesLaboratoryStaffTimes->forMonth($date,$_GET['id']);
     }else{
 	    $staff = array();
 		$staff = $NaturesLaboratoryStaff->all();

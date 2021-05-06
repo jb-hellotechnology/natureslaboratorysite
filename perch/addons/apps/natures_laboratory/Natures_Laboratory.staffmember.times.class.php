@@ -60,4 +60,33 @@ class Natures_Laboratory_Staff_Member_Times extends PerchAPI_Factory
 		
 	}
 	
+	public function hoursWorked($staffID,$year,$month,$day){
+		$day = str_pad($day, 2, "0", STR_PAD_LEFT);
+		$date = "$year-$month-$day";
+		$sql = 'SELECT * FROM perch3_natures_laboratory_staff_time WHERE LEFT(timeStamp,10)="'.$date.'" AND staffID="'.$staffID.'" AND timeType="clock in" ORDER BY timeStamp ASC LIMIT 1';
+		$data = $this->db->get_row($sql);
+		if($data){
+			$sql = 'SELECT * FROM perch3_natures_laboratory_staff_time WHERE LEFT(timeStamp,10)="'.$date.'" AND staffID="'.$staffID.'" AND timeType="clock out" ORDER BY timeStamp DESC LIMIT 1';
+			$data2 = $this->db->get_row($sql);
+			if($data2){
+				
+				$hoursWorked = '00:00';
+				$time1 = $data['timeStamp'];
+				$time2 = $data2['timeStamp'];
+				$diff = abs(strtotime($time1) - strtotime($time2));
+				$tmins = $diff/60;
+				$hours = floor($tmins/60);
+				$mins = $tmins%60;
+				$hoursWorked = "$hours:$mins";
+			
+				return $hoursWorked;
+				
+			}else{
+				return 0;
+			}
+		}else{
+			return 0;
+		}
+	}
+	
 }

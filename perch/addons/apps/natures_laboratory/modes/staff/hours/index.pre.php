@@ -7,8 +7,13 @@
     $Template = $API->get('Template');
 
     $staffID = (int) $_GET['id'];  
-    $StaffMember = $NaturesLaboratoryStaff->find($staffID, true);
-    $details = $StaffMember->to_array();
-	
-	$times = array();
-    $times = $NaturesLaboratoryStaffTimes->forMonth(date('Y-m'),$_GET['id']);
+    if($staffID){
+	    $StaffMember = $NaturesLaboratoryStaff->find($staffID, true);
+	    $details = $StaffMember->to_array();
+		
+		$times = array();
+	    $times = $NaturesLaboratoryStaffTimes->forMonth(date('Y-m'),$_GET['id']);
+    }else{
+	    $staff = array();
+		$staff = $NaturesLaboratoryStaff->all();
+    }

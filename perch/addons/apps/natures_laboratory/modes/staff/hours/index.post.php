@@ -3,14 +3,24 @@
     
     echo $HTML->side_panel_end();
     
-    echo $HTML->title_panel([
-    'heading' => $details['name'].' - Hours Worked',
-    'button'  => [
-            'text' => $Lang->get('Hours'),
-            'link' => $API->app_nav().'/staff/hours/add?id='.$_GET['id'],
-            'icon' => 'core/plus',
-        ],
-    ], $CurrentUser);
+    if($staffID){
+    
+	    echo $HTML->title_panel([
+	    'heading' => $details['name'].' - Hours Worked',
+	    'button'  => [
+	            'text' => $Lang->get('Hours'),
+	            'link' => $API->app_nav().'/staff/hours/add?id='.$_GET['id'],
+	            'icon' => 'core/plus',
+	        ],
+	    ], $CurrentUser);
+    
+    }else{
+	    
+	    echo $HTML->title_panel([
+	    'heading' => 'Hours Worked'
+	    ], $CurrentUser);
+	    
+    }
 
     $Smartbar = new PerchSmartbar($CurrentUser, $HTML, $Lang);
 
@@ -20,11 +30,23 @@
 	    'link'  => $API->app_nav().'/staff/',
 	]);
 	
-	$Smartbar->add_item([
-	    'active' => true,
-	    'title' => 'Hours',
-	    'link'  => $API->app_nav().'/staff/hours/?id='.$_GET['id'],
-	]);
+	if($staffID){
+	
+		$Smartbar->add_item([
+		    'active' => true,
+		    'title' => 'Hours',
+		    'link'  => $API->app_nav().'/staff/hours/?id='.$staffID,
+		]);
+	
+	}else{
+		
+		$Smartbar->add_item([
+		    'active' => true,
+		    'title' => 'Hours',
+		    'link'  => $API->app_nav().'/staff/hours/',
+		]);
+		
+	}
 	
 	$Smartbar->add_item([
 	    'active' => false,
@@ -53,6 +75,8 @@
 	echo $Smartbar->render();
 
     echo $HTML->main_panel_start(); 
+    
+    if($staffID){
     
     ?>
 	<h2><?php echo date('F Y'); ?></h2>
@@ -89,7 +113,6 @@
 				$hoursWorked = "$hours:$mins";
 				$totalHours = $totalHours+$hours;
 				$totalMinutes = $totalMinutes+$mins;
-				echo $totalMinutes;
 			}
 			
 			$class = '';
@@ -160,6 +183,69 @@
     </table>
 
 <?php 
+
+	}else{
+
+?>
+	<h2><?php echo date('F Y'); ?></h2>
+	<?php
+		$days = cal_days_in_month(CAL_GREGORIAN, date('m'), date('Y'));
+	?>
+	<table class="d">
+        <thead>
+            <tr>
+                <th class="first">Name</th>
+                <?php
+	                $i = 1;
+	                while($i<=$days){
+		                echo "<th>$i</th>";
+		                $i++;
+	                }
+	            ?>
+	            <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+<?php
+    foreach($staff as $Staff) {
+?>
+            <tr>
+                <td><?php echo $Staff->name(); ?></td>
+                <?php
+	                $i = 1;
+	                $totalHours = 0;
+	                $totalMinutes = 0;
+	                while($i<=$days){
+		                $hoursWorked = $NaturesLaboratoryStaffTimes->hoursWorked($Staff->natures_laboratory_staffID(),date('Y'),date('m'),$i);
+		                $parts = explode(":",$hoursWorked);
+		                $hours = $parts[0];
+		                $minutes = $parts[1];
+		                $totalHours = $totalHours+$hours;
+		                $totalMinutes = $totalMinutes+$minutes;
+		                echo "<td>$hoursWorked</td>";
+		                $i++;
+	                }
+	                
+	                $totalMinutes_h = floor($totalMinutes/60);
+	                if(convertToHoursMins($totalMinutes, '%02d:%02d')<>''){
+						$totalMinutes_h = convertToHoursMins($totalMinutes, '%02d:%02d');
+					}
+					$parts = explode(":",$totalMinutes_h);
+					$totalHours = $totalHours+$parts[0];
+					$totalMinutes = $parts[1];
+	                
+	                echo "<td>$totalHours:$totalMinutes</td>";
+	            ?>
+            </tr>
+<?php
+	}
+?>
+	    </tbody>
+    </table>
+
+<?php		
+		
+	}
 
 	function convertToHoursMins($time, $format = '%02d:%02d') {
 	    if ($time < 1) {

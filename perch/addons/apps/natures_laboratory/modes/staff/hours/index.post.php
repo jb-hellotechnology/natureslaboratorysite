@@ -89,11 +89,28 @@
     	$year = date('Y');
     }
     
+    $nextMonth = $month+1;
+    $nextYear = $year;
+    if($nextMonth==13){
+	    $nextMonth = 12;
+	    $nextYear = $year+1;
+    }
+    
+    $prevMonth = $month-1;
+    $prevYear = $year;
+    if($prevMonth==0){
+	    $prevMonth=12;
+	    $prevYear = $year-1;
+    }
+    
+    $nextMonth = sprintf("%02d", $nextMonth);
+    $prevMonth = sprintf("%02d", $prevMonth);
     
     if($staffID){
     
     ?>
 	<h2><?php echo "$monthHuman $year" ?></h2>
+	<p><a href="?id=<?php echo $_GET['id']; ?>&date=<?php echo "$prevYear-$prevMonth";?>">&larr; Previous Month</a> | <a href="?id=<?php echo $_GET['id']; ?>&date=<?php echo "$nextYear-$nextMonth";?>">Next Month &rarr;</a></p>
 	
 	<table class="d">
         <thead>
@@ -202,6 +219,7 @@
 
 ?>
 	<h2><?php echo "$monthHuman $year" ?></h2>
+	<p><a href="?id=<?php echo $_GET['id']; ?>&date=<?php echo "$prevYear-$prevMonth";?>">&larr; Previous Month</a> | <a href="?id=<?php echo $_GET['id']; ?>&date=<?php echo "$nextYear-$nextMonth";?>">Next Month &rarr;</a></p>
 	<?php
 		$days = cal_days_in_month(CAL_GREGORIAN, $month, $year);
 	?>

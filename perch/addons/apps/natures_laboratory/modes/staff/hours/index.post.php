@@ -273,14 +273,26 @@
 								}
 							}
 						}
+						
+						$bankHoliday = $NaturesLaboratoryStaffBankholiday->getDate($date);
+						if($bankHoliday){
+							$class = '';
+							if($dynamicFields['normalMonday']=='yes'){
+								$hoursWorked = '<i>8:30</i>';
+								$minutes = $minutes+30;
+								$hours = $hours+8;
+							}
+						}else{
+							$class = '';
+						}
 		                
 		                $totalHours = $totalHours+$hours;
 		                $totalMinutes = $totalMinutes+$minutes;
 		                
 		                if($earlyFinish AND $hoursWorked<>''){
-		                	echo "<td><strong>$hoursWorked + $extras</strong></td>";
+		                	echo "<td class='$class'><strong>$hoursWorked + $extras</strong></td>";
 		                }else{
-			                echo "<td>$hoursWorked</td>";
+			                echo "<td class='$class'>$hoursWorked</td>";
 		                }
 		                $i++;
 	                }
@@ -307,6 +319,7 @@
     </table>
     
     <p><strong>Bold</strong> = Early Finish</p>
+    <p><i>Italic</i> = Holiday Hours</p>
 
 <?php		
 		

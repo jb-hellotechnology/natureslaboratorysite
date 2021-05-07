@@ -305,6 +305,8 @@
 ?>
 	    </tbody>
     </table>
+    
+    <p><strong>Bold</strong> = Early Finish</p>
 
 <?php		
 		

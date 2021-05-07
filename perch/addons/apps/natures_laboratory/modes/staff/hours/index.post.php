@@ -240,6 +240,9 @@
         <tbody>
 <?php
     foreach($staff as $Staff) {
+
+	    $dynamicFields = PerchUtil::json_safe_decode($Staff->natures_laboratory_staffDynamicFields(), true);
+	    
 ?>
             <tr>
                 <td><?php echo $Staff->name(); ?></td>
@@ -252,9 +255,33 @@
 		                $parts = explode(":",$hoursWorked);
 		                $hours = $parts[0];
 		                $minutes = $parts[1];
+		                
+		                $day = date("l", mktime(0, 0, 0, $month, $i, $year));
+		                $date = date("Y-m-d", mktime(0, 0, 0, $month, $i, $year));
+
+						$extras = '';
+
+						if($day=='Friday'){
+							$earlyFinish = $NaturesLaboratoryStaffEarlyFinish->getDate($date);
+							if($earlyFinish){
+								if($dynamicFields['jobType']=='Part Time'){
+									$extras = '30min';
+									$minutes = $minutes+30;
+								}elseif($dynamicFields['jobType']=='Full Time'){
+									$extras = '1hr';
+									$hours = $hours+1;
+								}
+							}
+						}
+		                
 		                $totalHours = $totalHours+$hours;
 		                $totalMinutes = $totalMinutes+$minutes;
-		                echo "<td>$hoursWorked</td>";
+		                
+		                if($earlyFinish AND $hoursWorked<>''){
+		                	echo "<td><strong>$hoursWorked + $extras</strong></td>";
+		                }else{
+			                echo "<td>$hoursWorked</td>";
+		                }
 		                $i++;
 	                }
 	                

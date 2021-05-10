@@ -262,7 +262,7 @@
 						$extras = '';
 						$earlyFinish = false;
 
-						if($day=='Friday'){
+						if($day=='Friday'AND $dynamicFields['earlyWednesday']<>'yes'){
 							$earlyFinish = $NaturesLaboratoryStaffEarlyFinish->getDate($date);
 							if($earlyFinish['natures_laboratory_staff_earlyfinishID']<>1){
 								if($earlyFinish['targetHit']=='15000'){

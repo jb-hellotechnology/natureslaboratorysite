@@ -262,7 +262,7 @@
 						$extras = '';
 						$earlyFinish = false;
 
-						if($day=='Friday'AND $dynamicFields['earlyWednesday']<>'yes'){
+						if($day=='Friday'AND $dynamicFields['earlyWednesday']<>'yes' AND $hours<>''){
 							$earlyFinish = $NaturesLaboratoryStaffEarlyFinish->getDate($date);
 							if($earlyFinish['natures_laboratory_staff_earlyfinishID']<>1){
 								if($earlyFinish['targetHit']=='15000'){
@@ -287,7 +287,7 @@
 							}
 						}
 						
-						if($day=='Wednesday' AND $dynamicFields['earlyWednesday']=='yes'){
+						if($day=='Wednesday' AND $dynamicFields['earlyWednesday']=='yes' AND $hours<>''){
 							$lastFriday = date("Y-m-d", mktime(0, 0, 0, $month, $i-5, $year));
 							$earlyFinish = $NaturesLaboratoryStaffEarlyFinish->getDate($lastFriday);
 							if($earlyFinish['natures_laboratory_staff_earlyfinishID']<>1){

@@ -264,7 +264,7 @@
 
 						if($day=='Friday'){
 							$earlyFinish = $NaturesLaboratoryStaffEarlyFinish->getDate($date);
-							if(count($earlyFinish)==1){
+							if($earlyFinish['natures_laboratory_staff_earlyfinishID']<>1){
 								if($earlyFinish['targetHit']=='15000'){
 									if($dynamicFields['jobType']=='Part Time'){
 										$extras = '30min';
@@ -291,7 +291,6 @@
 							$lastFriday = date("Y-m-d", mktime(0, 0, 0, $month, $i-5, $year));
 							$earlyFinish = $NaturesLaboratoryStaffEarlyFinish->getDate($lastFriday);
 							if($earlyFinish['natures_laboratory_staff_earlyfinishID']<>1){
-								echo 'here';
 								if($earlyFinish['targetHit']=='15000'){
 									if($dynamicFields['jobType']=='Part Time'){
 										$extras = '30min';

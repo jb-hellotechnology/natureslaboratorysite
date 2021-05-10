@@ -260,17 +260,57 @@
 		                $date = date("Y-m-d", mktime(0, 0, 0, $month, $i, $year));
 
 						$extras = '';
+						$earlyFinish = false;
 
 						if($day=='Friday'){
 							$earlyFinish = $NaturesLaboratoryStaffEarlyFinish->getDate($date);
-							if($earlyFinish){
-								if($dynamicFields['jobType']=='Part Time'){
-									$extras = '30min';
-									$minutes = $minutes+30;
-								}elseif($dynamicFields['jobType']=='Full Time'){
-									$extras = '1hr';
-									$hours = $hours+1;
+							if(count($earlyFinish)==1){
+								if($earlyFinish['targetHit']=='15000'){
+									if($dynamicFields['jobType']=='Part Time'){
+										$extras = '30min';
+										$minutes = $minutes+30;
+									}elseif($dynamicFields['jobType']=='Full Time'){
+										$extras = '1hr';
+										$hours = $hours+1;
+									}
+								}elseif($earlyFinish['targetHit']=='20000'){
+									if($dynamicFields['jobType']=='Part Time'){
+										$extras = '45min';
+										$minutes = $minutes+45;
+									}elseif($dynamicFields['jobType']=='Full Time'){
+										$extras = '1.5hr';
+										$hours = $hours+1;
+										$minutes = $minutes+30;
+									}
 								}
+								$earlyFinish = true;
+							}
+						}
+						
+						if($day=='Wednesday' AND $dynamicFields['earlyWednesday']=='yes'){
+							$lastFriday = date("Y-m-d", mktime(0, 0, 0, $month, $i-5, $year));
+							$earlyFinish = $NaturesLaboratoryStaffEarlyFinish->getDate($lastFriday);
+							if($earlyFinish['natures_laboratory_staff_earlyfinishID']<>1){
+								echo 'here';
+								if($earlyFinish['targetHit']=='15000'){
+									if($dynamicFields['jobType']=='Part Time'){
+										$extras = '30min';
+										$minutes = $minutes+30;
+									}elseif($dynamicFields['jobType']=='Full Time'){
+										$extras = '1hr';
+										$hours = $hours+1;
+									}
+								}elseif($earlyFinish['targetHit']=='20000'){
+									if($dynamicFields['jobType']=='Part Time'){
+										$extras = '45min';
+										$minutes = $minutes+45;
+									}elseif($dynamicFields['jobType']=='Full Time'){
+										$extras = '1.5hr';
+										$hours = $hours+1;
+										$minutes = $minutes+30;
+									}
+								}
+								$earlyFinish = true;
 							}
 						}
 						

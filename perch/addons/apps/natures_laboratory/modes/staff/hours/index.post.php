@@ -56,14 +56,14 @@
 	
 	$Smartbar->add_item([
 	    'active' => false,
-	    'title' => 'Sick Pay',
-	    'link'  => $API->app_nav().'/staff/sick/',
+	    'title' => 'Bank Holidays',
+	    'link'  => $API->app_nav().'/staff/bankholidays/',
 	]);
 	
 	$Smartbar->add_item([
 	    'active' => false,
-	    'title' => 'Volunteer Days',
-	    'link'  => $API->app_nav().'/staff/volunteer/',
+	    'title' => 'Early Finishes',
+	    'link'  => $API->app_nav().'/staff/earlyfinishes/',
 	]);
 	
 	$Smartbar->add_item([

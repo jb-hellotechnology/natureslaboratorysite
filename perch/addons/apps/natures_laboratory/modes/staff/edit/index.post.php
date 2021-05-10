@@ -6,7 +6,7 @@
     echo $HTML->title_panel([
     'heading' => $details['name'].' - Edit Staff Member'
     ], $CurrentUser);
-
+    
     $Smartbar = new PerchSmartbar($CurrentUser, $HTML, $Lang);
 
 	$Smartbar->add_item([
@@ -15,11 +15,23 @@
 	    'link'  => $API->app_nav().'/staff/',
 	]);
 	
-	$Smartbar->add_item([
-	    'active' => false,
-	    'title' => 'Hours',
-	    'link'  => $API->app_nav().'/staff/hours/?id='.$_GET['id'],
-	]);
+	if($staffID){
+	
+		$Smartbar->add_item([
+		    'active' => false,
+		    'title' => 'Hours',
+		    'link'  => $API->app_nav().'/staff/hours/?id='.$staffID,
+		]);
+	
+	}else{
+		
+		$Smartbar->add_item([
+		    'active' => false,
+		    'title' => 'Hours',
+		    'link'  => $API->app_nav().'/staff/hours/',
+		]);
+		
+	}
 	
 	$Smartbar->add_item([
 	    'active' => false,
@@ -29,8 +41,14 @@
 	
 	$Smartbar->add_item([
 	    'active' => false,
-	    'title' => 'Sick Pay',
-	    'link'  => $API->app_nav().'/staff/sick/',
+	    'title' => 'Sick Days',
+	    'link'  => $API->app_nav().'/staff/sick-days/',
+	]);
+	
+	$Smartbar->add_item([
+	    'active' => false,
+	    'title' => 'Compassionate Leave',
+	    'link'  => $API->app_nav().'/staff/leave/',
 	]);
 	
 	$Smartbar->add_item([

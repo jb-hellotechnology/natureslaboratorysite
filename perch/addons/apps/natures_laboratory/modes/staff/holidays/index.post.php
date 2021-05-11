@@ -65,13 +65,19 @@
 	}else{
 		
 		$Smartbar->add_item([
-		    'active' => true,
+		    'active' => false,
+		    'title' => 'Staff',
+		    'link'  => $API->app_nav().'/staff/',
+		]);
+		
+		$Smartbar->add_item([
+		    'active' => false,
 		    'title' => 'Hours',
 		    'link'  => $API->app_nav().'/staff/hours/',
 		]);
 		
 		$Smartbar->add_item([
-		    'active' => false,
+		    'active' => true,
 		    'title' => 'Holidays',
 		    'link'  => $API->app_nav().'/staff/holidays/',
 		]);

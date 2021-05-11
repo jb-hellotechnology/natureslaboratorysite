@@ -35,19 +35,19 @@
 	$Smartbar->add_item([
 	    'active' => false,
 	    'title' => 'Bank Holidays',
-	    'link'  => $API->app_nav().'/staff/bankholidays/',
+	    'link'  => $API->app_nav().'/staff/bank-holidays/',
 	]);
 	
 	$Smartbar->add_item([
 	    'active' => false,
 	    'title' => 'Early Finishes',
-	    'link'  => $API->app_nav().'/staff/earlyfinishes/',
+	    'link'  => $API->app_nav().'/staff/early-finishes/',
 	]);
 	
 	$Smartbar->add_item([
 	    'active' => false,
 	    'title' => 'Skills Matrix',
-	    'link'  => $API->app_nav().'/staff/skills/',
+	    'link'  => $API->app_nav().'/staff/skills-matrix/',
 	]);
 	
 	echo $Smartbar->render();

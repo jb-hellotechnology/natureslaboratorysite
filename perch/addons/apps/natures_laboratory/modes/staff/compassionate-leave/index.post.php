@@ -3,18 +3,33 @@
     
     echo $HTML->side_panel_end();
     
-    echo $HTML->title_panel([
-    'heading' => $details['name'].' - Staff Profile'
-    ], $CurrentUser);
+    if($staffID){
     
-    $Smartbar = new PerchSmartbar($CurrentUser, $HTML, $Lang);
-		
-	$Smartbar->add_item([
-	    'active' => true,
-	    'title' => 'Profile',
-	    'link'  => $API->app_nav().'/staff/?id='.$staffID,
-	]);
+	    echo $HTML->title_panel([
+	    'heading' => $details['name'].' - Compassionate Leave',
+	    'button'  => [
+	            'text' => $Lang->get('Compassionate Leave'),
+	            'link' => $API->app_nav().'/staff/compassionate-leave/add?id='.$_GET['id'],
+	            'icon' => 'core/plus',
+	        ],
+	    ], $CurrentUser);
+    
+    }else{
+	    
+	    echo $HTML->title_panel([
+	    'heading' => 'Holidays'
+	    ], $CurrentUser);
+	    
+    }
 
+    $Smartbar = new PerchSmartbar($CurrentUser, $HTML, $Lang);
+
+	$Smartbar->add_item([
+	    'active' => false,
+	    'title' => 'Profile',
+	    'link'  => $API->app_nav().'/staff/edit/?id='.$staffID,
+	]);
+	
 	$Smartbar->add_item([
 	    'active' => false,
 	    'title' => 'Hours',
@@ -34,7 +49,7 @@
 	]);
 	
 	$Smartbar->add_item([
-	    'active' => false,
+	    'active' => true,
 	    'title' => 'Compassionate Leave',
 	    'link'  => $API->app_nav().'/staff/compassionate-leave/?id='.$staffID,
 	]);
@@ -49,30 +64,24 @@
 
     echo $HTML->main_panel_start(); 
     
-    if (isset($message)){ 
-	    
-	    echo $message;
-	    
-	}else{
-		
-		echo $Form->form_start();
-		
-		echo $Form->text_field("name","Name",$details['name']);
-		
-		echo $Form->text_field("email","Email",$details['email']);
-		
-		echo $Form->text_field("phone","Phone",$details['phone']);
-		
-		echo $Form->text_field("address","Address",$details['address']);
-		
-		echo $Form->date_field("startDate","Start Date",$details['startDate']);
-		
-		echo $Form->fields_from_template($Template, $details, $NaturesLaboratoryStaff->static_fields);
-		    
-		echo $Form->submit_field('btnSubmit', 'Update Staff Member', $API->app_path());
-		
-		echo $Form->form_end();
-	
-	}
+    ?>
+
+	<table class="d">
+        <thead>
+            <tr>
+                <th>Start Time</th> 
+                <th>End Time</th> 
+                <th>Days Taken</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+	    <?php
+		?>
+        </tbody>
+	</table>
+
+<?php 
 
     echo $HTML->main_panel_end();

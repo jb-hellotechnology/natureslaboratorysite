@@ -23,22 +23,52 @@
     }
 
     $Smartbar = new PerchSmartbar($CurrentUser, $HTML, $Lang);
-
-	$Smartbar->add_item([
-	    'active' => false,
-	    'title' => 'Staff',
-	    'link'  => $API->app_nav().'/staff/',
-	]);
 	
 	if($staffID){
+		
+		$Smartbar->add_item([
+		    'active' => false,
+		    'title' => 'Profile',
+		    'link'  => $API->app_nav().'/staff/edit/?id='.$staffID,
+		]);
 	
 		$Smartbar->add_item([
 		    'active' => true,
 		    'title' => 'Hours',
 		    'link'  => $API->app_nav().'/staff/hours/?id='.$staffID,
 		]);
+		
+		$Smartbar->add_item([
+	    'active' => false,
+	    'title' => 'Holidays',
+	    'link'  => $API->app_nav().'/staff/holidays/?id='.$staffID,
+		]);
+		
+		$Smartbar->add_item([
+		    'active' => false,
+		    'title' => 'Sick Days',
+		    'link'  => $API->app_nav().'/staff/sick-days/?id='.$staffID,
+		]);
+		
+		$Smartbar->add_item([
+		    'active' => false,
+		    'title' => 'Compassionate Leave',
+		    'link'  => $API->app_nav().'/staff/compassionate-leave/?id='.$staffID,
+		]);
+		
+		$Smartbar->add_item([
+		    'active' => false,
+		    'title' => 'Volunteer Days',
+		    'link'  => $API->app_nav().'/staff/volunteer-days/?id='.$staffID,
+		]);
 	
 	}else{
+		
+		$Smartbar->add_item([
+		    'active' => false,
+		    'title' => 'Staff',
+		    'link'  => $API->app_nav().'/staff/',
+		]);
 		
 		$Smartbar->add_item([
 		    'active' => true,
@@ -46,31 +76,31 @@
 		    'link'  => $API->app_nav().'/staff/hours/',
 		]);
 		
+		$Smartbar->add_item([
+		    'active' => false,
+		    'title' => 'Holidays',
+		    'link'  => $API->app_nav().'/staff/holidays/',
+		]);
+		
+		$Smartbar->add_item([
+		    'active' => false,
+		    'title' => 'Bank Holidays',
+		    'link'  => $API->app_nav().'/staff/bank-holidays/',
+		]);
+		
+		$Smartbar->add_item([
+		    'active' => false,
+		    'title' => 'Early Finishes',
+		    'link'  => $API->app_nav().'/staff/early-finishes/',
+		]);
+		
+		$Smartbar->add_item([
+		    'active' => false,
+		    'title' => 'Skills Matrix',
+		    'link'  => $API->app_nav().'/staff/skills-matrix/',
+		]);
+		
 	}
-	
-	$Smartbar->add_item([
-	    'active' => false,
-	    'title' => 'Holidays',
-	    'link'  => $API->app_nav().'/staff/holidays/',
-	]);
-	
-	$Smartbar->add_item([
-	    'active' => false,
-	    'title' => 'Bank Holidays',
-	    'link'  => $API->app_nav().'/staff/bankholidays/',
-	]);
-	
-	$Smartbar->add_item([
-	    'active' => false,
-	    'title' => 'Early Finishes',
-	    'link'  => $API->app_nav().'/staff/earlyfinishes/',
-	]);
-	
-	$Smartbar->add_item([
-	    'active' => false,
-	    'title' => 'Skills Matrix',
-	    'link'  => $API->app_nav().'/staff/skills/',
-	]);
 	
 	echo $Smartbar->render();
 

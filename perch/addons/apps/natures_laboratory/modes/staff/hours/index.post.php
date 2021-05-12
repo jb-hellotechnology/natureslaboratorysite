@@ -292,6 +292,9 @@
 		                $hours = $parts[0];
 		                $minutes = $parts[1];
 		                
+		                $workedHours = $workedHours+$hours;
+		                $workedMinutes = $workedMinutes+$minutes;
+		                
 		                $day = date("l", mktime(0, 0, 0, $month, $i, $year));
 		                $date = date("Y-m-d", mktime(0, 0, 0, $month, $i, $year));
 
@@ -321,8 +324,8 @@
 								}
 								$earlyFinish = true;
 							}
-							$workedHours = $hours;
-							$workedMinutes = $minutes;
+							$workedHours = $workedHours + $hours;
+							$workedMinutes = $workedMinutes + $minutes;
 						}
 						
 						if($day=='Wednesday' AND $dynamicFields['earlyWednesday']=='yes' AND $hours<>''){

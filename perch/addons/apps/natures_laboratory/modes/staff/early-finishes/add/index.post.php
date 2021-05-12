@@ -4,12 +4,7 @@
     echo $HTML->side_panel_end();
     
     echo $HTML->title_panel([
-    'heading' => 'Bank Holidays',
-    'button'  => [
-            'text' => $Lang->get('Bank Holiday'),
-            'link' => $API->app_nav().'/staff/bank-holidays/add',
-            'icon' => 'core/plus',
-        ],
+    'heading' => 'Early Finishes',
     ], $CurrentUser);
 
     $Smartbar = new PerchSmartbar($CurrentUser, $HTML, $Lang);

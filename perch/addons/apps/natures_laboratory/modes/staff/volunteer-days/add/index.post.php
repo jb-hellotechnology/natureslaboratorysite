@@ -1,15 +1,10 @@
  <?php
     echo $HTML->side_panel_start();
-
+    
     echo $HTML->side_panel_end();
     
     echo $HTML->title_panel([
     'heading' => $details['name'].' - Volunteer Days',
-    'button'  => [
-            'text' => $Lang->get('Volunteer Day'),
-            'link' => $API->app_nav().'/staff/volunteer-days/add?id='.$_GET['id'],
-            'icon' => 'core/plus',
-        ],
     ], $CurrentUser);
 
     $Smartbar = new PerchSmartbar($CurrentUser, $HTML, $Lang);
@@ -54,30 +49,20 @@
 
     echo $HTML->main_panel_start(); 
     
-    ?>
-
-	<table class="d">
-        <thead>
-            <tr>
-                <th>Date</th> 
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-<?php
-    foreach($volunteerdays as $Day) {
-
-?>
-            <tr>
-                <td><?php echo $Day['date']; ?></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/staff/volunteer-days/delete/?id=<?php echo $_GET['id']; ?>&volunteerID=<?php echo $HTML->encode(urlencode($Day['natures_laboratory_staff_volunteerdayID'])); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
-            </tr>
-<?php
+    if (isset($message)){ 
+	    
+	    echo $message;
+	    
+	}else{
+		
+		echo $Form->form_start();
+		
+		echo $Form->text_field("date","Date (format YYYY-MM-DD)",'');
+		    
+		echo $Form->submit_field('btnSubmit', 'Add Volunteer Day', $API->app_path());
+		
+		echo $Form->form_end();
+	
 	}
-?>
-        </tbody>
-	</table>
-
-<?php 
 
     echo $HTML->main_panel_end();

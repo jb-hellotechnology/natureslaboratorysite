@@ -1,26 +1,16 @@
  <?php
     echo $HTML->side_panel_start();
-    
+
     echo $HTML->side_panel_end();
     
-    if($staffID){
-    
-	    echo $HTML->title_panel([
-	    'heading' => $details['name'].' - Compassionate Leave',
-	    'button'  => [
-	            'text' => $Lang->get('Compassionate Leave'),
-	            'link' => $API->app_nav().'/staff/compassionate-leave/add?id='.$_GET['id'],
-	            'icon' => 'core/plus',
-	        ],
-	    ], $CurrentUser);
-    
-    }else{
-	    
-	    echo $HTML->title_panel([
-	    'heading' => 'Holidays'
-	    ], $CurrentUser);
-	    
-    }
+    echo $HTML->title_panel([
+    'heading' => $details['name'].' - Compassionate Leave',
+    'button'  => [
+            'text' => $Lang->get('Compassionate Leave'),
+            'link' => $API->app_nav().'/staff/compassionate-leave/add?id='.$_GET['id'],
+            'icon' => 'core/plus',
+        ],
+    ], $CurrentUser);
 
     $Smartbar = new PerchSmartbar($CurrentUser, $HTML, $Lang);
 
@@ -69,16 +59,22 @@
 	<table class="d">
         <thead>
             <tr>
-                <th>Start Time</th> 
-                <th>End Time</th> 
-                <th>Days Taken</th>
-                <th>Edit</th>
+                <th>Date</th> 
                 <th>Delete</th>
             </tr>
         </thead>
         <tbody>
-	    <?php
-		?>
+<?php
+    foreach($compassionatedays as $Day) {
+
+?>
+            <tr>
+                <td><?php echo $Day['date']; ?></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/staff/compassionate-leave/delete/?id=<?php echo $_GET['id']; ?>&compassionateID=<?php echo $HTML->encode(urlencode($Day['natures_laboratory_staff_compassionatedayID'])); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
+            </tr>
+<?php
+	}
+?>
         </tbody>
 	</table>
 

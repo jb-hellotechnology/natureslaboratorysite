@@ -1,26 +1,16 @@
  <?php
     echo $HTML->side_panel_start();
-    
+
     echo $HTML->side_panel_end();
     
-    if($staffID){
-    
-	    echo $HTML->title_panel([
-	    'heading' => $details['name'].' - Sick Days',
-	    'button'  => [
-	            'text' => $Lang->get('Sick Days'),
-	            'link' => $API->app_nav().'/staff/sick-days/add?id='.$_GET['id'],
-	            'icon' => 'core/plus',
-	        ],
-	    ], $CurrentUser);
-    
-    }else{
-	    
-	    echo $HTML->title_panel([
-	    'heading' => 'Holidays'
-	    ], $CurrentUser);
-	    
-    }
+    echo $HTML->title_panel([
+    'heading' => $details['name'].' - Sick Days',
+    'button'  => [
+            'text' => $Lang->get('Sick Day'),
+            'link' => $API->app_nav().'/staff/sick-days/add?id='.$_GET['id'],
+            'icon' => 'core/plus',
+        ],
+    ], $CurrentUser);
 
     $Smartbar = new PerchSmartbar($CurrentUser, $HTML, $Lang);
 
@@ -69,16 +59,22 @@
 	<table class="d">
         <thead>
             <tr>
-                <th>Start Time</th> 
-                <th>End Time</th> 
-                <th>Days Taken</th>
-                <th>Edit</th>
+                <th>Date</th> 
                 <th>Delete</th>
             </tr>
         </thead>
         <tbody>
-	    <?php
-		?>
+<?php
+    foreach($sickdays as $SickDay) {
+
+?>
+            <tr>
+                <td><?php echo $SickDay['date']; ?></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/staff/sick-days/delete/?id=<?php echo $_GET['id']; ?>&sickdayID=<?php echo $HTML->encode(urlencode($SickDay['natures_laboratory_staff_sickdayID'])); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
+            </tr>
+<?php
+	}
+?>
         </tbody>
 	</table>
 

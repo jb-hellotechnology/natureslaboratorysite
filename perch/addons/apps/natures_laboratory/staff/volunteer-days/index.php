@@ -28,8 +28,8 @@
     include('../../Natures_Laboratory.staffmember.skillsmatrixes.class.php');
     include('../../Natures_Laboratory.staffmember.sickday.class.php');
     include('../../Natures_Laboratory.staffmember.sickdays.class.php');
-    include('../../Natures_Laboratory.staffmember.compassionateleave.class.php');
-    include('../../Natures_Laboratory.staffmember.compassionateleaves.class.php');
+    include('../../Natures_Laboratory.staffmember.compassionateday.class.php');
+    include('../../Natures_Laboratory.staffmember.compassionatedays.class.php');
     include('../../Natures_Laboratory.staffmember.volunteerday.class.php');
     include('../../Natures_Laboratory.staffmember.volunteerdays.class.php');
     

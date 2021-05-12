@@ -6,9 +6,9 @@ class Natures_Laboratory_Staff_Member_Earlyfinishes extends PerchAPI_Factory
 	protected $pk        = 'natures_laboratory_staff_earlyfinishID';
 	protected $singular_classname = 'Natures_Laboratory_Staff_Member_Earlyfinish';
 	
-	protected $default_sort_column = 'timeStamp';
+	protected $default_sort_column = 'date';
 	
-	public $static_fields = array('natures_laboratory_staff_earlyfinishID,','date');	
+	public $static_fields = array('natures_laboratory_staff_earlyfinishID,','date','targetHit');	
 	
 	public function getDate($date){
 		

@@ -272,7 +272,7 @@
     foreach($staff as $Staff) {
 
 	    $dynamicFields = PerchUtil::json_safe_decode($Staff->natures_laboratory_staffDynamicFields(), true);
-	    
+
 ?>
             <tr>
                 <td><?php echo $Staff->name(); ?></td>
@@ -344,7 +344,7 @@
 						}
 						
 						$bankHoliday = $NaturesLaboratoryStaffBankholiday->getDate($date);
-						if($bankHoliday AND $Staff['startDate']<=$date){
+						if($bankHoliday AND $Staff->startDate()<=$date){
 							$class = '';
 							if($dynamicFields['normalMonday']=='yes'){
 								$hoursWorked = '<i>8:30</i>';

@@ -414,6 +414,7 @@
     
     <p><strong>Bold</strong> = Early Finish</p>
     <p><i>Italic</i> = Holiday Hours</p>
+    <p><u>Underlined</u> = Leave Day (C = Compassionate, S = Sick, V = Volunteer)</p>
 
 <?php		
 		

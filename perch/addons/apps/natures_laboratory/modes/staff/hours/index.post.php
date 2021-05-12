@@ -344,7 +344,7 @@
 						}
 						
 						$bankHoliday = $NaturesLaboratoryStaffBankholiday->getDate($date);
-						if($bankHoliday){
+						if($bankHoliday AND $staff['startDate']>=$date){
 							$class = '';
 							if($dynamicFields['normalMonday']=='yes'){
 								$hoursWorked = '<i>8:30</i>';

@@ -71,7 +71,7 @@
 ?>
             <tr>
                 <td><?php echo $BankHoliday->date(); ?></td>
-                <td><td><a href="<?php echo $HTML->encode($API->app_path()); ?>/staff/bank-holidays/delete/?id=<?php echo $HTML->encode(urlencode($BankHoliday->natures_laboratory_staff_bankholidayID())); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/staff/bank-holidays/delete/?id=<?php echo $HTML->encode(urlencode($BankHoliday->natures_laboratory_staff_bankholidayID())); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
             </tr>
 <?php
 	}

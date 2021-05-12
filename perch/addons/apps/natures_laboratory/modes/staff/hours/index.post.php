@@ -265,6 +265,8 @@
 	                }
 	            ?>
 	            <th>Total</th>
+	            <th>Worked</th>
+	            <th>Holiday</th>
             </tr>
         </thead>
         <tbody>
@@ -280,6 +282,10 @@
 	                $i = 1;
 	                $totalHours = 0;
 	                $totalMinutes = 0;
+	                $workedHours = 0;
+	                $workedMinutes = 0;
+	                $holidayHours = 0;
+	                $holidayMinutes = 0;
 	                while($i<=$days){
 		                $hoursWorked = $NaturesLaboratoryStaffTimes->hoursWorked($Staff->natures_laboratory_staffID(),$year,$month,$i);
 		                $parts = explode(":",$hoursWorked);
@@ -315,6 +321,8 @@
 								}
 								$earlyFinish = true;
 							}
+							$workedHours = $hours;
+							$workedMinutes = $minutes;
 						}
 						
 						if($day=='Wednesday' AND $dynamicFields['earlyWednesday']=='yes' AND $hours<>''){
@@ -341,6 +349,8 @@
 								}
 								$earlyFinish = true;
 							}
+							$workedHours = $hours;
+							$workedMinutes = $minutes;
 						}
 						
 						//BANK HOLIDAYS
@@ -351,6 +361,8 @@
 								$hoursWorked = '<i>8:30</i>';
 								$minutes = $minutes+30;
 								$hours = $hours+8;
+								$holidayHours = $holidayHours+8;
+								$holidayMinutes = $holidayMinutes+30;
 							}
 						}else{
 							$class = '';
@@ -362,6 +374,8 @@
 							$hoursWorked = '<u>8:30 (C)</u>';
 							$minutes = $minutes+30;
 							$hours = $hours+8;
+							$holidayHours = $holidayHours+8;
+							$holidayMinutes = $holidayMinutes+30;
 						}
 						
 						//SICK DAY
@@ -370,6 +384,8 @@
 							$hoursWorked = '<u>8:30 (S)</u>';
 							$minutes = $minutes+30;
 							$hours = $hours+8;
+							$holidayHours = $holidayHours+8;
+							$holidayMinutes = $holidayMinutes+30;
 						}
 						
 						//VOLUNTEER DAY
@@ -378,6 +394,8 @@
 							$hoursWorked = '<u>8:30 (V)</u>';
 							$minutes = $minutes+30;
 							$hours = $hours+8;
+							$holidayHours = $holidayHours+8;
+							$holidayMinutes = $holidayMinutes+30;
 						}
 		                
 		                $totalHours = $totalHours+$hours;
@@ -391,6 +409,8 @@
 		                $i++;
 	                }
 	                
+	                
+	                //CALC TOTAL
 	                $totalMinutes_h = floor($totalMinutes/60);
 	                if(convertToHoursMins($totalMinutes, '%02d:%02d')<>''){
 						$totalMinutes_h = convertToHoursMins($totalMinutes, '%02d:%02d');
@@ -402,8 +422,36 @@
 					if($totalMinutes==''){
 						$totalMinutes='00';
 					}
+					
+					//CALC WORKED
+					$workedMinutes_h = floor($workedMinutes/60);
+	                if(convertToHoursMins($workedMinutes, '%02d:%02d')<>''){
+						$workedMinutes_h = convertToHoursMins($workedMinutes, '%02d:%02d');
+					}
+					$parts = explode(":",$workedMinutes_h);
+					$workedHours = $workedHours+$parts[0];
+					$workedMinutes = $parts[1];
+					
+					if($workedMinutes==''){
+						$workedMinutes='00';
+					}
+					
+					//CALC HOLIDAY
+	                $holidayMinutes_h = floor($holidayMinutes/60);
+	                if(convertToHoursMins($holidayMinutes, '%02d:%02d')<>''){
+						$holidayMinutes_h = convertToHoursMins($holidayMinutes, '%02d:%02d');
+					}
+					$parts = explode(":",$holidayMinutes_h);
+					$holidayHours = $holidayHours+$parts[0];
+					$holidayMinutes = $parts[1];
+					
+					if($holidayMinutes==''){
+						$holidayMinutes='00';
+					}
 	                
 	                echo "<td>$totalHours:$totalMinutes</td>";
+	                echo "<td>$workedHours:$workedMinutes</td>";
+	                echo "<td>$holidayHours:$holidayMinutes</td>";
 	            ?>
             </tr>
 <?php

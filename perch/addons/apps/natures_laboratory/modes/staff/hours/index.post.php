@@ -343,6 +343,7 @@
 							}
 						}
 						
+						//BANK HOLIDAYS
 						$bankHoliday = $NaturesLaboratoryStaffBankholiday->getDate($date);
 						if($bankHoliday AND $Staff->startDate()<=$date){
 							$class = '';
@@ -353,6 +354,30 @@
 							}
 						}else{
 							$class = '';
+						}
+						
+						//COMPASSIONATE LEAVE
+						$compassionate = $NaturesLaboratoryStaffCompassionate->getDate($Staff->natures_laboratory_staffID(),$date);
+						if($compassionate){
+							$hoursWorked = '<u>8:30 (C)</u>';
+							$minutes = $minutes+30;
+							$hours = $hours+8;
+						}
+						
+						//SICK DAY
+						$sick = $NaturesLaboratoryStaffSickdays->getDate($Staff->natures_laboratory_staffID(),$date);
+						if($sick){
+							$hoursWorked = '<u>8:30 (S)</u>';
+							$minutes = $minutes+30;
+							$hours = $hours+8;
+						}
+						
+						//VOLUNTEER DAY
+						$volunteer = $NaturesLaboratoryStaffVolunteerdays->getDate($Staff->natures_laboratory_staffID(),$date);
+						if($volunteer){
+							$hoursWorked = '<u>8:30 (V)</u>';
+							$minutes = $minutes+30;
+							$hours = $hours+8;
 						}
 		                
 		                $totalHours = $totalHours+$hours;

@@ -107,9 +107,45 @@
     echo $HTML->main_panel_start(); 
     
     if($staffID){
+	    
+	    print_r($details);
+	    echo "<hr />";
+	    $json = json_decode($details['natures_laboratory_staffDynamicFields'],true);
+	    print_r($json);
+	    
+	?>  
     
-    ?>
+    	<h2>Holiday Allowance</h2>
+    	<table class="d">
+	        <thead>
+	            <tr>
+		            <th>2021/22 Allowance</th>
+		            <th>Days Bought Forward From 2020/21</th>
+		            <th>Extra Days Accrued To Date</th>
+		            <th>Total Entitlement</th>
+		            <th>Bank Holidays Taken</th>
+		            <th>Holidays Taken</th>
+		            <th>Paid Sick Leave Remaining</th>
+		            <th>Compassionate Leave Remaining</th>
+		            <th>Volunteer Day Remaining</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+		        <tr>
+			        <td><?php echo $json['holidayEntitlement']; ?></td>
+			        <td></td>
+			        <td></td>
+			        <td></td>
+			        <td></td>
+			        <td></td>
+			        <td></td>
+			        <td></td>
+			        <td></td>
+		        </tr>
+	        </tbody>
+    	</table>
 
+	<h2>Holiday Record</h2>
 	<table class="d">
         <thead>
             <tr>

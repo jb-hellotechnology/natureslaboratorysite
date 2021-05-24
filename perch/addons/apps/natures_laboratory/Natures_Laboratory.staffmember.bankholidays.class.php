@@ -21,5 +21,13 @@ class Natures_Laboratory_Staff_Member_Bankholidays extends PerchAPI_Factory
 			return false;
 		}
 		
+	}
+	
+	public function getForYear($start,$end){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_staff_bankholidays WHERE date>="'.$start.'" AND date<="'.$end.'"';
+		$data = $this->db->get_rows($sql);
+		return $data;
+		
 	}	
 }

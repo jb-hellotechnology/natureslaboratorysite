@@ -22,6 +22,12 @@
     include('../../Natures_Laboratory.staffmember.earlyfinishes.class.php');
     include('../../Natures_Laboratory.staffmember.bankholiday.class.php');
     include('../../Natures_Laboratory.staffmember.bankholidays.class.php');
+    include('../../Natures_Laboratory.staffmember.compassionateday.class.php');
+    include('../../Natures_Laboratory.staffmember.compassionatedays.class.php');
+    include('../../Natures_Laboratory.staffmember.sickday.class.php');
+    include('../../Natures_Laboratory.staffmember.sickdays.class.php');
+    include('../../Natures_Laboratory.staffmember.volunteer.class.php');
+    include('../../Natures_Laboratory.staffmember.volunteerdays.class.php');
     include('../../Natures_Laboratory.staffmember.holiday.class.php');
     include('../../Natures_Laboratory.staffmember.holidays.class.php');
     

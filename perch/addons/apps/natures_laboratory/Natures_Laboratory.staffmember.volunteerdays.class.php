@@ -18,6 +18,14 @@ class Natures_Laboratory_Staff_Member_Volunteerdays extends PerchAPI_Factory
 		
 	}
 	
+	public function getForYear($staffID,$start,$end){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_staff_volunteerdays WHERE staffID="'.$staffID.'" AND (date>="'.$start.'" AND date<="'.$end.'")';
+		$data = $this->db->get_rows($sql);
+		return count($data);
+		
+	}
+	
 	public function getDays($staffID){
 		
 		$sql = 'SELECT * FROM perch3_natures_laboratory_staff_volunteerdays WHERE staffID="'.$staffID.'" ORDER BY date DESC';

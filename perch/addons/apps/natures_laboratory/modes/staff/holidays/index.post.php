@@ -1,4 +1,5 @@
  <?php
+	 
     echo $HTML->side_panel_start();
     
     echo $HTML->side_panel_end();
@@ -108,11 +109,51 @@
     
     if($staffID){
 	    
-	    print_r($details);
-	    echo "<hr />";
 	    $json = json_decode($details['natures_laboratory_staffDynamicFields'],true);
-	    print_r($json);
+	    $totalAllowance = $json['holidayEntitlement'] + $json['boughtForward'] + $json['totalAccrued'];
 	    
+	    $today = date('Y-m-d');
+		
+		if($today>date('Y').'-01-01' AND $today<=date('Y').'-04-05'){
+			$startYear = date('Y')-1;
+			$endYear = date('Y');
+		}elseif($today>date('Y').'-04-05'){
+			$startYear = date('Y');
+			$endYear = date('Y')+1;
+		}else{
+			$startYear = date('Y');
+			$endYear = date('Y')+1;
+		}
+		
+		$start = "$startYear-04-06";
+		$end = "$endYear-04-05";
+	    
+	    $bankHolidays = $NaturesLaboratoryStaffBankholiday->getForYear($start,$end);
+	    $compassionate = $NaturesLaboratoryStaffCompassionate->getForYear($_GET['id'],$start,$end);
+	    $sick = $NaturesLaboratoryStaffSickdays->getForYear($_GET['id'],$start,$end);
+	    $volunteer = $NaturesLaboratoryStaffVolunteerdays->getForYear($_GET['id'],$start,$end);
+	    $holiday = $NaturesLaboratoryStaffHolidays->getForYear($_GET['id'],$start,$end);
+	    
+	    $compassionate = $json['compassionateDays'] - $compassionate;
+	    $sick = $json['sickDays'] - $sick;
+	    $volunteer = $json['volunteerDays'] - $volunteer;
+	    
+	    $bankHolidaysTaken = 0;
+	    
+	    foreach($bankHolidays as $bankHoliday){
+		    print_r($bankHoliday);
+		    $dayofweek = date('l', strtotime($bankHoliday['date']));
+		    echo $dayofweek;
+		    if($dayofweek=='Monday' AND $json['normalMonday']=='yes'){
+			    $bankHolidaysTaken++;
+		    }
+		    if($dayofweek=='Tuesday' AND $json['normalTuesday']=='yes'){
+			    $bankHolidaysTaken++;
+		    }
+	    }
+	    
+	    $remaining = $totalAllowance - $bankHolidaysTaken - $holiday;
+	 
 	?>  
     
     	<h2>Holiday Allowance</h2>
@@ -125,6 +166,7 @@
 		            <th>Total Entitlement</th>
 		            <th>Bank Holidays Taken</th>
 		            <th>Holidays Taken</th>
+		            <th>Holidays Remaining</th>
 		            <th>Paid Sick Leave Remaining</th>
 		            <th>Compassionate Leave Remaining</th>
 		            <th>Volunteer Day Remaining</th>
@@ -133,14 +175,15 @@
 	        <tbody>
 		        <tr>
 			        <td><?php echo $json['holidayEntitlement']; ?></td>
-			        <td></td>
-			        <td></td>
-			        <td></td>
-			        <td></td>
-			        <td></td>
-			        <td></td>
-			        <td></td>
-			        <td></td>
+			        <td><?php echo $json['boughtForward']; ?></td>
+			        <td><?php echo $json['totalAccrued']; ?></td>
+			        <td><?php echo $totalAllowance; ?></td>
+			        <td><?php echo $bankHolidaysTaken; ?></td>
+			        <td><?php echo $holiday; ?></td>
+			        <td><?php echo $remaining; ?></td>
+			        <td><?php echo $sick; ?></td>
+			        <td><?php echo $compassionate; ?></td>
+			        <td><?php echo $volunteer; ?></td>
 		        </tr>
 	        </tbody>
     	</table>

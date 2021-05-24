@@ -28,6 +28,8 @@
     include('../../Natures_Laboratory.staffmember.sickdays.class.php');
     include('../../Natures_Laboratory.staffmember.volunteer.class.php');
     include('../../Natures_Laboratory.staffmember.volunteerdays.class.php');
+    include('../../Natures_Laboratory.staffmember.holiday.class.php');
+    include('../../Natures_Laboratory.staffmember.holidays.class.php');
     
     # Grab an instance of the Lang class for translations
     $Lang = $API->get('Lang');

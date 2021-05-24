@@ -400,6 +400,25 @@
 							$holidayHours = $holidayHours+8;
 							$holidayMinutes = $holidayMinutes+30;
 						}
+						
+						//HOLIDAY DAY
+						$holiday = $NaturesLaboratoryStaffHolidays->getDate($Staff->natures_laboratory_staffID(),$date);
+						if($holiday){
+							if($holiday[0]['length']=='1.0'){
+								$hoursWorked = '<i>8:30</i>';
+								$minutes = $minutes+30;
+								$hours = $hours+8;
+								$holidayHours = $holidayHours+8;
+								$holidayMinutes = $holidayMinutes+30;
+							}else{
+								$hoursWorked = '<i>4:15</i>';
+								$minutes = $minutes+15;
+								$hours = $hours+4;
+								$holidayHours = $holidayHours+4;
+								$holidayMinutes = $holidayMinutes+15;
+							}
+							
+						}
 		                
 		                $totalHours = $totalHours+$hours;
 		                $totalMinutes = $totalMinutes+$minutes;

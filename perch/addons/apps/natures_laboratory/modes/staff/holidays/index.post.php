@@ -113,15 +113,23 @@
 	<table class="d">
         <thead>
             <tr>
-                <th>Start Time</th> 
-                <th>End Time</th> 
-                <th>Days Taken</th>
-                <th>Edit</th>
+                <th>Date</th> 
+                <th>Length</th> 
                 <th>Delete</th>
             </tr>
         </thead>
         <tbody>
 	    <?php
+		    foreach($holidays as $holiday){
+		?>
+		<tr>
+                <td><?php echo $holiday['date']; ?></td>
+                <td><?php echo $holiday['length']; ?></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/staff/holidays/delete/?staffID=<?php echo $holiday['staffID'];?>&id=<?php echo $holiday['natures_laboratory_staff_holidayID']; ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
+            </tr>
+		<?php
+		    }
+		    
 		?>
         </tbody>
 	</table>

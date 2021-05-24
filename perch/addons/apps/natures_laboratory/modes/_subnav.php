@@ -13,19 +13,11 @@
             'label'=> 'Staff'
         ],
         [
-            'page' => 'natures_laboratory/website_traffic',
-            'label'=> 'Website Traffic'
+            'page' => 'natures_laboratory/goods-in',
+            'label'=> 'Goods In'
         ],
         [
-            'page' => 'natures_laboratory/sales',
-            'label'=> 'Sales'
+            'page' => 'natures_laboratory/coa',
+            'label'=> 'Certificate of Analysis'
         ],
-        [
-            'page' => 'natures_laboratory/manufacturing',
-            'label'=> 'Manufacturing'
-        ],
-        [
-            'page' => 'natures_laboratory/dispatch',
-            'label'=> 'Dispatch'
-        ]
     ], $CurrentUser);

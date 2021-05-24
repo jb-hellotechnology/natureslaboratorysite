@@ -141,9 +141,7 @@
 	    $bankHolidaysTaken = 0;
 	    
 	    foreach($bankHolidays as $bankHoliday){
-		    print_r($bankHoliday);
 		    $dayofweek = date('l', strtotime($bankHoliday['date']));
-		    echo $dayofweek;
 		    if($dayofweek=='Monday' AND $json['normalMonday']=='yes'){
 			    $bankHolidaysTaken++;
 		    }

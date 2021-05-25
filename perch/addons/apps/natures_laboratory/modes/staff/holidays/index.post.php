@@ -260,6 +260,14 @@
 					foreach($holidays as $holiday){						
 							echo "{ id: '".$holiday->natures_laboratory_staff_holidayID()."', resourceId: '".$holiday->staffID()."', start: \"".$holiday->date()."T00:00:00\", end: \"".$holiday->date()."T23:59:59\", title: '',  color: 'red' },\n";
 					}
+					$rows = $NaturesLaboratoryStaff->all();
+					foreach($rows as $row){
+						$bankholidays = $NaturesLaboratoryStaffBankholiday->all();
+						foreach($bankholidays as $bankholiday){					
+							echo "{ id: '".$bankholiday->natures_laboratory_staff_bankholidayID()."_".$row->natures_laboratory_staffID()."', resourceId: '".$row->natures_laboratory_staffID()."', start: \"".$bankholiday->date()."T00:00:00\", end: \"".$bankholiday->date()."T23:59:59\", title: '',  color: 'blue' },\n";
+						}
+					}
+					
 				?>
 			]
 		});

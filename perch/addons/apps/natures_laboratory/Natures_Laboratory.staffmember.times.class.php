@@ -29,8 +29,16 @@ class Natures_Laboratory_Staff_Member_Times extends PerchAPI_Factory
 				$time_h = "08:30:00";
 			}
 			
-			if(substr($time_h, 0, 2)=='17' OR substr($time_h, 0, 2)=='16'){
+			if(substr($time_h, 0, 2)=='17' OR substr($time_h, 0, 4)=='16:5'){
 				$time_h = "17:00:00";
+			}
+			
+			if(substr($time_h, 0, 4)=='16:3'){
+				$time_h = "16:30:00";
+			}
+			
+			if(substr($time_h, 0, 4)=='16:0'){
+				$time_h = "16:00:00";
 			}
 	        
         }

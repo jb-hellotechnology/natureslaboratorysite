@@ -217,7 +217,60 @@
 
 ?>
 	<h2>Holidays</h2>
-	<p>Schedule here</p>
+	<div id='calendar'></div>
+	<script>
+	$(document).ready(function() {
+	
+		var todayDate = moment().startOf('day');
+		var YESTERDAY = todayDate.clone().subtract(1, 'day').format('YYYY-MM-DD');
+		var TODAY = todayDate.format('YYYY-MM-DD');
+		var TOMORROW = todayDate.clone().add(1, 'day').format('YYYY-MM-DD');
+	
+    if($(window).width()>767){
+      var resourceW = 140;
+    }else{
+      resourceW = 100;
+    }
+    
+		$('#calendar').fullCalendar({
+			schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+			resourceAreaWidth: resourceW,
+			editable: true,
+			slotDuration: "24:00",
+			scrollTime: '<?php echo date('Y-m-d'); ?>',
+			header: {
+				left: 'today prev,next',
+				center: 'title',
+				right: 'timelineMonth'
+			},
+			defaultView: 'timelineMonth',
+			displayEventTime : false,
+			resourceLabelText: 'Staff Member',
+			resources: [
+				<?php
+					$rows = $NaturesLaboratoryStaff->all();
+					foreach($rows as $row){
+						echo "{ id: '".$row->natures_laboratory_staffID()."', title: '".$row->name()."'},";
+					}
+				?>	
+			],
+			events: [
+				<?php
+					$holidays = $NaturesLaboratoryStaffHolidays->all();
+					foreach($holidays as $holiday){						
+							echo "{ id: '".$holiday->natures_laboratory_staff_holidayID()."', resourceId: '".$holiday->staffID()."', start: \"".$holiday->date()."T00:00:00\", end: \"".$holiday->date()."T23:59:59\", title: '',  color: 'red' },\n";
+					}
+				?>
+			]
+		});
+	
+	});
+	
+	// readjust sizing after font load
+	$(window).ready(function() {
+		$('#calendar').fullCalendar('render');
+	});
+	</script>
 	
 <?php		
 		

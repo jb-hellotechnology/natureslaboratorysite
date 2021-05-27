@@ -301,6 +301,7 @@
 						$extras = '';
 						$earlyFinish = false;
 
+/*
 						if($day=='Friday'AND $dynamicFields['earlyWednesday']<>'yes' AND $hours<>''){
 							$earlyFinish = $NaturesLaboratoryStaffEarlyFinish->getDate($date);
 							if($earlyFinish['natures_laboratory_staff_earlyfinishID']<>1){
@@ -355,6 +356,7 @@
 							$workedHours = $workedHours + $hours;
 							$workedMinutes = $workedMinutes + $minutes;
 						}
+*/
 						
 						//BANK HOLIDAYS
 						$bankHoliday = $NaturesLaboratoryStaffBankholiday->getDate($date);

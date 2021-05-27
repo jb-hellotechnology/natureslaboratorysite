@@ -352,8 +352,8 @@
 								}
 								$earlyFinish = true;
 							}
-							$workedHours = $hours;
-							$workedMinutes = $minutes;
+							$workedHours = $workedHours + $hours;
+							$workedMinutes = $workedMinutes + $minutes;
 						}
 						
 						//BANK HOLIDAYS
@@ -429,7 +429,6 @@
 			                echo "<td class='$class'>$hoursWorked</td>";
 		                }
 		                $i++;
-		                echo "$totalHours:$totalMinutes - ";
 	                }
 	                
 	                
@@ -448,6 +447,7 @@
 					
 					//CALC WORKED
 					$workedMinutes_h = floor($workedMinutes/60);
+					echo $workedMinutes_h;
 	                if(convertToHoursMins($workedMinutes, '%02d:%02d')<>''){
 						$workedMinutes_h = convertToHoursMins($workedMinutes, '%02d:%02d');
 					}

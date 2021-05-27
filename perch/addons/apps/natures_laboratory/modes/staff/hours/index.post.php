@@ -447,7 +447,7 @@
 					
 					//CALC WORKED
 					$workedMinutes_h = floor($workedMinutes/60);
-					echo $workedMinutes_h;
+					echo $workedMinutes;
 	                if(convertToHoursMins($workedMinutes, '%02d:%02d')<>''){
 						$workedMinutes_h = convertToHoursMins($workedMinutes, '%02d:%02d');
 					}

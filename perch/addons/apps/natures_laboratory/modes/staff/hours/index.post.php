@@ -272,7 +272,7 @@
         <tbody>
 <?php
     foreach($staff as $Staff) {
-		if($Staff->natures_laboratory_staffID()==5){
+
 	    $dynamicFields = PerchUtil::json_safe_decode($Staff->natures_laboratory_staffDynamicFields(), true);
 
 ?>
@@ -478,7 +478,6 @@
 	            ?>
             </tr>
 <?php
-	}
 	}
 ?>
 	    </tbody>

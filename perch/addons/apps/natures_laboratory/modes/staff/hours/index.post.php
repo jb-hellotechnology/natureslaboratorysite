@@ -324,7 +324,7 @@
 										$hours = $hours+1;
 										$minutes = $minutes+30;
 										$workedHours = $workedHours+1;
-										$workedMinutes = $workedMinutes+30
+										$workedMinutes = $workedMinutes+30;
 									}
 								}
 								$earlyFinish = true;
@@ -355,7 +355,7 @@
 										$hours = $hours+1;
 										$minutes = $minutes+30;
 										$workedHours = $workedHours+1;
-										$workedMinutes = $workedMinutes+30
+										$workedMinutes = $workedMinutes+30;
 									}
 								}
 								$earlyFinish = true;

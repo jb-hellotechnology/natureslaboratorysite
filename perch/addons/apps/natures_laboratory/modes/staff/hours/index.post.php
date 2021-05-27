@@ -301,7 +301,6 @@
 						$extras = '';
 						$earlyFinish = false;
 
-/*
 						if($day=='Friday'AND $dynamicFields['earlyWednesday']<>'yes' AND $hours<>''){
 							$earlyFinish = $NaturesLaboratoryStaffEarlyFinish->getDate($date);
 							if($earlyFinish['natures_laboratory_staff_earlyfinishID']<>1){
@@ -309,24 +308,27 @@
 									if($dynamicFields['jobType']=='Part Time'){
 										$extras = '30min';
 										$minutes = $minutes+30;
+										$workedMinutes = $workedMinutes+30;
 									}elseif($dynamicFields['jobType']=='Full Time'){
 										$extras = '1hr';
 										$hours = $hours+1;
+										$workedHours = $workedHours+1;
 									}
 								}elseif($earlyFinish['targetHit']=='20000'){
 									if($dynamicFields['jobType']=='Part Time'){
 										$extras = '45min';
 										$minutes = $minutes+45;
+										$workedMinutes = $workedMinutes+45;
 									}elseif($dynamicFields['jobType']=='Full Time'){
 										$extras = '1.5hr';
 										$hours = $hours+1;
 										$minutes = $minutes+30;
+										$workedHours = $workedHours+1;
+										$workedMinutes = $workedMinutes+30
 									}
 								}
 								$earlyFinish = true;
 							}
-							$workedHours = $workedHours + $hours;
-							$workedMinutes = $workedMinutes + $minutes;
 						}
 						
 						if($day=='Wednesday' AND $dynamicFields['earlyWednesday']=='yes' AND $hours<>''){
@@ -337,26 +339,28 @@
 									if($dynamicFields['jobType']=='Part Time'){
 										$extras = '30min';
 										$minutes = $minutes+30;
+										$workedMinutes = $workedMinutes+30;
 									}elseif($dynamicFields['jobType']=='Full Time'){
 										$extras = '1hr';
 										$hours = $hours+1;
+										$workedHours = $workedHours+1;
 									}
 								}elseif($earlyFinish['targetHit']=='20000'){
 									if($dynamicFields['jobType']=='Part Time'){
 										$extras = '45min';
 										$minutes = $minutes+45;
+										$workedMinutes = $workedMinutes+45;
 									}elseif($dynamicFields['jobType']=='Full Time'){
 										$extras = '1.5hr';
 										$hours = $hours+1;
 										$minutes = $minutes+30;
+										$workedHours = $workedHours+1;
+										$workedMinutes = $workedMinutes+30
 									}
 								}
 								$earlyFinish = true;
 							}
-							$workedHours = $workedHours + $hours;
-							$workedMinutes = $workedMinutes + $minutes;
 						}
-*/
 						
 						//BANK HOLIDAYS
 						$bankHoliday = $NaturesLaboratoryStaffBankholiday->getDate($date);

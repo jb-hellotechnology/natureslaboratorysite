@@ -429,6 +429,7 @@
 			                echo "<td class='$class'>$hoursWorked</td>";
 		                }
 		                $i++;
+		                echo "$totalHours:$totalMinutes - ";
 	                }
 	                
 	                

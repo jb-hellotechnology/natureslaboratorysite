@@ -6,8 +6,8 @@
     echo $HTML->title_panel([
     'heading' => 'Goods In',
     'button'  => [
-            'text' => $Lang->get('Goods In'),
-            'link' => $API->app_nav().'/goods-in/add',
+            'text' => $Lang->get('Print Labels'),
+            'link' => $API->app_nav().'/goods-in/edit/?print=1&id='.$_GET['id'],
             'icon' => 'core/plus',
         ],
     ], $CurrentUser);

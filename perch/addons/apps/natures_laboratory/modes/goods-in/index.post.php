@@ -77,7 +77,7 @@
                 <td><?php echo $Goods->qty(); ?></td>
                 <td><?php echo $Goods->suppliersBatch(); ?></td>
                 <td><?php echo $Goods->ourBatch(); ?></td>
-                <td><?php echo $Goods->bbe(); ?></td>
+                <td><?php if($Goods->bbe()<>'1970-01-01'){echo $Goods->bbe();} ?></td>
                 <td><?php echo $Goods->qa(); ?></td>
                 <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/goods-in/edit/?id=<?php echo $HTML->encode(urlencode($Goods->natures_laboratory_goods_inID())); ?>"><?php echo 'View/Edit'; ?></a></td>
                 <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/goods-in/delete/?id=<?php echo $HTML->encode(urlencode($Goods->natures_laboratory_goods_inID())); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>

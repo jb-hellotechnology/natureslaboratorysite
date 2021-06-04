@@ -62,13 +62,20 @@
 		echo $Form->text_field("qty","Quantity",$details['qty']);
 		echo $Form->text_field("suppliersBatch","Supplier's Batch",$details['suppliersBatch']);
 		echo $Form->text_field("ourBatch","Our Batch",$details['ourBatch']);
+		
 		echo $Form->date_field("bbe","BBE",$details['bbe']);
+		if($details['bbe']=='1970-01-01'){
+			echo $Form->checkbox_field("noBBE","No BBE",'skip','skip');
+		}else{
+			echo $Form->checkbox_field("noBBE","No BBE",'skip','');
+		}
 		
 		$qa[] = array('label'=>"No", 'value'=>'FALSE');
 		$qa[] = array('label'=>"Yes", 'value'=>'TRUE');
+		$qa[] = array('label'=>"Not Required", 'value'=>'NOT REQUIRED');
 		echo $Form->select_field('qa','QA Check',$qa,$details['qa']);
 		    
-		echo $Form->submit_field('btnSubmit', 'Add Goods In', $API->app_path());
+		echo $Form->submit_field('btnSubmit', 'Update Goods In', $API->app_path());
 		
 		echo $Form->form_end();
 	

@@ -15,7 +15,7 @@
     if($Form->submitted()) {
     
         //FOR ITEMS PROGRAMMATICALLY ADDED TO FORM
-        $postvars = array('staff','productCode','dateIn_day','dateIn_month','dateIn_year','supplier','qty','suppliersBatch','ourBatch','bbe_day','bbe_month','bbe_year','qa');	   
+        $postvars = array('staff','productCode','dateIn_day','dateIn_month','dateIn_year','supplier','qty','suppliersBatch','ourBatch','bbe_day','bbe_month','bbe_year','noBBE','qa');	   
     	$data = $Form->receive($postvars);   
     	
     	$product = explode(" | ", $data['productCode']);
@@ -27,10 +27,16 @@
     	unset($data['dateIn_month']);
     	unset($data['dateIn_day']);
     	
-    	$data['bbe'] = "$data[bbe_year]-$data[bbe_month]-$data[bbe_day]";
+    	if($data['noBBE']=='skip'){
+	    	$data['bbe']='1970-01-01';
+	    }else{
+	    	$data['bbe'] = "$data[bbe_year]-$data[bbe_month]-$data[bbe_day]";
+    	}
+    	
     	unset($data['bbe_year']);
     	unset($data['bbe_month']);
     	unset($data['bbe_day']);
+    	unset($data['noBBE']);
 
         $new_goods = $NaturesLaboratoryGoodsIn->create($data);
 

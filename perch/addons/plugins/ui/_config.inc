@@ -6,3 +6,12 @@
 <script type="text/javascript" src="/perch/addons/apps/natures_laboratory/assets/moment.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.0/fullcalendar.min.js"></script>
 <script src='/perch/addons/apps/natures_laboratory/assets/fullcalendar-scheduler/scheduler.js'></script>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('select').select2();
+});
+</script>

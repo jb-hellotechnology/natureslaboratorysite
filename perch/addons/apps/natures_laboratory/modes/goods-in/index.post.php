@@ -64,7 +64,16 @@
                 <td><?php echo $Goods->productCode(); ?></td>
                 <td><?php echo $Goods->productDescription(); ?></td>
                 <td><?php echo $Goods->dateIn(); ?></td>
-                <td><?php echo $Goods->supplier(); ?></td>
+                <td>
+	                <?php
+		                if($Goods->supplier()){
+			                $Supplier = $NaturesLaboratoryGoodsSuppliers->find($Goods->supplier(), true);
+			                if($Supplier){
+								echo $Supplier->name();
+							}
+		                }
+		            ?>
+	            </td>
                 <td><?php echo $Goods->qty(); ?></td>
                 <td><?php echo $Goods->suppliersBatch(); ?></td>
                 <td><?php echo $Goods->ourBatch(); ?></td>

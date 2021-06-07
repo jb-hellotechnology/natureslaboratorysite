@@ -49,6 +49,8 @@
 	    	// DATA FOR LABEL
 	    	$productCode = $batchData['productCode'];
 	    	$productData = $NaturesLaboratoryGoodsStock->getByCode($productCode);
+	    	
+	    	print_r($productData);
 
 	    	if($productData['category']==1){
 		    	$categoryName = 'Unclassified';

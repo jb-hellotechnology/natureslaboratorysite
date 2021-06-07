@@ -2,6 +2,7 @@
     
     $NaturesLaboratoryGoodsIn = new Natures_Laboratory_Goods_Ins($API); 
     $NaturesLaboratoryGoodsSuppliers = new Natures_Laboratory_Goods_Suppliers($API); 
+    $NaturesLaboratoryGoodsStock = new Natures_Laboratory_Goods_Stock($API); 
     
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
@@ -46,12 +47,59 @@
 	    	$batchData = $NaturesLaboratoryGoodsIn->getBatchData($parts[1]);
 	    	
 	    	// DATA FOR LABEL
-	    	$categoryName = 'Essential Oil';
 	    	$productCode = $batchData['productCode'];
+	    	$productData = $NaturesLaboratoryGoodsStock->getByCode($productCode);
+	    	if($productData['category']==1){
+		    	$categoryName = 'Unclassified';
+	    	}elseif($productData['category']==2){
+		    	$categoryName = 'Tinctures';
+	    	}elseif($productData['category']==4){
+		    	$categoryName = 'Fluid Extracts';
+	    	}elseif($productData['category']==5){
+		    	$categoryName = 'Cut Herbs';
+	    	}elseif($productData['category']==6){
+		    	$categoryName = 'Whole Herbs';
+	    	}elseif($productData['category']==7){
+		    	$categoryName = 'Powders';
+	    	}elseif($productData['category']==8){
+		    	$categoryName = 'Capsules';
+	    	}elseif($productData['category']==9){
+		    	$categoryName = 'Chinese';
+	    	}elseif($productData['category']==10){
+		    	$categoryName = 'BeeVital';
+	    	}elseif($productData['category']==11){
+		    	$categoryName = 'Creams';
+	    	}elseif($productData['category']==12){
+		    	$categoryName = 'Essential Oils';
+	    	}elseif($productData['category']==13){
+		    	$categoryName = 'Fixed Oils';
+	    	}elseif($productData['category']==14){
+		    	$categoryName = 'Packaging';
+	    	}elseif($productData['category']==15){
+		    	$categoryName = 'Gums';
+	    	}elseif($productData['category']==16){
+		    	$categoryName = 'Misc';
+	    	}elseif($productData['category']==17){
+		    	$categoryName = 'Detox';
+	    	}elseif($productData['category']==18){
+		    	$categoryName = 'Organics';
+	    	}elseif($productData['category']==20){
+		    	$categoryName = 'Teas';
+	    	}elseif($productData['category']==21){
+		    	$categoryName = 'Supplements';
+	    	}elseif($productData['category']==22){
+		    	$categoryName = "Sweet Cecily's";
+	    	}elseif($productData['category']==40){
+		    	$categoryName = 'Bespoke Blends';
+	    	}elseif($productData['category']==999){
+		    	$categoryName = 'Discontinued';
+	    	}
+	    	
+	    	
 	    	$productName = $batchData['productDescription'];
 	    	$batch = $batchData['ourBatch'];
 	    	$bbe = $batchData['bbe'];
-	    	$quantity = $batchData['qty'];
+	    	$quantity = $batchData['qty']/$batchData['bags'];
 	    	$unit = $batchData['unit'];
 	    	
 	    	$bbeParts = explode("-",$bbe);

@@ -47,6 +47,31 @@
 		
 		echo $Form->text_field("stockCode","Stock Code",$details['stockCode']);
 		echo $Form->text_field("description","Description",$details['description']);
+		
+		$categories[] = array('value'=>'1', 'label'=>'Unclassified');
+		$categories[] = array('value'=>'2', 'label'=>'Tinctures');
+		$categories[] = array('value'=>'4', 'label'=>'Fluid Extracts');
+		$categories[] = array('value'=>'5', 'label'=>'Cut Herbs');
+		$categories[] = array('value'=>'6', 'label'=>'Whole Herbs');
+		$categories[] = array('value'=>'7', 'label'=>'Powders');
+		$categories[] = array('value'=>'8', 'label'=>'Capsules');
+		$categories[] = array('value'=>'9', 'label'=>'Chinese');
+		$categories[] = array('value'=>'10', 'label'=>'BeeVital');
+		$categories[] = array('value'=>'11', 'label'=>'Creams');
+		$categories[] = array('value'=>'12', 'label'=>'Essential Oils');
+		$categories[] = array('value'=>'13', 'label'=>'Fixed Oils');
+		$categories[] = array('value'=>'14', 'label'=>'Packaging');
+		$categories[] = array('value'=>'15', 'label'=>'Gums');
+		$categories[] = array('value'=>'16', 'label'=>'Misc');
+		$categories[] = array('value'=>'17', 'label'=>'Detox');
+		$categories[] = array('value'=>'18', 'label'=>'Organics');
+		$categories[] = array('value'=>'20', 'label'=>'Teas');
+		$categories[] = array('value'=>'21', 'label'=>'Supplements');
+		$categories[] = array('value'=>'22', 'label'=>"Sweet Cecily's");
+		$categories[] = array('value'=>'40', 'label'=>'Bespoke Blends');
+		$categories[] = array('value'=>'999', 'label'=>'Discontinued');
+		echo $Form->select_field('category','Category',$categories,$details['category']);
+		
 		echo $Form->text_field("component1","C1",$details['component1']);
 		echo $Form->text_field("component2","C2",$details['component2']);
 		echo $Form->text_field("component3","C3",$details['component3']);

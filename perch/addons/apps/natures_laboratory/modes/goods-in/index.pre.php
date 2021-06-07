@@ -142,20 +142,13 @@
 		$pdf->Cell(90,10,"BIG LABEL",0);
     	$pdf->Output('F','big-labels.pdf');
     	
-    	$zip = new ZipArchive;
-		if ($zip->open('labels.zip') === TRUE) {
-		    $zip->addFile('small-labels.pdf', 'small-labels.pdf');
-		    $zip->addFile('big-labels.pdf', 'big-labels.pdf');
-		    $zip->close();
+    	$files = array('small-labels.pdf','big-labels.pdf');
+		$zipname = 'file.zip';
+		$zip = new ZipArchive;
+		$zip->open($zipname, ZipArchive::CREATE);
+		foreach ($files as $file) {
+		  $zip->addFile($file);
 		}
-		
-		$archive_file_name = 'labels.zip';
-		
-		header("Content-type: application/zip"); 
-		header("Content-Disposition: attachment; filename=$archive_file_name");
-		header("Content-length: " . filesize($archive_file_name));
-		header("Pragma: no-cache"); 
-		header("Expires: 0"); 
-		readfile("$archive_file_name");
+		$zip->close();
     	
 	}

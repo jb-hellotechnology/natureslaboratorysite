@@ -49,8 +49,6 @@
 	    	// DATA FOR LABEL
 	    	$productCode = $batchData['productCode'];
 	    	$productData = $NaturesLaboratoryGoodsStock->getByCode($productCode);
-	    	
-	    	print_r($productData);
 
 	    	if($productData['category']==1){
 		    	$categoryName = 'Unclassified';
@@ -101,7 +99,12 @@
 	    	$productName = $batchData['productDescription'];
 	    	$batch = $batchData['ourBatch'];
 	    	$bbe = $batchData['bbe'];
-	    	$quantity = $batchData['qty']/$batchData['bags'];
+	    	if($batchData['bags']>0){
+	    		$quantity = $batchData['qty']/$batchData['bags'];
+	    	}else{
+		    	$quantity = $batchData['qty'];
+	    	}
+	    	$quantity = number_format($quantity,2);
 	    	$unit = $batchData['unit'];
 	    	
 	    	$bbeParts = explode("-",$bbe);
@@ -205,7 +208,12 @@
 
 	    	$batch = $batchData['ourBatch'];
 	    	$bbe = $batchData['bbe'];
-	    	$quantity = $batchData['qty']/$batchData['bags'];
+	    	if($batchData['bags']>0){
+	    		$quantity = $batchData['qty']/$batchData['bags'];
+	    	}else{
+		    	$quantity = $batchData['qty'];
+	    	}
+	    	$quantity = number_format($quantity,2);
 	    	$unit = $batchData['unit'];
 	    	
 	    	$bbeParts = explode("-",$bbe);
@@ -234,31 +242,31 @@
 			    $fourth = 210;
 			    
 			    if($row==1){
-				    $y1 = 40;
-				    $y2 = 50;
-				    $y3 = 60;
-				    $y4 = 68;
+				    $y1 = 20;
+				    $y2 = 30;
+				    $y3 = 40;
+				    $y4 = 48;
 			    }
 			    
 			    if($row==2){
-				    $y1 = 108;
-				    $y2 = 118;
-				    $y3 = 128;
-				    $y4 = 136;
+				    $y1 = 78;
+				    $y2 = 88;
+				    $y3 = 98;
+				    $y4 = 106;
 			    }
 			    
 			    if($row==3){
-				    $y1 = 176;
-				    $y2 = 186;
-				    $y3 = 196;
-				    $y4 = 204;
+				    $y1 = 146;
+				    $y2 = 156;
+				    $y3 = 166;
+				    $y4 = 174;
 			    }
 			    
 			    if($row==4){
-				    $y1 = 243;
-				    $y2 = 253;
-				    $y3 = 263;
-				    $y4 = 271;
+				    $y1 = 213;
+				    $y2 = 223;
+				    $y3 = 233;
+				    $y4 = 241;
 			    }
 			    
 			    $pdf->SetXY($x, $y1);

@@ -49,6 +49,7 @@
 	    	// DATA FOR LABEL
 	    	$productCode = $batchData['productCode'];
 	    	$productData = $NaturesLaboratoryGoodsStock->getByCode($productCode);
+
 	    	if($productData['category']==1){
 		    	$categoryName = 'Unclassified';
 	    	}elseif($productData['category']==2){
@@ -95,7 +96,6 @@
 		    	$categoryName = 'Discontinued';
 	    	}
 	    	
-	    	
 	    	$productName = $batchData['productDescription'];
 	    	$batch = $batchData['ourBatch'];
 	    	$bbe = $batchData['bbe'];
@@ -104,6 +104,9 @@
 	    	
 	    	$bbeParts = explode("-",$bbe);
 		    $bbe = "$bbeParts[1]/$bbeParts[0]";
+		    if($bbe == '01/1970'){
+			    $bbe = 'N/A';
+		    }
 	    	
 	    	
 	    	$y = 1;
@@ -182,14 +185,111 @@
 				
     	}
     	
-    	$pdf->Output('F','small-labels.pdf');
+    	//$pdf->Output('F','small-labels.pdf');
     	
     	$pdf = new FPDF();
 		$pdf->AddPage();
-    	$pdf->SetFont('Arial','B',14);
-		$pdf->Cell(90,10,"BIG LABEL",0);
-    	$pdf->Output('F','big-labels.pdf');
+		
+		$row = 1;
+	    $column = 1;
+    	  
+    	foreach($data as $key => $value){
+	    	$parts = explode('_',$key);
+	    	$batchData = $NaturesLaboratoryGoodsIn->getBatchData($parts[1]);
+	    	
+	    	// DATA FOR LABEL
+	    	$productCode = $batchData['productCode'];
+	    	$productData = $NaturesLaboratoryGoodsStock->getByCode($productCode);
+
+	    	$batch = $batchData['ourBatch'];
+	    	$bbe = $batchData['bbe'];
+	    	$quantity = $batchData['qty']/$batchData['bags'];
+	    	$unit = $batchData['unit'];
+	    	
+	    	$bbeParts = explode("-",$bbe);
+		    $bbe = "$bbeParts[1]/$bbeParts[0]";
+		    if($bbe == '01/1970'){
+			    $bbe = 'N/A';
+		    }
+	    	
+	    	
+	    	$y = 1;
+	
+	    	while($y<=$batchData['bags']){
+		    	if($row>4){
+			    	$row = 1;
+			    	$pdf->AddPage();
+			    }
+			    if($column==2){
+			    	$x = 114;
+			    }else{
+				    $x = 14;
+			    }
+			    
+			    $first = array(44,55,70);
+			    $second = 70;
+			    $third = 140;
+			    $fourth = 210;
+			    
+			    if($row==1){
+				    $y1 = 40;
+				    $y2 = 50;
+				    $y3 = 60;
+				    $y4 = 68;
+			    }
+			    
+			    if($row==2){
+				    $y1 = 108;
+				    $y2 = 118;
+				    $y3 = 128;
+				    $y4 = 136;
+			    }
+			    
+			    if($row==3){
+				    $y1 = 176;
+				    $y2 = 186;
+				    $y3 = 196;
+				    $y4 = 204;
+			    }
+			    
+			    if($row==4){
+				    $y1 = 243;
+				    $y2 = 253;
+				    $y3 = 263;
+				    $y4 = 271;
+			    }
+			    
+			    $pdf->SetXY($x, $y1);
+				$pdf->SetFont('Arial','B',32);
+				$pdf->Cell(90,10,"$productCode",0);
+				$pdf->SetFont('Arial','B',28);
+				$pdf->SetXY($x, $y2);
+				$pdf->Cell(90,10,"BATCH: $batch",0);
+				$pdf->SetFont('Arial','B',28);
+				$pdf->SetXY($x, $y3);
+				$pdf->Cell(90,10,"BBE: $bbe",0);
+				$pdf->SetFont('Arial','B',20);
+				$pdf->SetXY($x, $y4);
+				$pdf->Cell(90,10,"WEIGHT: $quantity $unit",0);
+				
+				$y++;
+				
+				$label++;
+				if($column==1){
+					$column = 2;
+				}else{
+					$column = 1;
+					$row++;
+				}
+					
+			}
+				
+    	}
     	
+  	
+    	$pdf->Output('F','big-labels.pdf');
+
+
     	$files = array('small-labels.pdf','big-labels.pdf');
 		$zipname = 'file.zip';
 		$zip = new ZipArchive;
@@ -203,6 +303,5 @@
 		header('Content-disposition: attachment; filename='.$zipname);
 		header('Content-Length: ' . filesize($zipname));
 		readfile($zipname);
-
     	
 	}

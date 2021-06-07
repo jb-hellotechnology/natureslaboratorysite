@@ -12,7 +12,7 @@ class Natures_Laboratory_Goods_Stocks extends PerchAPI_Factory
 	
 	public function getByCode($code){
 		
-		$sql = 'SELECT * FROM perch3_natures_laboratory_goods_stock WHERE productCode="'.$code.'"';
+		$sql = 'SELECT * FROM perch3_natures_laboratory_goods_stock WHERE stockCode="'.$code.'"';
 		$data = $this->db->get_row($sql);
 		return $data;
 		

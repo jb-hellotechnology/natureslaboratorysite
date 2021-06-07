@@ -187,7 +187,7 @@
 				
     	}
     	
-    	//$pdf->Output('F','small-labels.pdf');
+    	$pdf->Output('F','small-labels.pdf');
     	
     	$pdf = new FPDF();
 		$pdf->AddPage();
@@ -290,7 +290,6 @@
     	
   	
     	$pdf->Output('F','big-labels.pdf');
-
 
     	$files = array('small-labels.pdf','big-labels.pdf');
 		$zipname = 'file.zip';

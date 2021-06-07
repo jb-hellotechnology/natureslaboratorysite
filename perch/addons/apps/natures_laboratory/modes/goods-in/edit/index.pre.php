@@ -19,7 +19,7 @@
     if($Form->submitted()) {
     
         //FOR ITEMS PROGRAMMATICALLY ADDED TO FORM
-        $postvars = array('staff','productCode','dateIn_day','dateIn_month','dateIn_year','supplier','qty','suppliersBatch','ourBatch','bbe_day','bbe_month','bbe_year','noBBE','qa');	   
+        $postvars = array('staff','productCode','dateIn_day','dateIn_month','dateIn_year','supplier','qty','unit','bags','suppliersBatch','bbe_day','bbe_month','bbe_year','noBBE','qa','notes');	   
     	$data = $Form->receive($postvars);   
     	
     	$product = explode(" | ", $data['productCode']);

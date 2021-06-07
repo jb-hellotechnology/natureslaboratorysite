@@ -43,6 +43,8 @@
 	}else{
 		
 		echo $Form->form_start();
+		
+		echo "<h2>Batch: ".$details['ourBatch']."</h2>";
 
 		echo $Form->hidden('staff',$_SESSION['userID']);
 		$stockList[] = array('label'=>'Please Select', 'value'=>0);
@@ -60,8 +62,16 @@
 		echo $Form->select_field("supplier","Supplier",$supplierList,$details['supplier']);
 		
 		echo $Form->text_field("qty","Quantity",$details['qty']);
+		
+		$units[] = array('label'=>"KG", 'value'=>'KG');
+		$units[] = array('label'=>"G", 'value'=>'G');
+		$units[] = array('label'=>"L", 'value'=>'L');
+		$units[] = array('label'=>"ML", 'value'=>'ML');
+		echo $Form->select_field('unit','Unit',$units,$details['units']);
+		
+		echo $Form->text_field("bags","Bags",$details['bags']);
+		
 		echo $Form->text_field("suppliersBatch","Supplier's Batch",$details['suppliersBatch']);
-		echo $Form->text_field("ourBatch","Our Batch",$details['ourBatch']);
 		
 		echo $Form->date_field("bbe","BBE",$details['bbe']);
 		if($details['bbe']=='1970-01-01'){
@@ -74,6 +84,8 @@
 		$qa[] = array('label'=>"Yes", 'value'=>'TRUE');
 		$qa[] = array('label'=>"Not Required", 'value'=>'NOT REQUIRED');
 		echo $Form->select_field('qa','QA Check',$qa,$details['qa']);
+		
+		echo $Form->text_field("notes","Notes",$details['notes']);
 		    
 		echo $Form->submit_field('btnSubmit', 'Update Goods In', $API->app_path());
 		

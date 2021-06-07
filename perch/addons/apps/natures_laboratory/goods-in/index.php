@@ -10,6 +10,9 @@
     $API  = new PerchAPI(1.0, 'natures_laboratory');
 
     # include your class files
+    
+    require('../fpdf/fpdf.php');
+    
     include('../Natures_Laboratory.class.php');
     include('../Natures_Laboratorys.class.php');
     include('../Natures_Laboratory.goodsin.class.php');

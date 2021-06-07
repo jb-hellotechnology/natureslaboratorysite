@@ -36,12 +36,14 @@
 
     echo $HTML->main_panel_start();
     
+    echo $Form->form_start();
     ?>
 
     <table class="d">
         <thead>
             <tr>
-                <th class="first">Staff</th>
+	            <th class="first">Select</th>
+                <th>Staff</th>
                 <th>Product Code</th> 
                 <th>Product Description</th>  
                 <th>Date In</th>
@@ -60,27 +62,28 @@
     foreach($goodsIn as $Goods) {
 ?>
             <tr>
-                <td><?php echo $Goods->staff(); ?></td>
-                <td><?php echo $Goods->productCode(); ?></td>
-                <td><?php echo $Goods->productDescription(); ?></td>
-                <td><?php echo $Goods->dateIn(); ?></td>
+	            <td><?php echo $Form->checkbox("batch_".$Goods['ourBatch'],'on',''); ?></td>
+                <td><?php echo $Goods['staff'] ?></td>
+                <td><?php echo $Goods['productCode']; ?></td>
+                <td><?php echo $Goods['productDescription']; ?></td>
+                <td><?php echo $Goods['dateIn']; ?></td>
                 <td>
 	                <?php
-		                if($Goods->supplier()){
-			                $Supplier = $NaturesLaboratoryGoodsSuppliers->find($Goods->supplier(), true);
+		                if($Goods['supplier']){
+			                $Supplier = $NaturesLaboratoryGoodsSuppliers->find($Goods['supplier'], true);
 			                if($Supplier){
 								echo $Supplier->name();
 							}
 		                }
 		            ?>
 	            </td>
-                <td><?php echo $Goods->qty(); ?></td>
-                <td><?php echo $Goods->suppliersBatch(); ?></td>
-                <td><?php echo $Goods->ourBatch(); ?></td>
-                <td><?php if($Goods->bbe()<>'1970-01-01'){echo $Goods->bbe();} ?></td>
-                <td><?php echo $Goods->qa(); ?></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/goods-in/edit/?id=<?php echo $HTML->encode(urlencode($Goods->natures_laboratory_goods_inID())); ?>"><?php echo 'View/Edit'; ?></a></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/goods-in/delete/?id=<?php echo $HTML->encode(urlencode($Goods->natures_laboratory_goods_inID())); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
+                <td><?php echo $Goods['qty']; ?></td>
+                <td><?php echo $Goods['suppliersBatch']; ?></td>
+                <td><?php echo $Goods['ourBatch']; ?></td>
+                <td><?php if($Goods['bbe']<>'1970-01-01'){echo $Goods['bbe'];} ?></td>
+                <td><?php echo $Goods['qa']; ?></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/goods-in/edit/?id=<?php echo $HTML->encode(urlencode($Goods['natures_laboratory_goods_inID'])); ?>"><?php echo 'View/Edit'; ?></a></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/goods-in/delete/?id=<?php echo $HTML->encode(urlencode($Goods['natures_laboratory_goods_inID'])); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
             </tr>
 <?php
 	}
@@ -89,5 +92,6 @@
     </table>
 
 <?php    
-
+	echo $Form->submit_field('btnSubmit', 'Generate Labels', $API->app_path());	
+	echo $Form->form_end();
     echo $HTML->main_panel_end();

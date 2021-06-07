@@ -60,8 +60,16 @@
 		echo $Form->select_field("supplier","Supplier",$supplierList,'');
 		
 		echo $Form->text_field("qty","Quantity",'');
+		
+		$units[] = array('label'=>"KG", 'value'=>'KG');
+		$units[] = array('label'=>"G", 'value'=>'G');
+		$units[] = array('label'=>"L", 'value'=>'L');
+		$units[] = array('label'=>"ML", 'value'=>'ML');
+		echo $Form->select_field('unit','Unit',$units,'');
+		
+		echo $Form->text_field("bags","Bags",'');
+		
 		echo $Form->text_field("suppliersBatch","Supplier's Batch",'');
-		echo $Form->text_field("ourBatch","Our Batch",'');
 		
 		echo $Form->date_field("bbe","BBE",'');
 		echo $Form->checkbox_field("noBBE","No BBE",'skip','');
@@ -70,6 +78,8 @@
 		$qa[] = array('label'=>"Yes", 'value'=>'TRUE');
 		$qa[] = array('label'=>"Not Required", 'value'=>'NOT REQUIRED');
 		echo $Form->select_field('qa','QA Check',$qa,'');
+		
+		echo $Form->text_field("notes","Notes",'');
 		    
 		echo $Form->submit_field('btnSubmit', 'Add Goods In', $API->app_path());
 		

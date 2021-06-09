@@ -123,10 +123,10 @@
 			    }
 			    if($column==2){
 			    	$x = 114;
-			    	$imgX = 80;
+			    	$imgX = 60;
 			    }else{
 				    $x = 14;
-				    $imgX = 180;
+				    $imgX = 160;
 			    }
 			    
 			    $first = array(44,55,70);
@@ -135,7 +135,7 @@
 			    $fourth = 210;
 			    
 			    if($row==1){
-				    $imgY = 10;
+				    $imgY = 20;
 				    $y1 = 40;
 				    $y2 = 50;
 				    $y3 = 55;
@@ -143,7 +143,7 @@
 			    }
 			    
 			    if($row==2){
-				    $imgY = 78;
+				    $imgY = 88;
 				    $y1 = 108;
 				    $y2 = 118;
 				    $y3 = 123;
@@ -151,7 +151,7 @@
 			    }
 			    
 			    if($row==3){
-				    $imgY = 146;
+				    $imgY = 156;
 				    $y1 = 176;
 				    $y2 = 186;
 				    $y3 = 191;
@@ -159,7 +159,7 @@
 			    }
 			    
 			    if($row==4){
-				    $imgY = 213;
+				    $imgY = 223;
 				    $y1 = 243;
 				    $y2 = 253;
 				    $y3 = 258;
@@ -313,7 +313,6 @@
   	
     	$pdf->Output('F','big-labels.pdf');
 
-/*
     	$files = array('small-labels.pdf','big-labels.pdf');
 		$zipname = 'file.zip';
 		$zip = new ZipArchive;
@@ -328,6 +327,5 @@
 		header('Content-Length: ' . filesize($zipname));
 		ob_end_clean();
 		readfile($zipname);
-*/
     	
 	}

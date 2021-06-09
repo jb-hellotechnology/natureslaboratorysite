@@ -185,7 +185,7 @@
 				$codeContents = "{ourBatch: $batch, bbe: $bbe}";
 			    $fileName = 'qr.png';
 			    QRcode::png($codeContents, $fileName);
-			    $pdf->Image($fileName,$imgX,$imgY,-300);
+			    //$pdf->Image($fileName,$imgX,$imgY,-300);
 				unlink($fileName);
 				
 				$y++;

@@ -1,4 +1,6 @@
 <?php
+	
+	include('../../phpqrcode/qrlib.php');
     
     $NaturesLaboratoryGoodsIn = new Natures_Laboratory_Goods_Ins($API); 
     $NaturesLaboratoryGoodsSuppliers = new Natures_Laboratory_Goods_Suppliers($API); 
@@ -123,8 +125,10 @@
 			    }
 			    if($column==2){
 			    	$x = 114;
+			    	$imgX = 80;
 			    }else{
 				    $x = 14;
+				    $imgX = 180;
 			    }
 			    
 			    $first = array(44,55,70);
@@ -175,6 +179,16 @@
 					$pdf->SetXY($x, $y4);
 					$pdf->Cell(90,10,"SAMPLE",0);	
 				}
+				
+				$codeContents = '{suppliersBatch: 123, ourBatch: abc}';
+			    $fileName = 'qr.png';
+			    $pngAbsoluteFilePath = $tempDir.$fileName;
+			    $urlRelativeFilePath = $fileName;
+			    if (!file_exists($pngAbsoluteFilePath)) {
+			        QRcode::png($codeContents, $pngAbsoluteFilePath);
+			    }
+			    $pdf->Image('qr.png',$imgX,10,-300);
+				unlink('qr.png');
 				
 				$y++;
 				

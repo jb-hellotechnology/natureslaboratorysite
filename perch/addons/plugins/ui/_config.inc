@@ -24,6 +24,14 @@ $(document).ready(function() {
 	.select2-container{
 		min-width:120px !important;
 	}
+	#reader{
+		display:none;
+	}
+	@media (pointer:none), (pointer:coarse) {
+		#reader{
+			display:block;
+		}
+	}
 </style>
 
 <script>

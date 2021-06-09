@@ -24,22 +24,14 @@ $(document).ready(function() {
 	.select2-container{
 		min-width:120px !important;
 	}
-	#reader{
-		display:none;
-	}
-	@media (pointer:none), (pointer:coarse) {
-		#reader{
-			display:block;
-		}
-	}
 </style>
 
 <script>
 	function onScanSuccess(qrCodeMessage) {
-	alert(qrCodeMessage);
-}
+		alert(qrCodeMessage);
+	}
 
-var html5QrcodeScanner = new Html5QrcodeScanner(
-	"reader", { fps: 10, qrbox: 250 });
-html5QrcodeScanner.render(onScanSuccess);
+	var html5QrcodeScanner = new Html5QrcodeScanner(
+		"reader", { fps: 10, qrbox: 250 });
+	html5QrcodeScanner.render(onScanSuccess);
 </script>

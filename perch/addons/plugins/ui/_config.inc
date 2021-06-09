@@ -20,6 +20,6 @@ $(document).ready(function() {
 
 <style>
 	.select2-container{
-		min-width:90px !important;
+		min-width:120px !important;
 	}
 </style>

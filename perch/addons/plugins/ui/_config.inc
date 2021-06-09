@@ -28,7 +28,7 @@ $(document).ready(function() {
 
 <script>
 	function onScanSuccess(qrCodeMessage) {
-	// handle on success condition with the decoded message
+	alert(qrCodeMessage);
 }
 
 var html5QrcodeScanner = new Html5QrcodeScanner(

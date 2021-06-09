@@ -1,1 +1,1 @@
-<div style="width: 500px" id="reader"></div>
+<div style="width: 100%" id="reader"></div>

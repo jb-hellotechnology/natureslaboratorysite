@@ -135,7 +135,7 @@
 			    $fourth = 210;
 			    
 			    if($row==1){
-				    $imgY = 20;
+				    $imgY = 26;
 				    $y1 = 40;
 				    $y2 = 50;
 				    $y3 = 55;
@@ -143,7 +143,7 @@
 			    }
 			    
 			    if($row==2){
-				    $imgY = 88;
+				    $imgY = 84;
 				    $y1 = 108;
 				    $y2 = 118;
 				    $y3 = 123;
@@ -151,7 +151,7 @@
 			    }
 			    
 			    if($row==3){
-				    $imgY = 156;
+				    $imgY = 152;
 				    $y1 = 176;
 				    $y2 = 186;
 				    $y3 = 191;
@@ -159,7 +159,7 @@
 			    }
 			    
 			    if($row==4){
-				    $imgY = 223;
+				    $imgY = 219;
 				    $y1 = 243;
 				    $y2 = 253;
 				    $y3 = 258;
@@ -183,9 +183,9 @@
 				}
 				
 				$codeContents = "{ourBatch: $batch, bbe: $bbe}";
-			    $fileName = 'qr.png';
+			    $fileName = 'qr_'.$batch.'.png';
 			    QRcode::png($codeContents, $fileName);
-			    //$pdf->Image($fileName,$imgX,$imgY,-300);
+			    $pdf->Image($fileName,$imgX,$imgY,-300);
 				unlink($fileName);
 				
 				$y++;

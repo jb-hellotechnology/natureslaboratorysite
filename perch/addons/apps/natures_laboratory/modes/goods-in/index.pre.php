@@ -1,6 +1,4 @@
 <?php
-	
-	include('../../phpqrcode/qrlib.php');
     
     $NaturesLaboratoryGoodsIn = new Natures_Laboratory_Goods_Ins($API); 
     $NaturesLaboratoryGoodsSuppliers = new Natures_Laboratory_Goods_Suppliers($API); 

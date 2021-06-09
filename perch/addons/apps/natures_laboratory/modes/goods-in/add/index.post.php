@@ -65,6 +65,7 @@
 		$units[] = array('label'=>"G", 'value'=>'G');
 		$units[] = array('label'=>"L", 'value'=>'L');
 		$units[] = array('label'=>"ML", 'value'=>'ML');
+		$units[] = array('label'=>"CAPSULES", 'value'=>'CAPSULES');
 		echo $Form->select_field('unit','Unit',$units,'');
 		
 		echo $Form->text_field("bags","Bags",'');

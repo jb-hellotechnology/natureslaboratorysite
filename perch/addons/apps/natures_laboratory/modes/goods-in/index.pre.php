@@ -135,6 +135,7 @@
 			    $fourth = 210;
 			    
 			    if($row==1){
+				    $imgY = 10;
 				    $y1 = 40;
 				    $y2 = 50;
 				    $y3 = 55;
@@ -142,6 +143,7 @@
 			    }
 			    
 			    if($row==2){
+				    $imgY = 78;
 				    $y1 = 108;
 				    $y2 = 118;
 				    $y3 = 123;
@@ -149,6 +151,7 @@
 			    }
 			    
 			    if($row==3){
+				    $imgY = 146;
 				    $y1 = 176;
 				    $y2 = 186;
 				    $y3 = 191;
@@ -156,6 +159,7 @@
 			    }
 			    
 			    if($row==4){
+				    $imgY = 213;
 				    $y1 = 243;
 				    $y2 = 253;
 				    $y3 = 258;
@@ -183,7 +187,7 @@
 			    if (!file_exists($fileName)) {
 			        QRcode::png($codeContents, $fileName);
 			    }
-			    $pdf->Image($fileName,$imgX,10,-300);
+			    $pdf->Image($fileName,$imgX,$imgY,-300);
 				unlink($fileName);
 				
 				$y++;

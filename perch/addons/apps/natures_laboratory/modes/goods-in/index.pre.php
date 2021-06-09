@@ -178,7 +178,7 @@
 					$pdf->Cell(90,10,"SAMPLE",0);	
 				}
 				
-				$codeContents = '{suppliersBatch: 123, ourBatch: abc}';
+				$codeContents = "{ourBatch: $batch, bbe: $bbe}";
 			    $fileName = 'qr.png';
 			    $pngAbsoluteFilePath = $tempDir.$fileName;
 			    $urlRelativeFilePath = $fileName;
@@ -311,6 +311,7 @@
   	
     	$pdf->Output('F','big-labels.pdf');
 
+/*
     	$files = array('small-labels.pdf','big-labels.pdf');
 		$zipname = 'file.zip';
 		$zip = new ZipArchive;
@@ -325,5 +326,6 @@
 		header('Content-Length: ' . filesize($zipname));
 		ob_end_clean();
 		readfile($zipname);
+*/
     	
 	}

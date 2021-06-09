@@ -17,3 +17,9 @@ $(document).ready(function() {
     });
 });
 </script>
+
+<style>
+	.select2-container{
+		min-width:90px !important;
+	}
+</style>

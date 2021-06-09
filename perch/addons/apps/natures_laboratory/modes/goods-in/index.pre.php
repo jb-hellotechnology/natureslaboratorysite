@@ -180,13 +180,11 @@
 				
 				$codeContents = "{ourBatch: $batch, bbe: $bbe}";
 			    $fileName = 'qr.png';
-			    $pngAbsoluteFilePath = $tempDir.$fileName;
-			    $urlRelativeFilePath = $fileName;
-			    if (!file_exists($pngAbsoluteFilePath)) {
-			        QRcode::png($codeContents, $pngAbsoluteFilePath);
+			    if (!file_exists($fileName)) {
+			        QRcode::png($codeContents, $fileName);
 			    }
-			    $pdf->Image('qr.png',$imgX,10,-300);
-				unlink('qr.png');
+			    $pdf->Image($fileName,$imgX,10,-300);
+				unlink($fileName);
 				
 				$y++;
 				

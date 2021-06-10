@@ -126,7 +126,7 @@
 			    	$imgX = 75;
 			    }else{
 				    $x = 14;
-				    $imgX = 177;
+				    $imgX = 175;
 			    }
 			    
 			    $first = array(44,55,70);

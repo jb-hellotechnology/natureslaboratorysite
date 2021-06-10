@@ -122,10 +122,10 @@
 			    	$pdf->AddPage();
 			    }
 			    if($column==2){
-			    	$x = 114;
+			    	$x = 134;
 			    	$imgX = 60;
 			    }else{
-				    $x = 14;
+				    $x = 34;
 				    $imgX = 160;
 			    }
 			    
@@ -185,7 +185,7 @@
 				$codeContents = "https://natureslaboratory.co.uk/perch/addons/apps/natures_laboratory/goods-in/go/?id=".$batch;
 			    $fileName = 'qr_'.$batch.'.png';
 			    QRcode::png($codeContents, $fileName);
-			    $pdf->Image($fileName,$imgX,$imgY,-150);
+			    $pdf->Image($fileName,$imgX,$imgY,-180);
 				unlink($fileName);
 				
 				$y++;

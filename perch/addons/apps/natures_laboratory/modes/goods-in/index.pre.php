@@ -123,10 +123,10 @@
 			    }
 			    if($column==2){
 			    	$x = 114;
-			    	$imgX = 75;
+			    	$imgX = 78;
 			    }else{
 				    $x = 14;
-				    $imgX = 175;
+				    $imgX = 180;
 			    }
 			    
 			    $first = array(44,55,70);

@@ -122,11 +122,11 @@
 			    	$pdf->AddPage();
 			    }
 			    if($column==2){
-			    	$x = 134;
-			    	$imgX = 60;
+			    	$x = 114;
+			    	$imgX = 90;
 			    }else{
-				    $x = 34;
-				    $imgX = 160;
+				    $x = 14;
+				    $imgX = 190;
 			    }
 			    
 			    $first = array(44,55,70);

@@ -185,7 +185,7 @@
 				$codeContents = "https://natureslaboratory.co.uk/perch/addons/apps/natures_laboratory/goods-in/go/?id=".$batch;
 			    $fileName = 'qr_'.$batch.'.png';
 			    QRcode::png($codeContents, $fileName);
-			    $pdf->Image($fileName,$imgX,$imgY,-100);
+			    $pdf->Image($fileName,$imgX,$imgY,-150);
 				unlink($fileName);
 				
 				$y++;

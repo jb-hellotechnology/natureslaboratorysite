@@ -182,10 +182,10 @@
 					$pdf->Cell(90,10,"SAMPLE",0);	
 				}
 				
-				$codeContents = "{ourBatch: $batch, bbe: $bbe}";
+				$codeContents = "https://natureslaboratory.co.uk/perch/addons/apps/natures_laboratory/goods-in/go/?id=".$batch;
 			    $fileName = 'qr_'.$batch.'.png';
 			    QRcode::png($codeContents, $fileName);
-			    $pdf->Image($fileName,$imgX,$imgY,-300);
+			    $pdf->Image($fileName,$imgX,$imgY,-600);
 				unlink($fileName);
 				
 				$y++;

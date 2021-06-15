@@ -59,8 +59,8 @@
                 <td><?php echo $COA['dateEntered'] ?></td>
                 <td><?php echo $COA['productCode']; ?></td>
                 <td><?php echo $COA['ourBatch']; ?></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/coa/edit/?id=<?php echo $HTML->encode(urlencode($Goods['natures_laboratory_coaID'])); ?>"><?php echo 'View/Edit'; ?></a></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/coa/delete/?id=<?php echo $HTML->encode(urlencode($Goods['natures_laboratory_coaID'])); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/coa/edit/?id=<?php echo $HTML->encode(urlencode($COA['natures_laboratory_coaID'])); ?>"><?php echo 'View/Edit'; ?></a></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/coa/delete/?id=<?php echo $HTML->encode(urlencode($COA['natures_laboratory_coaID'])); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
             </tr>
 <?php
 	}

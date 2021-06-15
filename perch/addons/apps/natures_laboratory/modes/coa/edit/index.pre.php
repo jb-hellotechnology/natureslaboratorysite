@@ -1,20 +1,20 @@
 <?php
+	$NaturesLaboratoryCOA = new Natures_Laboratory_COAs($API);
 	$NaturesLaboratoryGoodsIn = new Natures_Laboratory_Goods_Ins($API);
-	$NaturesLaboratoryGoodsStock = new Natures_Laboratory_Goods_Stocks($API); 
-	$NaturesLaboratoryGoodsSuppliers = new Natures_Laboratory_Goods_Suppliers($API);    
+	$NaturesLaboratoryGoodsStock = new Natures_Laboratory_Goods_Stocks($API);
     
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
     
+    $batch = $NaturesLaboratoryGoodsIn->all();
+    $stock = $NaturesLaboratoryGoodsStock->all();
+    
     $Goods = array();
     $details = array();
     
-    $stock = $NaturesLaboratoryGoodsStock->all();
-    $supplier = $NaturesLaboratoryGoodsSuppliers->all();
-    
-    $goodsID = (int) $_GET['id'];  
-    $Goods = $NaturesLaboratoryGoodsIn->find($goodsID, true);
-    $details = $Goods->to_array();
+    $coaID = (int) $_GET['id'];  
+    $COA = $NaturesLaboratoryCOA->find($coaID, true);
+    $details = $COA->to_array();
 
     if($Form->submitted()) {
     

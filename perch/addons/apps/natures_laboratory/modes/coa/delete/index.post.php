@@ -4,10 +4,10 @@
     echo $HTML->side_panel_end();
     
     echo $HTML->title_panel([
-    'heading' => 'Goods In',
+    'heading' => 'COA',
     'button'  => [
-            'text' => $Lang->get('Goods In'),
-            'link' => $API->app_nav().'/goods-in/add',
+            'text' => $Lang->get('COA'),
+            'link' => $API->app_nav().'/coa/add',
             'icon' => 'core/plus',
         ],
     ], $CurrentUser);
@@ -16,20 +16,20 @@
 
 	$Smartbar->add_item([
 	    'active' => true,
-	    'title' => 'Goods In',
-	    'link'  => $API->app_nav().'/goods-in/',
+	    'title' => 'COA',
+	    'link'  => $API->app_nav().'/coa/',
 	]);
 	
 	$Smartbar->add_item([
 	    'active' => false,
-	    'title' => 'Stock',
-	    'link'  => $API->app_nav().'/goods-in/stock/',
+	    'title' => 'Spec',
+	    'link'  => $API->app_nav().'/coa/spec/',
 	]);
 	
 	$Smartbar->add_item([
 	    'active' => false,
-	    'title' => 'Suppliers',
-	    'link'  => $API->app_nav().'/goods-in/suppliers/',
+	    'title' => 'Countries',
+	    'link'  => $API->app_nav().'/coa/countries/',
 	]);
 	
 	echo $Smartbar->render();
@@ -46,12 +46,10 @@
 		
 		echo $Form->form_start();
 		    
-		echo $Form->submit_field('btnSubmit', 'Delete Record', $API->app_path());
+		echo $Form->submit_field('btnSubmit', 'Delete COA', $API->app_path());
 		
 		echo $Form->form_end();
 	
 	}
 
     echo $HTML->main_panel_end();
-    
-	PerchUtil::output_debug();

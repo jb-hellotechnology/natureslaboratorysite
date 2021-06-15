@@ -22,7 +22,6 @@ class Natures_Laboratory_COAs extends PerchAPI_Factory
 		
 	}
 	
-/*
 	public function updateCOAs(){
 		$sql = 'SELECT * FROM perch3_natures_laboratory_coa WHERE dateEntered>="'.$date.'" ORDER BY natures_laboratory_coaID DESC';
 		$data = $this->db->get_rows($sql);
@@ -35,6 +34,5 @@ class Natures_Laboratory_COAs extends PerchAPI_Factory
 			$update = $this->db->execute($sql);
 		}
 	}
-*/
 	
 }

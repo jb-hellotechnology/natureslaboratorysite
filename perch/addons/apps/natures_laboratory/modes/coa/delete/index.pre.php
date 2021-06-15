@@ -1,22 +1,19 @@
 <?php
-	$NaturesLaboratoryGoodsIn = new Natures_Laboratory_Goods_Ins($API);    
+	$NaturesLaboratoryCOA = new Natures_Laboratory_COA($API);    
     
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
-    
-    $Goods = array();
-    $details = array();
 
     if($Form->submitted()) {
     
-        $goodsID = (int) $_GET['id'];  
-		$Goods = $NaturesLaboratoryGoodsIn->find($goodsID, true);
+        $coaID = (int) $_GET['id'];  
+		$Goods = $NaturesLaboratoryCOA->find($coaID, true);
 		
 		$Goods->delete();
 		$deleted = true;
-		$message = $HTML->success_message('Goods have been successfully deleted. Return to %sGoods In%s', '<a href="'.$API->app_path().'/goods-in/">', '</a>'); 
+		$message = $HTML->success_message('COA has been successfully deleted. Return to %sCOAs%s', '<a href="'.$API->app_path().'/coa/">', '</a>'); 
         
     }else{
 	    $deleted = false;
-	    $message = $HTML->warning_message('Are you sure you want to delete this record?', '', ''); 
+	    $message = $HTML->warning_message('Are you sure you want to delete this COA?', '', ''); 
     }

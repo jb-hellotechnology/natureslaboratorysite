@@ -1,5 +1,5 @@
 <?php
-	$NaturesLaboratoryCOA = new Natures_Laboratory_COA($API);    
+	$NaturesLaboratoryCOA = new Natures_Laboratory_COAs($API);    
     
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
@@ -7,9 +7,9 @@
     if($Form->submitted()) {
     
         $coaID = (int) $_GET['id'];  
-		$Goods = $NaturesLaboratoryCOA->find($coaID, true);
+		$COA = $NaturesLaboratoryCOA->find($coaID, true);
 		
-		$Goods->delete();
+		$COA->delete();
 		$deleted = true;
 		$message = $HTML->success_message('COA has been successfully deleted. Return to %sCOAs%s', '<a href="'.$API->app_path().'/coa/">', '</a>'); 
         

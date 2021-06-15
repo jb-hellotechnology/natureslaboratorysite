@@ -4,10 +4,10 @@
     echo $HTML->side_panel_end();
     
     echo $HTML->title_panel([
-    'heading' => 'Goods In',
+    'heading' => 'COA',
     'button'  => [
-            'text' => $Lang->get('Goods In'),
-            'link' => $API->app_nav().'/goods-in/add',
+            'text' => $Lang->get('COA'),
+            'link' => $API->app_nav().'/coa/add',
             'icon' => 'core/plus',
         ],
     ], $CurrentUser);
@@ -16,20 +16,20 @@
 
 	$Smartbar->add_item([
 	    'active' => true,
-	    'title' => 'Goods In',
-	    'link'  => $API->app_nav().'/goods-in/',
+	    'title' => 'COA',
+	    'link'  => $API->app_nav().'/coa/',
 	]);
 	
 	$Smartbar->add_item([
 	    'active' => false,
-	    'title' => 'Stock',
-	    'link'  => $API->app_nav().'/goods-in/stock/',
+	    'title' => 'Spec',
+	    'link'  => $API->app_nav().'/coa/spec/',
 	]);
 	
 	$Smartbar->add_item([
 	    'active' => false,
-	    'title' => 'Suppliers',
-	    'link'  => $API->app_nav().'/goods-in/suppliers/',
+	    'title' => 'Countries',
+	    'link'  => $API->app_nav().'/coa/countries/',
 	]);
 	
 	echo $Smartbar->render();
@@ -43,46 +43,56 @@
 	}else{
 		
 		echo $Form->form_start();
-
-		echo $Form->hidden('staff',$_SESSION['userID']);
+		
+		echo $Form->date_field("dateEntered","Date Entered",'');
+		
 		$stockList[] = array('label'=>'Please Select', 'value'=>0);
 		foreach($stock as $Stock){
-			$stockList[] = array('label'=>$Stock->stockCode()." | ".$Stock->description(), 'value'=>$Stock->stockCode()." | ".$Stock->description());
+			$stockList[] = array('label'=>$Stock->stockCode()." | ".$Stock->description(), 'value'=>$Stock->stockCode());
 		}
-		echo $Form->select_field("productCode","Product Code",$stockList,'');
+		echo $Form->select_field("productCode_new","Product Code",$stockList,'');
 		
-		echo $Form->date_field("dateIn","Date In",'');
-		
-		$supplierList[] = array('label'=>'Please Select', 'value'=>0);
-		foreach($supplier as $Supplier){
-			$supplierList[] = array('label'=>$Supplier->name(), 'value'=>$Supplier->natures_laboratory_goods_suppliersID());
+		$batchList[] = array('label'=>'Please Select', 'value'=>0);
+		foreach($batch as $Batch){
+			$batchList[] = array('label'=>$Batch->ourBatch().' | '.$Batch->productDescription(), 'value'=>$Batch->ourBatch());
 		}
-		echo $Form->select_field("supplier","Supplier",$supplierList,'');
+		echo $Form->select_field("ourBatch","Our Batch",$batchList,'');
+
+		$countryList[] = array('label'=>'Please Select', 'value'=>0);
+		foreach($country as $Country){
+			$countryList[] = array('label'=>$Country->country(), 'value'=>$Country->country());
+		}
+		echo $Form->select_field("countryOfOrigin","Country Of Origin",$countryList,'');
 		
-		echo $Form->text_field("qty","Quantity",'');
+		echo $Form->text_field("colour","Colour",'');
+		echo $Form->text_field("taste","Taste",'');
+		echo $Form->text_field("foreignMatterAmount","Foreign Matter Amount",'');
+		echo $Form->text_field("lossOnDryingAmount","Loss On Drying Amount",'');
+		echo $Form->text_field("totalAshAmount","Total Ash Amount",'');
+		echo $Form->text_field("ashInSolubleAmount","Ash Insoluble Amount",'');
+		echo $Form->text_field("assayContentAmount","Assay Content Amount",'');
+		echo $Form->text_field("leadAmount","Lead Amount",'');
+		echo $Form->text_field("arsenicAmount","Arsenic Amount",'');
+		echo $Form->text_field("mercuryAmount","Mercury Amount",'');
+		echo $Form->text_field("totalAerobicAmount","Total Aerobic Amount",'');
+		echo $Form->text_field("totalCombinedYeastMouldAmount","Total Combined Yeast Mould Amount",'');
+		echo $Form->text_field("enteroBacteriaAmount","Entero Bacteria Amount",'');
+		echo $Form->text_field("escherichiaAmount","Escherichia Amount",'');
+		echo $Form->text_field("salmonellaAmount","Salmonella Amount",'');
+		echo $Form->text_field("staphylococcusAmount","staphylococcusAmount",'');
+		echo $Form->text_field("mycotoxinsAmount","Mycotoxins Amount",'');
+		echo $Form->text_field("pesticidesAmount","Pesticides Amount",'');
+		echo $Form->text_field("allergensPresent","Allergens Present",'');
+		echo $Form->text_field("box1","Box 1",'');
+		echo $Form->text_field("box2","Box 2",'');
+		echo $Form->text_field("box3","Box 3",'');
+		echo $Form->text_field("box4","Box 4",'');
+		echo $Form->text_field("macroscopic","Macroscopic",'');
+		echo $Form->text_field("microscopic","Microscopic",'');
 		
-		$units[] = array('label'=>"KG", 'value'=>'KG');
-		$units[] = array('label'=>"G", 'value'=>'G');
-		$units[] = array('label'=>"L", 'value'=>'L');
-		$units[] = array('label'=>"ML", 'value'=>'ML');
-		$units[] = array('label'=>"CAPSULES", 'value'=>'CAPSULES');
-		echo $Form->select_field('unit','Unit',$units,'');
-		
-		echo $Form->text_field("bags","Bags",'');
-		
-		echo $Form->text_field("suppliersBatch","Supplier's Batch",'');
-		
-		echo $Form->date_field("bbe","BBE",'');
-		echo $Form->checkbox_field("noBBE","No BBE",'skip','');
-		
-		$qa[] = array('label'=>"No", 'value'=>'FALSE');
-		$qa[] = array('label'=>"Yes", 'value'=>'TRUE');
-		$qa[] = array('label'=>"Not Required", 'value'=>'NOT REQUIRED');
-		echo $Form->select_field('qa','QA Check',$qa,'');
-		
-		echo $Form->text_field("notes","Notes",'');
+		echo $Form->hidden("new","new");
 		    
-		echo $Form->submit_field('btnSubmit', 'Add Goods In', $API->app_path());
+		echo $Form->submit_field('btnSubmit', 'Add COA', $API->app_path());
 		
 		echo $Form->form_end();
 	

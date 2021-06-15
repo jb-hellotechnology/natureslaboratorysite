@@ -14,7 +14,7 @@
 
 <script>
 $(document).ready(function() {
-    $('select').select2({
+    $('select[name!=countryOfOrigin]').select2({
 	    width:'resolve'
     });
 });
@@ -26,6 +26,7 @@ $(document).ready(function() {
 	}
 </style>
 
+<!--
 <script>
 	function onScanSuccess(qrCodeMessage) {
 		alert(qrCodeMessage);
@@ -34,4 +35,38 @@ $(document).ready(function() {
 	var html5QrcodeScanner = new Html5QrcodeScanner(
 		"reader", { fps: 10, qrbox: 250 });
 	html5QrcodeScanner.render(onScanSuccess);
+</script>
+-->
+
+<script>
+	$('#productCode_new').on('select2:select', function (e) {
+		var pCode = $('#productCode_new').val();
+		// GET THE SPEC
+		$.post( "/perch/addons/apps/natures_laboratory/coa/getSpec.php", { code: pCode }).done(function( data ) {
+			const obj = JSON.parse(data);
+			console.log(obj);
+			$('#countryOfOrigin').val(obj.countryOfOrigin);
+			$('#colour').val(obj.colour);
+			$('#taste').val(obj.taste);
+			$('#foreignMatterAmount').val(obj.foreignMatter);
+			$('#lossOnDryingAmount').val(obj.lossOnDrying);
+			$('#totalAshAmount').val(obj.totalAsh);
+			$('#ashInSolubleAmount').val(obj.ashInsolubleInHCl);
+			$('#assayContentAmount').val(obj.assayContent);
+			$('#leadAmount').val(obj.leadPb);
+			$('#arsenicAmount').val(obj.arsenicAs);
+			$('#mercuryAmount').val(obj.mercuryHg);
+			$('#totalAerobicAmount').val(obj.totalAerobicMicrobialCount);
+			$('#totalCombinedYeastMouldAmount').val(obj.totalCombinedYeastMouldsCount);
+			$('#enteroBacteriaAmount').val(obj.enterobacteriaCountIncludingPseudomonas);
+			$('#escherichiaAmount').val(obj.escherichiaColi);
+			$('#salmonellaAmount').val(obj.salmonella);
+			$('#staphylococcusAmount').val(obj.staphylococcusAureus);
+			$('#mycotoxinsAmount').val(obj.mycotoxinsAflatoxinsOchratoxinA);
+			$('#pesticidesAmount').val(obj.pesticides);
+			$('#allergensPresent').val(obj.allergens);
+			$('#macroscopic').val(obj.macroscopicCharacters);
+			$('#microscopic').val(obj.microscopicCharacters);
+		});			
+	});
 </script>

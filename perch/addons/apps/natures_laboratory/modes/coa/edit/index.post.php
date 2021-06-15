@@ -57,8 +57,13 @@
 			$batchList[] = array('label'=>$Batch->ourBatch().' | '.$Batch->productDescription(), 'value'=>$Batch->ourBatch());
 		}
 		echo $Form->select_field("ourBatch","Our Batch",$batchList,$details['ourBatch']);
+		
+		$countryList[] = array('label'=>'Please Select', 'value'=>0);
+		foreach($country as $Country){
+			$countryList[] = array('label'=>$Country->country(), 'value'=>$Country->country());
+		}
+		echo $Form->select_field("countryOfOrigin","Country Of Origin",$countryList,$details['countryOfOrigin']);
 
-		echo $Form->text_field("countryOfOrigin","Country Of Origin",$details['countryOfOrigin']);
 		echo $Form->text_field("colour","Colour",$details['colour']);
 		echo $Form->text_field("taste","Taste",$details['taste']);
 		echo $Form->text_field("foreignMatterAmount","Foreign Matter Amount",$details['foreignMatterAmount']);

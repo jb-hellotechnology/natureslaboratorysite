@@ -24,6 +24,10 @@ $(document).ready(function() {
 	.select2-container{
 		min-width:120px !important;
 	}
+	.field-wrap.spec{
+		padding-top:0px;
+		margin-top:-5px;
+	}
 </style>
 
 <!--
@@ -45,28 +49,29 @@ $(document).ready(function() {
 		$.post( "/perch/addons/apps/natures_laboratory/coa/getSpec.php", { code: pCode }).done(function( data ) {
 			const obj = JSON.parse(data);
 			console.log(obj);
-			$('#countryOfOrigin').val(obj.countryOfOrigin);
-			$('#colour').val(obj.colour);
-			$('#taste').val(obj.taste);
-			$('#foreignMatterAmount').val(obj.foreignMatter);
-			$('#lossOnDryingAmount').val(obj.lossOnDrying);
-			$('#totalAshAmount').val(obj.totalAsh);
-			$('#ashInSolubleAmount').val(obj.ashInsolubleInHCl);
-			$('#assayContentAmount').val(obj.assayContent);
-			$('#leadAmount').val(obj.leadPb);
-			$('#arsenicAmount').val(obj.arsenicAs);
-			$('#mercuryAmount').val(obj.mercuryHg);
-			$('#totalAerobicAmount').val(obj.totalAerobicMicrobialCount);
-			$('#totalCombinedYeastMouldAmount').val(obj.totalCombinedYeastMouldsCount);
-			$('#enteroBacteriaAmount').val(obj.enterobacteriaCountIncludingPseudomonas);
-			$('#escherichiaAmount').val(obj.escherichiaColi);
-			$('#salmonellaAmount').val(obj.salmonella);
-			$('#staphylococcusAmount').val(obj.staphylococcusAureus);
-			$('#mycotoxinsAmount').val(obj.mycotoxinsAflatoxinsOchratoxinA);
-			$('#pesticidesAmount').val(obj.pesticides);
-			$('#allergensPresent').val(obj.allergens);
-			$('#macroscopic').val(obj.macroscopicCharacters);
-			$('#microscopic').val(obj.microscopicCharacters);
+			$('#spec_countryOfOrigin').text(obj.countryOfOrigin);
+			$('#spec_colour').text(obj.colour);
+			$('#spec_taste').text(obj.taste);
+			$('#spec_odour').text(obj.odor);
+			$('#spec_foreignMatterAmount').text(obj.foreignMatter);
+			$('#spec_lossOnDryingAmount').text(obj.lossOnDrying);
+			$('#spec_totalAshAmount').text(obj.totalAsh);
+			$('#spec_ashInSolubleAmount').text(obj.ashInsolubleInHCl);
+			$('#spec_assayContentAmount').text(obj.assayContent);
+			$('#spec_leadAmount').text(obj.leadPb);
+			$('#spec_arsenicAmount').text(obj.arsenicAs);
+			$('#spec_mercuryAmount').text(obj.mercuryHg);
+			$('#spec_totalAerobicAmount').text(obj.totalAerobicMicrobialCount);
+			$('#spec_totalCombinedYeastMouldAmount').text(obj.totalCombinedYeastMouldsCount);
+			$('#spec_enteroBacteriaAmount').text(obj.enterobacteriaCountIncludingPseudomonas);
+			$('#spec_escherichiaAmount').text(obj.escherichiaColi);
+			$('#spec_salmonellaAmount').text(obj.salmonella);
+			$('#spec_staphylococcusAmount').text(obj.staphylococcusAureus);
+			$('#spec_mycotoxinsAmount').text(obj.mycotoxinsAflatoxinsOchratoxinA);
+			$('#spec_pesticidesAmount').text(obj.pesticides);
+			$('#spec_allergensPresent').text(obj.allergens);
+			$('#spec_macroscopic').text(obj.macroscopicCharacters);
+			$('#spec_microscopic').text(obj.microscopicCharacters);
 		});			
 	});
 </script>

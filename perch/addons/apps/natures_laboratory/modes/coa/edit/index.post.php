@@ -66,6 +66,7 @@
 
 		echo $Form->text_field("colour","Colour",$details['colour']);
 		echo $Form->text_field("taste","Taste",$details['taste']);
+		echo $Form->text_field("odour","Odour",$details['odour']);
 		echo $Form->text_field("foreignMatterAmount","Foreign Matter Amount",$details['foreignMatterAmount']);
 		echo $Form->text_field("lossOnDryingAmount","Loss On Drying Amount",$details['lossOnDryingAmount']);
 		echo $Form->text_field("totalAshAmount","Total Ash Amount",$details['totalAshAmount']);

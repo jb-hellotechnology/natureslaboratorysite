@@ -16,6 +16,8 @@
     
     include('../Natures_Laboratory.class.php');
     include('../Natures_Laboratorys.class.php');
+    include('../Natures_Laboratory.goodsin.class.php');
+    include('../Natures_Laboratory.goodsins.class.php');
     include('../Natures_Laboratory.coa.class.php');
     include('../Natures_Laboratory.coas.class.php');
     include('../Natures_Laboratory.coa.spec.class.php');

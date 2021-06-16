@@ -67,6 +67,7 @@
 		echo $Form->text_field("taste","Taste",$details['taste']);
 		echo $Form->text_field("macroscopicCharacters","Macroscopic Characters",$details['macroscopicCharacters']);
 		echo $Form->text_field("microscopicCharacters","Microscopic Characters",$details['microscopicCharacters']);
+		echo $Form->textarea_field("description","Description",$details['description']);
 		echo $Form->text_field("foreignMatter","Foreign Matter",$details['foreignMatter']);
 		echo $Form->text_field("lossOnDrying","Loss On Drying",$details['lossOnDrying']);
 		echo $Form->text_field("totalAsh","Total Ash",$details['totalAsh']);

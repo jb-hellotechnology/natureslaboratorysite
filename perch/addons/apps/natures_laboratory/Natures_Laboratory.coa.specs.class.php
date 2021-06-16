@@ -26,5 +26,5 @@ class Natures_Laboratory_COA_Specs extends PerchAPI_Factory
 		return $data;
 		
 	}
-	
+
 }

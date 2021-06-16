@@ -37,7 +37,7 @@
 		
 		$specDetails = $NaturesLaboratoryCOASpec->byCode(strip_tags($_GET['productCode']));
 		
-		if($specDetails['commmonName']<>''){
+		if($specDetails['commonName']<>''){
 			echo true;
 		}else{
 			echo false;

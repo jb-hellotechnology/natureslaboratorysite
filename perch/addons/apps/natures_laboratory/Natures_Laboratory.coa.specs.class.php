@@ -19,4 +19,12 @@ class Natures_Laboratory_COA_Specs extends PerchAPI_Factory
 		
 	}
 	
+	public function byCode($code){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_coa_spec WHERE productCode="'.$code.'"';
+		$data = $this->db->get_row($sql);
+		return $data;
+		
+	}
+	
 }

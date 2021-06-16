@@ -18,6 +18,8 @@
     include('../Natures_Laboratorys.class.php');
     include('../Natures_Laboratory.coa.class.php');
     include('../Natures_Laboratory.coas.class.php');
+    include('../Natures_Laboratory.coa.spec.class.php');
+    include('../Natures_Laboratory.coa.specs.class.php');
     
     # Grab an instance of the Lang class for translations
     $Lang = $API->get('Lang');

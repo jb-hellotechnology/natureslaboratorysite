@@ -83,10 +83,10 @@
 		echo $Form->text_field("mycotoxinsAmount","Mycotoxins Amount",$details['mycotoxinsAmount']);
 		echo $Form->text_field("pesticidesAmount","Pesticides Amount",$details['pesticidesAmount']);
 		echo $Form->text_field("allergensPresent","Allergens Present",$details['allergensPresent']);
-		echo $Form->text_field("box1","Box 1",$details['box1']);
-		echo $Form->text_field("box2","Box 2",$details['box2']);
-		echo $Form->text_field("box3","Box 3",$details['box3']);
-		echo $Form->text_field("box4","Box 4",$details['box4']);
+		echo $Form->textarea_field("box1","Content",$details['box1']);
+		echo $Form->textarea_field("box2","Additional Metals Information",$details['box2']);
+		echo $Form->textarea_field("box3","Additional Microbial Information",$details['box3']);
+		echo $Form->textarea_field("box4","Additional Pesticides Information",$details['box4']);
 		echo $Form->text_field("macroscopic","Macroscopic",$details['macroscopic']);
 		echo $Form->text_field("microscopic","Microscopic",$details['microscopic']);
 		    

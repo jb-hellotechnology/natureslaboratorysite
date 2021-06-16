@@ -55,7 +55,7 @@
     foreach($coa as $COA) {
 ?>
             <tr>
-	            <td><?php echo $Form->checkbox("coa_".$COA['natures_laboratory_coaID'],'on',''); ?></td>
+	            <td><?php echo $Form->radio("coa_".$COA['natures_laboratory_coaID'],'coa',$COA['natures_laboratory_coaID'],''); ?></td>
                 <td><?php echo $COA['dateEntered'] ?></td>
                 <td><?php echo $COA['productCode']; ?></td>
                 <td><?php echo $COA['ourBatch']; ?></td>
@@ -69,6 +69,6 @@
     </table>
 
 <?php    
-	echo $Form->submit_field('btnSubmit', 'Generate Certificates', $API->app_path());	
+	echo $Form->submit_field('btnSubmit', 'Generate Certificate', $API->app_path());	
 	echo $Form->form_end();
     echo $HTML->main_panel_end();

@@ -201,7 +201,7 @@
 		
 		$pdf = new PDF();
 		$pdf->AddPage();
-		$pdf->Image('../nl_logo.jpg',10,10,0,20);
+		$pdf->Image('../../nl_logo.jpg',10,10,0,20);
 		$pdf->Line(0,35,300,35);
 		$pdf->SetFont('Arial','',9);
 		$pdf->Cell(0,3,"Nature's Laboratory",0,1,'R');

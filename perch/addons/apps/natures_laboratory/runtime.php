@@ -4,7 +4,7 @@
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
 
-	require('/perch/coa/fpdf/fpdf.php');
+	require('/perch/addons/apps/natures_laboratory/coa/fpdf/fpdf.php');
 	
 	include('Natures_Laboratory.class.php');
 	include('Natures_Laboratorys.class.php');

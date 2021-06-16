@@ -1,8 +1,10 @@
 <?php
 
+/*
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
+*/
 
 	include('fpdf/fpdf.php');
 	
@@ -28,6 +30,20 @@
 		$Time = new Natures_Laboratory_Staff_Member_Times();
 		
 		$Time->clockedIn();
+		
+	}
+	
+	function specExists($productCode){
+		
+		$NaturesLaboratoryCOASpec = new Natures_Laboratory_COA_Specs();
+		
+		$specDetails = $NaturesLaboratoryCOASpec->byCode(strip_tags($_GET['productCode']));
+		
+		if($specDetails['commmonName']<>''){
+			echo true;
+		}else{
+			echo false;
+		}
 		
 	}
 	

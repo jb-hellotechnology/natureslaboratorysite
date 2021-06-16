@@ -156,7 +156,7 @@
 		if($details['box1']<>''){
 			$pdf->Cell(0,10,'Content',0,1);
 			$pdf->SetFont('Arial','',8);
-			$pdf->WriteHTML($details['box1']);
+			$pdf->WriteHTML(nl2br($details['box1']));
 			$pdf->Cell(0,5,'',0,1);
 		}
 		$pdf->SetFont('Arial','B',11);
@@ -167,7 +167,7 @@
 		if($details['mercuryAmount']<>''){$pdf->Cell(0,5,'Mercury (Hg): '.iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$details['mercuryAmount']),0,1);}
 		if($details['box1']<>''){
 			$pdf->Cell(0,5,'Additional Heavy Metals Notes:',0,1);
-			$pdf->WriteHTML($details['box2']);
+			$pdf->WriteHTML(nl2br($details['box2']));
 			$pdf->Cell(0,5,'',0,1);
 		}
 		$pdf->SetFont('Arial','B',11);
@@ -181,14 +181,14 @@
 		if($details['staphylococcusAmount']<>''){$pdf->Cell(0,5,'Staphylococcus Aureus: '.iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$details['staphylococcusAmount']),0,1);}
 		if($details['box3']<>''){
 			$pdf->Cell(0,5,'Additional Microbial Information:',0,1);
-			$pdf->WriteHTML($details['box3']);
+			$pdf->WriteHTML(nl2br($details['box3']));
 			$pdf->Cell(0,5,'',0,1);
 		}
 		if($details['mycotoxinsAmount']<>''){$pdf->Cell(0,5,'Mycotoxins (Aflatoxins, Ochratoxin A): '.iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$details['mycotoxinsAmount']),0,1);}
 		if($details['pesticidesAmount']<>''){$pdf->Cell(0,5,'Pesticides: '.iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$details['pesticidesAmount']),0,1);}
 		if($details['box1']<>''){
 			$pdf->Cell(0,5,'Additional Pesticide Notes:',0,1);
-			$pdf->WriteHTML($details['box4']);
+			$pdf->WriteHTML(nl2br($details['box4']));
 			$pdf->Cell(0,5,'',0,1);
 		}
 		if($details['allergensPresent']<>''){$pdf->Cell(0,5,'Allergens: '.iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$details['allergensPresent']),0,1);}

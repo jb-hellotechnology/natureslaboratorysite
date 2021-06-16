@@ -49,8 +49,8 @@
 			{
 				$this->Line(0,276,300,276);
 			    $this->SetY(-24);
-			    $this->Image('../../organic.png',10,280,0,12);
-			    $this->Image('../../9001.jpg',30,280,0,12);
+			    $this->Image('organic.png',10,280,0,12);
+			    $this->Image('9001.jpg',30,280,0,12);
 			    $this->SetY(-17);$this->SetX(-10);
 			    $this->SetFont('Arial','',6);
 			    $this->Cell(0,3,"Nature's Laboratory Ltd",0,1,'R');
@@ -201,7 +201,7 @@
 		
 		$pdf = new PDF();
 		$pdf->AddPage();
-		$pdf->Image('../../nl_logo.jpg',10,10,0,20);
+		$pdf->Image('nl_logo.jpg',10,10,0,20);
 		$pdf->Line(0,35,300,35);
 		$pdf->SetFont('Arial','',9);
 		$pdf->Cell(0,3,"Nature's Laboratory",0,1,'R');

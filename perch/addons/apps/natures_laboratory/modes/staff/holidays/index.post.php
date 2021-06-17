@@ -151,7 +151,11 @@
 	    }
 	    
 	    $remaining = $totalAllowance - $bankHolidaysTaken - $holiday;
-	 
+	 if (isset($message)){ 
+	    
+	    echo $message;
+	    
+	}
 	?>  
     
     	<h2>Holiday Allowance</h2>

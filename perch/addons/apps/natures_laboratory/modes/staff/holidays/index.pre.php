@@ -57,6 +57,8 @@ error_reporting(E_ALL);
 			
 			// Mail it
 			mail($to, $subject, $message, implode("\r\n", $headers));
+			
+			$message = $HTML->success_message('Holiday confirmation message sent'); 
 	    	
     	}	
     }else{

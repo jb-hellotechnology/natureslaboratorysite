@@ -45,7 +45,7 @@ error_reporting(E_ALL);
 	    	$message = "Hi $name,<br><br>Your holiday request has been confirmed for the follow dates:<ul>$list</ul>Thanks<br>Jack";
 	    	
 	    	$to = $StaffMember->email();
-	    	$subkect = 'Holiday Request Confirmation';
+	    	$subject = 'Holiday Request Confirmation';
 	    	
 	    	// To send HTML mail, the Content-type header must be set
 			$headers[] = 'MIME-Version: 1.0';

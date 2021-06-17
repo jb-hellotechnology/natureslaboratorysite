@@ -1,4 +1,7 @@
 <?php
+	
+	if (!$CurrentUser->has_priv('natures_laboratory.coa')) exit;
+	
 	$NaturesLaboratoryCountries = new Natures_Laboratory_COA_Countries($API);   
     
     $HTML = $API->get('HTML');

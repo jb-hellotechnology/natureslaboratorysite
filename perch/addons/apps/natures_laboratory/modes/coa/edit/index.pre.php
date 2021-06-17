@@ -1,4 +1,7 @@
 <?php
+	
+	if (!$CurrentUser->has_priv('natures_laboratory.coa')) exit;
+	
 	$NaturesLaboratoryCOA = new Natures_Laboratory_COAs($API);
 	$NaturesLaboratoryGoodsIn = new Natures_Laboratory_Goods_Ins($API);
 	$NaturesLaboratoryGoodsStock = new Natures_Laboratory_Goods_Stocks($API);

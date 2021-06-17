@@ -1,7 +1,7 @@
 <?php
-	ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+	
+	if (!$CurrentUser->has_priv('natures_laboratory.coa')) exit;
+	
 	$NaturesLaboratoryCountries = new Natures_Laboratory_COA_Countries($API);
     
     $HTML = $API->get('HTML');

@@ -1,7 +1,6 @@
 <?php
-	ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+	
+	if (!$CurrentUser->has_priv('natures_laboratory.coa')) exit;
 
 	$NaturesLaboratoryCOASpec = new Natures_Laboratory_COA_Specs($API); 
     

@@ -96,5 +96,6 @@
     "Export": "Export",
     "Export responses": "Export responses",
     "": "",
-    "Delete selected": "Delete selected"
+    "Delete selected": "Delete selected",
+    "Delete responses": "Delete responses"
 }

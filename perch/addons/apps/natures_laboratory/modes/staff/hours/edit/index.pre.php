@@ -1,4 +1,7 @@
 <?php
+	
+	if (!$CurrentUser->has_priv('natures_laboratory.staff')) exit;
+	
 	$NaturesLaboratoryStaff = new Natures_Laboratory_Staff_Members($API); 
 	$NaturesLaboratoryStaffTime = new Natures_Laboratory_Staff_Member_Times($API);    
     

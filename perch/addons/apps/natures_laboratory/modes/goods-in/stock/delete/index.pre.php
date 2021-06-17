@@ -1,4 +1,7 @@
 <?php
+	
+	if (!$CurrentUser->has_priv('natures_laboratory.goodsin')) exit;
+	
 	$NaturesLaboratoryGoodsStocks = new Natures_Laboratory_Goods_Stocks($API);   
     
     $HTML = $API->get('HTML');

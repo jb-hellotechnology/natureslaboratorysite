@@ -1,9 +1,6 @@
 <?php
-/*
-	ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-*/
+
+	if (!$CurrentUser->has_priv('natures_laboratory.staff')) exit;
 
 	$NaturesLaboratoryStaff = new Natures_Laboratory_Staff_Members($API); 
 	$NaturesLaboratoryStaffTimes = new Natures_Laboratory_Staff_Member_Times($API); 

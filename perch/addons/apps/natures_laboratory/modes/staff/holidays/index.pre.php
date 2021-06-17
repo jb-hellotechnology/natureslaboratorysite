@@ -43,9 +43,8 @@ error_reporting(E_ALL);
 	    	$name = $nameParts[0];
 	    	
 	    	$message = "Hi $name,<br><br>Your holiday request has been confirmed for the follow dates:<ul>$list</ul>Thanks<br>Jack";
-	    	echo $message;
 	    	
-	    	$to = 'jack@jackbarber.co.uk';
+	    	$to = $StaffMember->email();
 	    	$subkect = 'Holiday Request Confirmation';
 	    	
 	    	// To send HTML mail, the Content-type header must be set
@@ -53,7 +52,6 @@ error_reporting(E_ALL);
 			$headers[] = 'Content-type: text/html; charset=iso-8859-1';
 			
 			// Additional headers
-			$headers[] = 'To: '.$StaffMember->email();
 			$headers[] = 'From: jack@natureslaboratory.co.uk';
 			$headers[] = 'Cc: jack@natureslaboratory.co.uk';
 			

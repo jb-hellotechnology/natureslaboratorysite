@@ -187,9 +187,13 @@
     	</table>
 
 	<h2>Holiday Record</h2>
+	
+	<?php echo $Form->form_start(); ?>
+	
 	<table class="d">
         <thead>
             <tr>
+	            <th>Select</th>
                 <th>Date</th> 
                 <th>Length</th> 
                 <th>Delete</th>
@@ -200,6 +204,7 @@
 		    foreach($holidays as $holiday){
 		?>
 		<tr>
+				<td><?php echo $Form->checkbox("date_".$holiday['date'],$holiday['date'],''); ?></td>
                 <td><?php echo $holiday['date']; ?></td>
                 <td><?php echo $holiday['length']; ?></td>
                 <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/staff/holidays/delete/?staffID=<?php echo $holiday['staffID'];?>&id=<?php echo $holiday['natures_laboratory_staff_holidayID']; ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
@@ -210,6 +215,11 @@
 		?>
         </tbody>
 	</table>
+
+	<?php 
+		echo $Form->submit_field('btnSubmit', 'Send Confirmation', $API->app_path());	
+		echo $Form->form_end();
+	?>
 
 <?php 
 

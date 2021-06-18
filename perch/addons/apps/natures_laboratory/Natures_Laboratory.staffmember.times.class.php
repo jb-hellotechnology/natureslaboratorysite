@@ -52,7 +52,7 @@ class Natures_Laboratory_Staff_Member_Times extends PerchAPI_Factory
 	    $insert = $this->db->insert('perch3_natures_laboratory_staff_time', $time);
 	    
 	    $names = explode(" ",$name);
-	    $name = $name[0];
+	    $name = $names[0];
 	    if($attendanceStatus=='clock in'){
 		    $status = 'clocked in';
 	    }else{

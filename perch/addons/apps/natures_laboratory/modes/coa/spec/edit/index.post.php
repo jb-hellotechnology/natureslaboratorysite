@@ -63,7 +63,6 @@
 		echo $Form->select_field("countryOfOrigin","Country Of Origin",$countryList,$details['countryOfOrigin']);
 
 		echo $Form->text_field("colour","Colour",$details['colour']);
-		echo $Form->image_field("image","Image",$details['image']);
 		echo $Form->text_field("odor","Odour",$details['odor']);
 		echo $Form->text_field("taste","Taste",$details['taste']);
 		echo $Form->text_field("macroscopicCharacters","Macroscopic Characters",$details['macroscopicCharacters']);

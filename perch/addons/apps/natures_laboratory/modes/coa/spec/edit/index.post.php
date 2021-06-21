@@ -63,10 +63,13 @@
 		echo $Form->select_field("countryOfOrigin","Country Of Origin",$countryList,$details['countryOfOrigin']);
 
 		echo $Form->text_field("colour","Colour",$details['colour']);
+		echo $Form->image_field("image","Image",$details['image']);
 		echo $Form->text_field("odor","Odour",$details['odor']);
 		echo $Form->text_field("taste","Taste",$details['taste']);
 		echo $Form->text_field("macroscopicCharacters","Macroscopic Characters",$details['macroscopicCharacters']);
+		echo $Form->textarea_field("macroscopicCharactersLong","Macroscopic Characters - Long Description",$details['macroscopicCharactersLong']);
 		echo $Form->text_field("microscopicCharacters","Microscopic Characters",$details['microscopicCharacters']);
+		echo $Form->textarea_field("microscopicCharactersLong","Microscopic Characters - Long Description",$details['microscopicCharactersLong']);
 		echo $Form->textarea_field("description","Description",$details['description']);
 		echo $Form->text_field("foreignMatter","Foreign Matter",$details['foreignMatter']);
 		echo $Form->text_field("lossOnDrying","Loss On Drying",$details['lossOnDrying']);

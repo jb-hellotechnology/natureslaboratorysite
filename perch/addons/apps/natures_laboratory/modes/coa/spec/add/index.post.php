@@ -66,7 +66,9 @@
 		echo $Form->text_field("odor","Odour",'');
 		echo $Form->text_field("taste","Taste",'');
 		echo $Form->text_field("macroscopicCharacters","Macroscopic Characters",'');
+		echo $Form->textarea_field("macroscopicCharactersLong","Macroscopic Characters - Long Description",'');
 		echo $Form->text_field("microscopicCharacters","Microscopic Characters",'');
+		echo $Form->textarea_field("microscopicCharactersLong","Microscopic Characters - Long Description",'');
 		echo $Form->textarea_field("description","Description",'');
 		echo $Form->text_field("foreignMatter","Foreign Matter",'');
 		echo $Form->text_field("lossOnDrying","Loss On Drying",'');

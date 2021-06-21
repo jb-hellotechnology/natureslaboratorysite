@@ -88,7 +88,9 @@
 		echo $Form->text_field("mycotoxinsAflatoxinsOchratoxinA","Mycotxins Aflatoxins Ochratoxin A",$details['mycotoxinsAflatoxinsOchratoxinA']);
 		echo $Form->text_field("pesticides","Pesticides",$details['pesticides']);
 		echo $Form->text_field("allergens","Allergens",$details['allergens']);
-		    
+		
+		echo $Form->fields_from_template($Template, $details, $NaturesLaboratoryCOASpec->static_fields);
+		
 		echo $Form->submit_field('btnSubmit', 'Update Spec', $API->app_path());
 		
 		echo $Form->form_end();

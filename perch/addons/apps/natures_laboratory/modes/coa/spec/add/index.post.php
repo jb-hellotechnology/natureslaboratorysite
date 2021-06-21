@@ -87,6 +87,8 @@
 		echo $Form->text_field("mycotoxinsAflatoxinsOchratoxinA","Mycotxins Aflatoxins Ochratoxin A",'');
 		echo $Form->text_field("pesticides","Pesticides",'');
 		echo $Form->text_field("allergens","Allergens",'');
+		
+		echo $Form->fields_from_template($Template, $details, $Properties->static_fields);
 		    
 		echo $Form->submit_field('btnSubmit', 'Add Spec', $API->app_path());
 		

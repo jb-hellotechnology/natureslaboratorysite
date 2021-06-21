@@ -13,6 +13,8 @@
     $Form = $API->get('Form');
     $Template = $API->get('Template');
     
+    $Template->set('natures_laboratory/spec.html','nl');
+    
     $specID = (int) $_GET['id'];  
     $Spec = $NaturesLaboratoryCOASpec->find($specID, true);
     $details = $Spec->to_array();
@@ -21,7 +23,17 @@
     
         //FOR ITEMS PROGRAMMATICALLY ADDED TO FORM
         $postvars = array('productCode','commonName','biologicalSource','plantPart','productDescription','countryOfOrigin','colour','odor','taste','macroscopicCharacters','microscopicCharacters','macroscopicCharactersLong','microscopicCharactersLong','description','foreignMatter','lossOnDrying','totalAsh','ashInsolubleInHCl','assayContent','leadPb','arsenicAs','mercuryHg','totalAerobicMicrobialCount','totalCombinedYeastMouldsCount','enterobacteriaCountIncludingPseudomonas','escherichiaColi','salmonella','staphylococcusAureus','mycotoxinsAflatoxinsOchratoxinA','pesticides','allergens');	   
-    	$data = $Form->receive($postvars);      
+    	$data = $Form->receive($postvars);    
+    	
+    	// READ IN DYNAMIC FIELDS FROM TEMPLATE
+        $previous_values = false;
+        if (isset($details['specDynamicFields'])) {
+            $previous_values = PerchUtil::json_safe_decode($details['specDynamicFields'], true);
+        }
+
+        // GET DYNAMIC FIELDS AND CREATE JSON ARRAY FOR DB
+        $dynamic_fields = $Form->receive_from_template_fields($Template, $previous_values, $NaturesLaboratoryCOASpec, $Spec);
+        $data['specDynamicFields'] = PerchUtil::json_safe_encode($dynamic_fields);  
 
         $new_spec = $Spec->update($data);
 

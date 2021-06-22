@@ -350,5 +350,5 @@
 	}
 	
 	function clocked_in(){
-		echo 'Testing...';
+		echo '{"text":"Just testing..."}';
 	}

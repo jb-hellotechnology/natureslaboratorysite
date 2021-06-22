@@ -348,3 +348,7 @@
 		exit();
 		
 	}
+	
+	function clocked_in(){
+		echo 'Testing...';
+	}

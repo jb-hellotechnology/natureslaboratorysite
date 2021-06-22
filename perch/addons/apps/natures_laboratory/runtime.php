@@ -230,11 +230,11 @@
 		$pdf->Cell(0,3,"YO22 4NH",0,1,'R');
 		$pdf->Cell(0,6,iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE','01947 602346  |  info@natureslaboratory.co.uk  |  natureslaboratory.co.uk'),0,1,'R');
 		
-		$pdf->SetY(-17);$this->SetX(130);
+		$pdf->SetY(-17);$pdf->SetX(130);
 		$pdf->Cell(60,3,"Product Code: $specDetails[productCode]",0,0,'L');
-		$pdf->SetY(-14);$this->SetX(130);
+		$pdf->SetY(-14);$pdf->SetX(130);
 		$pdf->Cell(60,3,"Date: $json[dateCreated]",0,0,'L');
-		$pdf->SetY(-11);$this->SetX(130);
+		$pdf->SetY(-11);$pdf->SetX(130);
 		$pdf->Cell(60,3,"Version: $json[version]",0,0,'L');
 		
 		$pdf->SetXY(10, 35);

@@ -249,7 +249,42 @@
 		if($specDetails['description']<>''){$pdf->WriteHTML('<b>Description<b><br>'.$specDetails['description'].'<br>');}
 		$pdf->WriteHTML($specDetails['description'].'<br>');
 		$pdf->Cell(0,3,'',0,1);
-	
+		
+		if($specDetails['foreignMatter']<>'' AND $specDetails['lossOnDrying']<>'' AND $specDetails['totalAsh']<>''){	
+			$pdf->SetFont('Arial','B',11);
+			$pdf->Cell(0,10,'Tests',0,1);
+			$pdf->SetFont('Arial','',9);	
+			$header = array('Test','Specification');
+			$data = '';
+			if($specDetails['foreignMatter']<>''){
+				$data = $data."Foreign Matter,$specDetails[foreignMatter];";
+			}
+			if($specDetails['lossOnDrying']<>''){
+				$data = $data."Loss On Drying,$specDetails[lossOnDrying];";
+			}
+			if($specDetails['totalAsh']<>''){
+				$data = $data."Total Ash,$specDetails[totalAsh];";
+			}
+			if($specDetails['ashInsolubleInHCl']<>''){
+				$data = $data."Ash Insoluble in Hydrochloric Acid,$specDetails[ashInsolubleInHCl];";
+			}
+			$data = substr($data,0,-1);
+			$pdf->BasicTable($header,$data);
+			$pdf->Cell(0,3,'',0,1);
+		}
+		
+		$pdf->SetFont('Arial','B',11);
+		$pdf->Cell(0,10,'Contaminants/Impurities',0,1);
+		$pdf->SetFont('Arial','',9);
+		$pdf->WriteHTML('Testing for inorganic impurities, toxic (heavy) metals, microbial limits, mycotoxins and pesticides are carried out on a batch by batch basis according to specific customer requirements. These will normally be in line with British Pharmacopoeia limits. Nature’s Laboratory Ltd do not knowingly supply material containing pesticide residues above the legal maximum residue levels.<br>');
+		
+		$pdf->SetFont('Arial','B',11);
+		$pdf->Cell(0,10,'Assay',0,1);
+		$pdf->SetFont('Arial','',9);
+		$pdf->Cell(0,5,$specDetails['assayContent'],0,1);
+		
+
+		
 		$pdf->Output('D',"Natures Laboratory Specification - $specDetails[commonName].pdf");
 		exit();
 		

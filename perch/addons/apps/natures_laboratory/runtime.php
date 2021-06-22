@@ -235,7 +235,7 @@
 		$pdf->Line(0,44,300,44);
 		
 		if($image<>'https://natureslaboratory.co.uk'){
-			$pdf->Image($image,130,50,80,0);
+			$pdf->Image($image,130,50,70,0);
 		}
 		
 		$pdf->SetFont('Arial','',9);

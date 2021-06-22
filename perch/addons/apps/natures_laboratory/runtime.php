@@ -231,11 +231,11 @@
 		
 		$pdf->SetXY(10, 35);
 		$pdf->SetFont('Arial','B',16);
-		$pdf->Cell(0,10,'Specification: '.$specDetails['commonName'],0,1);
+		$pdf->Cell(0,10,'Specification: '.$specDetails['commonName'].' '.$image,0,1);
 		$pdf->Line(0,44,300,44);
 		
 		if(file_exists($image)){
-			$pdf->Image($image,200,50,10,0);
+			$pdf->Image($image,50,50,10,0);
 		}
 		
 		$pdf->SetFont('Arial','',9);

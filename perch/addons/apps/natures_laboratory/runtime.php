@@ -305,10 +305,7 @@
 		$pdf->SetFont('Arial','B',11);
 		$pdf->Cell(0,10,'Allergens',0,1);
 		$pdf->SetFont('Arial','',9);
-		
-		$pdf->SetFont('Arial','B',9);
-		$pdf->Cell(0,10,'Allergens',0,1);
-		$pdf->SetFont('Arial','',9);	
+			
 		$header = array('Allergen Type','Present');
 		$data = 'Cereal/Wheat Products,No;Seafood and Shellfish,No;Egg Products,No;Fish and Fish Products,No;Lupin (i.e. leguminous plants/lupin flour),No;Milk and Dairy Products,No;Molluscs including Squid and Octopus,No;Nut and Nut Products,No;Peanuts and Products Thereof,No;Soybean and Products Thereof,No;Sesame Seed and Products Thereof,No;Celery and Products Thereof,No;Mustard and Products Thereof,No;Animal Products,No;';
 		$data = substr($data,0,-1);
@@ -319,14 +316,14 @@
 		$pdf->Cell(0,10,'Allergen Statement',0,1);
 		$pdf->SetFont('Arial','',9);
 		
-		$pdf->WriteHTML("Unless otherwise stated, the products supplied are to the best of our knowledge free from nut, nut derivatives and allergens. Herbal Apothecary does handle some nut and allergen products but follows careful handling and segregation procedures. However, due to the nature of the products supplied, it is impossible for the Company to absolutely guarantee that no cross contamination has taken place at some point in the supply chain prior to delivery at our premises.Non-GM Statement: This product is produced or derived from ingredients supplied from non-GM sources. This is verified by our suppliers' statements and IP certificates where applicable.");
+		$pdf->WriteHTML("Unless otherwise stated, the products supplied are to the best of our knowledge free from nut, nut derivatives and allergens. Herbal Apothecary does handle some nut and allergen products but follows careful handling and segregation procedures. However, due to the nature of the products supplied, it is impossible for the Company to absolutely guarantee that no cross contamination has taken place at some point in the supply chain prior to delivery at our premises.Non-GM Statement: This product is produced or derived from ingredients supplied from non-GM sources. This is verified by our suppliers' statements and IP certificates where applicable.<br>");
 		$pdf->Cell(0,3,'',0,1);
 		
 		$pdf->SetFont('Arial','B',11);
 		$pdf->Cell(0,10,'Irradiation Statement',0,1);
 		$pdf->SetFont('Arial','',9);
 		
-		$pdf->WriteHTML("To address the concerns of the consumer and to ensure compliance with the legislation, Nature’s Laboratory do not trade herbs have been irradiated. Purchasing specifications stipulate that irradiated herbs and spices are not acceptable, and this is checked during supplier audits at origin and processing plants.Use in Production: If the goods or any part thereof supplied under the contract are processed, altered, or tampered with in any way by the buyer or receiver of the goods or any other person, the quality of the goods shall be deemed to be acceptable by the buyer. All customers’ quality checks are to be completed on the entire load prior to production and use.");
+		$pdf->WriteHTML("To address the concerns of the consumer and to ensure compliance with the legislation, Nature's Laboratory do not trade herbs have been irradiated. Purchasing specifications stipulate that irradiated herbs and spices are not acceptable, and this is checked during supplier audits at origin and processing plants.Use in Production: If the goods or any part thereof supplied under the contract are processed, altered, or tampered with in any way by the buyer or receiver of the goods or any other person, the quality of the goods shall be deemed to be acceptable by the buyer. All customers' quality checks are to be completed on the entire load prior to production and use.<br>");
 		$pdf->Cell(0,3,'',0,1);
 		
 		$pdf->SetFont('Arial','B',11);

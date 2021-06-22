@@ -96,6 +96,12 @@
 				$this->Cell(60,3,"01947 602346",0,0,'L');
 				$this->SetY(-8);$this->SetX(90);
 				$this->Cell(60,3,"info@natureslaboratory.co.uk",0,1,'L');
+				
+				$this->SetY(-17);$this->SetX(130);
+				$this->Cell(60,3,"Test",0,0,'L');
+				$this->SetY(-14);$this->SetX(130);
+				$this->Cell(60,3,"Test 2",0,0,'L');
+
 			}
 			
 			protected $B = 0;

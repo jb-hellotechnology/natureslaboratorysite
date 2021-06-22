@@ -51,7 +51,7 @@
 		
 		$specDetails = $NaturesLaboratoryCOASpec->byCode(strip_tags($_GET['productCode']));
 		$json = json_decode($specDetails['natures_laboratory_coa_specDynamicFields'],true);
-		print_r($json);
+		print_r($json['image']);
 		$image = '';
 	
 		class PDF extends FPDF

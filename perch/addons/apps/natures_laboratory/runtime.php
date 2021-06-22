@@ -1,8 +1,10 @@
 <?php
 
+/*
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
+*/
 
 	include('fpdf/fpdf.php');
 	
@@ -233,7 +235,7 @@
 		$pdf->Line(0,44,300,44);
 		
 		if(file_exists($image)){
-			$this->Image($image,200,50,10,0);
+			$pdf->Image($image,200,50,10,0);
 		}
 		
 		$pdf->SetFont('Arial','',9);

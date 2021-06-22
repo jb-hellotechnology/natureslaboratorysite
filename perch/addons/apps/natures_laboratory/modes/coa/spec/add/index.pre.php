@@ -1,5 +1,5 @@
 <?php
-	
+
 	if (!$CurrentUser->has_priv('natures_laboratory.coa')) exit;
 
 	$NaturesLaboratoryCOASpec = new Natures_Laboratory_COA_Specs($API); 
@@ -23,15 +23,13 @@
     	
     	// READ IN DYNAMIC FIELDS FROM TEMPLATE
         $previous_values = false;
-        if (isset($details['specDynamicFields'])) {
-            $previous_values = PerchUtil::json_safe_decode($details['specDynamicFields'], true);
+        if (isset($details['natures_laboratory_coa_specDynamicFields'])) {
+            $previous_values = PerchUtil::json_safe_decode($details['natures_laboratory_coa_specDynamicFields'], true);
         }
 
         // GET DYNAMIC FIELDS AND CREATE JSON ARRAY FOR DB
         $dynamic_fields = $Form->receive_from_template_fields($Template, $previous_values, $NaturesLaboratoryCOASpec, $Spec);
-        $data['specDynamicFields'] = PerchUtil::json_safe_encode($dynamic_fields);  
-
-        $new_spec = $Spec->update($data); 
+        $data['natures_laboratory_coa_specDynamicFields'] = PerchUtil::json_safe_encode($dynamic_fields);  
 
         $new_time = $NaturesLaboratoryCOASpec->create($data);
 

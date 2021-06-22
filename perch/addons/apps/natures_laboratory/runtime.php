@@ -243,7 +243,6 @@
 		$dateCreated = "$dateParts[2]/$dateParts[1]/$dateParts[0]";
 		
 		$pdf->SetFont('Arial','',9);
-		if($specDetails['productCode']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Code: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$specDetails['productCode'],0,1);}
 		if($json['dateCreated']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Date: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$dateCreated,0,1);}
 		if($json['version']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Version: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$json['version'],0,1);}
 		if($specDetails['productDescription']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Description: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$specDetails['productDescription'],0,1);}

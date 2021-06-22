@@ -63,7 +63,7 @@
 			    
 			}
 			
-			function Footer()
+			function Footer($specDetails,$json)
 			{
 				$this->Line(0,276,300,276);
 			    $this->SetY(-24);

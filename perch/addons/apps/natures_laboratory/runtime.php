@@ -239,10 +239,13 @@
 			$pdf->Image($image,150,50,0,50);
 		}
 		
+		$dateParts = explode("-",$json['dateCreated']);
+		$dateCreated = "$dateParts[2]/$dateParts[1]/$dateParts[0]";
+		
 		$pdf->SetFont('Arial','',9);
 		if($specDetails['productCode']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Code: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$specDetails['productCode'],0,1);}
-		if($json['dateCreated']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Date: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$json['dateCreated'],0,1);}
-		if($specDetails['version']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Version: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$specDetails['version'],0,1);}
+		if($json['dateCreated']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Date: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$dateCreated,0,1);}
+		if($json['version']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Version: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$json['version'],0,1);}
 		if($specDetails['productDescription']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Description: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$specDetails['productDescription'],0,1);}
 		if($specDetails['biologicalSource']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Biological Source: ',0,0);$pdf->SetFont('Arial','',9);$pdf->SetFont('Arial','I',9);$pdf->Cell(0,5,$specDetails['biologicalSource'],0,1);$pdf->SetFont('Arial','',9);}
 		if($specDetails['productCode']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Code:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['productCode'],0,1);}

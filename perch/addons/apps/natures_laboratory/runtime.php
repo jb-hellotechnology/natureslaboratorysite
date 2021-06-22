@@ -348,7 +348,3 @@
 		exit();
 		
 	}
-	
-	function clocked_in(){
-		echo '{"text":"Just testing..."}';
-	}

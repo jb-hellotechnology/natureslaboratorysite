@@ -256,7 +256,7 @@
 		if($specDetails['macroscopicCharactersLong']<>''){$pdf->WriteHTML('<b>Macroscopic Characters</b><br>'.$specDetails['macroscopicCharactersLong'].'<br>');}
 		if($specDetails['microscopicCharactersLong']<>''){$pdf->WriteHTML('<b>Microscopic Characters</b><br>'.$specDetails['microscopicCharactersLong'].'<br>');}
 		if($specDetails['description']<>''){$pdf->WriteHTML('<b>Description<b><br>'.$specDetails['description'].'<br>');}
-		$pdf->WriteHTML($specDetails['description'].'<br>');
+		if($specDetails['description']<>''){$pdf->WriteHTML($specDetails['description'].'<br>');}
 		$pdf->Cell(0,3,'',0,1);
 		
 		if($specDetails['foreignMatter']<>'' AND $specDetails['lossOnDrying']<>'' AND $specDetails['totalAsh']<>''){	
@@ -295,17 +295,11 @@
 		}
 		
 		$pdf->SetFont('Arial','B',11);
-		$pdf->Cell(0,10,'Storage',0,1);
+		$pdf->Cell(0,10,'Storage and Shelf Life',0,1);
 		$pdf->SetFont('Arial','',9);
-		$pdf->WriteHTML("Store in cool and dry condition. Keep away from direct sunlight and heat.<br>");
+		$pdf->WriteHTML("Store in cool and dry condition. Keep away from direct sunlight and heat. Shelf life is 36 months from manufacture if stored unopened and under storage conditions stated above.<br>");
 		$pdf->Cell(0,3,'',0,1);
-		
-		$pdf->SetFont('Arial','B',11);
-		$pdf->Cell(0,10,'Shelf Life',0,1);
-		$pdf->SetFont('Arial','',9);
-		$pdf->WriteHTML("36 months from manufacture if stored unopened and under storage conditions stated above.<br>");
-		$pdf->Cell(0,3,'',0,1);
-		
+
 		$pdf->SetFont('Arial','B',11);
 		$pdf->Cell(0,10,'Labels',0,1);
 		$pdf->SetFont('Arial','',9);

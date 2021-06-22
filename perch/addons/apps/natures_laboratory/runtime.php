@@ -265,16 +265,16 @@
 			$pdf->SetFont('Arial','',9);	
 			$header = array('Test','Specification');
 			$data = '';
-			if($specDetails['foreignMatter']<>''){
+			if($specDetails['foreignMatter']<>'' AND $specDetails['foreignMatter']<>'Not Reported'){
 				$data = $data."Foreign Matter,$specDetails[foreignMatter];";
 			}
-			if($specDetails['lossOnDrying']<>''){
+			if($specDetails['lossOnDrying']<>'' AND $specDetails['lossOnDrying']<>'Not Reported'){
 				$data = $data."Loss On Drying,$specDetails[lossOnDrying];";
 			}
-			if($specDetails['totalAsh']<>''){
+			if($specDetails['totalAsh']<>'' AND $specDetails['totalAsh']<>'Not Reported'){
 				$data = $data."Total Ash,$specDetails[totalAsh];";
 			}
-			if($specDetails['ashInsolubleInHCl']<>''){
+			if($specDetails['ashInsolubleInHCl']<>'' AND $specDetails['ashInsolubleInHCl']<>'Not Reported'){
 				$data = $data."Ash Insoluble in Hydrochloric Acid,$specDetails[ashInsolubleInHCl];";
 			}
 			$data = substr($data,0,-1);

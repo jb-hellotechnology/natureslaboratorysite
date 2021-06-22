@@ -286,20 +286,20 @@
 		$pdf->SetFont('Arial','B',11);
 		$pdf->Cell(0,10,'Storage',0,1);
 		$pdf->SetFont('Arial','',9);
-		$pdf->WriteHTML("Store in cool and dry condition. Keep away from direct sunlight and heat.");
+		$pdf->WriteHTML("Store in cool and dry condition. Keep away from direct sunlight and heat.<br>");
 		$pdf->Cell(0,3,'',0,1);
 		
 		$pdf->SetFont('Arial','B',11);
 		$pdf->Cell(0,10,'Shelf Life',0,1);
 		$pdf->SetFont('Arial','',9);
-		$pdf->WriteHTML("36 months from manufacture if stored unopened and under storage conditions stated above.");
+		$pdf->WriteHTML("36 months from manufacture if stored unopened and under storage conditions stated above.<br>");
 		$pdf->Cell(0,3,'',0,1);
 		
 		$pdf->SetFont('Arial','B',11);
 		$pdf->Cell(0,10,'Labels',0,1);
 		$pdf->SetFont('Arial','',9);
 		
-		$pdf->WriteHTML("Label contains following information:<br>1. Manufacturing company name<br>2. Type of product and product code<br>3. Product Latin and common name<br>4. Product strength<br>5. Pack size<br>6. Best before date<br>7. Contact information<br><br>");
+		$pdf->WriteHTML("Label contains following information:<br>1. Manufacturing company name<br>2. Type of product and product code<br>3. Product Latin and common name<br>4. Product strength<br>5. Pack size<br>6. Best before date<br>7. Contact information<br>");
 		$pdf->Cell(0,3,'',0,1);
 		
 		$pdf->SetFont('Arial','B',11);

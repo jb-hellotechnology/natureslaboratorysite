@@ -159,7 +159,7 @@ class Natures_Laboratory_Staff_Member_Times extends PerchAPI_Factory
 		
 		$date = date("Y-m-d H:i:s", mktime(date('H')+1, date('i'), date('s'), date('m'), date('d'), date('Y')));
 		
-		$string = '';
+		$string = 'These people are clocked in: ';
 		
 		foreach($data as $staff){
 			

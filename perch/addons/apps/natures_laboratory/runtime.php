@@ -244,8 +244,8 @@
 		$pdf->SetFont('Arial','B',11);
 		$pdf->Cell(0,10,'Identification',0,1);
 		$pdf->SetFont('Arial','',9);
-		if($specDetails['macroscopicCharactersLong']<>''){$pdf->WriteHTML('<b>Macroscopic Characters<b><br>'.$specDetails['macroscopicCharactersLong'].'<br>');}
-		if($specDetails['microscopicCharactersLong']<>''){$pdf->WriteHTML('<b>Microscopic Characters<b><br>'.$specDetails['microscopicCharactersLong'].'<br>');}
+		if($specDetails['macroscopicCharactersLong']<>''){$pdf->WriteHTML('<b>Macroscopic Characters</b><br>'.$specDetails['macroscopicCharactersLong'].'<br>');}
+		if($specDetails['microscopicCharactersLong']<>''){$pdf->WriteHTML('<b>Microscopic Characters</b><br>'.$specDetails['microscopicCharactersLong'].'<br>');}
 		if($specDetails['description']<>''){$pdf->WriteHTML('<b>Description<b><br>'.$specDetails['description'].'<br>');}
 		$pdf->WriteHTML($specDetails['description'].'<br>');
 		$pdf->Cell(0,3,'',0,1);
@@ -285,11 +285,11 @@
 		
 		$pdf->WriteHTML("<br><br><b>Storage</b><br>Store in cool and dry condition. Keep away from direct sunlight and heat.<br><br><b>Shelf Life</b><br>36 months from manufacture if stored unopened and under storage conditions stated above.<br><br><b>Labels</b><br>Label contains following information:<br>1. Manufacturing company name<br>2. Type of product and product code<br>3. Product Latin and common name<br>4. Product strength<br>5. Pack size<br>6. Best before date<br>7. Contact information<br><br>");
 		
-		$pdf->SetFont('Arial','B',11);
-		$pdf->Cell(0,10,'Tests',0,1);
+		$pdf->SetFont('Arial','B',9);
+		$pdf->Cell(0,10,'Allergens',0,1);
 		$pdf->SetFont('Arial','',9);	
 		$header = array('Allergen Type','Present');
-		$data = 'Cereal/Wheat Products,No;Seafood and Shellfish,No;Egg Products,No;Fish and Fish Products,No;Lupin (i.e. leguminous plants, lupin flour),No;Milk and Dairy Products,No;Molluscs including Squid and Octopus,No;Nut and Nut Products,No;Peanuts and Products Thereof,No;Soybean and Products Thereof,No;Sesame Seed and Products Thereof,No;Celery and Products Thereof,No;Mustard and Products Thereof,No;Animal Products,No;';
+		$data = 'Cereal/Wheat Products,No;Seafood and Shellfish,No;Egg Products,No;Fish and Fish Products,No;Lupin (i.e. leguminous plants/lupin flour),No;Milk and Dairy Products,No;Molluscs including Squid and Octopus,No;Nut and Nut Products,No;Peanuts and Products Thereof,No;Soybean and Products Thereof,No;Sesame Seed and Products Thereof,No;Celery and Products Thereof,No;Mustard and Products Thereof,No;Animal Products,No;';
 		$data = substr($data,0,-1);
 		$pdf->BasicTable($header,$data);
 		$pdf->Cell(0,3,'',0,1);

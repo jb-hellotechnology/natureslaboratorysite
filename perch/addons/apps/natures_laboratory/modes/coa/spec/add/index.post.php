@@ -75,18 +75,18 @@
 		echo $Form->text_field("totalAsh","Total Ash",'');
 		echo $Form->text_field("ashInsolubleInHCl","Ash Insoluble In HCL",'');
 		echo $Form->text_field("assayContent","Assay Content",'');
-		echo $Form->text_field("leadPb","Lead",'');
-		echo $Form->text_field("arsenicAs","Arsenic",'');
-		echo $Form->text_field("mercuryHg","Mercury",'');
-		echo $Form->text_field("totalAerobicMicrobialCount","Total Aerobic Microbial Count",'');
-		echo $Form->text_field("totalCombinedYeastMouldsCount","Total Microbial Yeast Moulds Count",'');
-		echo $Form->text_field("enterobacteriaCountIncludingPseudomonas","Enterobacteria Count Including Pseudomonas",'');
-		echo $Form->text_field("escherichiaColi","Escherichia Coli",'');
-		echo $Form->text_field("salmonella","Salmonella",'');
-		echo $Form->text_field("staphylococcusAureus","Staphylococcus Aureus",'');
-		echo $Form->text_field("mycotoxinsAflatoxinsOchratoxinA","Mycotxins Aflatoxins Ochratoxin A",'');
-		echo $Form->text_field("pesticides","Pesticides",'');
-		echo $Form->text_field("allergens","Allergens",'');
+		echo $Form->text_field("leadPb","Lead",'≤ 5 ppm');
+		echo $Form->text_field("arsenicAs","Arsenic",'≤ 2 ppm');
+		echo $Form->text_field("mercuryHg","Mercury",'≤ 0.1 ppm');
+		echo $Form->text_field("totalAerobicMicrobialCount","Total Aerobic Microbial Count",'≤ 100000 CFU/g');
+		echo $Form->text_field("totalCombinedYeastMouldsCount","Total Microbial Yeast Moulds Count",'≤ 10000 CFU/g');
+		echo $Form->text_field("enterobacteriaCountIncludingPseudomonas","Enterobacteria Count Including Pseudomonas",'≤ 1000 CFU/g');
+		echo $Form->text_field("escherichiaColi","Escherichia Coli",'Absent in 1 g');
+		echo $Form->text_field("salmonella","Salmonella",'Absent in 25 g');
+		echo $Form->text_field("staphylococcusAureus","Staphylococcus Aureus",'Absent in 25 g');
+		echo $Form->text_field("mycotoxinsAflatoxinsOchratoxinA","Mycotxins Aflatoxins Ochratoxin A",'Absent');
+		echo $Form->text_field("pesticides","Pesticides",'Absent');
+		echo $Form->text_field("allergens","Allergens",'No');
 		
 		echo $Form->fields_from_template($Template, $details, $Properties->static_fields);
 		    

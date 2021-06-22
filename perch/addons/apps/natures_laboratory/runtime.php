@@ -51,8 +51,7 @@
 		
 		$specDetails = $NaturesLaboratoryCOASpec->byCode(strip_tags($_GET['productCode']));
 		$json = json_decode($specDetails['natures_laboratory_coa_specDynamicFields'],true);
-		print_r($json['image']['_default']);
-		$image = '';
+		$image = 'https://natureslaboratory.co.uk'.$json['image']['_default'];
 	
 		class PDF extends FPDF
 		{
@@ -232,6 +231,11 @@
 		$pdf->SetFont('Arial','B',16);
 		$pdf->Cell(0,10,'Specification: '.$specDetails['commonName'],0,1);
 		$pdf->Line(0,44,300,44);
+		
+		if(file_exists($image)){
+			$this->Image($image,200,50,10,0);
+		}
+		
 		$pdf->SetFont('Arial','',9);
 		if($specDetails['productDescription']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Description: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$specDetails['productDescription'],0,1);}
 		if($specDetails['biologicalSource']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Biological Source: ',0,0);$pdf->SetFont('Arial','',9);$pdf->SetFont('Arial','I',9);$pdf->Cell(0,5,$specDetails['biologicalSource'],0,1);$pdf->SetFont('Arial','',9);}

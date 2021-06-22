@@ -167,7 +167,7 @@ class Natures_Laboratory_Staff_Member_Times extends PerchAPI_Factory
 			//echo $sql."<br />";
 			$data2 = $this->db->get_row($sql);
 			if($data2['timeType']=='clock in'){
-				$string .= ":white_check_mark: $staff[name]\n";
+				$string .= "$staff[name]\n";
 			}
 		
 		}

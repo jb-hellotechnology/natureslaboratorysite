@@ -98,9 +98,11 @@
 				$this->Cell(60,3,"info@natureslaboratory.co.uk",0,1,'L');
 				
 				$this->SetY(-17);$this->SetX(130);
-				$this->Cell(60,3,"Test",0,0,'L');
+				$this->Cell(60,3,"Product Code: $specDetails[productCode]",0,0,'L');
 				$this->SetY(-14);$this->SetX(130);
-				$this->Cell(60,3,"Test 2",0,0,'L');
+				$this->Cell(60,3,"Date: $json[dateCreated]",0,0,'L');
+				$this->SetY(-11);$this->SetX(130);
+				$this->Cell(60,3,"Version: $json[version]",0,0,'L');
 
 			}
 			

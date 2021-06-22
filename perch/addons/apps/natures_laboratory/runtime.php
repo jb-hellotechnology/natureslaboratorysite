@@ -55,7 +55,7 @@
 		$json = json_decode($specDetails['natures_laboratory_coa_specDynamicFields'],true);
 		$image = 'https://natureslaboratory.co.uk'.$json['image']['_default'];
 	
-		class PDF($specDetails,$json) extends FPDF
+		class PDF extends FPDF
 		{
 			// Page header
 			function Header()
@@ -63,7 +63,7 @@
 			    
 			}
 			
-			function Footer($specDetails,$json)
+			function Footer()
 			{
 				$this->Line(0,276,300,276);
 			    $this->SetY(-24);
@@ -225,7 +225,7 @@
 	
 		}
 		
-		$pdf = new PDF($specDetails,$json);
+		$pdf = new PDF();
 		$pdf->AddPage();
 		$pdf->Image('https://natureslaboratory.co.uk/perch/addons/apps/natures_laboratory/nl_logo.jpg',10,10,0,20);
 		$pdf->Line(0,35,300,35);

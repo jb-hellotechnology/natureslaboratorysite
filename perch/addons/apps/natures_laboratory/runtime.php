@@ -63,6 +63,8 @@
 	
 	function getCOA($batch){
 		
+		$NaturesLaboratoryCOA = new Natures_Laboratory_COAs();
+		
 		$coaData = $NaturesLaboratoryCOA->byBatch($batch);
     	
     	$specDetails = $NaturesLaboratoryCOASpec->byCode($details['productCode']);

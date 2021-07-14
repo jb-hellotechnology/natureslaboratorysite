@@ -128,3 +128,9 @@ h1, h2 {
 .c-post-card__title {
     font-weight: 700;
 }
+
+
+.l-flow ul{
+	list-style:disc;
+	margin-left:40px;
+}

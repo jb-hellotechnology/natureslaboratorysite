@@ -64,6 +64,7 @@
 	function getCOA($batch){
 		
 		$NaturesLaboratoryCOA = new Natures_Laboratory_COAs();
+		$NaturesLaboratoryCOASpec = new Natures_Laboratory_COA_Specs();
 		
 		$coaData = $NaturesLaboratoryCOA->byBatch($batch);
     	

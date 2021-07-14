@@ -53,6 +53,7 @@
 		
 		$NaturesLaboratoryCOA = new Natures_Laboratory_COAs();
 		
+		echo $batch;
 		$coaDetails = $NaturesLaboratoryCOA->byBatch($batch);
 		
 		if($coaDetails['productCode']<>''){

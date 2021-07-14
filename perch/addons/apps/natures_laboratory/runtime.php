@@ -16,6 +16,8 @@
 	include('Natures_Laboratory.staffmember.times.class.php');
 	include('Natures_Laboratory.coa.spec.class.php');
 	include('Natures_Laboratory.coa.specs.class.php');
+	include('Natures_Laboratory.coa.class.php');
+	include('Natures_Laboratory.coas.class.php');
 	
 	function timemoto_log($name,$timeLoggedRounded,$attendanceStatus,$data){
 
@@ -40,6 +42,20 @@
 		$specDetails = $NaturesLaboratoryCOASpec->byCode(strip_tags($_GET['productCode']));
 		
 		if($specDetails['commonName']<>''){
+			echo true;
+		}else{
+			echo false;
+		}
+		
+	}
+	
+	function coaExists($batch){
+		
+		$NaturesLaboratoryCOA = new Natures_Laboratory_COAs();
+		
+		$coaDetails = $NaturesLaboratoryCOA->byBatch($batch);
+		
+		if($coaDetails['productCode']<>''){
 			echo true;
 		}else{
 			echo false;

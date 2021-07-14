@@ -35,4 +35,12 @@ class Natures_Laboratory_COAs extends PerchAPI_Factory
 		}
 	}
 	
+	public function byBatch($batch){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_coa WHERE ourBatch="'.$batch.'"';
+		$data = $this->db->get_row($sql);
+		return $data;
+		
+	}
+	
 }

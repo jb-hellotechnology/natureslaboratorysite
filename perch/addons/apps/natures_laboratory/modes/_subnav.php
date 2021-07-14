@@ -20,4 +20,8 @@
             'page' => 'natures_laboratory/coa',
             'label'=> 'Certificate of Analysis'
         ],
+        [
+            'page' => 'natures_laboratory/task-management',
+            'label'=> 'Task Management'
+        ],
     ], $CurrentUser);

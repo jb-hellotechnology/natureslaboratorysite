@@ -69,7 +69,7 @@
 		$NaturesLaboratoryCOASpec = new Natures_Laboratory_COA_Specs();
 		$NaturesLaboratoryGoodsIn = new Natures_Laboratory_Goods_Ins();
 		
-		$coaData = $NaturesLaboratoryCOA->byBatch($batch);
+		$details = $NaturesLaboratoryCOA->byBatch($batch);
     	
     	$specDetails = $NaturesLaboratoryCOASpec->byCode($details['productCode']);
     	
@@ -87,8 +87,8 @@
 			{
 				$this->Line(0,276,300,276);
 			    $this->SetY(-24);
-			    $this->Image('../organic.png',10,280,0,12);
-			    $this->Image('../9001.jpg',30,280,0,12);
+			    $this->Image('https://natureslaboratory.co.uk/perch/addons/apps/natures_laboratory/organic.png',10,280,0,12);
+			    $this->Image('https://natureslaboratory.co.uk/perch/addons/apps/natures_laboratory/9001.jpg',30,280,0,12);
 			    $this->SetY(-17);$this->SetX(-10);
 			    $this->SetFont('Arial','',6);
 			    $this->Cell(0,3,"Nature's Laboratory Ltd",0,1,'R');
@@ -240,7 +240,7 @@
 		
 		$pdf = new PDF();
 		$pdf->AddPage();
-		$pdf->Image('../nl_logo.jpg',10,10,0,20);
+		$pdf->Image('https://natureslaboratory.co.uk/perch/addons/apps/natures_laboratory/nl_logo.jpg',10,10,0,20);
 		$pdf->Line(0,35,300,35);
 		$pdf->SetFont('Arial','',9);
 		$pdf->Cell(0,3,"Nature's Laboratory",0,1,'R');

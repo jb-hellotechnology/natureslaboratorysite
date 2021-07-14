@@ -16,6 +16,8 @@
 	include('Natures_Laboratory.coa.specs.class.php');
 	include('Natures_Laboratory.coa.class.php');
 	include('Natures_Laboratory.coas.class.php');
+	include('Natures_Laboratory.goodsin.class.php');
+	include('Natures_Laboratory.goodsins.class.php');
 	
 	function timemoto_log($name,$timeLoggedRounded,$attendanceStatus,$data){
 
@@ -65,6 +67,7 @@
 		
 		$NaturesLaboratoryCOA = new Natures_Laboratory_COAs();
 		$NaturesLaboratoryCOASpec = new Natures_Laboratory_COA_Specs();
+		$NaturesLaboratoryGoodsIn = new Natures_Laboratory_Goods_Ins();
 		
 		$coaData = $NaturesLaboratoryCOA->byBatch($batch);
     	

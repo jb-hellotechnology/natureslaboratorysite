@@ -1541,6 +1541,9 @@ blockquote {
 
 .c-employee__image-wrapper {
     height: 100px;
+    height:100px;
+    background:#fff;
+    text-indent: -100000px;
     display: flex;
     justify-content: center;
     align-items: center;

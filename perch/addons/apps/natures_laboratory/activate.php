@@ -10,4 +10,5 @@
     $UserPrivileges->create_privilege('natures_laboratory.goodsin', 'Access Goods In');
     $UserPrivileges->create_privilege('natures_laboratory.coa', 'Access COA');
     $UserPrivileges->create_privilege('natures_laboratory.task', 'Access Tasks');
+    $UserPrivileges->create_privilege('natures_laboratory.labels', 'Access Labels');
     

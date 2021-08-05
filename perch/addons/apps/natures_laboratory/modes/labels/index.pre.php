@@ -53,7 +53,7 @@
 					$labelsOnPage = $totalLabels;
 				}
 
-				if($page == $pages){
+				if($page == $pages AND $pages>1){
 
 					$totalPossible = 8*$pages;
 					$remainder = $totalPossible-$totalLabels;

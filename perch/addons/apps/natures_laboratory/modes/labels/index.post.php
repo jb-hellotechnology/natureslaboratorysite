@@ -38,7 +38,7 @@
 	    $bbe = "$dates[1]/$dates[0]";
 ?>
             <tr>
-	            <td><?php echo $Form->checkbox("batch_".$Labels['batch'],'on',''); ?></td>
+	            <td><?php echo $Form->checkbox("batch_".$Label['batch'],'on',''); ?></td>
                 <td><?php echo $Label['batch'] ?></td>
                 <td><?php echo $Label['productCode']; ?></td>
                 <td><?php echo $product['productName']; ?></td>
@@ -54,6 +54,18 @@
     </table>
 
 <?php    
+	
+	$startList[] = array('label'=>'1', 'value'=>1);
+	$startList[] = array('label'=>'2', 'value'=>2);
+	$startList[] = array('label'=>'3', 'value'=>3);
+	$startList[] = array('label'=>'4', 'value'=>4);
+	$startList[] = array('label'=>'5', 'value'=>5);
+	$startList[] = array('label'=>'6', 'value'=>6);
+	$startList[] = array('label'=>'7', 'value'=>7);
+	$startList[] = array('label'=>'8', 'value'=>8);
+
+	echo $Form->select_field("start","Start Label",$startList,'');
+		
 	echo $Form->submit_field('btnSubmit', 'Generate Labels', $API->app_path());	
 	echo $Form->form_end();
     echo $HTML->main_panel_end();

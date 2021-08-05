@@ -17,8 +17,16 @@
             'label'=> 'Goods In'
         ],
         [
+            'page' => 'natures_laboratory/labels',
+            'label'=> 'Labels'
+        ],
+        [
             'page' => 'natures_laboratory/coa',
-            'label'=> 'Certificate of Analysis'
+            'label'=> 'COA - Herbs'
+        ],
+        [
+            'page' => 'natures_laboratory/coa-products',
+            'label'=> 'COA - Products'
         ],
         [
             'page' => 'natures_laboratory/task-management',

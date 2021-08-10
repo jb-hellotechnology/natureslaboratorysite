@@ -74,4 +74,35 @@ $(document).ready(function() {
 			$('#spec_microscopic').text(obj.microscopicCharacters);
 		});			
 	});
+	$('#productCodeProduct_new').on('select2:select', function (e) {
+		var pCode = $('#productCodeProduct_new').val();
+		// GET THE SPEC
+		$.post( "/perch/addons/apps/natures_laboratory/coa-products/getSpec.php", { code: pCode }).done(function( data ) {
+			const obj = JSON.parse(data);
+			console.log(obj);
+			$('#spec_countryOfOrigin').text(obj.countryOfOrigin);
+			$('#spec_colour').text(obj.colour);
+			$('#spec_taste').text(obj.taste);
+			$('#spec_odour').text(obj.odor);
+			$('#spec_foreignMatterAmount').text(obj.foreignMatter);
+			$('#spec_lossOnDryingAmount').text(obj.lossOnDrying);
+			$('#spec_totalAshAmount').text(obj.totalAsh);
+			$('#spec_ashInSolubleAmount').text(obj.ashInsolubleInHCl);
+			$('#spec_assayContentAmount').text(obj.assayContent);
+			$('#spec_leadAmount').text(obj.leadPb);
+			$('#spec_arsenicAmount').text(obj.arsenicAs);
+			$('#spec_mercuryAmount').text(obj.mercuryHg);
+			$('#spec_totalAerobicAmount').text(obj.totalAerobicMicrobialCount);
+			$('#spec_totalCombinedYeastMouldAmount').text(obj.totalCombinedYeastMouldsCount);
+			$('#spec_enteroBacteriaAmount').text(obj.enterobacteriaCountIncludingPseudomonas);
+			$('#spec_escherichiaAmount').text(obj.escherichiaColi);
+			$('#spec_salmonellaAmount').text(obj.salmonella);
+			$('#spec_staphylococcusAmount').text(obj.staphylococcusAureus);
+			$('#spec_mycotoxinsAmount').text(obj.mycotoxinsAflatoxinsOchratoxinA);
+			$('#spec_pesticidesAmount').text(obj.pesticides);
+			$('#spec_allergensPresent').text(obj.allergens);
+			$('#spec_macroscopic').text(obj.macroscopicCharacters);
+			$('#spec_microscopic').text(obj.microscopicCharacters);
+		});			
+	});
 </script>

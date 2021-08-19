@@ -241,12 +241,10 @@
 		$thisDate = "$thisDate[2]/$thisDate[1]/$thisDate[0]";
 		
 		$pdf->WriteHTML("<br><br><br><b>Storage</b><br>Store in cool and dry condition. Keep away from direct sunlight and heat.<br><br><b>Labels</b><br>Label contains following information:<br>1. Manufacturing company name<br>2. Type of product and product code<br>3. Product Latin and common name<br>4. Pack size<br>5. Best before date<br>6. Contact information<br><br><b>Allergens</b>");
-		
-		$pdf->SetFont('Arial','B',11);
-		$pdf->Cell(0,10,'Tests',0,1);
+
 		$pdf->SetFont('Arial','',9);	
 		$header = array('Allergen','Present');
-		$data = "Cereal/Wheat Products, No;Seafood and Shellfish, No;Egg Products, No;Fish and Fish Products, No;Lupin (i.e. Leguminous Plants, Lupin Flour), No;Milk and Dairy Products, No;Molluscs (including Squid & Octopus), No;Nuts and Nut Products, No;Peanuts and Products Thereof, No;Soybean and Products Thereof, No;Sesame See and Products Thereof, No;Celery and Products Thereof, No;Mustard and Products Thereof, No;Animal Products, No;";
+		$data = "Cereal/Wheat Products, No;Seafood and Shellfish, No;Egg Products, No;Fish and Fish Products, No;Lupin (i.e. Leguminous Plants & Lupin Flour), No;Milk and Dairy Products, No;Molluscs (including Squid & Octopus), No;Nuts and Nut Products, No;Peanuts and Products Thereof, No;Soybean and Products Thereof, No;Sesame See and Products Thereof, No;Celery and Products Thereof, No;Mustard and Products Thereof, No;Animal Products, No;";
 		$pdf->BasicTable($header,$data);
 		$pdf->Cell(0,3,'',0,1);
 		

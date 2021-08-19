@@ -57,8 +57,6 @@
 		echo $Form->date_field("bbe","BBE Date",'');
 		
 		echo $Form->text_field("ourBatch","Batch",'');
-		
-		echo $Form->text_field("productCode","Product Code",'');
 
 		$countryList[] = array('label'=>'Please Select', 'value'=>0);
 		foreach($country as $Country){

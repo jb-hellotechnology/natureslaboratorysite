@@ -55,6 +55,10 @@
 		echo $Form->date_field("dateManufacture","Date of Manufacture",'');
 		
 		echo $Form->date_field("bbe","BBE Date",'');
+		
+		echo $Form->text_field("ourBatch","Batch",'');
+		
+		echo $Form->text_field("productCode","Product Code",'');
 
 		$countryList[] = array('label'=>'Please Select', 'value'=>0);
 		foreach($country as $Country){
@@ -71,11 +75,6 @@
 		
 		echo $Form->text_field("odour","Odour",'');
 		echo "<div class='field-wrap spec'><small><strong>Spec:</strong> <span id='spec_odour'></span></small></div>";
-		
-		
-		
-		
-		echo $Form->hidden("new","new");
 		    
 		echo $Form->submit_field('btnSubmit', 'Add COA', $API->app_path());
 		

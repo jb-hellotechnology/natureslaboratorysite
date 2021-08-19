@@ -3,6 +3,7 @@
 	if (!$CurrentUser->has_priv('natures_laboratory.coa')) exit;
 	
 	$NaturesLaboratoryCOA = new Natures_Laboratory_COA_Products($API);
+	$NaturesLaboratoryCOASpec = new Natures_Laboratory_COA_Products_Specs($API);
 	$NaturesLaboratoryGoodsIn = new Natures_Laboratory_Goods_Ins($API);
 	$NaturesLaboratoryGoodsStock = new Natures_Laboratory_Goods_Stocks($API);
 	$NaturesLaboratoryCOACountries = new Natures_Laboratory_COA_Products_Countries($API);
@@ -10,6 +11,7 @@
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
     
+    $spec = $NaturesLaboratoryCOASpec->all();
     $batch = $NaturesLaboratoryGoodsIn->all();
     $stock = $NaturesLaboratoryGoodsStock->all();
     $country = $NaturesLaboratoryCOACountries->all();

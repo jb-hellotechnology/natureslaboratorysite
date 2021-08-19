@@ -14,6 +14,8 @@
     include('../../Natures_Laboratorys.class.php');
     include('../../Natures_Laboratory.coa.products.class.php');
     include('../../Natures_Laboratory.coas.products.class.php');
+    include('../../Natures_Laboratory.coa.products.spec.class.php');
+    include('../../Natures_Laboratory.coa.products.specs.class.php');
     include('../../Natures_Laboratory.coa.products.country.class.php');
     include('../../Natures_Laboratory.coa.products.countries.class.php');
     include('../../Natures_Laboratory.goodsin.class.php');

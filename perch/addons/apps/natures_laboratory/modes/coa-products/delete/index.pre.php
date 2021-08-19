@@ -2,7 +2,7 @@
 	
 	if (!$CurrentUser->has_priv('natures_laboratory.coa')) exit;
 	
-	$NaturesLaboratoryCOA = new Natures_Laboratory_COAs($API);    
+	$NaturesLaboratoryCOA = new Natures_Laboratory_COA_Products($API);    
     
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');

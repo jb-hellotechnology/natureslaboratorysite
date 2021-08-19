@@ -21,16 +21,23 @@
     if($Form->submitted()) {
     
         //FOR ITEMS PROGRAMMATICALLY ADDED TO FORM
-       $postvars = array('dateEntered_day','dateEntered_month','dateEntered_year','productCode_new','ourBatch','countryOfOrigin','colour','odour','taste','foreignMatterAmount','lossOnDryingAmount','totalAshAmount','ashInSolubleAmount','assayContentAmount','leadAmount','arsenicAmount','mercuryAmount','totalAerobicAmount','totalCombinedYeastMouldAmount','enteroBacteriaAmount','escherichiaAmount','salmonellaAmount','staphylococcusAmount','mycotoxinsAmount','pesticidesAmount','allergensPresent','box1','box2','box3','box4','macroscopic','microscopic');	   
+       $postvars = array('dateEntered_day','dateEntered_month','dateEntered_year','dateManufacture_day','dateManufacture_month','dateManufacture_year','bbe_day','bbe_month','bbe_year','spec','ourBatch','productCode','countryOfOrigin','colour','odour','taste');	   
     	$data = $Form->receive($postvars);   
-    	
-    	$data['productCode'] = $data['productCode_new'];
-    	unset($data['productCode_new']);
     	
     	$data['dateEntered'] = "$data[dateEntered_year]-$data[dateEntered_month]-$data[dateEntered_day]";
     	unset($data['dateEntered_year']);
     	unset($data['dateEntered_month']);
     	unset($data['dateEntered_day']);
+    	
+    	$data['dateManufacture'] = "$data[dateManufacture_year]-$data[dateManufacture_month]-$data[dateManufacture_day]";
+    	unset($data['dateManufacture_year']);
+    	unset($data['dateManufacture_month']);
+    	unset($data['dateManufacture_day']);
+    	
+    	$data['bbe'] = "$data[bbe_year]-$data[bbe_month]-$data[bbe_day]";
+    	unset($data['bbe_year']);
+    	unset($data['bbe_month']);
+    	unset($data['bbe_day']);
 
 		$new_coa = $NaturesLaboratoryCOA->create($data);
 

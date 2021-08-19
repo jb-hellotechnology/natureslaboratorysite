@@ -22,8 +22,6 @@
     	
     	$specDetails = $NaturesLaboratoryCOASpec->byCode($details['productCode']);
     	
-    	$batch = $NaturesLaboratoryGoodsIn->getBatchData($details['ourBatch']);
-    	
     	class PDF extends FPDF
 		{
 			// Page header
@@ -211,8 +209,8 @@
 		if($specDetails['plantPart']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Plant Part:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['plantPart'],0,1);}
 		if($specDetails['strengthVolume']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Strength Volume:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['strengthVolume'],0,1);}
 		if($specDetails['alcoholContent']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Alcohol Content:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['alcoholContent'],0,1);}
-		if($details['dateManufacture']<>NULL AND $details['dateManufacture']>'1970-01-01'){$dateManufacture = explode("-",$batch['dateManufacture']);$dateManufacture = "$dateManufacture[2]/$dateManufacture[1]/$dateManufacture[0]";$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Date of Manufacturing:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$dateManufacture,0,1);}
-		if($details['bbe']<>NULL AND $details['bbe']>'1970-01-01'){$bbe = explode("-",$batch['bbe']);$bbe = "$bbe[2]/$bbe[1]/$bbe[0]";$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Best Before End:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$bbe,0,1);}
+		if($details['dateManufacture']<>NULL AND $details['dateManufacture']>'1970-01-01'){$dateManufacture = explode("-",$details['dateManufacture']);$dateManufacture = "$dateManufacture[2]/$dateManufacture[1]/$dateManufacture[0]";$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Date of Manufacturing:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$dateManufacture,0,1);}
+		if($details['bbe']<>NULL AND $details['bbe']>'1970-01-01'){$bbe = explode("-",$details['bbe']);$bbe = "$bbe[2]/$bbe[1]/$bbe[0]";$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Best Before End:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$bbe,0,1);}
 		if($details['countryOfOrigin']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Country of Origin:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$details['countryOfOrigin'],0,1);}
 	
 		$pdf->SetFont('Arial','B',11);

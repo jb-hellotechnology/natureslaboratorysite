@@ -204,132 +204,40 @@
 		$pdf->Cell(0,10,'Certificate of Analysis: '.$specDetails['commonName'],0,1);
 		$pdf->Line(0,44,300,44);
 		$pdf->SetFont('Arial','',9);
-		if($specDetails['productDescription']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Description: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$specDetails['productDescription'],0,1);}
+		if($specDetails['productType']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Type of Preparation: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$specDetails['productType'],0,1);}
+		if($specDetails['productCode']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Code: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$specDetails['productCode'],0,1);}
+		if($details['ourBatch']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Batch Number: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$details['ourBatch'],0,1);}
 		if($specDetails['biologicalSource']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Biological Source: ',0,0);$pdf->SetFont('Arial','',9);$pdf->SetFont('Arial','I',9);$pdf->Cell(0,5,$specDetails['biologicalSource'],0,1);$pdf->SetFont('Arial','',9);}
-		if($specDetails['productDescription']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Code:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['productCode'],0,1);}
-		if($details['ourBatch']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Batch Number:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$details['ourBatch'],0,1);}
-		if($batch['bbe']<>NULL AND $batch['bbe']>'1970-01-01'){$bbe = explode("-",$batch['bbe']);$bbe = "$bbe[2]/$bbe[1]/$bbe[0]";$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'BBE:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$bbe,0,1);}
-		if($specDetails['productDescription']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Plant Part: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['plantPart'],0,1);}
+		if($specDetails['plantPart']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Plant Part:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['plantPart'],0,1);}
+		if($specDetails['strengthVolume']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Strength Volume:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['strengthVolume'],0,1);}
+		if($specDetails['alcoholContent']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Alcohol Content:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['alcoholContent'],0,1);}
+		if($details['dateManufacture']<>NULL AND $details['dateManufacture']>'1970-01-01'){$dateManufacture = explode("-",$batch['dateManufacture']);$dateManufacture = "$dateManufacture[2]/$dateManufacture[1]/$dateManufacture[0]";$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Date of Manufacturing:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$dateManufacture,0,1);}
+		if($details['bbe']<>NULL AND $details['bbe']>'1970-01-01'){$bbe = explode("-",$batch['bbe']);$bbe = "$bbe[2]/$bbe[1]/$bbe[0]";$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Best Before End:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$bbe,0,1);}
 		if($details['countryOfOrigin']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Country of Origin:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$details['countryOfOrigin'],0,1);}
+	
 		$pdf->SetFont('Arial','B',11);
 		$pdf->Cell(0,10,'Product Description',0,1);
 		$pdf->SetFont('Arial','',9);
 		if($details['colour']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Colour:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$details['colour'],0,1);}
 		if($details['odour']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Odour:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$details['odour'],0,1);}
 		if($details['taste']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Taste:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$details['taste'],0,1);}
-		$pdf->SetFont('Arial','B',11);
-		$pdf->Cell(0,10,'Identification',0,1);
-		$pdf->SetFont('Arial','',9);
-		if($details['macroscopic']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Macroscopic Characters:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$details['macroscopic'],0,1);}
-		if($details['microscopic']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Microscopic Characters:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$details['microscopic'],0,1);}
-		
-		if($details['foreignMatterAmount']<>'' AND $details['lossOnDryingAmount']<>'' AND $details['totalAshAmount']<>''){	
+
+		if($details['pH']<>'' AND $details['specificGravity']<>''){	
 			$pdf->SetFont('Arial','B',11);
 			$pdf->Cell(0,10,'Tests',0,1);
 			$pdf->SetFont('Arial','',9);	
 			$header = array('Test','Result','Specification');
 			$data = '';
-			if($details['foreignMatterAmount']<>''){
-				$data = $data."Foreign Matter,$details[foreignMatterAmount],$specDetails[foreignMatter];";
+			if($details['pH']<>''){
+				$data = $data."pH,$details[pH],$specDetails[pH];";
 			}
-			if($details['lossOnDryingAmount']<>''){
-				$data = $data."Loss On Drying,$details[lossOnDryingAmount],$specDetails[lossOnDrying];";
-			}
-			if($details['totalAshAmount']<>''){
-				$data = $data."Total Ash,$details[totalAshAmount],$specDetails[totalAsh];";
+			if($details['Specific Gravity']<>''){
+				$data = $data."Specific Gravity,$details[specificGravity],$specDetails[specificGravity];";
 			}
 			$data = substr($data,0,-1);
 			$pdf->BasicTable($header,$data);
 			$pdf->Cell(0,3,'',0,1);
 		}
-
-		$pdf->SetFont('Arial','B',11);
-		if($details['box1']<>''){
-			$pdf->Cell(0,10,'Content',0,1);
-			$pdf->SetFont('Arial','',9);
-			$pdf->WriteHTML(nl2br($details['box1']));
-			$pdf->Cell(0,5,'',0,1);
-		}
-	
-		if($details['leadAmount']<>'' AND $details['arsenicAmount']<>'' AND $details['mercuryAmount']<>''){
-			$pdf->SetFont('Arial','B',11);
-			$pdf->Cell(0,10,'Toxic (Heavy) Metals',0,1);
-			$pdf->SetFont('Arial','',9);
-			$header = array('Metal','Result','Specification');
-			$data = '';
-			if($details['leadAmount']<>''){
-				$data = $data."Lead (PB),".iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$details['leadAmount']).",".iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$specDetails['leadPb']).";";
-			}
-			if($details['arsenicAmount']<>''){
-				$data = $data."Arsenic (AS),".iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$details['arsenicAmount']).",".iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$specDetails['arsenicAs']).";";
-			}
-			if($details['mercuryAmount']<>''){
-				$data = $data."Mercury (Hg),".iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$details['mercuryAmount']).",".iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$specDetails['mercuryHg']).";";
-			}
-			$data = substr($data,0,-1);
-			$pdf->BasicTable($header,$data);
-			$pdf->Cell(0,3,'',0,1);
-		}
-		
-		if($details['box2']<>''){
-			$pdf->SetFont('Arial','B',9);
-			$pdf->Cell(0,5,'Additional Heavy Metals Notes:',0,1);
-			$pdf->SetFont('Arial','',9);
-			$pdf->WriteHTML(nl2br($details['box2']));
-			$pdf->Cell(0,5,'',0,1);
-		}
-		
-		
-		if($details['totalAerobicAmount']<>'' AND $details['totalCombinedYeastMouldAmount']<>'' AND $details['enteroBacteriaAmount']<>'' AND $details['escherichiaAmount']<>'' AND $details['salmonellaAmount']<>'' AND $details['staphylococcusAmount']<>''){
-			$pdf->SetFont('Arial','B',11);
-			$pdf->Cell(0,10,'Microbial Levels',0,1);
-			$pdf->SetFont('Arial','',9);
-			$header = array('Metal','Result','Specification');
-			$data = '';
-			if($details['totalAerobicAmount']<>''){
-				$data = $data."Total Aerobic Microbial Count,".iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$details['totalAerobicAmount']).",".iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$specDetails['totalAerobicMicrobialCount']).";";
-			}
-			if($details['totalCombinedYeastMouldAmount']<>''){
-				$data = $data."Total Combined Yeast/Moulds Count,".iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$details['totalCombinedYeastMouldAmount']).",".iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$specDetails['totalCombinedYeastMouldsCount']).";";
-			}
-			if($details['enteroBacteriaAmount']<>''){
-				$data = $data."Enterocateria Count (including Pseudomonas),".iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$details['enteroBacteriaAmount']).",".iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$specDetails['enterobacteriaCountIncludingPseudomonas']).";";	
-			}
-			if($details['escherichiaAmount']<>''){
-				$data = $data."Escherichia Coli,".iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$details['escherichiaAmount']).",".iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$specDetails['escherichiaColi']).";";
-			}
-			if($details['salmonellaAmount']<>''){
-				$data = $data."Salmonella,".iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$details['salmonellaAmount']).",".iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$specDetails['salmonella']).";";
-			}
-			if($details['staphylococcusAmount']<>''){
-				$data = $data."Staphylococcus Aureus,".iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$details['staphylococcusAmount']).",".iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$specDetails['staphylococcusAureus']).";";
-			}
-			$data = substr($data,0,-1);
-			$pdf->BasicTable($header,$data);
-		
-		}
-		
-		$pdf->Cell(0,3,'',0,1);
-		if($details['box3']<>''){
-			$pdf->SetFont('Arial','B',9);
-			$pdf->Cell(0,5,'Additional Microbial Information:',0,1);
-			$pdf->SetFont('Arial','',9);
-			$pdf->WriteHTML(nl2br($details['box3']));
-			$pdf->Cell(0,5,'',0,1);
-		}
-		if($details['mycotoxinsAmount']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Mycotoxins (Aflatoxins, Ochratoxin A): ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$details['mycotoxinsAmount']),0,1);}
-		if($details['pesticidesAmount']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Pesticides: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$details['pesticidesAmount']),0,1);}
-		if($details['box4']<>''){
-			$pdf->SetFont('Arial','B',9);
-			$pdf->Cell(0,5,'Additional Pesticide Notes:',0,1);
-			$pdf->SetFont('Arial','',9);
-			$pdf->WriteHTML(nl2br($details['box4']));
-			$pdf->Cell(0,5,'',0,1);
-		}
-		if($details['allergensPresent']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Allergens: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$details['allergensPresent']),0,1);}
-		$pdf->SetFont('Arial','B',11);
-		$pdf->Cell(0,10,'',0,1);
-		$pdf->SetFont('Arial','',9);
 		
 		$thisDate = explode("-",$details['dateEntered']);
 		$thisDate = "$thisDate[2]/$thisDate[1]/$thisDate[0]";

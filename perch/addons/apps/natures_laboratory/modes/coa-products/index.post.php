@@ -44,7 +44,6 @@
             <tr>
 	            <th class="first">Select</th>
                 <th>Date Entered</th>
-                <th>Product Code</th> 
                 <th>Our Batch</th>
                 <th>View/Edit</th>
                 <th class="action last">Delete</th>
@@ -57,7 +56,6 @@
             <tr>
 	            <td><?php echo $Form->radio("coa_".$COA['natures_laboratory_coa_productID'],'coa',$COA['natures_laboratory_coa_productID'],''); ?></td>
                 <td><?php echo $COA['dateEntered'] ?></td>
-                <td><?php echo $COA['productCode']; ?></td>
                 <td><?php echo $COA['ourBatch']; ?></td>
                 <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/coa-products/edit/?id=<?php echo $HTML->encode(urlencode($COA['natures_laboratory_coa_productID'])); ?>"><?php echo 'View/Edit'; ?></a></td>
                 <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/coa-products/delete/?id=<?php echo $HTML->encode(urlencode($COA['natures_laboratory_coa_productID'])); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>

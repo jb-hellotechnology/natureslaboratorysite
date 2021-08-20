@@ -333,7 +333,7 @@
 				
 				if($productData['productType']<>''){
 				
-					$codeContents = "https://natureslaboratory.co.uk/perch/addons/apps/natures_laboratory/products/go/?id=".$batch;
+					$codeContents = "https://natureslaboratory.co.uk/perch/addons/apps/natures_laboratory/products/go/?id=".$batch."&size=".$size."&bbe=".$bbe;
 				    $fileName = 'qr_'.$batch.'.png';
 				    QRcode::png($codeContents, $fileName);
 				    $pdf->Image($fileName,$imgX,$imgY,-170);

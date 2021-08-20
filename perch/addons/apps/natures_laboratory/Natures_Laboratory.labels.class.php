@@ -24,7 +24,7 @@ class Natures_Laboratory_Labels extends PerchAPI_Factory
 	
 	public function getLabelData($batch){
 		
-		$sql = 'SELECT * FROM perch3_natures_laboratory_labels WHERE batch="'.$batch.'"';
+		$sql = 'SELECT * FROM perch3_natures_laboratory_labels WHERE natures_laboratory_labelID="'.$batch.'"';
 		$data = $this->db->get_row($sql);
 		return $data;
 		

@@ -38,7 +38,7 @@
 	    $bbe = "$dates[1]/$dates[0]";
 ?>
             <tr>
-	            <td><?php echo $Form->checkbox("batch_".$Label['batch'],'on',''); ?></td>
+	            <td><?php echo $Form->checkbox("batch_".$Label['natures_laboratory_labelID'],'on',''); ?></td>
                 <td><?php echo $Label['batch'] ?></td>
                 <td><?php echo $Label['productCode']; ?></td>
                 <td><?php echo $product['productName']; ?></td>

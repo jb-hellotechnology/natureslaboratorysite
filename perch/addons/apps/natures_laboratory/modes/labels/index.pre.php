@@ -14,10 +14,10 @@
 		//MAKE LABELS
 		$postvars = array('start');
 		foreach($labels as $Labels){
-			array_push($postvars, 'batch_'.$Labels['batch']);
+			array_push($postvars, 'batch_'.$Labels['natures_laboratory_labelID']);
 		}   
 
-    	$data = $Form->receive($postvars);  
+    	$data = $Form->receive($postvars); 
     	
     	$start = $data['start']; 
     	

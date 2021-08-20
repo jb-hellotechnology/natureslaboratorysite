@@ -320,12 +320,12 @@
 			    
 			    $pdf->SetXY($x, $y1);
 				$pdf->SetFont('Arial','B',14);
-				$pdf->Cell(90,10,"$productData[productType] $productCode",0);
-				$pdf->SetFont('Arial','B',12);
+				$pdf->Cell(90,10,"$productData[productType]   $productCode",0);
+				$pdf->SetFont('Arial','B',13);
 				$pdf->SetXY($x, $y2);
 				$pdf->MultiCell(60, 4, $productName, 0, "L");
 				$pdf->SetXY($x, $y3);
-				$pdf->SetFont('Arial','B',10);
+				$pdf->SetFont('Arial','B',8);
 				$pdf->Cell(90,10,"$productData[notes]",0);
 				$pdf->SetFont('Arial','B',10);
 				$pdf->SetXY($x, $y4);

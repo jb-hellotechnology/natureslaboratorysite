@@ -251,7 +251,7 @@
 			    $this->SetLineWidth(.3);
 			    $this->SetFont('','B');
 			    // Header
-			    $w = array(70, 50, 50);
+			    $w = array(70, 50);
 			    for($i=0;$i<count($header);$i++)
 			        $this->Cell($w[$i],7,$header[$i],1,0,'L',true);
 			    $this->Ln();

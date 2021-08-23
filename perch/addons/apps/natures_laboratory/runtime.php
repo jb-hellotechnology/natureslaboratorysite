@@ -61,7 +61,7 @@
 
 		$coaDetails = $NaturesLaboratoryCOA->byBatch($batch);
 		
-		if($coaDetails['productCode']<>''){
+		if($coaDetails['ourBatch']<>''){
 			echo true;
 		}else{
 			echo false;

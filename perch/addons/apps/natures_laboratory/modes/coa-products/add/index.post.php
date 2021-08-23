@@ -73,6 +73,9 @@
 		
 		echo $Form->text_field("odour","Odour",'');
 		echo "<div class='field-wrap spec'><small><strong>Spec:</strong> <span id='spec_odour'></span></small></div>";
+		
+		echo $Form->text_field("pH","pH",'');
+		echo $Form->text_field("gravity","Specific Gravity",'');
 		    
 		echo $Form->submit_field('btnSubmit', 'Add COA', $API->app_path());
 		

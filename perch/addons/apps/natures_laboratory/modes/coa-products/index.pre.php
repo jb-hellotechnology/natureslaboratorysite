@@ -182,6 +182,38 @@
 			    // Closing line
 			    $this->Cell(array_sum($w),0,'','T');
 			}
+			
+			function BasicTable2($header, $data)
+			{
+			    // Colors, line width and bold font
+			    $this->SetFillColor(62,111,94);
+			    $this->SetTextColor(255);
+			    $this->SetDrawColor(0,0,0);
+			    $this->SetLineWidth(.3);
+			    $this->SetFont('','B');
+			    // Header
+			    $w = array(70, 50, 50);
+			    for($i=0;$i<count($header);$i++)
+			        $this->Cell($w[$i],7,$header[$i],1,0,'L',true);
+			    $this->Ln();
+			    // Color and font restoration
+			    $this->SetFillColor(247,247,247);
+			    $this->SetTextColor(0);
+			    $this->SetFont('');
+			    // Data
+			    $fill = false;
+			    $data2 = explode(";",$data);
+			    foreach($data2 as $row)
+			    {
+				    $row = explode(",",$row);
+			        $this->Cell($w[0],6,$row[0],'LR',0,'L',$fill);
+			        $this->Cell($w[1],6,$row[1],'LR',0,'L',$fill);
+			        $this->Ln();
+			        $fill = !$fill;
+			    }
+			    // Closing line
+			    $this->Cell(array_sum($w),0,'','T');
+			}
 
 		}
 		
@@ -220,7 +252,7 @@
 		if($details['odour']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Odour:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$details['odour'],0,1);}
 		if($details['taste']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Taste:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$details['taste'],0,1);}
 
-		if($details['pH']<>'' AND $details['specificGravity']<>''){	
+		if($details['pH']<>'' AND $details['gravity']<>''){	
 			$pdf->SetFont('Arial','B',11);
 			$pdf->Cell(0,10,'Tests',0,1);
 			$pdf->SetFont('Arial','',9);	
@@ -229,8 +261,8 @@
 			if($details['pH']<>''){
 				$data = $data."pH,$details[pH],$specDetails[pH];";
 			}
-			if($details['Specific Gravity']<>''){
-				$data = $data."Specific Gravity,$details[specificGravity],$specDetails[specificGravity];";
+			if($details['gravity']<>''){
+				$data = $data."Specific Gravity,$details[gravity],$specDetails[specificGravity];";
 			}
 			$data = substr($data,0,-1);
 			$pdf->BasicTable($header,$data);
@@ -245,7 +277,7 @@
 		$pdf->SetFont('Arial','',9);	
 		$header = array('Allergen','Present');
 		$data = "Cereal/Wheat Products, No;Seafood and Shellfish, No;Egg Products, No;Fish and Fish Products, No;Lupin (i.e. Leguminous Plants & Lupin Flour), No;Milk and Dairy Products, No;Molluscs (including Squid & Octopus), No;Nuts and Nut Products, No;Peanuts and Products Thereof, No;Soybean and Products Thereof, No;Sesame See and Products Thereof, No;Celery and Products Thereof, No;Mustard and Products Thereof, No;Animal Products, No";
-		$pdf->BasicTable($header,$data);
+		$pdf->BasicTable2($header,$data);
 		$pdf->Cell(0,3,'',0,1);
 		
 		$pdf->WriteHTML("<br><b>Allergen Statement</b>: Unless otherwise stated, the products supplied are to the best of our knowledge free from nut, nut derivatives and allergens. Herbal Apothecary does handle some nut and allergen products but follows careful handling and segregation procedures. However, due to the nature of the products supplied, it is impossible for the Company to absolutely guarantee that no cross contamination has taken place at some point in the supply chain prior to delivery at our premises.<br><br><b>Non-GM Statement</b>: This product is produced or derived from ingredients supplied from non-GM sources. This is verified by our suppliers' statements and IP certificates where applicable.<br><br><b>Animal non testing statement</b>: We provide the best assurance that no animal testing is used in any phase of product development by the company, its laboratories.<br><br><b>BSE TSE Statement</b>: This is to certify that the products listed above are produced entirely from materials of natural/herbal origin and therefore are free from human or any other animal derived materials including bovine products. In addition, there are no animal derived components used in the manufacturing or handling processes of this product. As such, this material can be declared free of Bovine Spongiform Encephalopathy (BSE) and Transmissible Spongiform Encephalopathy (TSE).<br><br><b>Irradiation statement</b>: In order to address the concerns of the consumer and to ensure compliance with the legislation, Nature's Laboratory do not trade herbs have been irradiated. Purchasing specifications stipulate that irradiated herbs and spices are not acceptable, and this is checked during supplier audits at origin and processing plants.<br><br><b>Use in Production</b>: If the goods or any part thereof supplied under the contract are processed, altered or tampered with in any way by the buyer or receiver of the goods or any other person, the quality of the goods shall be deemed to be acceptable by the buyer. All customers' quality checks are to be completed on the entire load prior to production and use.<br><br><b>Additional information</b><br>1. Our product does not contain any restricted ingredients such as preservatives, additives etc.<br>2. Product consumed by general public after prescribed by herbalist or suitably qualified person.<br>3. All statements contained in this document reflect our current state of knowledge and experience, and are intended - and to be viewed - as information about this respective product only. As such, they do not constitute an exempt from any customer obligation to conduct own testing. Also, compliance with all regulations legally relevant to further processing shall be incumbent upon the customer and/or user of this product.<br><br><b>Date:</b> $thisDate<br><br>Prepared By<br><b><i>Shankar Katekhaye</i></b><br>Quality Manager");

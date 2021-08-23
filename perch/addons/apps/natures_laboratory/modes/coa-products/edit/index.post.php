@@ -69,6 +69,9 @@
 		echo $Form->text_field("taste","Taste",$details['taste']);
 		
 		echo $Form->text_field("odour","Odour",$details['odour']);
+		
+		echo $Form->text_field("pH","pH",$details['pH']);
+		echo $Form->text_field("gravity","Specific Gravity",$details['gravity']);
 		    
 		echo $Form->submit_field('btnSubmit', 'Update COA', $API->app_path());
 		

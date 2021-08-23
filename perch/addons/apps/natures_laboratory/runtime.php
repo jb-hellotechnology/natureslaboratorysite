@@ -58,7 +58,7 @@
 	function coaExists($batch){
 		
 		$NaturesLaboratoryCOA = new Natures_Laboratory_COA_Products();
-echo $batch;
+
 		$coaDetails = $NaturesLaboratoryCOA->byBatch($batch);
 		
 		if($coaDetails['productCode']<>''){

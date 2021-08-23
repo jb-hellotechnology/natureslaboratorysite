@@ -53,7 +53,7 @@
 	
 	function coaExists($batch){
 		
-		$NaturesLaboratoryCOA = new Natures_Laboratory_COA_Productss();
+		$NaturesLaboratoryCOA = new Natures_Laboratory_COA_Products();
 
 		$coaDetails = $NaturesLaboratoryCOA->byBatch($batch);
 		

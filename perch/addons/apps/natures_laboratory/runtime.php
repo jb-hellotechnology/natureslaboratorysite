@@ -77,7 +77,7 @@
 		
 		$details = $NaturesLaboratoryCOA->byBatch($batch);
     	
-    	$specDetails = $NaturesLaboratoryCOASpec->byCode($details['productCode']);
+    	$specDetails = $NaturesLaboratoryCOASpec->byCode($details['spec']);
     	
     	$batch = $NaturesLaboratoryGoodsIn->getBatchData($details['ourBatch']);
     	

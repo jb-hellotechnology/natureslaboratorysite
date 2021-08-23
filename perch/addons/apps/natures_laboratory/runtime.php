@@ -18,6 +18,10 @@
 	include('Natures_Laboratory.coa.specs.class.php');
 	include('Natures_Laboratory.coa.class.php');
 	include('Natures_Laboratory.coas.class.php');
+	include('Natures_Laboratory.coa.products.spec.class.php');
+	include('Natures_Laboratory.coa.products.specs.class.php');
+	include('Natures_Laboratory.coa.products.class.php');
+	include('Natures_Laboratory.coas.products.class.php');
 	include('Natures_Laboratory.goodsin.class.php');
 	include('Natures_Laboratory.goodsins.class.php');
 	

@@ -81,8 +81,6 @@
     	
     	$batch = $NaturesLaboratoryGoodsIn->getBatchData($details['ourBatch']);
     	
-    	print_r($details);
-    	
     	class PDF extends FPDF
 		{
 			// Page header

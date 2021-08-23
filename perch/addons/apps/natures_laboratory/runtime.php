@@ -70,7 +70,7 @@
 	function getCOA($batch){
 		
 		$NaturesLaboratoryCOA = new Natures_Laboratory_COA_Products();
-		$NaturesLaboratoryCOASpec = new Natures_Laboratory_COA_Product_Specs();
+		$NaturesLaboratoryCOASpec = new Natures_Laboratory_COA_Products_Specs();
 		$NaturesLaboratoryGoodsIn = new Natures_Laboratory_Goods_Ins();
 		
 		$details = $NaturesLaboratoryCOA->byBatch($batch);

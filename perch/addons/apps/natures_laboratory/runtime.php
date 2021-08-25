@@ -81,7 +81,7 @@
     	
     	if($specDetails['commonName']==''){
 	    	exit;
-    	}
+    	}else{
     	
     	$batch = $NaturesLaboratoryGoodsIn->getBatchData($details['ourBatch']);
     	
@@ -347,6 +347,8 @@
 		
 		$pdf->Output('D',"Natures Laboratory COA - $details[ourBatch].pdf");
 		exit();
+		
+	}
 		
 	}
 	

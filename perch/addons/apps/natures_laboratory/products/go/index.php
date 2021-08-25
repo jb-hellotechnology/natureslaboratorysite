@@ -1,6 +1,6 @@
 <?php
 	$batchCode = $_GET['id'];
 	if($batchCode<>''){
-		header("location:https://herbalapothecaryuk.com/download-coa-files/?batch=".$batchCode);
+		header("location:https://natureslaboratory.co.uk/herbal-apothecary/get-coa/?batch=".$batchCode);
 	}
 ?>

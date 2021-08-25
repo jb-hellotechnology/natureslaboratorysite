@@ -79,6 +79,10 @@
     	
     	$specDetails = $NaturesLaboratoryCOASpec->byCode($details['spec']);
     	
+    	if($specDetails['commonName']==''){
+	    	exit;
+    	}
+    	
     	$batch = $NaturesLaboratoryGoodsIn->getBatchData($details['ourBatch']);
     	
     	class PDF extends FPDF

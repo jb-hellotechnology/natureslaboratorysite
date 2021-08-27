@@ -5,6 +5,7 @@
 	$NaturesLaboratoryGoodsIn = new Natures_Laboratory_Goods_Ins($API);
 	$NaturesLaboratoryGoodsStock = new Natures_Laboratory_Goods_Stocks($API); 
 	$NaturesLaboratoryGoodsSuppliers = new Natures_Laboratory_Goods_Suppliers($API);    
+	$NaturesLaboratoryCOACountries = new Natures_Laboratory_COA_Countries($API);  
     
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
@@ -18,6 +19,7 @@
     $goodsID = (int) $_GET['id'];  
     $Goods = $NaturesLaboratoryGoodsIn->find($goodsID, true);
     $details = $Goods->to_array();
+    $country = $NaturesLaboratoryCOACountries->all();
 
     if($Form->submitted()) {
     

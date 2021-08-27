@@ -86,4 +86,13 @@ $(document).ready(function() {
 			$('#spec_odour').text(obj.odour);
 		});			
 	});
+	$('#ourBatch').on('select2:select', function (e) {
+		var pBatch = $('#ourBatch').val();
+		// GET THE SPEC
+		$.post( "/perch/addons/apps/natures_laboratory/coa/getBatch.php", { batch: pBatch }).done(function( data ) {
+			const obj = JSON.parse(data);
+			console.log(obj);
+			$('#batch_countryOfOrigin').text(obj.countryOfOrigin);
+		});			
+	});
 </script>

@@ -4,7 +4,8 @@
 	
 	$NaturesLaboratoryGoodsIn = new Natures_Laboratory_Goods_Ins($API);
 	$NaturesLaboratoryGoodsStock = new Natures_Laboratory_Goods_Stocks($API); 
-	$NaturesLaboratoryGoodsSuppliers = new Natures_Laboratory_Goods_Suppliers($API);    
+	$NaturesLaboratoryGoodsSuppliers = new Natures_Laboratory_Goods_Suppliers($API);   
+	$NaturesLaboratoryCOACountries = new Natures_Laboratory_COA_Countries($API);  
     
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
@@ -14,11 +15,12 @@
     
     $stock = $NaturesLaboratoryGoodsStock->all();
     $supplier = $NaturesLaboratoryGoodsSuppliers->all();
-
+	$country = $NaturesLaboratoryCOACountries->all();
+	
     if($Form->submitted()) {
     
         //FOR ITEMS PROGRAMMATICALLY ADDED TO FORM
-        $postvars = array('staff','productCode','dateIn_day','dateIn_month','dateIn_year','supplier','qty','unit','bags','suppliersBatch','bbe_day','bbe_month','bbe_year','noBBE','qa','notes');	   
+        $postvars = array('staff','productCode','dateIn_day','dateIn_month','dateIn_year','supplier','qty','unit','bags','suppliersBatch','bbe_day','bbe_month','bbe_year','noBBE','qa','notes','countryOfOrigin');	   
     	$data = $Form->receive($postvars);   
     	
     	$product = explode(" | ", $data['productCode']);

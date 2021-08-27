@@ -63,7 +63,7 @@
 			$countryList[] = array('label'=>$Country->country(), 'value'=>$Country->country());
 		}
 		echo $Form->select_field("countryOfOrigin","Country Of Origin",$countryList,'');
-		echo "<div class='field-wrap spec'><small><strong>Spec:</strong> <span id='spec_countryOfOrigin'></span></small></div>";
+		echo "<div class='field-wrap spec'><small><strong>Spec:</strong> <span id='spec_countryOfOrigin'></span></small> | <small><strong>Batch:</strong> <span id='batch_countryOfOrigin'></span></small></div>";
 		
 		echo $Form->text_field("colour","Colour",'');
 		echo "<div class='field-wrap spec'><small><strong>Spec:</strong> <span id='spec_colour'></span></small></div>";

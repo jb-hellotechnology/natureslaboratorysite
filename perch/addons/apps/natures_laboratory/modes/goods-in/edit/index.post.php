@@ -61,6 +61,12 @@
 		}
 		echo $Form->select_field("supplier","Supplier",$supplierList,$details['supplier']);
 		
+		$countryList[] = array('label'=>'Please Select', 'value'=>0);
+		foreach($country as $Country){
+			$countryList[] = array('label'=>$Country->country(), 'value'=>$Country->country());
+		}
+		echo $Form->select_field("countryOfOrigin","Country Of Origin",$countryList,$details['countryOfOrigin']);
+		
 		echo $Form->text_field("qty","Quantity",$details['qty']);
 		
 		$units[] = array('label'=>"KG", 'value'=>'KG');
@@ -84,6 +90,8 @@
 		$qa[] = array('label'=>"No", 'value'=>'FALSE');
 		$qa[] = array('label'=>"Yes", 'value'=>'TRUE');
 		$qa[] = array('label'=>"Not Required", 'value'=>'NOT REQUIRED');
+		$qa[] = array('label'=>"Rejected", 'value'=>'Rejected');
+		$qa[] = array('label'=>"Quarantine", 'value'=>'Quarantine');
 		echo $Form->select_field('qa','QA Check',$qa,$details['qa']);
 		
 		echo $Form->text_field("notes","Notes",$details['notes']);

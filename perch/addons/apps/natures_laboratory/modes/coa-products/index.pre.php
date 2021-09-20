@@ -262,7 +262,7 @@
 				$data = $data."pH,$details[pH],$specDetails[pH];";
 			}
 			if($details['gravity']<>''){
-				$data = $data."Specific Gravity,$details[gravity],$specDetails[specificGravity];";
+				$data = $data."Specific Gravity,$details[gravity],Not Less Than $specDetails[specificGravity];";
 			}
 			$data = substr($data,0,-1);
 			$pdf->BasicTable($header,$data);

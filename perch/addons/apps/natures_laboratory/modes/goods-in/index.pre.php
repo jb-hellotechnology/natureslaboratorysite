@@ -43,6 +43,8 @@
 		
 		$row = 1;
 	    $column = 1;
+	    
+	    $l = 0;
     	  
     	foreach($data as $key => $value){
 	    	$parts = explode('_',$key);
@@ -131,6 +133,11 @@
 				    $imgX = 180;
 			    }
 			    
+			    if($batchData['bagsList']<>''){
+			    	$bags = explode(",","SAMPLE,".$batchData['bagsList']);
+			    	$quantity = $bags[$l];
+		    	}
+			    
 			    $first = array(44,55,70);
 			    $second = 70;
 			    $third = 140;
@@ -140,43 +147,51 @@
 				    $imgY = 18;
 				    $y1 = 40;
 				    $y2 = 50;
-				    $y3 = 55;
-				    $y4 = 60;
+				    $y3 = 62;
+				    $y4 = 67;
 			    }
 			    
 			    if($row==2){
 				    $imgY = 86;
 				    $y1 = 108;
 				    $y2 = 118;
-				    $y3 = 123;
-				    $y4 = 128;
+				    $y3 = 130;
+				    $y4 = 135;
 			    }
 			    
 			    if($row==3){
 				    $imgY = 154;
 				    $y1 = 176;
 				    $y2 = 186;
-				    $y3 = 191;
-				    $y4 = 196;
+				    $y3 = 198;
+				    $y4 = 203;
 			    }
 			    
 			    if($row==4){
 				    $imgY = 221;
 				    $y1 = 243;
 				    $y2 = 253;
-				    $y3 = 258;
-				    $y4 = 263;
+				    $y3 = 265;
+				    $y4 = 262;
+			    }
+			    
+			    if($unit=='1000 CAPSULES'){
+				    $quantity = '';
 			    }
 			    
 			    $pdf->SetXY($x, $y1);
 				$pdf->SetFont('Arial','B',14);
 				$pdf->Cell(90,10,"$categoryName $productCode",0);
-				$pdf->SetFont('Arial','B',8);
+				$pdf->SetFont('Arial','B',13);
 				$pdf->SetXY($x, $y2);
-				$pdf->Cell(90,10,"$productName",0);
+				$pdf->MultiCell(60, 4, $productName, 0, "L");
 				$pdf->SetFont('Arial','B',10);
 				$pdf->SetXY($x, $y3);
-				$pdf->Cell(90,10,"Batch: $batch  BBE: $bbe  $quantity $unit",0);
+				if($l==0){
+					$pdf->Cell(90,10,"Batch: $batch  BBE: $bbe",0);
+				}else{
+					$pdf->Cell(90,10,"Batch: $batch  BBE: $bbe  $quantity $unit",0);
+				}
 				
 				if($y == 1){
 					$pdf->SetFont('Arial','B',12);
@@ -199,6 +214,8 @@
 					$column = 1;
 					$row++;
 				}
+				
+				$l++;
 					
 			}
 				
@@ -211,6 +228,8 @@
 		
 		$row = 1;
 	    $column = 1;
+	    
+	    $l = 0;
     	  
     	foreach($data as $key => $value){
 	    	$parts = explode('_',$key);
@@ -250,6 +269,11 @@
 				    $x = 14;
 			    }
 			    
+			    if($batchData['bagsList']<>''){
+			    	$bags = explode(",",$batchData['bagsList']);
+			    	$quantity = $bags[$l];
+		    	}
+			    
 			    $first = array(44,55,70);
 			    $second = 70;
 			    $third = 140;
@@ -283,6 +307,10 @@
 				    $y4 = 261;
 			    }
 			    
+			    if($unit=='1000 CAPSULES'){
+				    $quantity = '';
+			    }
+			    
 			    $pdf->SetXY($x, $y1);
 				$pdf->SetFont('Arial','B',32);
 				$pdf->Cell(90,10,"$productCode",0);
@@ -305,6 +333,8 @@
 					$column = 1;
 					$row++;
 				}
+				
+				$l++;
 					
 			}
 				

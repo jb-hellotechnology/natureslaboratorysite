@@ -53,6 +53,7 @@
                 <th>Our Batch</th>
                 <th>BBE</th>
                 <th>QA Check</th>
+                <th>COA</th>
                 <th>View/Edit</th>
                 <th class="action last">Delete</th>
             </tr>
@@ -60,6 +61,8 @@
         <tbody>
 <?php
     foreach($goodsIn as $Goods) {
+	    
+	    $COA = $NaturesLaboratoryGoodsIn->coaExists($Goods['ourBatch']);
 ?>
             <tr>
 	            <td><?php echo $Form->checkbox("batch_".$Goods['ourBatch'],'on',''); ?></td>
@@ -81,7 +84,8 @@
                 <td><?php echo $Goods['suppliersBatch']; ?></td>
                 <td><?php echo $Goods['ourBatch']; ?></td>
                 <td><?php if($Goods['bbe']<>'1970-01-01'){echo $Goods['bbe'];} ?></td>
-                <td><?php echo $Goods['qa']; ?></td>
+                <td <?php if($Goods['qa']=='FALSE'){echo "class='notification notification-alert'";}elseif($Goods['qa']=='NOT REQUIRED'){echo "class='notification notification-success'";}elseif($Goods['qa']=='TRUE'){echo "class='notification notification-success'";}?>><?php echo $Goods['qa']; ?></td>
+                <td <?php if($Goods['noCOA']=='TRUE'){echo "class='notification notification-success'";}elseif($COA=='FALSE'){echo "class='notification notification-alert'";}elseif($COA=='TRUE'){echo "class='notification notification-success'";}?>><?php if($Goods['noCOA']=='TRUE'){echo 'NOT REQUIRED';}else{echo $COA;} ?></td>
                 <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/goods-in/edit/?id=<?php echo $HTML->encode(urlencode($Goods['natures_laboratory_goods_inID'])); ?>"><?php echo 'View/Edit'; ?></a></td>
                 <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/goods-in/delete/?id=<?php echo $HTML->encode(urlencode($Goods['natures_laboratory_goods_inID'])); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
             </tr>

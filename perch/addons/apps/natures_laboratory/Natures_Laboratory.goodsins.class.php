@@ -8,7 +8,7 @@ class Natures_Laboratory_Goods_Ins extends PerchAPI_Factory
 	
 	protected $default_sort_column = 'natures_laboratory_goods_inID';
 	
-	public $static_fields = array('natures_laboratory_goods_inID,','staff','productCode','productDescription','dateIn','supplier','qty','suppliersBatch','ourBatch','bbe','qa','goods_inDynamicFields');	
+	public $static_fields = array('natures_laboratory_goods_inID,','staff','productCode','productDescription','dateIn','supplier','qty','bagsList','suppliersBatch','ourBatch','bbe','qa','goods_inDynamicFields');	
 	
 	public function getGoodsIn(){
 		
@@ -36,6 +36,18 @@ class Natures_Laboratory_Goods_Ins extends PerchAPI_Factory
 		$data = $this->db->get_row($sql);
 		$batch = $data['ourBatch']+1;
 		return $batch;
+		
+	}
+	
+	public function coaExists($batch){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_coa WHERE ourBatch="'.$batch.'"';
+		$data = $this->db->get_row($sql);
+		if($data['dateEntered']<>''){
+			return 'TRUE';
+		}else{
+			return 'FALSE';
+		}
 		
 	}
 	

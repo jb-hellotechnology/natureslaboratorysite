@@ -73,10 +73,12 @@
 		$units[] = array('label'=>"G", 'value'=>'G');
 		$units[] = array('label'=>"L", 'value'=>'L');
 		$units[] = array('label'=>"ML", 'value'=>'ML');
-		$units[] = array('label'=>"CAPSULES", 'value'=>'CAPSULES');
+		$units[] = array('label'=>"1000 CAPSULES", 'value'=>'1000 CAPSULES');
 		echo $Form->select_field('unit','Unit',$units,$details['units']);
 		
 		echo $Form->text_field("bags","Bags",$details['bags']);
+		
+		echo $Form->text_field("bagsList","Bags List (Comma Seperated, like 10,3,5)",$details['bagsList']);
 		
 		echo $Form->text_field("suppliersBatch","Supplier's Batch",$details['suppliersBatch']);
 		
@@ -86,6 +88,8 @@
 		}else{
 			echo $Form->checkbox_field("noBBE","No BBE",'skip','');
 		}
+		
+		echo $Form->checkbox_field("noCOA","COA Not Required",'TRUE',$details['noCOA']);
 		
 		$qa[] = array('label'=>"No", 'value'=>'FALSE');
 		$qa[] = array('label'=>"Yes", 'value'=>'TRUE');

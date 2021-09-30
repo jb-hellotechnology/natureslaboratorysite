@@ -332,7 +332,7 @@
 					$pdf->MultiCell(60, 4, $productName, 0, "L");
 					$pdf->SetXY($x, $y3);
 					$pdf->SetFont('Arial','B',8);
-					$pdf->Cell(90,10,"$productData[notes]",0);
+					$pdf->MultiCell(90,10,"$productData[notes]",0);
 					$pdf->SetFont('Arial','B',10);
 					$pdf->SetXY($x, $y4);
 					$pdf->Cell(90,2,"Batch: $batch  BBE: $bbe  $size",0);

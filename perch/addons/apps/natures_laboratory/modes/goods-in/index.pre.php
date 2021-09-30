@@ -21,20 +21,186 @@
     	$data = $Form->receive($postvars);   
     	
     	$label = 1;
+    	
+    	$totalLabels = 0;
+	    	  
+    	foreach($data as $key => $value){
+
+	    	$parts = explode('_',$key);
+	    	$batchData = $NaturesLaboratoryGoodsIn->getBatchData($parts[1]);
+	    	$totalLabels = $totalLabels+$batchData['bags']+1;
+	    	
+		}
+		
+		$tL = $totalLabels;
 		
 		class PDF extends FPDF
 		{
 			// Page header
 			function Header()
 			{
-			    $this->Image('../label.jpg',6,14,99.1,67.8);
-			    $this->Image('../label.jpg',105.1,14,99.1,67.8);
-			    $this->Image('../label.jpg',6,81.8,99.1,67.8);
-			    $this->Image('../label.jpg',105.1,81.8,99.1,67.8);
-			    $this->Image('../label.jpg',6,149.6,99.1,67.8);
-			    $this->Image('../label.jpg',105.1,149.6,99.1,67.8);
-			    $this->Image('../label.jpg',6,217.4,99.1,67.8);
-			    $this->Image('../label.jpg',105.1,217.4,99.1,67.8);
+			    global $totalLabels;
+				global $tL;
+				$pages = ceil($totalLabels/8);
+				$page = $this->PageNo();
+				
+				$remainder = $totalLabels % 8;
+				
+				$labelsOnPage = $page*8;
+				if($labelsOnPage>$totalLabels){
+					$labelsOnPage = $totalLabels;
+				}
+
+				if($page == $pages AND $pages>1){
+
+					$totalPossible = 8*$pages;
+					$remainder = $totalPossible-$totalLabels;
+
+					if($remainder == 0){
+						
+						$this->Image('../label.jpg',6,14,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,14,99.1,67.8);
+					    $this->Image('../label.jpg',6,81.8,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,81.8,99.1,67.8);
+					    $this->Image('../label.jpg',6,149.6,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,149.6,99.1,67.8);
+					    $this->Image('../label.jpg',6,217.4,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,217.4,99.1,67.8);
+						
+					}elseif($remainder == 1){
+						
+						$this->Image('../label.jpg',6,14,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,14,99.1,67.8);
+					    $this->Image('../label.jpg',6,81.8,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,81.8,99.1,67.8);
+					    $this->Image('../label.jpg',6,149.6,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,149.6,99.1,67.8);
+					    $this->Image('../label.jpg',6,217.4,99.1,67.8);
+						
+					}elseif($remainder == 2){
+						
+						$this->Image('../label.jpg',6,14,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,14,99.1,67.8);
+					    $this->Image('../label.jpg',6,81.8,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,81.8,99.1,67.8);
+					    $this->Image('../label.jpg',6,149.6,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,149.6,99.1,67.8);
+					
+					}elseif($remainder == 3){
+						
+						$this->Image('../label.jpg',6,14,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,14,99.1,67.8);
+					    $this->Image('../label.jpg',6,81.8,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,81.8,99.1,67.8);
+					    $this->Image('../label.jpg',6,149.6,99.1,67.8);
+						
+					}elseif($remainder == 4){
+						
+						$this->Image('../label.jpg',6,14,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,14,99.1,67.8);
+					    $this->Image('../label.jpg',6,81.8,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,81.8,99.1,67.8);
+						
+					}elseif($remainder == 5){
+						
+						$this->Image('../label.jpg',6,14,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,14,99.1,67.8);
+					    $this->Image('../label.jpg',6,81.8,99.1,67.8);
+						
+					}elseif($remainder == 6){
+						
+						$this->Image('../label.jpg',6,14,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,14,99.1,67.8);
+						
+					}elseif($remainder == 7){
+						
+						$this->Image('../label.jpg',6,14,99.1,67.8);
+						
+					}
+				
+				}else if($page == 1){
+					
+					$totalPossible = 8*$pages;
+					$remainder = $totalPossible-$totalLabels;
+					
+					if($pages>1){
+						$remainder = 0;
+					}
+				
+					if($remainder == 0){
+						
+						$this->Image('../label.jpg',6,14,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,14,99.1,67.8);
+					    $this->Image('../label.jpg',6,81.8,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,81.8,99.1,67.8);
+					    $this->Image('../label.jpg',6,149.6,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,149.6,99.1,67.8);
+					    $this->Image('../label.jpg',6,217.4,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,217.4,99.1,67.8);
+						
+					}elseif($remainder == 1){
+						
+						$this->Image('../label.jpg',6,14,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,14,99.1,67.8);
+					    $this->Image('../label.jpg',6,81.8,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,81.8,99.1,67.8);
+					    $this->Image('../label.jpg',6,149.6,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,149.6,99.1,67.8);
+					    $this->Image('../label.jpg',6,217.4,99.1,67.8);
+						
+					}elseif($remainder == 2){
+						
+						$this->Image('../label.jpg',6,14,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,14,99.1,67.8);
+					    $this->Image('../label.jpg',6,81.8,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,81.8,99.1,67.8);
+					    $this->Image('../label.jpg',6,149.6,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,149.6,99.1,67.8);
+					
+					}elseif($remainder == 3){
+						
+						$this->Image('../label.jpg',6,14,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,14,99.1,67.8);
+					    $this->Image('../label.jpg',6,81.8,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,81.8,99.1,67.8);
+					    $this->Image('../label.jpg',6,149.6,99.1,67.8);
+						
+					}elseif($remainder == 4){
+						
+						$this->Image('../label.jpg',6,14,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,14,99.1,67.8);
+					    $this->Image('../label.jpg',6,81.8,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,81.8,99.1,67.8);
+						
+					}elseif($remainder == 5){
+						
+						$this->Image('../label.jpg',6,14,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,14,99.1,67.8);
+					    $this->Image('../label.jpg',6,81.8,99.1,67.8);
+						
+					}elseif($remainder == 6){
+						
+						$this->Image('../label.jpg',6,14,99.1,67.8);
+					    $this->Image('../label.jpg',105.1,14,99.1,67.8);
+						
+					}elseif($remainder == 7){
+						
+						$this->Image('../label.jpg',6,14,99.1,67.8);
+						
+					}
+			    
+			    }else{
+				    
+				    $this->Image('../label.jpg',6,14,99.1,67.8);
+				    $this->Image('../label.jpg',105.1,14,99.1,67.8);
+				    $this->Image('../label.jpg',6,81.8,99.1,67.8);
+				    $this->Image('../label.jpg',105.1,81.8,99.1,67.8);
+				    $this->Image('../label.jpg',6,149.6,99.1,67.8);
+				    $this->Image('../label.jpg',105.1,149.6,99.1,67.8);
+				    $this->Image('../label.jpg',6,217.4,99.1,67.8);
+				    $this->Image('../label.jpg',105.1,217.4,99.1,67.8);
+				    
+			    }
 			}
 		}
 		
@@ -127,10 +293,10 @@
 			    }
 			    if($column==2){
 			    	$x = 114;
-			    	$imgX = 78;
+			    	$imgX = 180;
 			    }else{
 				    $x = 14;
-				    $imgX = 180;
+				    $imgX = 78;
 			    }
 			    
 			    if($batchData['bagsList']<>''){
@@ -357,5 +523,6 @@
 		header('Content-Length: ' . filesize($zipname));
 		ob_end_clean();
 		readfile($zipname);
+
     	
 	}

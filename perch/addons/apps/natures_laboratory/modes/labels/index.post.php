@@ -79,9 +79,12 @@
 	$startList[] = array('label'=>'6', 'value'=>6);
 	$startList[] = array('label'=>'7', 'value'=>7);
 	$startList[] = array('label'=>'8', 'value'=>8);
-
 	echo $Form->select_field("start","Start Label",$startList,'');
+	
+	$taskList[] = array('label'=>'Generate Labels', 'value'=>'labels');
+	$taskList[] = array('label'=>'Delete', 'value'=>'delete');
+	echo $Form->select_field("task","Task",$taskList,'');
 		
-	echo $Form->submit_field('btnSubmit', 'Generate Labels', $API->app_path());	
+	echo $Form->submit_field('btnSubmit', 'Process', $API->app_path());	
 	echo $Form->form_end();
     echo $HTML->main_panel_end();

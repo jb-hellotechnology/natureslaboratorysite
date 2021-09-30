@@ -46,4 +46,11 @@ class Natures_Laboratory_Labels extends PerchAPI_Factory
 		
 	}
 	
+	public function deleteLabel($labelID){
+		
+		$sql = 'DELETE FROM perch3_natures_laboratory_labels WHERE natures_laboratory_labelID="'.$labelID.'"';
+		$data = $this->db->execute($sql);
+		
+	}
+	
 }

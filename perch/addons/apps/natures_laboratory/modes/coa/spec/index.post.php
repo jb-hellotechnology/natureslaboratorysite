@@ -37,11 +37,13 @@
 
     echo $HTML->main_panel_start(); 
 
+	echo $Form->form_start();
 ?>
 	<table class="d">
         <thead>
             <tr>
-                <th class="first">Product Code</th>
+                <th class="first">Select</th>
+                <th>Product Code</th>
 				<th>Common Name</th>
                 <th>View/Edit</th>
 	            <th>Delete</th>
@@ -53,6 +55,7 @@
 
 ?>
             <tr>
+	            <td><?php echo $Form->radio("spec_".$Spec->natures_laboratory_coa_specID(),'spec',$Spec->natures_laboratory_coa_specID(),''); ?></td>
                 <td><?php echo $Spec->productCode(); ?></td>
                 <td><?php echo $Spec->commonName(); ?></td>
                 <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/coa/spec/edit/?id=<?php echo $HTML->encode(urlencode($Spec->natures_laboratory_coa_specID())); ?>" class="delete inline-delete"><?php echo 'View/Edit'; ?></a></td>
@@ -64,6 +67,7 @@
 	    </tbody>
     </table>
 
-<?php		
-
+<?php    
+	echo $Form->submit_field('btnSubmit', 'Generate Spec', $API->app_path());	
+	echo $Form->form_end();
     echo $HTML->main_panel_end();

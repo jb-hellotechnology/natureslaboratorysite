@@ -30,6 +30,14 @@ class Natures_Laboratory_Goods_Ins extends PerchAPI_Factory
 		
 	}
 	
+	public function stockItem($stockCode){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_goods_stock WHERE stockCode="'.$stockCode.'"';
+		$data = $this->db->get_row($sql);
+		return $data;
+		
+	}
+	
 	public function getBatchNumber(){
 		
 		$sql = 'SELECT * FROM perch3_natures_laboratory_goods_in ORDER BY ourBatch DESC LIMIT 1';

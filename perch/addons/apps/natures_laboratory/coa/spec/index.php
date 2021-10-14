@@ -1,13 +1,18 @@
 <?php
 	
+/*
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
+*/
 	
     # include the API
     include('../../../../../core/inc/api.php');
     
     $API  = new PerchAPI(1.0, 'natures_laboratory');
+    
+    require('../../fpdf/fpdf.php');
+    include('../../phpqrcode/qrlib.php');
 
     # include your class files
     include('../../Natures_Laboratory.class.php');

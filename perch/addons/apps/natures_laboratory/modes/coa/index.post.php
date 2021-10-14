@@ -45,6 +45,7 @@
 	            <th class="first">Select</th>
                 <th>Date Entered</th>
                 <th>Product Code</th> 
+                <th>Product Name</th>
                 <th>Our Batch</th>
                 <th>View/Edit</th>
                 <th class="action last">Delete</th>
@@ -53,11 +54,14 @@
         <tbody>
 <?php
     foreach($coa as $COA) {
+	    
+	    $stockItem = $NaturesLaboratoryGoodsIn->stockItem($COA['productCode']);
 ?>
             <tr>
 	            <td><?php echo $Form->radio("coa_".$COA['natures_laboratory_coaID'],'coa',$COA['natures_laboratory_coaID'],''); ?></td>
                 <td><?php echo $COA['dateEntered'] ?></td>
                 <td><?php echo $COA['productCode']; ?></td>
+                <td><?php echo $stockItem['description']; ?></td>
                 <td><?php echo $COA['ourBatch']; ?></td>
                 <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/coa/edit/?id=<?php echo $HTML->encode(urlencode($COA['natures_laboratory_coaID'])); ?>"><?php echo 'View/Edit'; ?></a></td>
                 <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/coa/delete/?id=<?php echo $HTML->encode(urlencode($COA['natures_laboratory_coaID'])); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>

@@ -225,13 +225,13 @@
 			$pdf->SetFont('Arial','B',9);
 			$pdf->Cell(60,5,'Macroscopic Characters:  ',0,0);
 			$pdf->SetFont('Arial','',9);
-			$pdf->WriteHTML($specDetails['macroscopicCharactersLong'].'<br><br>');
+			$pdf->WriteHTML('<br>'.$specDetails['macroscopicCharactersLong'].'<br><br>');
 		}
 		if($specDetails['microscopicCharactersLong']<>''){
 			$pdf->SetFont('Arial','B',9);
 			$pdf->Cell(60,5,'Microscopic Characters:  ',0,0);
 			$pdf->SetFont('Arial','',9);
-			$pdf->WriteHTML($specDetails['microscopicCharactersLong'].'<br><br>');
+			$pdf->WriteHTML('<br>'.$specDetails['microscopicCharactersLong'].'<br><br>');
 		}
 		
 		if($specDetails['foreignMatter']<>'' AND $specDetails['lossOnDrying']<>'' AND $specDetails['totalAsh']<>''){	

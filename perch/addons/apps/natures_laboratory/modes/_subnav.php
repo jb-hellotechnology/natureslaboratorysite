@@ -29,7 +29,7 @@
             'label'=> 'COA - Products'
         ],
         [
-            'page' => 'natures_laboratory/task-management',
-            'label'=> 'Task Management'
+            'page' => 'natures_laboratory/production',
+            'label'=> 'Production'
         ],
     ], $CurrentUser);

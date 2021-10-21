@@ -237,17 +237,10 @@
 			$pdf->Cell(0,3,'',0,1);
 		}
 		
-		$pdf->Cell(0,10,'',0,1);
-		$pdf->SetFont('Arial','',9);
-		
 		$pdf->SetFont('Arial','B',11);
 		$pdf->Cell(0,10,'Contaminants / Impurities',0,1);
 		$pdf->SetFont('Arial','',9);
 		$pdf->WriteHTML("Testing for inorganic impurities, toxic (heavy) metals, microbial limits, mycotoxins and pesticides are carried out on a batch by batch basis according to specific customer requirements. These will normally be in line with British Pharmacopoeia limits. Nature's Laboratory Ltd do not knowingly supply material containing pesticide residues above the legal maximum residue levels.");	
-		
-		$pdf->SetFont('Arial','B',11);
-		$pdf->Cell(0,10,'',0,1);
-		if($specDetails['assayContent']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Assay Content: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$specDetails['assayContent']),0,1);}
 		
 		$pdf->SetFont('Arial','B',9);
 		$pdf->Cell(0,10,'',0,1);

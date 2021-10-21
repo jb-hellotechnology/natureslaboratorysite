@@ -211,7 +211,6 @@
 		if($specDetails['plantPart']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Plant Part: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['plantPart'],0,1);}
 		if($specDetails['strengthVolume']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Strength Volume: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['strengthVolume'],0,1);}
 		if($specDetails['alcoholContent']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Alcohol Content: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['alcoholContent'],0,1);}
-		if($specDetails['countryOfOrigin']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Country of Origin:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['countryOfOrigin'],0,1);}
 		
 		$pdf->SetFont('Arial','B',11);
 		$pdf->Cell(0,10,'Product Description',0,1);

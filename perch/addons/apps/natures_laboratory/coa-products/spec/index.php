@@ -10,6 +10,9 @@
     include('../../../../../core/inc/api.php');
     
     $API  = new PerchAPI(1.0, 'natures_laboratory');
+    
+    require('../../fpdf/fpdf.php');
+    include('../../phpqrcode/qrlib.php');
 
     # include your class files
     include('../../Natures_Laboratory.class.php');

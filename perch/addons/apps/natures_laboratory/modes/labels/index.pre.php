@@ -281,10 +281,12 @@
 				    }
 				    if($column==2){
 				    	$x = 114;
-				    	$imgX = 180;
+				    	$imgX = 182;
+				    	$imgX2 = 170;
 				    }else{
 					    $x = 14;
-					    $imgX = 78;
+					    $imgX = 82;
+					    $imgX2 = 70;
 				    }
 				    
 				    $first = array(44,55,70);
@@ -294,6 +296,7 @@
 				    
 				    if($row==1){
 					    $imgY = 18;
+					    $imgY2 = 20;
 					    $y1 = 40;
 					    $y2 = 52;
 					    $y3 = 64;
@@ -302,6 +305,7 @@
 				    
 				    if($row==2){
 					    $imgY = 86;
+					    $imgY2 = 88;
 					    $y1 = 108;
 					    $y2 = 120;
 					    $y3 = 132;
@@ -310,6 +314,7 @@
 				    
 				    if($row==3){
 					    $imgY = 154;
+					    $imgY2 = 156;
 					    $y1 = 176;
 					    $y2 = 188;
 					    $y3 = 201;
@@ -318,6 +323,7 @@
 				    
 				    if($row==4){
 					    $imgY = 221;
+						$imgY2 = 223;
 					    $y1 = 243;
 					    $y2 = 255;
 					    $y3 = 268;
@@ -342,14 +348,14 @@
 						$codeContents = "https://natureslaboratory.co.uk/perch/addons/apps/natures_laboratory/products/go/?id=".$batch."&size=".$size."&bbe=".$bbe;
 					    $fileName = 'qr_'.$batch.'.png';
 					    QRcode::png($codeContents, $fileName);
-					    $pdf->Image($fileName,$imgX,$imgY,-170);
+					    $pdf->Image($fileName,$imgX,$imgY,-180);
 						unlink($fileName);
 						
 					}
 					
-					if($productData['productType']=='Capsules'){
+					if($productData['productType']=='Capsules' || $productData['productType']=='Tincture' || $productData['productType']=='Fluid Extract'){
 						
-						$pdf->Image('../herbmark.jpg',$imgX,$imgY,-100);
+						$pdf->Image('../herbmark.jpg',$imgX2,$imgY2,-950);
 						
 					}
 					

@@ -347,6 +347,12 @@
 						
 					}
 					
+					if($productData['productType']=='Capsules'){
+						
+						$pdf->Image('../herbmark.jppg',$imgX,$imgY,-170);
+						
+					}
+					
 					$y++;
 					
 					$label++;

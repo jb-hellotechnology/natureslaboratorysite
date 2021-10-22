@@ -349,7 +349,7 @@
 					
 					if($productData['productType']=='Capsules'){
 						
-						$pdf->Image('../herbmark.jppg',$imgX,$imgY,-170);
+						$pdf->Image('../herbmark.jpg',$imgX,$imgY,-170);
 						
 					}
 					

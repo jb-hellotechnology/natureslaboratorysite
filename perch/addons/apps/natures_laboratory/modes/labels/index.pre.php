@@ -337,7 +337,7 @@
 					$pdf->SetXY($x, $y2);
 					$pdf->MultiCell(60, 4, $productName, 0, "L");
 					$pdf->SetXY($x, $y3);
-					$pdf->SetFont('Arial','B',6);
+					$pdf->SetFont('Arial','B',5);
 					$pdf->MultiCell(70,2,"$productData[notes]",0);
 					$pdf->SetFont('Arial','B',10);
 					$pdf->SetXY($x, $y4);

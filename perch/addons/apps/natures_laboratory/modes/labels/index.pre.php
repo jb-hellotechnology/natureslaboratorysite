@@ -299,7 +299,7 @@
 					    $imgY2 = 20;
 					    $y1 = 40;
 					    $y2 = 52;
-					    $y3 = 64;
+					    $y3 = 62;
 					    $y4 = 70;
 				    }
 				    
@@ -308,7 +308,7 @@
 					    $imgY2 = 88;
 					    $y1 = 108;
 					    $y2 = 120;
-					    $y3 = 132;
+					    $y3 = 130;
 					    $y4 = 138;
 				    }
 				    
@@ -317,7 +317,7 @@
 					    $imgY2 = 156;
 					    $y1 = 176;
 					    $y2 = 188;
-					    $y3 = 201;
+					    $y3 = 199;
 					    $y4 = 206;
 				    }
 				    
@@ -326,14 +326,14 @@
 						$imgY2 = 223;
 					    $y1 = 243;
 					    $y2 = 255;
-					    $y3 = 268;
+					    $y3 = 266;
 					    $y4 = 274;
 				    }
 				    
 				    $pdf->SetXY($x, $y1);
 					$pdf->SetFont('Arial','B',14);
 					$pdf->Cell(90,10,"$productData[productType]   $productCode",0);
-					$pdf->SetFont('Arial','B',12);
+					$pdf->SetFont('Arial','B',10);
 					$pdf->SetXY($x, $y2);
 					$pdf->MultiCell(60, 4, $productName, 0, "L");
 					$pdf->SetXY($x, $y3);

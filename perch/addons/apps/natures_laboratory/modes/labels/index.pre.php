@@ -282,7 +282,7 @@
 				    	$pdf->AddPage();
 				    }
 				    if($column==2){
-				    	$x = 114;
+				    	$x = 113;
 				    	$imgX = 182;
 				    	$imgX2 = 170;
 				    }else{

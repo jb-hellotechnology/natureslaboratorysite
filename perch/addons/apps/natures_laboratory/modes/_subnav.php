@@ -25,6 +25,10 @@
             'label'=> 'COA - Herbs'
         ],
         [
+            'page' => 'natures_laboratory/coa-capsules',
+            'label'=> 'COA - Capsules'
+        ],
+        [
             'page' => 'natures_laboratory/coa-products',
             'label'=> 'COA - Products'
         ],

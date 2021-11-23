@@ -9,6 +9,16 @@
             </div>
         </div>
     </perch:block>
+    
+    <perch:block label="Code" type="code">
+        <div class="l-block l-block--top-padding-<perch:content type="select" label="Top Padding" options="normal, small, none" id="top-padding">">
+            <div class="l-row">
+                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-centered l-flow c-animated c-animated--<perch:content type="select" id="animation" label="Animation" options="none, fade-up, fade-down, fade-left, fade-right">">
+                    <perch:content type="textarea" id="text" editor="markitup" lable="HTML" html/>
+                </div>  
+            </div>
+        </div>
+    </perch:block>
 
     <perch:block label="Cards" type="cards">
         <div class="l-block l-block--top-padding-<perch:content type="select" label="Top Padding" options="normal, small, none" id="top-padding">">

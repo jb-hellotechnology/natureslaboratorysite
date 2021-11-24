@@ -10,6 +10,9 @@
     
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
+    $Template = $API->get('Template');
+    
+    $Template->set('natures_laboratory/coa-capsule.html','nl');
     
     $spec = $NaturesLaboratoryCOASpec->all();
     $stock = $NaturesLaboratoryGoodsStock->all();
@@ -21,8 +24,12 @@
     if($Form->submitted()) {
     
         //FOR ITEMS PROGRAMMATICALLY ADDED TO FORM
-       $postvars = array('dateEntered_day','dateEntered_month','dateEntered_year','dateManufacture_day','dateManufacture_month','dateManufacture_year','bbe_day','bbe_month','bbe_year','spec','ourBatch','countryOfOrigin','colour','odour','taste','pH','gravity');	   
-    	$data = $Form->receive($postvars);   
+       $postvars = array('dateEntered_day','dateEntered_month','dateEntered_year','dateManufacture_day','dateManufacture_month','dateManufacture_year','bbe_day','bbe_month','bbe_year','cap_spec','ourBatch','countryOfOrigin','colour','odour','taste','pH','gravity');	   
+    	$data = $Form->receive($postvars);
+    	
+    	$data['spec'] = $data['cap_spec'];
+    	
+    	unset($data['cap_spec']);   
     	
     	$data['dateEntered'] = "$data[dateEntered_year]-$data[dateEntered_month]-$data[dateEntered_day]";
     	unset($data['dateEntered_year']);
@@ -38,6 +45,10 @@
     	unset($data['bbe_year']);
     	unset($data['bbe_month']);
     	unset($data['bbe_day']);
+    	
+    	// GET DYNAMIC FIELDS AND CREATE JSON ARRAY FOR DB
+        $dynamic_fields = $Form->receive_from_template_fields($Template, $previous_values, $NaturesLaboratoryCOASpec, $Spec);
+        $data['natures_laboratory_coa_capsuleDynamicFields'] = PerchUtil::json_safe_encode($dynamic_fields);  
 
 		$new_coa = $NaturesLaboratoryCOA->create($data);
 

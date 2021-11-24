@@ -13,7 +13,7 @@
     $Form = $API->get('Form');
     $Template = $API->get('Template');
     
-    $Template->set('natures_laboratory/spec-product.html','nl');
+    $Template->set('natures_laboratory/spec-capsule.html','nl');
     
     $specID = (int) $_GET['id'];  
     $Spec = $NaturesLaboratoryCOASpec->find($specID, true);
@@ -27,19 +27,19 @@
     	
     	// READ IN DYNAMIC FIELDS FROM TEMPLATE
         $previous_values = false;
-        if (isset($details['natures_laboratory_coa_products_specDynamicFields'])) {
-            $previous_values = PerchUtil::json_safe_decode($details['natures_laboratory_coa_products_specDynamicFields'], true);
+        if (isset($details['natures_laboratory_coa_capsules_specDynamicFields'])) {
+            $previous_values = PerchUtil::json_safe_decode($details['natures_laboratory_coa_capsules_specDynamicFields'], true);
         }
 
         // GET DYNAMIC FIELDS AND CREATE JSON ARRAY FOR DB
         $dynamic_fields = $Form->receive_from_template_fields($Template, $previous_values, $NaturesLaboratoryCOASpec, $Spec);
-        $data['natures_laboratory_coa_products_specDynamicFields'] = PerchUtil::json_safe_encode($dynamic_fields);  
+        $data['natures_laboratory_coa_capsules_specDynamicFields'] = PerchUtil::json_safe_encode($dynamic_fields);  
 
         $new_spec = $Spec->update($data);
 
         // SHOW RELEVANT MESSAGE
         if ($new_spec) {
-            $message = $HTML->success_message('Spec has been successfully updated. Return to %sSpecs%s', '<a href="'.$API->app_path().'/coa-products/spec/">', '</a>'); 
+            $message = $HTML->success_message('Spec has been successfully updated. Return to %sSpecs%s', '<a href="'.$API->app_path().'/coa-capsules/spec/">', '</a>'); 
         }else{
             $message = $HTML->failure_message('Sorry, Spec could not be updated.');
         }

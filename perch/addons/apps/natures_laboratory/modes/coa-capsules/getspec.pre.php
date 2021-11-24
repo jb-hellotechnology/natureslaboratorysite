@@ -1,6 +1,6 @@
 <?php
     
-    $NaturesLaboratoryCOASpec = new Natures_Laboratory_COA_Products_Specs($API);
+    $NaturesLaboratoryCOASpec = new Natures_Laboratory_COA_Capsules_Specs($API);
     
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');

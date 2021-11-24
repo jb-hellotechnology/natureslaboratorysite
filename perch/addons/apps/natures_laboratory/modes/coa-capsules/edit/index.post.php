@@ -46,7 +46,7 @@
 
 		$specList[] = array('label'=>'Please Select', 'value'=>0);
 		foreach($spec as $Spec){
-			$specList[] = array('label'=>$Spec->productCode().' | '.$Spec->commonName(), 'value'=>$Spec->productCode());
+			$specList[] = array('label'=>$Spec->productCode(), 'value'=>$Spec->productCode());
 		}
 		echo $Form->select_field("spec","Spec",$specList,$details['spec']);
 		
@@ -70,8 +70,7 @@
 		
 		echo $Form->text_field("odour","Odour",$details['odour']);
 		
-		echo $Form->text_field("pH","pH",$details['pH']);
-		echo $Form->text_field("gravity","Specific Gravity",$details['gravity']);
+		echo $Form->fields_from_template($Template, $details, $Properties->static_fields);
 		    
 		echo $Form->submit_field('btnSubmit', 'Update COA', $API->app_path());
 		

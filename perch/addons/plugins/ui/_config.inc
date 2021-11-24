@@ -86,6 +86,18 @@ $(document).ready(function() {
 			$('#spec_odour').text(obj.odour);
 		});			
 	});
+	$('#cap_spec').on('select2:select', function (e) {
+		var pCode = $('#cap_spec').val();
+		// GET THE SPEC
+		$.post( "/perch/addons/apps/natures_laboratory/coa-capsules/getSpec.php", { code: pCode }).done(function( data ) {
+			const obj = JSON.parse(data);
+			console.log(obj);
+			$('#spec_countryOfOrigin').text(obj.countryOfOrigin);
+			$('#spec_colour').text(obj.colour);
+			$('#spec_taste').text(obj.taste);
+			$('#spec_odour').text(obj.odour);
+		});			
+	});
 	$('#ourBatch').on('select2:select', function (e) {
 		var pBatch = $('#ourBatch').val();
 		// GET THE SPEC

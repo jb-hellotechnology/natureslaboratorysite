@@ -10,6 +10,9 @@
     
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
+    $Template = $API->get('Template');
+    
+    $Template->set('natures_laboratory/coa-capsule.html','nl');
     
     $spec = $NaturesLaboratoryCOASpec->all();
     $batch = $NaturesLaboratoryGoodsIn->all();
@@ -43,6 +46,9 @@
     	unset($data['bbe_year']);
     	unset($data['bbe_month']);
     	unset($data['bbe_day']);
+    	
+    	$dynamic_fields = $Form->receive_from_template_fields($Template, $previous_values, $NaturesLaboratoryCOASpec, $Spec);
+        $data['natures_laboratory_coa_capsuleDynamicFields'] = PerchUtil::json_safe_encode($dynamic_fields); 
 
         $new_coa = $COA->update($data);
 

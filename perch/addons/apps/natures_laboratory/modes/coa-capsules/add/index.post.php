@@ -58,11 +58,13 @@
 		
 		echo $Form->text_field("ourBatch","Batch",'');
 
+/*
 		$countryList[] = array('label'=>'Please Select', 'value'=>0);
 		foreach($country as $Country){
 			$countryList[] = array('label'=>$Country->country(), 'value'=>$Country->country());
 		}
 		echo $Form->select_field("countryOfOrigin","Country Of Origin",$countryList,'');
+*/
 		echo "<div class='field-wrap spec'><small><strong>Spec:</strong> <span id='spec_countryOfOrigin'></span></small></div>";
 		
 		echo $Form->text_field("colour","Colour",'');

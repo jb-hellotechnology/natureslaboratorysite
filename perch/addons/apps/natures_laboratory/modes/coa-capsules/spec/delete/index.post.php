@@ -4,7 +4,7 @@
     echo $HTML->side_panel_end();
     
     echo $HTML->title_panel([
-    'heading' => 'COA capsules',
+    'heading' => 'COA Capsules',
     'button'  => [
             'text' => $Lang->get('Spec'),
             'link' => $API->app_nav().'/coa-capsules/spec/add',

@@ -57,12 +57,6 @@
 		echo $Form->date_field("bbe","BBE Date",$details['bbe']);
 		
 		echo $Form->text_field("ourBatch","Batch",$details['ourBatch']);
-
-		$countryList[] = array('label'=>'Please Select', 'value'=>0);
-		foreach($country as $Country){
-			$countryList[] = array('label'=>$Country->country(), 'value'=>$Country->country());
-		}
-		echo $Form->select_field("countryOfOrigin","Country Of Origin",$countryList,$details['countryOfOrigin']);
 		
 		echo $Form->text_field("colour","Colour",$details['colour']);
 		

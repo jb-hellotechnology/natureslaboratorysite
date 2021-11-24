@@ -60,7 +60,7 @@
                 <td><?php echo $Spec->productCode(); ?></td>
                 <td><?php echo $Spec->commonName(); ?></td>
                 <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/coa-capsules/spec/edit/?id=<?php echo $HTML->encode(urlencode($Spec->natures_laboratory_coa_capsules_specID())); ?>" class="delete inline-delete"><?php echo 'View/Edit'; ?></a></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/coa-capsules/spec/delete/?id=<?php echo $HTML->encode(urlencode($Spec->natures_laboratory_coa_capsule_specID())); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/coa-capsules/spec/delete/?id=<?php echo $HTML->encode(urlencode($Spec->natures_laboratory_coa_capsules_specID())); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
             </tr>
 <?php
 	}

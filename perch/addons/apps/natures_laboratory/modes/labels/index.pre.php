@@ -79,54 +79,54 @@ error_reporting(E_ALL);
 	
 						if($remainder == 0){
 							
-							$this->Image($labelBg,6,14,99.1,67.8);
+							$this->Image($labelBg,5,14,99.1,67.8);
 						    $this->Image($labelBg,105.1,14,99.1,67.8);
-						    $this->Image($labelBg,6,81.8,99.1,67.8);
+						    $this->Image($labelBg,5,81.8,99.1,67.8);
 						    $this->Image($labelBg,105.1,81.8,99.1,67.8);
-						    $this->Image($labelBg,6,149.6,99.1,67.8);
+						    $this->Image($labelBg,5,149.6,99.1,67.8);
 						    $this->Image($labelBg,105.1,149.6,99.1,67.8);
-						    $this->Image($labelBg,6,217.4,99.1,67.8);
+						    $this->Image($labelBg,5,217.4,99.1,67.8);
 						    $this->Image($labelBg,105.1,217.4,99.1,67.8);
 							
 						}elseif($remainder == 1){
 							
-							$this->Image($labelBg,6,14,99.1,67.8);
+							$this->Image($labelBg,5,14,99.1,67.8);
 						    $this->Image($labelBg,105.1,14,99.1,67.8);
-						    $this->Image($labelBg,6,81.8,99.1,67.8);
+						    $this->Image($labelBg,5,81.8,99.1,67.8);
 						    $this->Image($labelBg,105.1,81.8,99.1,67.8);
-						    $this->Image($labelBg,6,149.6,99.1,67.8);
+						    $this->Image($labelBg,5,149.6,99.1,67.8);
 						    $this->Image($labelBg,105.1,149.6,99.1,67.8);
-						    $this->Image($labelBg,6,217.4,99.1,67.8);
+						    $this->Image($labelBg,5,217.4,99.1,67.8);
 							
 						}elseif($remainder == 2){
 							
-							$this->Image($labelBg,6,14,99.1,67.8);
+							$this->Image($labelBg,5,14,99.1,67.8);
 						    $this->Image($labelBg,105.1,14,99.1,67.8);
-						    $this->Image($labelBg,6,81.8,99.1,67.8);
+						    $this->Image($labelBg,5,81.8,99.1,67.8);
 						    $this->Image($labelBg,105.1,81.8,99.1,67.8);
-						    $this->Image($labelBg,6,149.6,99.1,67.8);
+						    $this->Image($labelBg,5,149.6,99.1,67.8);
 						    $this->Image($labelBg,105.1,149.6,99.1,67.8);
 						
 						}elseif($remainder == 3){
 							
-							$this->Image($labelBg,6,14,99.1,67.8);
+							$this->Image($labelBg,5,14,99.1,67.8);
 						    $this->Image($labelBg,105.1,14,99.1,67.8);
-						    $this->Image($labelBg,6,81.8,99.1,67.8);
+						    $this->Image($labelBg,5,81.8,99.1,67.8);
 						    $this->Image($labelBg,105.1,81.8,99.1,67.8);
-						    $this->Image($labelBg,6,149.6,99.1,67.8);
+						    $this->Image($labelBg,5,149.6,99.1,67.8);
 							
 						}elseif($remainder == 4){
 							
-							$this->Image($labelBg,6,14,99.1,67.8);
+							$this->Image($labelBg,5,14,99.1,67.8);
 						    $this->Image($labelBg,105.1,14,99.1,67.8);
-						    $this->Image($labelBg,6,81.8,99.1,67.8);
+						    $this->Image($labelBg,5,81.8,99.1,67.8);
 						    $this->Image($labelBg,105.1,81.8,99.1,67.8);
 							
 						}elseif($remainder == 5){
 							
-							$this->Image($labelBg,6,14,99.1,67.8);
+							$this->Image($labelBg,5,14,99.1,67.8);
 						    $this->Image($labelBg,105.1,14,99.1,67.8);
-						    $this->Image($labelBg,6,81.8,99.1,67.8);
+						    $this->Image($labelBg,5,81.8,99.1,67.8);
 							
 						}elseif($remainder == 6){
 							
@@ -142,46 +142,46 @@ error_reporting(E_ALL);
 					}else if($page == 1){
 					
 						if($start==1){
-						    if($tL>0){$this->Image($labelBg,6,14,99.1,67.8);}
+						    if($tL>0){$this->Image($labelBg,5,14,99.1,67.8);}
 						    if($tL>1){$this->Image($labelBg,105.1,14,99.1,67.8);}
-						    if($tL>2){$this->Image($labelBg,6,81.8,99.1,67.8);}
+						    if($tL>2){$this->Image($labelBg,5,81.8,99.1,67.8);}
 						    if($tL>3){$this->Image($labelBg,105.1,81.8,99.1,67.8);}
-						    if($tL>4){$this->Image($labelBg,6,149.6,99.1,67.8);}
+						    if($tL>4){$this->Image($labelBg,5,149.6,99.1,67.8);}
 						    if($tL>5){$this->Image($labelBg,105.1,149.6,99.1,67.8);}
-						    if($tL>6){$this->Image($labelBg,6,217.4,99.1,67.8);}
+						    if($tL>6){$this->Image($labelBg,5,217.4,99.1,67.8);}
 						    if($tL>7){$this->Image($labelBg,105.1,217.4,99.1,67.8);}
 						}elseif($start==2){
 						    if($tL>0){$this->Image($labelBg,105.1,14,99.1,67.8);}
-						    if($tL>1){$this->Image($labelBg,6,81.8,99.1,67.8);}
+						    if($tL>1){$this->Image($labelBg,5,81.8,99.1,67.8);}
 						    if($tL>2){$this->Image($labelBg,105.1,81.8,99.1,67.8);}
-						    if($tL>3){$this->Image($labelBg,6,149.6,99.1,67.8);}
+						    if($tL>3){$this->Image($labelBg,5,149.6,99.1,67.8);}
 						    if($tL>4){$this->Image($labelBg,105.1,149.6,99.1,67.8);}
-						    if($tL>5){$this->Image($labelBg,6,217.4,99.1,67.8);}
+						    if($tL>5){$this->Image($labelBg,5,217.4,99.1,67.8);}
 						    if($tL>6){$this->Image($labelBg,105.1,217.4,99.1,67.8);}
 						}elseif($start==3){
-						    if($tL>0){$this->Image($labelBg,6,81.8,99.1,67.8);}
+						    if($tL>0){$this->Image($labelBg,5,81.8,99.1,67.8);}
 						    if($tL>1){$this->Image($labelBg,105.1,81.8,99.1,67.8);}
-						    if($tL>2){$this->Image($labelBg,6,149.6,99.1,67.8);}
+						    if($tL>2){$this->Image($labelBg,5,149.6,99.1,67.8);}
 						    if($tL>3){$this->Image($labelBg,105.1,149.6,99.1,67.8);}
-						    if($tL>4){$this->Image($labelBg,6,217.4,99.1,67.8);}
+						    if($tL>4){$this->Image($labelBg,5,217.4,99.1,67.8);}
 						    if($tL>5){$this->Image($labelBg,105.1,217.4,99.1,67.8);}
 						}elseif($start==4){
 						    if($tL>0){$this->Image($labelBg,105.1,81.8,99.1,67.8);}
-						    if($tL>1){$this->Image($labelBg,6,149.6,99.1,67.8);}
+						    if($tL>1){$this->Image($labelBg,5,149.6,99.1,67.8);}
 						    if($tL>2){$this->Image($labelBg,105.1,149.6,99.1,67.8);}
-						    if($tL>3){$this->Image($labelBg,6,217.4,99.1,67.8);}
+						    if($tL>3){$this->Image($labelBg,5,217.4,99.1,67.8);}
 						    if($tL>4){$this->Image($labelBg,105.1,217.4,99.1,67.8);}
 						}elseif($start==5){
-						    if($tL>0){$this->Image($labelBg,6,149.6,99.1,67.8);}
+						    if($tL>0){$this->Image($labelBg,5,149.6,99.1,67.8);}
 						    if($tL>1){$this->Image($labelBg,105.1,149.6,99.1,67.8);}
-						    if($tL>2){$this->Image($labelBg,6,217.4,99.1,67.8);}
+						    if($tL>2){$this->Image($labelBg,5,217.4,99.1,67.8);}
 						    if($tL>3){$this->Image($labelBg,105.1,217.4,99.1,67.8);}
 						}elseif($start==6){
 						    if($tL>0){$this->Image($labelBg,105.1,149.6,99.1,67.8);}
-						    if($tL>1){$this->Image($labelBg,6,217.4,99.1,67.8);}
+						    if($tL>1){$this->Image($labelBg,5,217.4,99.1,67.8);}
 						    if($tL>2){$this->Image($labelBg,105.1,217.4,99.1,67.8);}
 						}elseif($start==7){
-						    if($tL>0){$this->Image($labelBg,6,217.4,99.1,67.8);}
+						    if($tL>0){$this->Image($labelBg,5,217.4,99.1,67.8);}
 		 				    if($tL>1){$this->Image($labelBg,105.1,217.4,99.1,67.8);}
 						}elseif($start==8){
 						    if($tL>0){$this->Image($labelBg,105.1,217.4,99.1,67.8);}
@@ -301,9 +301,9 @@ error_reporting(E_ALL);
 					    	$imgX = 144;
 					    	$imgX2 = 152;
 					    }else{
-						    $x = 7;
-						    $imgX = 45;
-						    $imgX2 = 52;
+						    $x = 6;
+						    $imgX = 44;
+						    $imgX2 = 51;
 					    }
 					    
 					    $first = array(44,55,70);

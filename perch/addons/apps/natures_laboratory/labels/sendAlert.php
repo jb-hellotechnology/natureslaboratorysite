@@ -21,7 +21,18 @@ $client = new Client($sid, $token);
 // Use the client to do fun stuff like send text messages!
 $client->messages->create(
     // the number you'd like to send the message to
-    '+447980131289,++447825090147',
+    '+447980131289',
+    [
+        // A Twilio phone number you purchased at twilio.com/console
+        'from' => '+447401280958',
+        // the body of the text message you'd like to send
+        'body' => "A labelling error has occurred. Please speak with production staff."
+    ]
+);
+
+$client->messages->create(
+    // the number you'd like to send the message to
+    '+447825090147',
     [
         // A Twilio phone number you purchased at twilio.com/console
         'from' => '+447401280958',

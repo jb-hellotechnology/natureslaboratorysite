@@ -56,6 +56,8 @@
 		echo $Form->submit_field('btnSubmit', 'Create Labels', $API->app_path());
 		
 		echo $Form->form_end();
+		
+		echo '<div class="notification notification-alert" id="error" style="display:none;">An Error Has Occured, Please Inform Your Supervisor - Do Not Attempt To Re-Enter The Label Information</div>';
 	
 	}
 

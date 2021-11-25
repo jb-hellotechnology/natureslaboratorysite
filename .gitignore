@@ -20,6 +20,8 @@ perch/*
 !perch/addons/apps/**
 !perch/addons/apps/natures_laboratory/
 !perch/addons/apps/natures_laboratory/**
+!twilio-php-main/
+!twilio-php-main/**
 
 !.gitignore
 

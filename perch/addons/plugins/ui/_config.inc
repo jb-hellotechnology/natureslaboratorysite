@@ -74,6 +74,20 @@ $(document).ready(function() {
 			$('#spec_microscopic').text(obj.microscopicCharacters);
 		});			
 	});
+	$('#batch').blur(function(e){
+		var pCode = $('#productCode').val();
+		var pBatch = $('#batch').val();
+		// GET THE SPEC
+		$.post( "/perch/addons/apps/natures_laboratory/goods-in/getCodes.php", { code: pCode, batch: pBatch }).done(function( data ) {
+			if(data==''){
+				$('form').hide();
+				$('#error').show();
+				$.post( "/perch/addons/apps/natures_laboratory/labels/sendAlert.php", {}).done(function(){
+					
+				});
+			}
+		});			
+	});
 	$('#spec').on('select2:select', function (e) {
 		var pCode = $('#spec').val();
 		// GET THE SPEC

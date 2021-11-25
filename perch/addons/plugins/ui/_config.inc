@@ -79,6 +79,7 @@ $(document).ready(function() {
 		var pBatch = $('#batch').val();
 		// GET THE SPEC
 		$.post( "/perch/addons/apps/natures_laboratory/goods-in/getCodes.php", { code: pCode, batch: pBatch }).done(function( data ) {
+			console.log(data);
 			if(data==''){
 				$('form').hide();
 				$('#error').show();

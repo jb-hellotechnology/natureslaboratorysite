@@ -61,12 +61,20 @@ class Natures_Laboratory_Goods_Ins extends PerchAPI_Factory
 	
 	public function checkCodes($code,$batch){
 		
-		$sql = 'SELECT * FROM perch3_natures_laboratory_goods_in WHERE productCode="'.$code.'" AND ourBatch="'.$batch.'"';
+		$sql = 'SELECT * FROM perch3_natures_laboratory_goods_stock WHERE stockCode="'.$code.'"';
 		$data = $this->db->get_row($sql);
-		if($data){
-			echo true;
+		if($data['category']=='5' OR $data['category']=='6' OR $data['category']=='7'){
+			
+			$sql = 'SELECT * FROM perch3_natures_laboratory_goods_in WHERE productCode="'.$code.'" AND ourBatch="'.$batch.'"';
+			$data = $this->db->get_row($sql);
+			if($data){
+				echo true;
+			}else{
+				echo false;
+			}
+			
 		}else{
-			echo false;
+			echo true;
 		}
 		
 	}

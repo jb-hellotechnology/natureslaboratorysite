@@ -20,6 +20,8 @@
     include('../Natures_Laboratorys.class.php');
     include('../Natures_Laboratory.label.class.php');
     include('../Natures_Laboratory.labels.class.php');
+    include('../Natures_Laboratory.labels.product.class.php');
+    include('../Natures_Laboratory.labels.products.class.php');
     
     # Grab an instance of the Lang class for translations
     $Lang = $API->get('Lang');

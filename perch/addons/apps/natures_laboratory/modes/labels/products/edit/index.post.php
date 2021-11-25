@@ -59,6 +59,11 @@
 
 		echo $Form->select_field("productType","Product Type",$productList,$details['productType']);
 		
+		$productTypeList = array();
+		$productTypeList[] = array('label'=>'Herbal Apothecary', 'value'=>'');
+		$productTypeList[] = array('label'=>'Ruskin Mill', 'value'=>'1');
+		echo $Form->select_field("productRange","Range",$productTypeList,$details['productRange']);
+		
 		echo $Form->text_field("notes","Notes",$details['notes']);
 		    
 		echo $Form->submit_field('btnSubmit', 'Create Product', $API->app_path());

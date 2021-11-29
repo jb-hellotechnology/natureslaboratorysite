@@ -280,7 +280,7 @@
 		}
 		
 		
-		if($details['totalAerobicAmount']<>'' AND $details['totalCombinedYeastMouldAmount']<>'' AND $details['enteroBacteriaAmount']<>'' AND $details['escherichiaAmount']<>'' AND $details['salmonellaAmount']<>'' AND $details['staphylococcusAmount']<>''){
+		if($details['totalAerobicAmount']<>'' OR $details['totalCombinedYeastMouldAmount']<>'' OR $details['enteroBacteriaAmount']<>'' OR $details['escherichiaAmount']<>'' OR $details['salmonellaAmount']<>'' OR $details['staphylococcusAmount']<>''){
 			$pdf->SetFont('Arial','B',11);
 			$pdf->Cell(0,10,'Microbial Levels',0,1);
 			$pdf->SetFont('Arial','',9);

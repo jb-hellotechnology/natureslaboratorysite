@@ -48,8 +48,6 @@
 		echo $Form->text_field("productCode","Product Code",'');
 		
 		echo $Form->text_field("colour","Colour",'');
-		echo $Form->text_field("odour","Odour",'');
-		echo $Form->text_field("taste","Taste",'');
 		
 		echo $Form->fields_from_template($Template, $details, $Properties->static_fields);
 		    

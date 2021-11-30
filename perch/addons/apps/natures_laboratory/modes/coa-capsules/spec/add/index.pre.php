@@ -18,7 +18,7 @@
     if($Form->submitted()) {
     
         //FOR ITEMS PROGRAMMATICALLY ADDED TO FORM
-        $postvars = array('productType','productCode','commonName','biologicalSource','plantPart','strengthVolume','alcoholContent','countryOfOrigin','colour','odour','taste','pH');	   
+        $postvars = array('productType','productCode','commonName','biologicalSource','plantPart','strengthVolume','alcoholContent','countryOfOrigin','colour');	   
     	$data = $Form->receive($postvars);     
     	
     	if($data['alcoholContent']=='25%'){

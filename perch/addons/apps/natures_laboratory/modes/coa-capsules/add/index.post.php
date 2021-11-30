@@ -70,12 +70,6 @@
 		echo $Form->text_field("colour","Colour",'');
 		echo "<div class='field-wrap spec'><small><strong>Spec:</strong> <span id='spec_colour'></span></small></div>";
 		
-		echo $Form->text_field("taste","Taste",'');
-		echo "<div class='field-wrap spec'><small><strong>Spec:</strong> <span id='spec_taste'></span></small></div>";
-		
-		echo $Form->text_field("odour","Odour",'');
-		echo "<div class='field-wrap spec'><small><strong>Spec:</strong> <span id='spec_odour'></span></small></div>";
-		
 		echo $Form->fields_from_template($Template, $details, $Properties->static_fields);
 		    
 		echo $Form->submit_field('btnSubmit', 'Add COA', $API->app_path());

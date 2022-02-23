@@ -14,7 +14,7 @@
     if($Form->submitted()) {
     
         //FOR ITEMS PROGRAMMATICALLY ADDED TO FORM
-        $postvars = array('productCode','productName','productType','notes','productRange');	   
+        $postvars = array('productCode','productName','productType','notes','productRange','restriction');	   
     	$data = $Form->receive($postvars);     
 
         $new_product = $NaturesLaboratoryLabelsProducts->create($data);

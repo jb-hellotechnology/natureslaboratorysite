@@ -309,36 +309,46 @@
 			    $third = 140;
 			    $fourth = 210;
 			    
+			    if($column==1){
+				    $rectX = 6;
+			    }else{
+				    $rectX = 105;
+			    }
+			    
 			    if($row==1){
 				    $imgY = 18;
 				    $y1 = 40;
-				    $y2 = 50;
+				    $y2 = 52;
 				    $y3 = 62;
 				    $y4 = 67;
+				    $rectY = 40;
 			    }
 			    
 			    if($row==2){
 				    $imgY = 86;
 				    $y1 = 108;
-				    $y2 = 118;
+				    $y2 = 120;
 				    $y3 = 130;
 				    $y4 = 135;
+				    $rectY = 107.5;
 			    }
 			    
 			    if($row==3){
 				    $imgY = 154;
 				    $y1 = 176;
-				    $y2 = 186;
+				    $y2 = 188;
 				    $y3 = 198;
 				    $y4 = 203;
+				    $rectY = 175.5;
 			    }
 			    
 			    if($row==4){
 				    $imgY = 221;
 				    $y1 = 243;
-				    $y2 = 253;
+				    $y2 = 255;
 				    $y3 = 265;
 				    $y4 = 262;
+				    $rectY = 243;
 			    }
 			    
 			    if($unit=='1000 CAPSULES'){
@@ -347,7 +357,21 @@
 			    
 			    $pdf->SetXY($x, $y1);
 				$pdf->SetFont('Arial','B',14);
+				
+				if($productData['restriction']=='allergen'){
+			    	$pdf->SetFillColor(244, 141, 2);
+			    	$pdf->SetTextColor(255, 255, 255);
+			    	$pdf->Rect($rectX,$rectY,70,10,'F');
+		    	}elseif($productData['restriction']=='poison'){
+			    	$pdf->SetFillColor(196, 30, 58);
+			    	$pdf->SetTextColor(255, 255, 255);
+			    	$pdf->Rect($rectX,$rectY,70,10,'F');
+		    	}else{
+			    	$pdf->SetTextColor(0, 0, 0);
+		    	}
+				
 				$pdf->Cell(90,10,"$categoryName $productCode",0);
+				$pdf->SetTextColor(0, 0, 0);
 				$pdf->SetFont('Arial','B',13);
 				$pdf->SetXY($x, $y2);
 				$pdf->MultiCell(60, 4, $productName, 0, "L");

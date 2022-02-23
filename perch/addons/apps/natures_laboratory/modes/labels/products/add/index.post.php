@@ -66,6 +66,11 @@
 		
 		echo $Form->text_field("notes","Notes",'');
 		    
+		$restriction[] = array('value'=>'', 'label'=>'None');
+		$restriction[] = array('value'=>'allergen', 'label'=>'Allergen');
+		$restriction[] = array('value'=>'poison', 'label'=>'Poison');
+		echo $Form->select_field('restriction','Restriction',$restriction,$details['restriction']);
+		
 		echo $Form->submit_field('btnSubmit', 'Create Product', $API->app_path());
 		
 		echo $Form->form_end();

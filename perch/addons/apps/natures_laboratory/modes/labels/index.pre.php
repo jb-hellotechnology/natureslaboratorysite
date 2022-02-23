@@ -432,6 +432,12 @@ error_reporting(E_ALL);
 					    $third = 140;
 					    $fourth = 210;
 					    
+					    if($column==1){
+						    $rectX = 5;
+					    }else{
+						    $rectX = 105;
+					    }
+					    
 					    if($row==1){
 						    $imgY = 18;
 						    $imgY2 = 20;
@@ -439,6 +445,7 @@ error_reporting(E_ALL);
 						    $y2 = 51;
 						    $y3 = 62;
 						    $y4 = 72;
+						    $rectY = 40;
 					    }
 					    
 					    if($row==2){
@@ -448,6 +455,7 @@ error_reporting(E_ALL);
 						    $y2 = 119;
 						    $y3 = 130;
 						    $y4 = 140;
+						    $rectY = 107.5;
 					    }
 					    
 					    if($row==3){
@@ -457,6 +465,7 @@ error_reporting(E_ALL);
 						    $y2 = 187;
 						    $y3 = 199;
 						    $y4 = 208;
+						    $rectY = 175.5;
 					    }
 					    
 					    if($row==4){
@@ -466,11 +475,26 @@ error_reporting(E_ALL);
 						    $y2 = 254;
 						    $y3 = 266;
 						    $y4 = 276;
+						    $rectY = 243;
 					    }
 					    
 					    $pdf->SetXY($x, $y1);
 						$pdf->SetFont('Arial','B',14);
+						
+						if($productData['restriction']=='allergen'){
+					    	$pdf->SetFillColor(244, 141, 2);
+					    	$pdf->SetTextColor(255, 255, 255);
+					    	$pdf->Rect($rectX,$rectY,70,10,'F');
+				    	}elseif($productData['restriction']=='poison'){
+					    	$pdf->SetFillColor(196, 30, 58);
+					    	$pdf->SetTextColor(255, 255, 255);
+					    	$pdf->Rect($rectX,$rectY,70,10,'F');
+				    	}else{
+					    	$pdf->SetTextColor(0, 0, 0);
+				    	}
+						
 						$pdf->Cell(90,10,"$productData[productType]   $productCode",0);
+						$pdf->SetTextColor(0, 0, 0);
 						$pdf->SetFont('Arial','B',10);
 						$pdf->SetXY($x, $y2);
 						$pdf->MultiCell(60, 4, $productName, 0, "L");

@@ -84,6 +84,11 @@
 		echo $Form->text_field("qty4","Q4",'');
 		echo $Form->text_field("qty5","Q5",'');
 		echo $Form->text_field("qty6","Q6",'');
+		
+		$restriction[] = array('value'=>'', 'label'=>'None');
+		$restriction[] = array('value'=>'allergen', 'label'=>'Allergen');
+		$restriction[] = array('value'=>'poison', 'label'=>'Poison');
+		echo $Form->select_field('restriction','Restriction',$restriction,$details['restriction']);
 		    
 		echo $Form->submit_field('btnSubmit', 'Add Stock', $API->app_path());
 		

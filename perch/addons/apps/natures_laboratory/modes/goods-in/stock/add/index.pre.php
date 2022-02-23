@@ -11,7 +11,7 @@
     if($Form->submitted()) {
     
         //FOR ITEMS PROGRAMMATICALLY ADDED TO FORM
-        $postvars = array('stockCode','description','category','component1','component2','component3','component4','component5','component6','qty1','qty2','qty3','qty4','qty5','qty6');	   
+        $postvars = array('stockCode','description','category','component1','component2','component3','component4','component5','component6','qty1','qty2','qty3','qty4','qty5','qty6','restriction');	   
     	$data = $Form->receive($postvars);      
 
         $new_time = $NaturesLaboratoryGoodsStock->create($data);

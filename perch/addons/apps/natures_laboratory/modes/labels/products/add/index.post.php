@@ -45,6 +45,7 @@
 		$productList[] = array('label'=>'Please Select', 'value'=>0);
 		$productList[] = array('label'=>'Tincture', 'value'=>'Tincture');
 		$productList[] = array('label'=>'Fluid Extract', 'value'=>'Fluid Extract');
+		$productList[] = array('label'=>'Other Liquid', 'value'=>'Other Liquid');
 		$productList[] = array('label'=>'Cut Herb', 'value'=>'Cut Herb');
 		$productList[] = array('label'=>'Powder', 'value'=>'Powder');
 		$productList[] = array('label'=>'Whole Herb', 'value'=>'Whole Herb');

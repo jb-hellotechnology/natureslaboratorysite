@@ -12,8 +12,8 @@ echo 'clock';
 	$json = file_get_contents('php://input');
 	$data = json_decode($json,true);
 	
-	$str = implode("|",$type);
-	//mail('jack@natureslaboratory.co.uk','data',$str);
+	$str = implode("|",$data);
+	mail('jack@natureslaboratory.co.uk','data',$str);
 	
 	
 	if($data['event']=='attendance.inserted'){

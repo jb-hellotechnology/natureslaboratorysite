@@ -14,7 +14,8 @@ echo 'clock';
 	
 	$str = implode("|",$data);
 	mail('jack@natureslaboratory.co.uk','data',$str);
-	
+	$data2 = implode("|",$data['data']);
+	mail('jack@natureslaboratory.co.uk','data2',$data2);
 	
 	if($data['event']=='attendance.inserted'){
 		

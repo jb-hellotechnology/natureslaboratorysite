@@ -12,16 +12,11 @@ echo 'clock';
 	$json = file_get_contents('php://input');
 	$data = json_decode($json,true);
 	
-	$str = implode("|",$data);
-	mail('jack@natureslaboratory.co.uk','data',$str);
-	$data2 = implode("|",$data['data']);
-	mail('jack@natureslaboratory.co.uk','data2',$data2);
-	
 	if($data['event']=='attendance.inserted'){
 		
 		$name = $data['data']['userFullName'];
 		$timeLoggedRounded = $data['data']['timeLoggedRounded'];
-		$attendanceStatus = $data['data']['attendanceStatusId'];
+		$attendanceStatus = $data['data']['clockingActionTypeId'];
 		
 		if($attendanceStatus == 0){
 			$attendanceStatus = 'clock in';

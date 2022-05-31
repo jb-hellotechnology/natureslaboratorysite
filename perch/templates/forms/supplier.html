@@ -1,0 +1,226 @@
+<perch:form id="supplier" app="factory_management" id="supplier_questionnaire">
+	
+	<div>
+	
+		<h2>Company Details</h2>
+		
+		<perch:label for="company_name">Company Name</perch:label>
+		<perch:input type="text" id="company_name" />
+	
+	</div>
+	
+	<div>
+	
+		<h2>Address</h2>
+		
+		<perch:label for="street_address">Street Address</perch:label>
+		<perch:input type="text" id="street_address" />
+		<perch:label for="street_address_2">Street Address 2</perch:label>
+		<perch:input type="text" id="street_address_2" />
+		<perch:label for="city">City</perch:label>
+		<perch:input type="text" id="city" />
+		<perch:label for="county">County</perch:label>
+		<perch:input type="text" id="county" />
+		<perch:label for="post_code">Post Code</perch:label>
+		<perch:input type="text" id="post_code" />
+		<perch:label for="country">Country</perch:label>
+		<perch:input type="text" id="country" />
+		
+	</div>
+	
+	<div>
+		
+		<h2>Phone Number</h2>
+		
+		<perch:input type="text" id="phone_number" />
+		
+	</div>
+	
+	<div>
+		
+		<h2>Email Of Contact Person</h2>
+		
+		<perch:input type="text" id="email_address" />
+		
+	</div>
+	
+	<div>
+		
+		<h2>People</h2>
+		
+		<perch:label for="managing_director">Managing Director</perch:label>
+		<perch:input type="text" id="managing_director" />
+		
+		<perch:label for="quality_manager">Quality Manager</perch:label>
+		<perch:input type="text" id="quality_manager" />
+		
+		<perch:label for="production_manager">Production Manager</perch:label>
+		<perch:input type="text" id="production_manager" />
+		
+		<perch:label for="number_of_employees">Number of Employees</perch:label>
+		<perch:input type="select" id="number_of_employees" options=",1 to 5,6 to 10,11 to 25,25+" />
+		
+	</div>
+	
+	<div>	
+		
+		<h2>Type of Business</h2>
+		
+		<perch:label for="manufacturer"><perch:input type="checkbox" id="manufacturer" value="Yes"> Manufacturer</perch:label>
+		<perch:label for="distributor"><perch:input type="checkbox" id="distributor" value="Yes"> Distributor</perch:label>
+		<perch:label for="retailer"><perch:input type="checkbox" id="retailer" value="Yes"> Retailer</perch:label>
+		
+	</div>
+	
+	<div>
+		
+		<h2>General Information About Regulatory Compliance</h2>
+		
+		<perch:label for="are_you_gmp_compliant">Are You GMP Compliant?</perch:label>
+		<perch:input type="select" id="are_you_gmp_compliant" options=",Yes,No,N/A" required />
+		<perch:label for="are_you_good_distribution_practices_compliant">Are You Good Distribution Practices Compliant?</perch:label>
+		<perch:input type="select" id="are_you_good_distribution_practices_compliant" options=",Yes,No,N/A" required />
+		<perch:label for="do_you_comply_with_GACP">Do You Comply With GACP?</perch:label>
+		<perch:input type="select" id="do_you_comply_with_GACP" options=",Yes,No,N/A" required />
+		<perch:label for="do_you_operate_a_haccp_system">Do You Operate a HACCP-Based System?</perch:label>
+		<perch:input type="select" id="do_you_operate_a_haccp_system" options=",Yes,No,N/A" required />
+		<perch:label for="do_you_have_full_traceability">Do You Have Full Traceability Of All Products Supplied To Our Company, From Manufacturing To Delivery?</perch:label>
+		<perch:input type="select" id="do_you_have_full_traceability" options=",Yes,No,N/A" required />
+		
+	</div>
+	
+	<div>
+		
+		<h2>Other Accreditations</h2>
+		
+		<perch:label for="iso9001"><perch:input type="checkbox" id="iso9001" value="Yes"> ISO9001:2015</perch:label>
+		<perch:label for="brc"><perch:input type="checkbox" id="brc" value="Yes"> BRC</perch:label>
+		<perch:label for="organic"><perch:input type="checkbox" id="organic" value="Yes"> Organic</perch:label>
+		<perch:label for="iso22000"><perch:input type="checkbox" id="iso22000" value="Yes"> IS22000</perch:label>
+		
+		<perch:label for="other_accreditation">Other - Please Specify</perch:label>
+		<perch:input type="text" id="other_accreditation" />
+		
+	</div>
+	
+	<div>
+		
+		<h2>Quality Management</h2>
+		
+		<perch:label for="how_many_work_in_manufacturing">How Many Employees Work In Manufacturing?</perch:label>
+		<perch:input type="text" id="how_many_work_in_manufacturing" />
+		
+		<perch:label for="how_many_work_in_qa_qc">How Many Employees Work In QA/QC/Inspection?</perch:label>
+		<perch:input type="text" id="how_many_work_in_qa_qc" />
+		
+		<perch:label for="who_is_responsible_for_quality_systems">Who Is Responsible For The Management Of Quality Systems?</perch:label>
+		<perch:input type="text" id="who_is_responsible_for_quality_systems" />
+		
+		<perch:label for="who_is_responsible_for_quality_management">Who Is Responsible For Quality Control Of Raw Materials And Finished Products?</perch:label>
+		<perch:input type="text" id="who_is_responsible_for_quality_management" />
+		
+		<perch:label for="do_you_have_a_quality_manual">Do You Have A Quality Manual?</perch:label>
+		<perch:input type="select" id="do_you_have_a_quality_manual" options=",Yes,No,N/A" required />
+		<perch:label for="do_you_have_a_documented_specification_for_items_supplied_to_our_company">Do You Have A Documented Specification For All Items Supplied To Our Company?</perch:label>
+		<perch:input type="select" id="do_you_have_a_documented_specification_for_items_supplied_to_our_company" options=",Yes,No,N/A" required />
+		<perch:label for="do_you_have_in_house_analysis_and_testing">Do You Have An In-House System For Analysis And Testing?</perch:label>
+		<perch:input type="select" id="do_you_have_in_house_analysis_and_testing" options=",Yes,No,N/A" required />
+		<perch:label for="can_you_provide_certificates_of_analysis">Can You Provide Certificates Of Analysis For Goods Supplied?</perch:label>
+		<perch:input type="select" id="can_you_provide_certificates_of_analysis" options=",Yes,No,N/A" required />
+		<perch:label for="documentation_for_eu_regulatory_limits">Is There Documentation To Assure Us That Products Supplied Are Within Current EU Regulatory Limits For Allergens, Aflatoxins, Pesticides And Heavy Metals?</perch:label>
+		<perch:input type="select" id="documentation_for_eu_regulatory_limits" options=",Yes,No,N/A" required />
+		<perch:label for="do_you_have_a_recall_policy">Do You Have A Product Recall Policy?</perch:label>
+		<perch:input type="select" id="do_you_have_a_recall_policy" options=",Yes,No,N/A" required />
+		<perch:label for="do_you_have_a_documented_complaints_procedure">Do You Have A Documented Complaints Procedure?</perch:label>
+		<perch:input type="select" id="do_you_have_a_documented_complaints_procedure" options=",Yes,No,N/A" required />
+		<perch:label for="do_you_have_an_internal_quality_audit_system">Do You Have An Internal Quality Audit System In Place?</perch:label>
+		<perch:input type="select" id="do_you_have_an_internal_quality_audit_system" options=",Yes,No,N/A" required />
+		
+		<perch:label for="frequency_of_raw_material_testing">What Is The Frequency Of Testing For Allergens, Aflatoxins, Pesticides, Heavy Metals, Microbial Count For Each Type Of Raw Material?</perch:label>
+		<perch:input type="select" id="frequency_of_raw_material_testing" options=",Every Batch, Regular Samples, Random Samples" required />
+		
+		<h2>General Information about Premises and Facilities</h2>
+		
+		<perch:label for="seperate_areas_for_raw_materials_to_dispatch">Are There Separate Areas For Handling Of Raw Materials, Manufacturing, Finished Product Storage, Packing and Dispatch?</perch:label>
+		<perch:input type="select" id="seperate_areas_for_raw_materials_to_dispatch" options=",Yes,No,N/A" required />
+		<perch:label for="are_there_documented_cleaning_records">Are There Documented Cleaning Records?</perch:label>
+		<perch:input type="select" id="are_there_documented_cleaning_records" options=",Yes,No,N/A" required />
+		<perch:label for="do_you_monitor_warehouse_temperature_humidity">Do You Monitor/Record The Warehouse Temperature and Humidity?</perch:label>
+		<perch:input type="select" id="do_you_monitor_warehouse_temperature_humidity" options=",Yes,No,N/A" required />
+		<perch:label for="pest_control_programme">Do You Have A Pest Control Programme?</perch:label>
+		<perch:input type="select" id="pest_control_programme" options=",Yes,No,N/A" required />
+		<perch:label for="system_to_record_calibration_of_equipment">Is There A System To Control And Record Calibration Of Measuring And Test Equipment?</perch:label>
+		<perch:input type="select" id="system_to_record_calibration_of_equipment" options=",Yes,No,N/A" required />
+		<perch:label for="hazardous_waste_management_programme">Do You Have A Hazardous Waste Management Programme In Place?</perch:label>
+		<perch:input type="select" id="hazardous_waste_management_programm" options=",Yes,No,N/A" required />
+		
+		<h2>Material Management</h2>
+		
+		<perch:label for="do_you_carry_out_quality_appraisals_on_suppliers_and_keep_records">Do You Carry Out Quality Appraisals On Your Suppliers And Maintain Records?</perch:label>
+		<perch:input type="select" id="do_you_carry_out_quality_appraisals_on_suppliers_and_keep_records" options=",Yes,No,N/A" required />
+		<perch:label for="do_you_maintain_a_list_of_approved_suppliers">Do You Maintain A List Of Approved/Key Suppliers?</perch:label>
+		<perch:input type="select" id="do_you_maintain_a_list_of_approved_suppliers" options=",Yes,No,N/A" required />
+		<perch:label for="is_there_a_system_in_place_to_ensure_expired_materials_are_not_supplied">Is There A System In Place To Ensure Expired Materials Are Not Supplied?</perch:label>
+		<perch:input type="select" id="is_there_a_system_in_place_to_ensure_expired_materials_are_not_supplied" options=",Yes,No,N/A" required />
+		<perch:label for="do_you_have_a_quarantine_system_for_materials">Do You Have A Quarantine System For Passed And Rejected Materials?</perch:label>
+		<perch:input type="select" id="do_you_have_a_quarantine_system_for_materials" options=",Yes,No,N/A" required />
+		<perch:label for="do_you_allocate_unique_batch_numbers">Do You Allocate A Unique Batch Number On Receipt Of Each Delivery?</perch:label>
+		<perch:input type="select" id="do_you_allocate_unique_batch_numbers" options=",Yes,No,N/A" required />
+		<perch:label for="can_this_number_be_traced_to_the_original_manufacturers_batch">Can This Number Be Traced Back To The Original Manufacturer's Batch?</perch:label>
+		<perch:input type="select" id="can_this_number_be_traced_to_the_original_manufacturers_batch" options=",Yes,No,N/A" required />
+		<perch:label for="materials_are_stored_and_shipped_according_to_original_manufacturers_instructions">Do You Ensure Materials Are Stored And Shipped In Accordance With The Manufacturer's Recommended Storage Instructions?</perch:label>
+		<perch:input type="select" id="materials_are_stored_and_shipped_according_to_original_manufacturers_instructions" options=",Yes,No,N/A" required />
+		<perch:label for="packaging_materials_conform_to_UK_standard">Do All Packaging Materials In Direct Contact With Raw Material Conform To Current UK/EU Materials And Articles In Food Regulations 1998?</perch:label>
+		<perch:input type="select" id="packaging_materials_conform_to_UK_standard" options=",Yes,No,N/A" required />
+		<perch:label for="confirm_materials_do_not_use_animal_products">Can You Confirm That Materials You Supply Do Not Use Materials Of Animal Origin Within Their Respective Manufacturing Processes?</perch:label>
+		<perch:input type="select" id="confirm_materials_do_not_use_animal_products" options=",Yes,No,N/A" required />
+		<perch:label for="do_you_handle_allergens_on_site">Do You Handle Allergens On Site?</perch:label>
+		<perch:input type="select" id="do_you_handle_allergens_on_site" options=",Yes,No,N/A" required />
+		
+		<h2>Production</h2>
+		
+		<perch:label for="do_you_repackage_material">Do You Re-Package Material?</perch:label>
+		<perch:input type="select" id="do_you_repackage_material" options=",Yes,No,N/A" required />
+		<perch:label for="does_this_involve_a_change_of_container">Does This Involve A Change To The Original Manufacturer's Container?</perch:label>
+		<perch:input type="select" id="does_this_involve_a_change_of_container" options=",Yes,No,N/A" required />
+		<perch:label for="dedicated_area_repackaging_operation">Do You Have A Dedicated Area Re-Packaging Operation?</perch:label>
+		<perch:input type="select" id="dedicated_area_repackaging_operation" options=",Yes,No,N/A" required />
+		<perch:label for="gmp_principles_apply_to_this_operation">If So, Do You Apply GMP Principles To This Operation?</perch:label>
+		<perch:input type="select" id="gmp_principles_apply_to_this_operation" options=",Yes,No,N/A" required />
+		<perch:label for="do_you_inspect_goods_prior_to_dispatch">Do You Inspect Goods Prior To Dispatch?</perch:label>
+		<perch:input type="select" id="do_you_inspect_goods_prior_to_dispatch" options=",Yes,No,N/A" required />
+		<perch:label for="can_we_audit_your_facilities">Would You Allow Us To Audit Your Facilities On A Mutually Agreed Date?</perch:label>
+		<perch:input type="select" id="can_we_audit_your_facilities" options=",Yes,No,N/A" required />
+		
+		<h2>Records</h2>
+		
+		<perch:label for="are_all_coas_retained">Are All Certificates Of Analysis Including Those Of The Original Manufacturer Retained?</perch:label>
+		<perch:input type="select" id="are_all_coas_retained" options=",Yes,No,N/A" required />
+		<perch:label for="can_materials_be_traced_to_the_original_manufacturer">Can Materials Be Traced Back To Their Original Manufacturer?</perch:label>
+		<perch:input type="select" id="can_materials_be_traced_to_the_original_manufacturer" options=",Yes,No,N/A" required />
+		
+		<perch:label for="how_long_records_maintained">Please Indicate How Long Records Are Maintained?</perch:label>
+		<perch:input type="select" id="how_long_records_maintained" options=",Less Than 6 Months, 6 Months - 1 Year, 1 Year - 2 Years, Greatet Than 2 Years" required />
+		
+		<h2>Personnel and Education</h2>
+		
+		<perch:label for="do_employees_have_adequate_training">Do Employees Have Adequate Training For Their Responsibilities?</perch:label>
+		<perch:input type="select" id="do_employees_have_adequate_training" options=",Yes,No,N/A" required />
+		<perch:label for="is_training_documented_for_each_employee">Is Training Documented For Each Employee?</perch:label>
+		<perch:input type="select" id="is_training_documented_for_each_employee" options=",Yes,No,N/A" required />
+		<perch:label for="are_training_records_retained">Are Training Records Retained?</perch:label>
+		<perch:input type="select" id="are_training_records_retained" options=",Yes,No,N/A" required />
+		
+		<h2>Additional Comments</h2>
+		
+		<perch:input type="textarea" id="additional_comments" />
+		
+		<h2>Name and Position of the Person Who Completed the Form?</h2>
+		
+		<perch:input type="textarea" id="who_completed_the_form" />
+		
+		<h2>Ready?</h2>
+		
+		<perch:inputy type="submit" value="Submit" />
+
+</perch:form>

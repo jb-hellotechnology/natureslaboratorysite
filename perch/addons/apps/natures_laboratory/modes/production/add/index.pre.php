@@ -6,6 +6,9 @@
     
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
+    $Template = $API->get('Template');
+
+    $Template->set('natures_laboratory/production_wpo.html','nl');
 
     if($Form->submitted()) {
     

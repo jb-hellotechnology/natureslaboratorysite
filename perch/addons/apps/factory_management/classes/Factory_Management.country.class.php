@@ -1,0 +1,9 @@
+<?php
+/**
+ * A class representing a single Thing item
+ */
+class Factory_Management_Country extends PerchAPI_Base
+{
+    protected $table     = 'fm_countries';
+	protected $pk        = 'countryID';
+}

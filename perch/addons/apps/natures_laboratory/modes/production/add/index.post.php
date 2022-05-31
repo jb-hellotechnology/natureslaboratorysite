@@ -38,10 +38,29 @@
 		
 		echo $Form->form_start();
 		
-		$vesselList[] = array('label'=>'Test 1', 'value'=>'test-1');
-		$vesselList[] = array('label'=>'Test 2', 'value'=>'test-2');
-		$vesselList[] = array('label'=>'Production 1', 'value'=>'production-2');
-		echo $Form->select_field("vessel","Vessel",$vesselList,'');
+		$productCodeList[] = array('label'=>'Item', 'value'=>'Value');
+		
+		echo $Form->select_field("productCode","Product Code",$productCodeList,'');
+		
+		echo $Form->text_field("description","Description",'');
+		
+		echo $Form->text_field("specification","Specification",'');
+		
+		echo $Form->text_field("packagingRequirements","Packaging Requirements",'');
+		
+		echo $Form->text_field("labellingRequirements","Labelling Requirements",'');
+		
+		echo $Form->text_field("quantityRequired","Quantity Required",'');
+		
+		echo $Form->text_field("quantityRequired","Quantity Required",'');
+		
+		echo $Form->fields_from_template($Template, '', $NaturesLaboratoryProduction->static_fields);
+		
+		echo $Form->date_field("dateIn","Date Went Into Production",'');
+		
+		echo $Form->date_field("dateDueToPress","Date Due To Press",'');
+		
+		echo $Form->date_field("datePressed","Date Pressed",'');
 
 		echo $Form->text_field("description","Description",'');
 		echo $Form->text_field("batch","Batch Number",'');

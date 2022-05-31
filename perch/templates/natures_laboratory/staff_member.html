@@ -14,3 +14,9 @@
 <perch:nl id="sickDays" type="text" label="Sick Day Allowance" />
 <perch:nl id="compassionateDays" type="text" label="Compassionate Leave Allowance" />
 <perch:nl id="volunteerDays" type="text" label="Volunteer Days Allowance" />
+
+<perch:repeater id="hrconversations" divider-before="HR Conversations">
+	<perch:nl id="date" type="date" label="Date of Conversation" />
+	<perch:nl id="who" type="text" label="Who Talked with Staff Member" />
+	<perch:nl id="conversation" type="textarea" html editor="redactor" label="Content of Conversation" />
+</perch:repeater>

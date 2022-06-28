@@ -1,0 +1,329 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+:root {
+  --size-300: 0.75rem;
+  --size-400: 1rem;
+  --size-500: 1.33rem;
+  --size-600: 1.77rem;
+  --size-700: 2.36rem;
+  --size-800: 3.15rem;
+  --size-900: 4.2rem;
+}
+
+body {
+  background: #f3f3f3;
+  color: #252525;
+  line-height: 1.5;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: 2rem;
+}
+
+a:not([class]) {
+  color: currentColor;
+}
+
+:focus {
+  outline: 2px dashed;
+  outline-offset: 0.25rem;
+}
+
+main:focus {
+  outline: none;
+}
+
+
+[href]:hover {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue,
+    helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  line-height: 1.3;
+}
+
+h1,
+h2 {
+  font-weight: 900;
+}
+
+h1 {
+  font-size: var(--size-700);
+}
+
+h2 {
+  font-size: var(--size-600);
+}
+
+h3 {
+  font-size: var(--size-600);
+}
+
+img {
+  max-width: 50rem;
+}
+
+figcaption {
+  font-size: var(--size-300);
+
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+blockquote {
+  padding-left: var(--size-600);
+  border-left: 5px solid;
+  font-style: italic;
+}
+
+::selection {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.99);
+}
+
+.flow > * + * {
+  margin-top: var(--flow-space, 1em);
+}
+
+p,
+li {
+  max-width: 60ch;
+}
+
+h1 {
+  max-width: 15ch;
+}
+
+h2,
+h3 {
+  max-width: 25ch;
+}
+
+.post {
+  --flow-space: var(--size-700);
+
+  width: 90vw;
+  width: clamp(16rem, 90vw, 70rem);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.post time {
+  --flow-space: var(--size-400);
+  display: block;
+}
+
+.post :is(h2, h3) {
+  --flow-space: var(--size-900);
+}
+
+.post :is(h2, h3) + * {
+  --flow-space: var(--size-400);
+}
+
+.post figure,
+.post figure + * {
+  --flow-space: var(--size-900);
+}
+
+@media (min-width: 45em) {
+  h1 {
+    font-size: var(--size-900);
+  }
+
+  h2 {
+    font-size: var(--size-700);
+  }
+
+  p {
+    font-size: var(--size-500);
+  }
+
+  figcaption {
+    font-size: var(--size-400);
+  }
+
+  blockquote p {
+    font-size: var(--size-600);
+    max-width: 40ch;
+  }
+
+  .post time {
+    font-size: var(--size-600);
+  }
+}
+
+main{
+	max-width:1440px;
+	margin:0 auto;
+	display:block;
+}
+
+h1{
+	margin-bottom:2.4rem;
+}
+
+.grid{
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 2rem;
+	grid-row-gap: 2rem;
+	margin:4rem 0;
+}
+
+.card{
+	background:#fff;
+	border-radius: 4px;
+	padding:1.5rem;
+	box-shadow:0px 0px 10px #777;
+}
+
+.card h4{
+	border:3px dashed #777;
+	text-align: center;
+	font-family: monospace;
+	padding:0.5rem;
+	font-size:1.2rem;
+	background:#f1f2f2;
+	margin-bottom:1rem;
+}
+
+a.site-link{
+	width:100%;
+	display:block;
+	text-align: center;
+	padding:1rem;
+	background:#92d60a;
+	color:#fff;
+	text-decoration: none;
+	border-radius:2px;
+	box-shadow: 0px 0px 5px #ccc;
+	margin-top:1rem;
+}
+
+a.site-link:hover{
+	background:#6c9a0e;
+}
+
+small{
+	border-top:1px solid #eee;
+	width:100%;
+	color:#777;
+	display:block;
+	padding-top:0.3rem;
+	margin-top:1rem;
+}
+
+ul{
+	margin-left:0px;
+	padding-left:0px;
+}
+
+ul li{
+	display:inline-block;
+	margin-right:1rem;
+	font-size:2rem;
+}
+
+ul li a:hover{
+	color:#92d60a;
+}
+
+img{
+	max-width:100%;
+}
+
+footer{
+	color:#777;
+}
+
+@media screen and (max-width:1024px){
+	.grid{
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media screen and (max-width:580px){
+	.grid{
+		grid-template-columns: 1fr;
+	}
+}

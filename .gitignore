@@ -36,3 +36,9 @@ perch/*
 
 !src
 !src/**
+
+!offers
+!offers/**
+
+!find-us
+!find-us/**

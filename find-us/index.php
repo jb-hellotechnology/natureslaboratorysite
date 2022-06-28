@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Natures Laboratory Brands</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=<?= rand() ?>">
     <script src="https://kit.fontawesome.com/143a89c347.js" crossorigin="anonymous"></script>
   </head>
   <body>

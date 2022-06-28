@@ -10,7 +10,7 @@
   </head>
   <body>
     <main>
-        <h1>Natures Laboratory Brands</h1>
+        <h1>Natures Laboratory</h1>
         <div class="grid">
             
             <div class="card">

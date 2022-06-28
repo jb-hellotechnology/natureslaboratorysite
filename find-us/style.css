@@ -255,6 +255,8 @@ h1{
 	border-radius: 4px;
 	padding:1.5rem;
 	box-shadow:0px 0px 10px #777;
+	position: relative;
+	padding-bottom:4rem;
 }
 
 .card h4{
@@ -278,6 +280,9 @@ a.site-link{
 	border-radius:2px;
 	box-shadow: 0px 0px 5px #ccc;
 	margin-top:1rem;
+	position:absolute;
+	bottom:0px;
+	left:0px;
 }
 
 a.site-link:hover{

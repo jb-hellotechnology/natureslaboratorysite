@@ -233,7 +233,9 @@ h3 {
 }
 
 main{
-	
+	max-width:1440px;
+	margin:0 auto;
+	display:block;
 }
 
 h1{

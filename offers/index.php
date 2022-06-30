@@ -22,7 +22,7 @@
 	        </div>
 	        <div class="card herbal flow">
 	            <h2>10% Off For Graduates</h2>
-	            <p><strong>To help recent graduates launch their natural health practices</strong></p>
+	            <p><strong>To help recent graduates from degree-level courses launch their natural health practices</strong></p>
 	            <small>How to Apply</small>
 	            <h4>Contact Us</h4>
 	            <p>Get in touch with our team and we'll send you a unique discount code</p>                 

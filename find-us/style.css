@@ -362,9 +362,45 @@ footer p{
 	max-width:100%;
 }
 
+.grid.surveys{
+	grid-template-columns: 1fr 1fr;
+}
+
+.grid.surveys h2{
+	display:block;
+	font-size:var(--size-500);
+}
+
+.grid.surveys p{
+	font-size:var(--size-400);
+}
+
+.grid.surveys .card{
+	display:grid;
+	grid-template-columns: 100px auto;
+	grid-column-gap: 2rem;
+	padding-bottom:1.5rem;
+}
+
+.grid.surveys .card a *{
+	text-decoration: none;
+	border-bottom:none;
+}
+
+.grid.surveys .card img{
+	height:100%;
+	object-fit:cover;
+}
+
 @media screen and (max-width:1024px){
 	.grid{
 		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media screen and (max-width:768px){
+	.grid.surveys{
+		grid-template-columns: 1fr;
 	}
 }
 

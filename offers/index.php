@@ -12,7 +12,7 @@
         <h1>Nature's Laboratory Offers &amp; Discounts</h1>
         <h2>Herbal Apothecary</h2>
         <section class="grid">
-	        <div class="card flow">
+	        <div class="card herbal flow">
 	            <h2>5% Off In July</h2>
 	            <p><strong>To celebrate the NIMH 'Power of Plants Festival'</strong></p>
 	            <small>Discount Code</small>
@@ -20,7 +20,7 @@
 	            <p>Use this code on our website to get 5% all orders placed throughout July.</p>                 
 	            <p><a class="site-link" href="https://herbalapothecaryuk.com/">Shop Now</a></p>
 	        </div>
-	        <div class="card flow">
+	        <div class="card herbal flow">
 	            <h2>10% Off For Graduates</h2>
 	            <p><strong>To help recent graduates launch their natural health practices</strong></p>
 	            <small>How to Apply</small>
@@ -31,7 +31,7 @@
 		</section>
 		<h2>Sweet Cecily's</h2>
         <section class="grid">
-	        <div class="card flow">
+	        <div class="card sweetcecilys flow">
 	            <h2>10% Off Your First Order</h2>
 	            <p><strong>To celebrate the NIMH 'Power of Plants Festival'</strong></p>
 	            <small>Discount Code</small>
@@ -42,7 +42,7 @@
 		</section>
 		<h2>BeeVital</h2>
         <section class="grid">
-	        <div class="card flow">
+	        <div class="card beevital flow">
 	            <h2>10% Off Your First Order</h2>
 	            <p><strong>To celebrate the NIMH 'Power of Plants Festival'</strong></p>
 	            <small>Discount Code</small>
@@ -50,7 +50,17 @@
 	            <p>Use this code on our website to get 10% off your first order.</p>                 
 	            <p><a class="site-link" href="https://beevitalpropolis.com/">Shop Now</a></p>
 	        </div>
+	        <div class="card beevital flow">
+	            <h2>Free Bamboo Toothbrush</h2>
+	            <p><strong>To celebrate the launch of our re-formulated toothpaste, get a free bamboo toothbrush with every BeeVital order placed in July.</strong></p>
+	            <small>Free Gift</small>
+	            <h4>BAMBOO TOOTHBRUSH</h4>
+	            <p>Shop online via our website and we'll send you a free toothbrush!</p>                 
+	            <p><a class="site-link" href="https://beevitalpropolis.com/">Shop Now</a></p>
+	        </div>
 		</section>
     </main>
-    <footer>&copy; Natures Laboratory Ltd 2022 &bull; Offers May Be Withdrawn At Any Time Without Warning</footer>
+    <footer>
+	    <p>&copy; Natures Laboratory Ltd 2022 &bull; Offers May Be Withdrawn At Any Time Without Warning</p>
+	</footer>
   </body>

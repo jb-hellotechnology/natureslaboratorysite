@@ -257,6 +257,7 @@ h1{
 	box-shadow:0px 0px 10px #777;
 	position:relative;
 	padding-bottom:4rem;
+	overflow:hidden;
 }
 
 .card h4{
@@ -311,4 +312,120 @@ footer{
 	.grid{
 		grid-template-columns: 1fr;
 	}
+}
+
+.herbal input[type=submit], .herbal a.site-link{
+	background:#019587;
+	color:#fff;
+	font-weight:700;
+}
+
+.herbal input[type=submit]:hover, .herbal a.site-link:hover{
+	background:#A7BC09;
+	cursor:pointer;
+}
+
+.herbal ul li a i{
+	color:#019587;
+}
+
+.herbal ul li a:hover i{
+	color:#A7BC09;
+}
+
+.beevital input[type=submit], .beevital a.site-link{
+	background:url('fractal.jpg') top left;
+	color:#fff;
+	font-weight:700;
+}
+
+.beevital input[type=submit]:hover, .beevital a.site-link:hover{
+	background:url('fractal.jpg') bottom right;
+	cursor:pointer;
+}
+
+.beevital ul li a i{
+	color:#E53F66;
+}
+
+.beevital ul li a:hover i{
+	color:#D4E423;
+}
+
+.sweetcecilys input[type=submit], .sweetcecilys a.site-link{
+	background:#f8d8e6;
+	color:#fff;
+	font-weight:700;
+}
+
+.sweetcecilys input[type=submit]:hover, .sweetcecilys a.site-link:hover{
+	background:#000;
+	cursor:pointer;
+}
+
+.sweetcecilys ul li a i{
+	color:#f8d8e6;
+}
+
+.sweetcecilys ul li a:hover i{
+	color:#000;
+}
+
+.herbjar input[type=submit], .herbjar a.site-link{
+	background:#156b29;
+	color:#fff;
+	font-weight:700;
+}
+
+.herbjar input[type=submit]:hover, .herbjar a.site-link:hover{
+	background:#68a1ce;
+	cursor:pointer;
+}
+
+.herbjar ul li a i{
+	color:#156b29;
+}
+
+.herbjar ul li a:hover i{
+	color:#68a1ce;
+}
+
+.jack input[type=submit], .jack a.site-link{
+	background:#7d98ce;
+	color:#fff;
+	font-weight:700;
+}
+
+.jack input[type=submit]:hover, .jack a.site-link:hover{
+	background:#f1da00;
+	color:#000;
+	cursor:pointer;
+}
+
+.jack ul li a i{
+	color:#7d98ce;
+}
+
+.jack ul li a:hover i{
+	color:#f1da00;
+}
+
+.future input[type=submit], .future a.site-link{
+	background:#c3767c;
+	color:#fff;
+	font-weight:700;
+}
+
+.future input[type=submit]:hover, .future a.site-link:hover{
+	background:#6b6b6d;
+	color:#fff;
+	cursor:pointer;
+}
+
+.future ul li a i{
+	color:#c3767c;
+}
+
+.future ul li a:hover i{
+	color:#6b6b6d;
 }

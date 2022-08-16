@@ -52,6 +52,8 @@
 		}
 		echo $Form->select_field("productCode_new","Product Code",$stockList,'');
 		
+		echo '<div id="batches" style="padding-left:36px;"></div>';
+		
 		$batchList[] = array('label'=>'Please Select', 'value'=>0);
 		foreach($batch as $Batch){
 			$batchList[] = array('label'=>$Batch->ourBatch().' | '.$Batch->productDescription(), 'value'=>$Batch->ourBatch());

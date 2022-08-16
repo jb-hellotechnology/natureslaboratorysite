@@ -30,6 +30,28 @@ class Natures_Laboratory_Goods_Ins extends PerchAPI_Factory
 		
 	}
 	
+	public function getBatchesData($batch){
+		
+		$sql = 'SELECT suppliersBatch, ourBatch, productCode FROM perch3_natures_laboratory_goods_in WHERE productCode="'.$batch.'" ORDER BY dateIn DESC';
+		$data = $this->db->get_rows($sql);
+		$coa = false;
+		if($data){
+			$html = '<p><strong>Replicate Existing COA Data</strong></p><table><tr><th>Supplier&rsquo;s Batch</th><th>Our Batch</th></tr>';
+			foreach($data as $row){
+				$sql2 = 'SELECT * FROM perch3_natures_laboratory_coa WHERE productCode="'.$row['productCode'].'" AND ourBatch="'.$row['ourBatch'].'"';
+				$data2 = $this->db->get_row($sql2);
+				if($data2){
+					$coa = true;
+					$html .= '<tr><td><a href="javascript:selectCOA(\'coa_'.$data2['natures_laboratory_coaID'].'\')" id="coa_'.$data2['natures_laboratory_coaID'].'" data-coa=\''.str_replace("'","",addslashes(json_encode($data2,true))).'\'>'.$row['suppliersBatch'].'</a></td><td>'.$row['ourBatch'].'</td></tr>';
+				}
+			}
+			$html .= '</tr>';
+		}
+		if($coa){
+			return $html;
+		}
+	}
+	
 	public function stockItem($stockCode){
 		
 		$sql = 'SELECT * FROM perch3_natures_laboratory_goods_stock WHERE stockCode="'.$stockCode.'"';

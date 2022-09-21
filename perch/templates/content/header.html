@@ -1,26 +1,9 @@
 
-<header class="c-hero c-hero--integrated-nav l-wrap" 
-
-style="background-image: url(
-    <perch:if exists="customHero">
-        <perch:content id="customHero" type="hidden">
-    <perch:else>
-        <perch:content label="Hero Image" id="mainHeroImage" height="700" width="2000" crop="true" type="hidden" />
+<header class="c-hero">
+    <div class="l-wrap">
+    <perch:if exists="logo">
+        <img src="<perch:content id="logo" type="image" label="Logo">" alt="Nature's Laboratory Logo" class="c-hero__title-logo">
     </perch:if>
-)">
-    <perch:layout path="global.navigation">
-    <div class="c-hero__bg-mask"></div>
-    <div class="c-hero__title-wrapper c-hero__title-wrapper--<perch:content type="select" id="hero_type" options="default, no-bg" label="Text Background">">
-        <perch:if exists="logo">
-            <img src="<perch:content id="logo" type="image" label="Logo">" alt="Nature's Laboratory Logo" class="c-hero__title-logo">
-        </perch:if>
-        <h1 class="c-hero__title">
-            <perch:if exists="customTitle">
-                <perch:content id="customTitle" type="hidden">
-            <perch:else>
-                <perch:content id="title" label="Title" type="text" />
-            </perch:if>
-        </h1>
     </div>
 </header>
 

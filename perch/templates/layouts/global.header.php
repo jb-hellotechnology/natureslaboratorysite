@@ -17,18 +17,13 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
 	<link rel="preconnect" href="https://kit.fontawesome.com" crossorigin />
 
-	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap" media="print" onload="this.media='all'" />
-	<noscript>
-		<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-	</noscript>
-	<link rel="stylesheet" href="/assets/css/base.css?v=<?php echo rand(); ?>">
-	<link rel="stylesheet" href="/assets/css/layout.css?v=<?php echo rand(); ?>">
-	<link rel="stylesheet" href="/assets/css/components.css?v=<?php echo rand(); ?>">
+	<link rel="stylesheet" href="/assets/fonts/Noway-Medium-Italic-webfont/stylesheet.css">
+	<link rel="stylesheet" href="/assets/fonts/Noway-Medium-webfont/stylesheet.css">
+	<link rel="stylesheet" href="/assets/fonts/Noway-Regular-Italic-webfont/stylesheet.css">
+	<link rel="stylesheet" href="/assets/fonts/Noway-Regular-webfont/stylesheet.css">
+	
 	<link rel="stylesheet" href="/assets/css/stylesheet.css?v=<?php echo rand(); ?>">
 </head>
 
@@ -50,4 +45,4 @@
 
 		perch_content_custom("Header", $options);
 	?>
-	
+	<main class="l-wrap">

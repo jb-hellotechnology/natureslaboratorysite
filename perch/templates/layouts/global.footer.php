@@ -2,7 +2,7 @@
 	
 	<footer class="c-footer">
 		<div class="l-wrap">
-			<p class="copyright">&copy; <?php echo date('Y'); ?></p>
+			<p class="copyright">&copy; Nature's Laboratory Limited <?php echo date('Y'); ?></p>
 		</div>
 	</footer>
 	</body>

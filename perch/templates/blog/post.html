@@ -1,5 +1,5 @@
-<perch:blog id="postTitle" type="text" label="Title" required="true" size="xl autowidth" order="1" suppress="true" />
-<perch:blog id="featureImage" type="image" width="150" height="150" crop="true" label="Feature Image" suppress="true"/>
+<h1><perch:blog id="postTitle" type="text" label="Title" required="true" size="xl autowidth" order="1" /></h1>
+<perch:blog id="featureImage" type="image" width="400" height="200" crop="true" label="Feature Image" suppress="true"/>
 <div class="l-row">
     <div class="col-centered">
         <article class="c-article">
@@ -7,16 +7,13 @@
                 <div class="c-post-details">
                     <perch:template path="blog/post_details.html" />
                 </div>
-                
-                <perch:layout path="tags" slug="<perch:blog id="postSlug">"/>
-            
             </p>
             <perch:if exists="image">
                 <div>
                     <img src="<perch:blog id="authorImage" type="image" width="100" height="100" crop="true" label="Author Image" order="4" />" alt="<perch:blog id="authorGivenName" type="hidden" />" />
                 </div>
             </perch:if>
-            <div class="c-post l-flow">
+            <div class="c-post l-flow flow">
                 <perch:template path="content/blocks/post_blocks.html" />
             </div>
         </article>

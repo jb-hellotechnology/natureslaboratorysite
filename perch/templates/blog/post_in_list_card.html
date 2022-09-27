@@ -1,29 +1,19 @@
 <perch:before>
     <div class="c-post-cards">
 </perch:before>
-        <div class="c-post-card c-post-card--<perch:blog id="type">">
-            <div class="c-post-card__content">
+        <div class="c-post-card c-post-card--<perch:blog id="type"> ">
+            <div class="c-post-card__content flow">
                 <a href="/news/<perch:if exists="section"><perch:blog id="section"><perch:else>post</perch:if>/<perch:blog id="postSlug">" rel="bookmark" class="c-post-card__title-link">
                     <h2 class="c-post-card__title">
                         <perch:blog id="postTitle" />
                     </h2>
                 </a>
-                <p class="c-post-card__author"><a class="c-post-card__author-link" href="/news/author/<perch:blog id="authorSlug">"><perch:blog id="authorGivenName" type="hidden" label="Name" /> <perch:blog id="authorFamilyName" type="hidden" /></a> in <a class="c-post-card__author-link" href="/news/<perch:blog id="sectionSlug">"><perch:blog id="sectionTitle"/></a></p>
-                
-                <div class="c-post-card__details">
-                    <perch:if exists="authorImage">
-                        <img class="c-post-card__image" src="<perch:blog id="authorImage">" alt="<perch:blog id="authorGivenName">">
-                    </perch:if>
-                </div>
-                <perch:layout path="tags" slug="<perch:blog id="postSlug">"/>
+                <p class="c-post-card__date"><perch:blog id="postDateTime" type="date" time="true" format="%d %B %Y" label="Date Published"/></p>
                 <div class="c-post-card__description l-flow">
                     <perch:blog id="excerpt" type="textarea" textile="true" />
                 </div>
-                <p class="c-post-card__date"><perch:blog id="postDateTime" type="date" time="true" format="%d %B %Y" label="Date Published"/></p>
+                <p><a href="/news/<perch:if exists="section"><perch:blog id="section"><perch:else>post</perch:if>/<perch:blog id="postSlug">" rel="bookmark" class="c-button">Read Post</a></p>
             </div>
-            <a href="/news/<perch:if exists="section"><perch:blog id="section"><perch:else>post</perch:if>/<perch:blog id="postSlug">" rel="bookmark" class="c-post-card__feature-image-wrapper">
-                <img src="<perch:blog id="featureImage" height="300" width="300" crop>" alt="Feature Image" class="c-post-card__feature-image">
-            </a>
         </div>
 <perch:after>
 </div>

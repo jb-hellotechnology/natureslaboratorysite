@@ -8,6 +8,10 @@
   --size-900: 4.2rem;
 }
 
+*{
+	box-sizing: border-box;
+}
+
 body {
   background: #f2f2f2;
   color: #014040;
@@ -20,10 +24,12 @@ a:not([class]) {
   color: currentColor;
 }
 
+/*
 :focus {
   outline: 2px dashed;
   outline-offset: 0.25rem;
 }
+*/
 
 main:focus {
   outline: none;
@@ -141,7 +147,7 @@ h3 {
     font-size: var(--size-700);
   }
 
-  p {
+  p, ul, .c-navigation ul li {
     font-size: var(--size-500);
   }
 
@@ -159,6 +165,14 @@ h3 {
   }
 }
 
+a{
+	color:#7b8c3b;
+}
+
+a:hover{
+	color:#f0b435;
+}
+
 .l-wrap{
 	max-width:1280px;
 	margin:0 auto;
@@ -170,17 +184,251 @@ header{
 	padding:2rem 0;
 }
 
+header .l-wrap{
+	display:grid;
+	grid-template-columns: 1fr 4fr;
+}
+
 header img{
 	height:140px;
 	width:auto;
+	displat:block;
+}
+
+.c-navigation ul{
+	display: inline-block;
+	list-style: none;
+	float:right;
+	text-align: center;
+	line-height:140px;
+	margin:0;
+	padding:0;
+}
+
+.c-navigation ul li{
+	display:inline-block;
+	margin:0 2rem;
+}
+
+.c-navigation ul li a{
+	color:#014040;
+}
+
+.c-navigation ul li a:hover{
+	color:#f0b435;
+}
+
+.hide{
+	display:none;
+}
+
+.c-navigation .c-hamburger.hide{
+	position:absolute;
+	top:0px;
+	right:0px;
+	width:200px;
+	max-width:100%;
+	text-align: right;
+	padding:0;
+}
+
+.c-navigation .c-hamburger ul{
+	line-height:4rem;
+	text-align: right;
+	background:#fff;
+}
+
+.c-navigation .c-hamburger ul li{
+	border-bottom:1px solid #ccc;
+	width:100%;
+	margin:0;
+	padding:0 1rem;
+}
+
+button{
+	width:100%;
+	border:none;
+	background:none;
+	color: #014040;
+	border-bottom:1px solid #ccc;
+	font-size:var(--size-400);
+	font-family: 'nowayregular', Georgia, serif;
+	line-height:4rem;
+	text-align: right;
+	padding-right:1rem;
+}
+
+button:focus{
+	border:none;
+}
+
+.c-post-card__date{
+	font-size: var(--size-400);
 }
 
 footer{
-	margin-top:100px;
+	margin:100px 0;
+}
+
+footer p{
+	font-size:var(--size-400);
+}
+
+aside{
+	background: #014040;
+	margin-top:200px;
+	padding:0 2rem;
+}
+
+aside .l-wrap{
+	padding:2rem 0;
+	display:grid;
+	max-width: 1280px;
+	margin: 2rem auto;
+	grid-template-columns: 2fr 1fr 1fr;
+	grid-column-gap: 2rem;
+}
+
+aside h2,
+aside h3,
+aside p,
+aside a{
+	color: #fff;
+}
+
+aside a:hover{
+	color:#f0b435;
+}
+
+.l-card,
+.c-post-card{
+	width:100%;
+	display:grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 2rem;
+	background:#fff;
+	border:1px solid #ccc;
+	box-shadow:0px 0px 30px #ccc;
+	margin:2rem 0;
+}
+
+.l-card h2,
+.c-post-card h2{
+	margin-top:0px;
+}
+
+.c-post-card{
+	grid-template-columns: 1fr;
+	padding:2rem;
+}
+
+.l-text{
+	padding:10%;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.l-card img{
+	display:block;
+	height:100%;
+	object-fit:cover;
+}
+
+.l-contact{
+	width:100%;
+	display:grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 2rem;
+	margin:2rem 0;
+}
+
+label{
+	font-size:var(--size-500);
+	display:block;
+}
+
+input,
+textarea,
+.c-button{
+	background:#fff;
+	padding:1rem;
+	font-size:var(--size-500);
+	color: #014040;
+	font-family: 'nowayregular', Georgia, serif;
+	margin:1rem 0;
+	width:100%;
+	border:1px solid #ccc;
+	box-sizing:border-box;
+}
+
+.c-button,
+input[type=submit]{
+	background:#7b8c3b;
+	color:#fff;
+	text-decoration: none;
+	cursor: pointer;
+	margin-top:1rem;
+	display:inline-block;
+	width:200px;
+	text-align: center;
+}
+
+.c-button:hover,
+input[type=submit]:hover{
+	background:#f0b435;
+	color:#fff;
+}
+
+@media screen and (max-width:900px){
+	header img{
+	  height:90px;
+	  max-width:100%;
+	  object-fit:contain;
+	  object-position:top left;
+    }
+    header .l-wrap{
+	    grid-template-columns: 1fr 1fr;
+    }
+	aside .l-wrap{
+		grid-template-columns: 1fr;
+	}
+	.c-navigation ul{
+		display:none;
+	}
+	.c-hamburger.hide{
+		display:block;
+		height: auto;
+	}
+	.c-hamburger.hide ul{
+		display:none;
+	}
+	.c-hamburger.hide ul.show{
+		display:block;
+	}
+	.c-hamburger button{
+		border-bottom:none;
+		height:calc(90px + 4rem);
+		font-size:var(--size-500);
+		max-width:100%;
+	}
 }
 
 @media screen and (max-width:768px){
-	header img{
-	  height:90px;
+    .l-contact{
+	    grid-template-columns: 1fr;
     }
+}
+
+@media screen and (max-width:719px){
+    .c-button{
+	    font-size:var(--size-400);
+	    max-width:160px;
+    }
+}
+
+@media screen and (max-width:640px){
+	.l-card{
+		grid-template-columns: 1fr;
+	}
 }

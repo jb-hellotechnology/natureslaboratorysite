@@ -28,21 +28,36 @@
 </head>
 
 <body>	
+	<header class="c-hero">
+	    <div class="l-wrap">
+	        <?php
+		        perch_content('Header');
+		    ?>
+		    <div class="c-navigation">
+		        
+		        <?php
+		        perch_pages_navigation(array(
+		            'template' => array('topNavMain.html', 'topNavSub.html')
+		        ));
+		        ?>
+		        <div class="c-hamburger hide">
+		            <button class="c-hamburger__button">
+		                <!-- <div class="c-hamburger__line"></div>
+		                <div class="c-hamburger__line"></div>
+		                <div class="c-hamburger__line"></div> -->
+		                Menu
+		            </button>
+		            <?php
+		            perch_pages_navigation(array(
+		                'template' => array('hamburgerMain.html', 'hamburgerSub.html')
+		            ))
+		            ?>
+		        </div>
+		    </div>
+	    </div>
+	</header>
 	<?php
-		perch_content_create("Header", ["template" => "header.html"]);
-
-		$options = [
-			"data" => []
-		];
-		
-		if (perch_layout_var("title", true)) {
-			$options["data"]["customTitle"] = perch_layout_var("title", true);
-		}
-		
-		if (perch_layout_var("hero", true)) {
-			$options["data"]["customHero"] = perch_layout_var("hero", true);
-		}
-
-		perch_content_custom("Header", $options);
+	
 	?>
-	<main class="l-wrap">
+	<main>
+		<div class="l-wrap">

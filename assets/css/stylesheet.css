@@ -147,7 +147,7 @@ h3 {
     font-size: var(--size-700);
   }
 
-  p, ul, .c-navigation ul li {
+  p, ul, ol, .c-navigation ul li {
     font-size: var(--size-500);
   }
 

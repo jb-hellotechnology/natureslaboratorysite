@@ -159,7 +159,7 @@ class Natures_Laboratory_Staff_Member_Times extends PerchAPI_Factory
 		
 		$date = date("Y-m-d H:i:s", mktime(date('H')+1, date('i'), date('s'), date('m'), date('d'), date('Y')));
 		
-		$string = 'These people are clocked in: ';
+		$string = '';
 		
 		foreach($data as $staff){
 			
@@ -167,14 +167,14 @@ class Natures_Laboratory_Staff_Member_Times extends PerchAPI_Factory
 			//echo $sql."<br />";
 			$data2 = $this->db->get_row($sql);
 			if($data2['timeType']=='clock in'){
-				$string .= "$staff[name], ";
+				$string .= "$staff[name],";
 			}
 		
 		}
 		
 		$string = substr($string,0,-2);
 		
-		echo '{"text": "'.$string.'"}';
+		echo $string;
 		
 	}
 	

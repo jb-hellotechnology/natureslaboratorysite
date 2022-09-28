@@ -172,7 +172,7 @@ class Natures_Laboratory_Staff_Member_Times extends PerchAPI_Factory
 		
 		}
 		
-		$string = substr($string,0,-2);
+		$string = substr($string,0,-1);
 		
 		echo $string;
 		

@@ -1,4 +1,5 @@
-
+		</div>
+		
 		<aside>
 			<div class="l-wrap">
 				<?php
@@ -51,9 +52,9 @@
 	<footer class="c-footer">
 		<div class="l-wrap">
 			<p class="copyright">
-				<strong>Nature's Laboratory &mdash; <span>Home of Three-Dimensional Health</span></strong><br />
+				<strong>Nature's Laboratory &mdash; Home of Three-Dimensional Health</strong><br />
 				&copy; Nature's Laboratory Limited <?php echo date('Y'); ?><br />
-				Company Reg. 04375564 | <a href="/privacy/">Privacy</a> | <span>+44(0)1947 602346</span>
+				Company Reg. 04375564 | <a href="/privacy/">Privacy</a> | +44(0)1947 602346
 			</p>
 			<ul>
 				<li><a href="https://ecologi.com/natureslaboratory?r=61af6aa4f9550a84cf8be3d8" target="_blank" rel="noopener noreferrer" title="View our Ecologi profile"><img alt="We offset our carbon footprint via Ecologi" src="https://api.ecologi.com/badges/cpw/61af6aa4f9550a84cf8be3d8?black=true&landscape=true" /></a></li>

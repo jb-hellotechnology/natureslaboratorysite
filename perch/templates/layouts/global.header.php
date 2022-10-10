@@ -62,4 +62,3 @@
 	
 	?>
 	<main>
-		<div class="l-wrap">

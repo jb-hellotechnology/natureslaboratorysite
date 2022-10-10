@@ -1,76 +1,119 @@
 
 <perch:blocks>
     <perch:block label="Text" type="text">
-        <div class="l-block l-block--top-padding-<perch:content type="select" label="Top Padding" options="normal, small, none" id="top-padding">">
-            <div class="l-row">
-                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-centered l-flow c-animated c-animated--<perch:content type="select" id="animation" label="Animation" options="none, fade-up, fade-down, fade-left, fade-right"> flow">
-                    <perch:content type="textarea" id="text" editor="redactor" lable="Text" html/>
-                </div>  
-            </div>
-        </div>
+	    <div class="l-wrap">
+	        <div class="l-block">
+	            <div class="l-row l-textblock">
+	                <div class="flow">
+	                    <perch:content type="textarea" id="text" editor="redactor" lable="Text" html/>
+	                </div>  
+	            </div>
+	        </div>
+	    </div>
     </perch:block>
 
     <perch:block label="Card" type="card">
-        <div class="l-card">
-            <div class="l-text">
-	            <div class="l-center">
-		            <perch:content type="textarea" id="text" label="Text" html editor="redactor" />
+	    <div class="l-wrap">
+	        <div class="l-card">
+	            <div class="l-text">
+		            <div class="l-center">
+			            <perch:content type="textarea" id="text" label="Text" html editor="redactor" />
+		            </div>
 	            </div>
-            </div>
-            <div class="l-image">
-	            <img src="<perch:content id="image" label="Image" type="image" width="1200" height="1200" crop="true" />" alt="" />
-            </div>
-        </div>
+	            <div class="l-image">
+		            <img src="<perch:content id="image" label="Image" type="image" width="1200" height="1200" crop="true" />" alt="" />
+	            </div>
+	        </div>
+	    </div>
     </perch:block>
 
     <perch:block type="contactSection" label="Contact Section">
-        <div class="l-contact">
-	        <div class="c-contact-details">
-		        <h2>Contact Details</h2>
-	            <p>
-	                <a class="c-contact-details__link" href="tel:+441947602346">+44 (0)1947 602346</a>
-	            </p>
-	            <p>
-	                <a class="c-contact-details__link" href="mailto:info@natureslaboratory.co.uk">info@natureslaboratory.co.uk</a>
-	            </p>
-	            <p>
-	                Nature's Laboratory<br />
-	                Unit 3b,<br />
-	                Enterprise Way,<br />
-	                North Yorkshire,<br />
-	                YO22 4NH,<br />
-	                United Kingdom
-	            </p>
-	        </div>
-	        <div>
-		        <h2>
-		            Get In Touch
-		        </h2>
-				<perch:form id="contact" method="post" app="perch_forms" class="c-form">
-			        <div class="c-form-section">
-			            <div class="c-form-section__inputs">
-			                <div class="c-form-input">
-			                    <label for="name" class="c-form-input__label">Name</label>
-			                    <perch:input type="name" placeholder="Your Name" id="name" class="c-form-input__input">
-			                </div>
-			                <div class="c-form-input">
-			                    <label for="email" class="c-form-input__label">Email</label>
-			                    <perch:input type="email" placeholder="Your Email" id="email" autocomplete="email" class="c-form-input__input">
-			                </div>
-			                <div class="c-form-input">
-			                    <label for="message" class="c-form-input__label">Message</label>
-			                    <perch:input type="textarea" class="c-form-input__textarea" id="message">
-			                </div>
-			            </div>
-			        </div>
-			        <perch:input type="submit" id="submit" value="Submit" class="c-button c-form__button" />
-			        <perch:success>
-			            <p class="success">
-			                <strong><perch:content id="success" type="text" label="Thank you message" /></strong>
-			            </p>
-			        </perch:success>
-				</perch:form>
+	    <div class="l-wrap">
+	        <div class="l-contact">
+		        <div class="c-contact-details">
+			        <h2>Contact Details</h2>
+		            <p>
+		                <a class="c-contact-details__link" href="tel:+441947602346">+44 (0)1947 602346</a>
+		            </p>
+		            <p>
+		                <a class="c-contact-details__link" href="mailto:info@natureslaboratory.co.uk">info@natureslaboratory.co.uk</a>
+		            </p>
+		            <p>
+		                Nature's Laboratory<br />
+		                Unit 3b,<br />
+		                Enterprise Way,<br />
+		                North Yorkshire,<br />
+		                YO22 4NH,<br />
+		                United Kingdom
+		            </p>
+		        </div>
+		        <div>
+			        <h2>
+			            Get In Touch
+			        </h2>
+					<perch:form id="contact" method="post" app="perch_forms" class="c-form">
+				        <div class="c-form-section">
+				            <div class="c-form-section__inputs">
+				                <div class="c-form-input">
+				                    <label for="name" class="c-form-input__label">Name</label>
+				                    <perch:input type="name" placeholder="Your Name" id="name" class="c-form-input__input">
+				                </div>
+				                <div class="c-form-input">
+				                    <label for="email" class="c-form-input__label">Email</label>
+				                    <perch:input type="email" placeholder="Your Email" id="email" autocomplete="email" class="c-form-input__input">
+				                </div>
+				                <div class="c-form-input">
+				                    <label for="message" class="c-form-input__label">Message</label>
+				                    <perch:input type="textarea" class="c-form-input__textarea" id="message">
+				                </div>
+				            </div>
+				        </div>
+				        <perch:input type="submit" id="submit" value="Submit" class="c-button c-form__button" />
+				        <perch:success>
+				            <p class="success">
+				                <strong><perch:content id="success" type="text" label="Thank you message" /></strong>
+				            </p>
+				        </perch:success>
+					</perch:form>
+				</div>
 			</div>
+		</div>
+    </perch:block>
+    
+    <perch:block type="homehexagons" label="Hexagons">
+    	<div class="l-hexagons">
+	    	<div class="l-wrap">
+				<div class="economic">
+					<div>
+						<perch:content type="textarea" id="economic" label="Economic" html editor="redactor" />
+						<ul>
+							<perch:repeater id="economicitems">
+							<li><a href="<perch:content type="text" label="URL" id="url" />"><img src="<perch:content type="image" width="100px" height="100px" crop="true" id="economicimage" />" alt="" /></a></li>
+							</perch:repeater>
+						</ul>
+					</div>
+				</div>
+				<div class="cultural">
+					<div>
+						<perch:content type="textarea" id="cultural" label="Cultural" html editor="redactor" />
+						<ul>
+							<perch:repeater id="culturalitems">
+							<li><a href="<perch:content type="text" label="URL" id="url" />"><img src="<perch:content type="image" width="100px" height="100px" crop="true" id="culturalimage" />" alt="" /></a></li>
+							</perch:repeater>
+						</ul>
+					</div>
+				</div>
+				<div class="social">
+					<div>
+						<perch:content type="textarea" id="social" label="Social" html editor="redactor" />
+						<ul>
+							<perch:repeater id="socialitems">
+							<li><a href="<perch:content type="text" label="URL" id="url" />"><img src="<perch:content type="image" width="100px" height="100px" crop="true" id="socialimage" />" alt="" /></a></li>
+							</perch:repeater>
+						</ul>
+					</div>
+				</div>
+	    	</div>
 		</div>
     </perch:block>
 

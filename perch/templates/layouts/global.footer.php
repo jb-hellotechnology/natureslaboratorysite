@@ -40,7 +40,7 @@
 					  class="embeddable-buttondown-form"
 					>
 					  <label for="bd-email">Subscribe to our Mailing List</label>
-					  <input type="email" name="email" id="bd-email" />
+					  <input type="email" name="email" id="bd-email" placeholder="No spam, unsubscribe any time" />
 					  <input type="submit" value="Subscribe" />
 					</form>
 				</div>

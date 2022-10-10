@@ -24,6 +24,8 @@
 	<link rel="stylesheet" href="/assets/fonts/Noway-Regular-Italic-webfont/stylesheet.css">
 	<link rel="stylesheet" href="/assets/fonts/Noway-Regular-webfont/stylesheet.css">
 	
+	<link href="/assets/fonts/fontawesome/css/all.css" rel="stylesheet">
+	
 	<link rel="stylesheet" href="/assets/css/stylesheet.css?v=<?php echo rand(); ?>">
 </head>
 

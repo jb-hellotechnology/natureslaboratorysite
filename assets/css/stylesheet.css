@@ -725,6 +725,25 @@ ul.timeline li:nth-child(odd) .blob{
 	ul.staff{
 		grid-template-columns: 1fr 1fr;
 	}
+	ul.timeline li{
+		float:left;
+		width:calc(100% - 5px);
+		border-left:10px solid #ccc;
+		border-right: none;
+	}
+	ul.timeline li:nth-child(odd) div{
+		border-right:1px solid #ccc;
+		border-left:none;
+	}
+	ul.timeline li:nth-child(odd){
+		float:left;
+		border-left:10px solid #ccc;
+		border-right:none;
+	}
+	ul.timeline li:nth-child(odd) .blob{
+		left:-29px;
+		right:auto;
+	}
 }
 
 @media screen and (max-width:719px){
@@ -755,4 +774,7 @@ ul.timeline li:nth-child(odd) .blob{
     .l-hexagons .cultural{
 	    background-size:80px;
     }
+    ul.staff{
+		grid-template-columns: 1fr;
+	}
 }

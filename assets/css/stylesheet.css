@@ -560,6 +560,10 @@ ul.staff li{
 	padding-left:1rem;
 }
 
+ul.staff li em{
+	font-size:var(--size-400);
+}
+
 ul.staff li span{
 	font-size:var(--size-300);
 	display:block;

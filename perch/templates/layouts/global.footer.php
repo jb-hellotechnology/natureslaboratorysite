@@ -13,11 +13,11 @@
 					));
 				?>
 				<div>
-					<h2>Development</h2>
+					<h2>Product Development</h2>
 					<p>Nature's Laboratory lead the way in the research and development of effective natural health products.</p>
 				</div>
 				<div>
-					<h2>Technology</h2>
+					<h2>Innovative Technology</h2>
 					<p>Our in-house team develops purpose-built technology, advancing &amp; improving the production of natural medicines.</p>
 				</div>
 				<div>

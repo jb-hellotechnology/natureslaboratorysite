@@ -569,6 +569,59 @@ ul.staff li span{
 	display:block;
 }
 
+ul.timeline{
+	padding:0;
+	list-style:none;
+	float:left;
+}
+
+ul.timeline li{
+	width:calc(50% + 5px);
+	float:right;
+	border-left:10px solid #ccc;
+	position: relative;
+}
+
+ul.timeline li div{
+	background:#fff;
+	padding:2rem;
+	border:1px solid #ccc;
+	border-left:none;
+	display:block;
+	margin:2rem 0;
+	float:left;
+	width:100%;
+}
+
+ul.timeline li:nth-child(odd) div{
+	border-right:none;
+	border-left:1px solid #ccc;
+}
+
+ul.timeline li:nth-child(odd){
+	float:left;
+	border-right:10px solid #ccc;
+	border-left:none;
+}
+
+ul.timeline li .blob{
+	background:#f0b435;
+	border-radius: 50%;
+	width:48px;
+	height:48px;
+	margin:0;
+	padding:0;
+	border:none;
+	position:absolute;
+	top:calc(50% - 24px);
+	left:-29px;
+}
+
+ul.timeline li:nth-child(odd) .blob{
+	right:-29px;
+	left:auto;
+}
+
 @media screen and (max-width:1150px){
 	footer .l-wrap{
 		grid-template-columns: 1fr;

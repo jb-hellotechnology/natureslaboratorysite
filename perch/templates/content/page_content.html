@@ -25,6 +25,20 @@
 	        </div>
 	    </div>
     </perch:block>
+    
+    <perch:block label="Timeline" type="timeline">
+	    <div class="l-wrap">
+	        <div class="l-block">
+	            <div class="l-row l-textblock <perch:content type="select" id="style" options=",margin-bottom" label="Style" />">
+	                <ul class="timeline">
+		                <perch:repeater id="items" label="Items">
+		                <li><div><strong><perch:content type="text" label="Heading" id="heading" /><br /><em><perch:content type="text" label="Date" id="date" /></em></strong><br /><perch:content type="text" label="Description" id="description" /></div><div class="blob"></div></li>
+		                </perch:repeater>
+	                </ul>
+	            </div>
+	        </div>
+	    </div>
+    </perch:block>
 
     <perch:block label="Card" type="card">
 	    <div class="l-wrap">

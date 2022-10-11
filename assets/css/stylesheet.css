@@ -552,6 +552,7 @@ ul.staff{
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-column-gap: 2rem;
 	grid-row-gap: 2rem;
+	margin-bottom:100px;
 }
 
 ul.staff li{
@@ -658,6 +659,9 @@ ul.staff li span{
     .l-hexagons .cultural div{
 		width:100%;  
 		padding:0;  
+	}
+	ul.staff{
+		grid-template-columns: 1fr 1fr;
 	}
 }
 

@@ -545,6 +545,24 @@ input[type=submit]:hover{
 	display: block;
 }
 
+ul.staff{
+	padding:0;
+	list-style:none;
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 2rem;
+	grid-row-gap: 2rem;
+}
+
+ul.staff li{
+	border-left:1px solid #ccc;
+	padding-left:1rem;
+}
+
+ul.staff li span{
+	font-size:var(--size-300);
+}
+
 @media screen and (max-width:1150px){
 	footer .l-wrap{
 		grid-template-columns: 1fr;

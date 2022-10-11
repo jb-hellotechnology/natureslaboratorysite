@@ -11,6 +11,20 @@
 	        </div>
 	    </div>
     </perch:block>
+    
+    <perch:block label="Staff" type="staff">
+	    <div class="l-wrap">
+	        <div class="l-block">
+	            <div class="l-row l-textblock <perch:content type="select" id="style" options=",margin-bottom" label="Style" />">
+	                <ul class="staff">
+		                <perch:repeater id="staff" label="Staff">
+		                <li><strong><perch:content type="text" label="Name" id="name" /><br /><em><perch:content type="text" label="Role" id="role" /></em><br /><span><perch:content type="text" label="Bio" id="bio" /></span></li>
+		                </perch:repeater>
+	                </ul>
+	            </div>
+	        </div>
+	    </div>
+    </perch:block>
 
     <perch:block label="Card" type="card">
 	    <div class="l-wrap">

@@ -21,7 +21,8 @@ perch_layout('global.header', array(
 
 ?>
 <main>
-	<div class="l-block l-block--centered l-block--top-padding-small">
+	<div class="l-wrap">
+		<div class="l-block">
 			<?php
 
 			if (perch_get('s')) {
@@ -39,6 +40,7 @@ perch_layout('global.header', array(
 				));
 			}
 			?>
+		</div>
 	</div>
 </main>
 

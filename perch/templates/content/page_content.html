@@ -57,6 +57,32 @@
 	        </div>
 	    </div>
     </perch:block>
+    
+    <perch:block label="Grid" type="grid">
+	    <div class="l-wrap">
+	        <div class="l-grid">
+		        <ul>
+			        <perch:repeater id="items" label="Items">
+			        <li>
+			            <div class="l-image">
+				            <img src="<perch:content id="image" label="Image" type="image" width="600" height="600" crop="true" />" alt="" />
+			            </div>
+			            <perch:if exists="text">
+			            <div class="l-text">
+				            <div class="l-center">
+					            <perch:content type="textarea" id="text" label="Text" html editor="redactor" />
+					            <perch:if exists="url">
+					            <p><a class="c-button" href="<perch:content id="url" label="URL" type="text" />"><perch:content type="text" id="buttontext" label="Button" /></a></p>
+					            </perch:if>
+				            </div>
+			            </div>
+			            </perch:if>
+			        </li>
+			        </perch:repeater>
+		        </ul>
+	        </div>
+	    </div>
+    </perch:block>
 
     <perch:block type="contactSection" label="Contact Section">
 	    <div class="l-wrap">

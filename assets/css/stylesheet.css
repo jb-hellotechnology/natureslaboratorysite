@@ -629,6 +629,25 @@ ul.timeline li:nth-child(odd) .blob{
 	left:auto;
 }
 
+.l-grid ul{
+	list-style:none;
+	margin:0;
+	padding:0;
+	display:flex;
+	gap:2rem;
+	grid-template-columns: 
+}
+
+.l-grid ul li{
+	flex: 1 1 150px;
+	border:1px solid #ccc;
+	box-shadow:0px 0px 30px #ccc;
+}
+
+.l-grid ul li img{
+	display:block;
+}
+
 @media screen and (max-width:1150px){
 	footer .l-wrap{
 		grid-template-columns: 1fr;

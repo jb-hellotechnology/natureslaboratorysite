@@ -46,6 +46,9 @@
 	            <div class="l-text">
 		            <div class="l-center">
 			            <perch:content type="textarea" id="text" label="Text" html editor="redactor" />
+			            <perch:if exists="url">
+			            <p><a class="c-button" href="<perch:content id="url" label="URL" type="text" />"><perch:content type="text" id="buttontext" label="Button" /></a></p>
+			            </perch:if>
 		            </div>
 	            </div>
 	            <div class="l-image">

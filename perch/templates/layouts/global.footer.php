@@ -32,10 +32,10 @@
 				</div>
 				<div class="social">
 					<form
-					  action="https://buttondown.email/api/emails/embed-subscribe/jackbarber"
+					  action="https://buttondown.email/api/emails/embed-subscribe/natureslab"
 					  method="post"
 					  target="popupwindow"
-					  onsubmit="window.open('https://buttondown.email/jackbarber', 'popupwindow')"
+					  onsubmit="window.open('https://buttondown.email/natureslab', 'popupwindow')"
 					  class="embeddable-buttondown-form"
 					>
 					  <label for="bd-email">Subscribe to our Mailing List</label>

@@ -39,7 +39,7 @@
 		        
 		        <?php
 		        perch_pages_navigation(array(
-		            'template' => array('topNavMain.html', 'topNavSub.html')
+		            'template' => array('topNavMain.html')
 		        ));
 		        ?>
 		        <div class="c-hamburger hide">
@@ -51,7 +51,7 @@
 		            </button>
 		            <?php
 		            perch_pages_navigation(array(
-		                'template' => array('hamburgerMain.html', 'hamburgerSub.html')
+		                'template' => array('hamburgerMain.html')
 		            ))
 		            ?>
 		        </div>

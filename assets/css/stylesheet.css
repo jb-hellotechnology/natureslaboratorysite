@@ -657,6 +657,7 @@ ul.timeline li:nth-child(odd) .blob{
 	border:1px solid #ccc;
 	padding:2rem;
 	background:#fff;
+	margin: 0 100px;
 }
 
 .l-cta h2{

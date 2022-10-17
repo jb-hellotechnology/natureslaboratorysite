@@ -648,6 +648,38 @@ ul.timeline li:nth-child(odd) .blob{
 	display:block;
 }
 
+.bg-secondary{
+	background:#7b8c3b;
+}
+
+.l-cta{
+	display:grid;
+	border:1px solid #ccc;
+	padding:2rem;
+	background:#fff;
+}
+
+.l-cta h2{
+	font-size:var(--size-900);
+	margin-top:0;
+	padding:0;
+}
+
+.l-cta p,
+.l-cta a.c-button{
+	margin:0;
+}
+
+.l-cta a.c-button{
+	background:#f0b435;
+	color:#fff;
+}
+
+.l-cta a.c-button:hover{
+	background:#ccc;
+	color:#fff;
+}
+
 @media screen and (max-width:1150px){
 	footer .l-wrap{
 		grid-template-columns: 1fr;

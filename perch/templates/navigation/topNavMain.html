@@ -4,16 +4,9 @@
             <perch:if exists="ancestor_page">ancestor </perch:if>
             c-navbar__element"
 >
-    <perch:if exists="subitems">
-        <button class="c-navbar__button c-navbar__button--hover-invert">
-            <perch:pages id="pageNavText" />
-            <i class="fas fa-angle-down c-icon"></i>
-        </button>
-    <perch:else>
         <a href="<perch:pages id="pagePath" />" class="c-navbar__link c-navbar__link--hover-invert c-navbar__link--fixed-size">
             <perch:pages id="pageNavText" />
         </a>
-    </perch:if>
 </li>
 <perch:after>
 </ul>

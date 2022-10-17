@@ -634,7 +634,7 @@ ul.timeline li:nth-child(odd) .blob{
 	margin:0;
 	padding:0;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	grid-column-gap: 2rem;
 	grid-row-gap: 2rem;
 }

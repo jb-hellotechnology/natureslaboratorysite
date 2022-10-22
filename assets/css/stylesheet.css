@@ -309,6 +309,7 @@ aside{
 	margin-top:200px;
 	padding:0 2rem;
 	z-index:1000;
+	clear:left;
 }
 
 aside .l-wrap{

@@ -18,6 +18,8 @@ body {
   line-height: 1.5;
   margin: 0;
   font-family: 'nowayregular', Georgia, serif;
+  float:left;
+  width:100%;
 }
 
 a:not([class]) {

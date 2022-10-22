@@ -297,6 +297,7 @@ footer .l-wrap{
 	grid-template-columns: 2fr 3fr;
 	padding:0;
 	max-width:1280px;
+	float:none;
 }
 
 footer ul{

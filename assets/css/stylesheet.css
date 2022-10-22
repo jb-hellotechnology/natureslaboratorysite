@@ -116,6 +116,14 @@ h3 {
   max-width: 25ch;
 }
 
+em{
+	font-style: italic;
+}
+
+strong{
+	font-weight:700;
+}
+
 .post {
   --flow-space: var(--size-700);
 

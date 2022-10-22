@@ -430,6 +430,9 @@ textarea,
 
 .c-button,
 input[type=submit]{
+	-webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none; 
 	background:#7b8c3b;
 	color:#fff;
 	text-decoration: none;

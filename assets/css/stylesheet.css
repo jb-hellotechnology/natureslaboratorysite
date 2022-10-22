@@ -174,7 +174,7 @@ a:hover{
 }
 
 .l-wrap{
-	max-width:100%;
+	width:100%;
 	float:left;
 	margin:0 auto;
 	padding:0 2rem;
@@ -316,6 +316,7 @@ aside{
 	padding:0 2rem;
 	z-index:1000;
 	clear:left;
+	float:left;
 }
 
 aside .l-wrap{
@@ -325,6 +326,7 @@ aside .l-wrap{
 	margin: 2rem auto;
 	grid-template-columns: 2fr 1fr 1fr;
 	grid-column-gap: 2rem;
+	float:none;
 }
 
 aside h2,

@@ -33,6 +33,11 @@ a:not([class]) {
 }
 */
 
+main{
+	width:100%;
+	float:left;
+}
+
 main:focus {
   outline: none;
 }

@@ -315,6 +315,7 @@ aside{
 	margin-top:200px;
 	padding:0 2rem;
 	z-index:1000;
+	width:100%;
 	clear:left;
 	float:left;
 }

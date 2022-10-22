@@ -181,7 +181,8 @@ a:hover{
 }
 
 .l-wrap{
-	width:1280px;
+	width:100%;
+	max-width:1280px;
 	float:none;
 	margin:0 auto;
 	padding:0 2rem;
@@ -334,7 +335,6 @@ aside{
 aside .l-wrap{
 	padding:2rem 0;
 	display:grid;
-	max-width: 1280px;
 	margin: 2rem auto;
 	grid-template-columns: 2fr 1fr 1fr;
 	grid-column-gap: 2rem;

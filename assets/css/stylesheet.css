@@ -815,6 +815,9 @@ ul.timeline li:nth-child(odd) .blob{
 	.l-card{
 		grid-template-columns: 1fr;
 	}
+	.l-card img{
+		aspect-ratio: 1 / 1;
+	}
 	.l-cta h2{
 		font-size:var(--size-500);
 	}

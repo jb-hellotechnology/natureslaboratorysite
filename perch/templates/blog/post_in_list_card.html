@@ -9,7 +9,7 @@
 	                </a>
 	                <p class="date"><perch:blog id="postDateTime" type="date" time="true" format="%d %B %Y" label="Date Published"/></p>
 	                <perch:blog id="excerpt" type="textarea" textile="true" />
-	                <p><a href="/news/<perch:if exists="section"><perch:blog id="section"><perch:else>post</perch:if>/<perch:blog id="postSlug">" rel="bookmark" class="button">Read Post</a></p>
+	                <p><a href="/news/<perch:blog id="postSlug">" rel="bookmark" class="button">Read Post</a></p>
         		</li>
 <perch:after>
 			</ul>

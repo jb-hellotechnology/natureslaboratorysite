@@ -627,6 +627,9 @@ ul.timeline li:nth-child(odd) .blob{
 	.cta_logos h2{
 		font-size:var(--size-500);
 	}
+	.cta_logos ul li{
+		margin-right:1rem;
+	}
 	.cta_logos ul li img{
 		width:60px;
 		height:auto;

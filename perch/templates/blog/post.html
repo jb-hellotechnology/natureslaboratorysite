@@ -1,6 +1,6 @@
 <article class="flow">
 	<h1><perch:blog id="postTitle" type="text" label="Title" required="true" size="xl autowidth" order="1" /></h1>
-	<perch:blog id="featureImage" type="image" width="400" height="200" crop="true" label="Feature Image" suppress="true"/>
+	<img src="<perch:blog id="featureImage" type="image" width="768" label="Feature Image" />" alt="" />
     <p class="date"><perch:blog id="postDateTime" type="date" time="true" format="%d %B %Y" label="Date Published" /></p>
     <perch:if exists="image">
         <div>

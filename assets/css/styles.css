@@ -414,7 +414,6 @@ ul.timeline li:nth-child(odd) .blob{
 	display:grid;
 	grid-template-columns: auto auto;
 	grid-gap:2rem;
-	padding:0;
 }
 
 .cta_logos ul{
@@ -443,6 +442,10 @@ ul.timeline li:nth-child(odd) .blob{
 
 .padding{
 	padding:2rem;
+}
+
+.padding_top_bottom{
+	padding:2rem 0;
 }
 
 .background_white{

@@ -103,7 +103,7 @@ aside div{
 	width:100%;
 }
 
-aside div ul{
+aside .flow ul{
 	margin-left:0px;
 	list-style: none;
 }

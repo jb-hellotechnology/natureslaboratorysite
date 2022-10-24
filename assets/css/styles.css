@@ -176,6 +176,7 @@ ul.staff li em{
 
 ul.staff li span{
 	font-size:var(--size-300);
+	line-height:1;
 }
 
 ul.timeline{

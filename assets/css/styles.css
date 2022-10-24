@@ -624,4 +624,11 @@ ul.timeline li:nth-child(odd) .blob{
 	.hexagons ul li img{
 		width:60px;
 	}
+	.cta_logos h2{
+		font-size:var(--size-500);
+	}
+	.cta_logos ul li img{
+		width:60px;
+		height:auto;
+	}
 }

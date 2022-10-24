@@ -52,10 +52,12 @@ li {
 
 .flow ul{
 	list-style:disc;
+	margin-left:4rem;
 }
 
 .flow ol{
 	list-style: decimal;
+	margin-left:4rem;
 }
 
 h1 {

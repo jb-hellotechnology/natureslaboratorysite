@@ -103,6 +103,11 @@ aside div{
 	width:100%;
 }
 
+aside div ul{
+	margin-left:0px;
+	list-style: none;
+}
+
 aside .form{
 	grid-column: 2 / 4;
 }

@@ -173,12 +173,13 @@ ul.staff li{
 
 ul.staff li em{
 	font-size:var(--size-400);
-	margin-bottom:1rem;
 }
 
 ul.staff li span{
 	font-size:var(--size-300);
-	line-height:1;
+	line-height:1.4;
+	float:left;
+	margin-top:1rem;
 }
 
 ul.timeline{

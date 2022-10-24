@@ -159,6 +159,21 @@ input[type=submit]{
 	color:#fff;
 	text-decoration: none;
 	font-family: 'nowayregular', Georgia, serif;
+	cursor:pointer;
+}
+
+.button:hover,
+button:hover,
+input[type=submit]:hover{
+	display: inline-block;
+	border-radius: 3px;
+	padding: 7px 12px;
+	border: 1px solid #f0b435;
+	box-shadow: 0px 0px 5px #ccc;
+	background-image: linear-gradient(#f3b83a, #f0b435);
+	color:#333 !important;
+	text-decoration: none;
+	font-family: 'nowayregular', Georgia, serif;
 }
 
 ul.staff{

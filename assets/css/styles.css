@@ -387,6 +387,33 @@ ul.timeline li:nth-child(odd) .blob{
 	display: block;
 }
 
+.cta_logos{
+	display:grid;
+	grid-template-columns: auto auto;
+	grid-gap:2rem;
+}
+
+.cta_logos ul{
+	margin:0px;
+	list-style:none;
+}
+
+.cta_logos ul li{
+	display:inline-block;
+	float:right;
+	margin-left:2rem;
+}
+
+.cta_logos ul li img{
+	height:100px;
+	width:auto;
+}
+
+.cta_logos h2{
+	line-height:100px;
+	margin:0;
+}
+
 
 /* MODIFIERS */
 
@@ -420,6 +447,14 @@ ul.timeline li:nth-child(odd) .blob{
 
 .border_grey{
 	border:1px solid #ccc;
+}
+
+.border_top_white{
+	border-top:1px solid #fff;
+}
+
+.border_bottom_white{
+	border-bottom:1px solid #fff;
 }
 
 .shadow{
@@ -477,14 +512,29 @@ ul.timeline li:nth-child(odd) .blob{
 	aside .form{
 		grid-column: 1;
 	}
+	.cta_logos{
+		grid-template-columns: 1fr;
+		grid-gap:1rem;
+	}
+	.cta_logos ul li{
+		float:left;
+		margin-left:0px;
+		margin-right:2rem;
+	}
+	.cta_logos h2{
+		line-height: auto;
+	}
 }
 
 @media screen and (max-width:768px){
+	header img{
+		height:60px;
+	}
 	header nav button{
 		display:block;
 		z-index:200000;
 		position:absolute;
-		top:60px;
+		top:46px;
 		right:2rem;
 	}
 	header nav{

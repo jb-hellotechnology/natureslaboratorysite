@@ -40,6 +40,10 @@ header nav ul li a{
 	color:#014040;
 }
 
+header nav ul li a:hover{
+	color:var(--yellow);
+}
+
 footer{
 	width:100%;
 	margin:0 auto;

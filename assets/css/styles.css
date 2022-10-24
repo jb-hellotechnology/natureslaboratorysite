@@ -161,6 +161,8 @@ ul.staff{
 	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 	font-size:var(--size-400);
 	grid-gap: 2rem;
+	margin-left:0px;
+	list-style: none;
 }
 
 ul.staff li{

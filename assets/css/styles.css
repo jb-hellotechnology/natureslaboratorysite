@@ -544,4 +544,7 @@ ul.timeline li:nth-child(odd) .blob{
 	.contact{
 		grid-template-columns: 1fr;
 	}
+	.hexagons ul li img{
+		width:60px;
+	}
 }

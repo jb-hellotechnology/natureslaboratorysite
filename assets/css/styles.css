@@ -36,6 +36,10 @@ header nav ul li{
 	margin-left:4rem;
 }
 
+header nav ul li a{
+	color:#014040;
+}
+
 footer{
 	width:100%;
 	margin:0 auto;

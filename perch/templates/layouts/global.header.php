@@ -26,39 +26,26 @@
 	
 	<link href="/assets/fonts/fontawesome/css/all.css" rel="stylesheet">
 	
-	<link rel="stylesheet" href="/assets/css/stylesheet.css?v=<?php echo rand(); ?>">
+	<link rel="stylesheet" href="/assets/css/reset.css?v=<?php echo rand(); ?>">
+	<link rel="stylesheet" href="/assets/css/typography.css?v=<?php echo rand(); ?>">
+	<link rel="stylesheet" href="/assets/css/styles.css?v=<?php echo rand(); ?>">
 </head>
 
 <body>	
-	<header class="c-hero">
-	    <div class="l-wrap">
-	        <?php
-		        perch_content('Header');
-		    ?>
-		    <div class="c-navigation">
-		        
+	<section class="background_white">
+		<div>
+			<header>
 		        <?php
-		        perch_pages_navigation(array(
-		            'template' => array('topNavMain.html')
-		        ));
+			        perch_content('Header');
+			    ?>
+				<nav>
+					<button class="menu">Menu</button>
+		        <?php
+			        perch_pages_navigation();
 		        ?>
-		        <div class="c-hamburger hide">
-		            <button class="c-hamburger__button">
-		                <!-- <div class="c-hamburger__line"></div>
-		                <div class="c-hamburger__line"></div>
-		                <div class="c-hamburger__line"></div> -->
-		                Menu
-		            </button>
-		            <?php
-		            perch_pages_navigation(array(
-		                'template' => array('hamburgerMain.html')
-		            ))
-		            ?>
-		        </div>
-		    </div>
-	    </div>
-	</header>
-	<?php
-	
-	?>
+				</nav>
+			</header>
+		</div>
+	</section>
+
 	<main>

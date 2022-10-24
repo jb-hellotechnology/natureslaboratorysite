@@ -1,9 +1,5 @@
-	<div>
-        <h2 class="c-post-card__title">
-            <perch:blog id="postTitle" />
-        </h2>
-        <div class="c-post-card__description l-flow">
-            <perch:blog id="excerpt" type="textarea" textile="true" />
-        </div>
-        <p><a href="/news/<perch:if exists="section"><perch:blog id="section"><perch:else>post</perch:if>/<perch:blog id="postSlug">" rel="bookmark" class="c-button">Read Post</a></p>
-    </div>
+<h2>
+    <perch:blog id="postTitle" />
+</h2>
+<perch:blog id="excerpt" type="textarea" textile="true" />
+<p><a href="/news/<perch:if exists="section"><perch:blog id="section"><perch:else>post</perch:if>/<perch:blog id="postSlug">" rel="bookmark" class="button">Read Post</a></p>

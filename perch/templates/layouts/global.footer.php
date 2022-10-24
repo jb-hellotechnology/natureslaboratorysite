@@ -1,6 +1,7 @@
 
-		<aside>
-			<div class="l-wrap">
+		<aside class="background_dark">
+			<div>
+				<div class="flow">
 				<?php
 					perch_blog_custom(array(
 						'count'      => 1,
@@ -12,25 +13,26 @@
 						]
 					));
 				?>
-				<div>
+				</div>
+				<div class="flow">
 					<h2>Product Development</h2>
 					<p>Nature's Laboratory lead the way in the research and development of effective natural health products.</p>
 				</div>
-				<div>
+				<div class="flow">
 					<h2>Innovative Technology</h2>
 					<p>Our in-house team develops purpose-built technology, advancing &amp; improving the production of natural medicines.</p>
 				</div>
-				<div>
-					<p>Follow Us</p>
+				<div class="flow">
+					<p><strong>Follow Us</strong></p>
 					<ul>
 <!--
 						<li><a href="#"><i class="fab fa-facebook"></i></a></li>
 						<li><a href="#"><i class="fab fa-twitter"></i></a></li>
 -->
-						<li><a href="https://www.linkedin.com/company/natures-laboratory/"><i class="fab fa-linkedin"></i></a></li>
+						<li><a href="https://www.linkedin.com/company/natures-laboratory/"><i class="fab fa-linkedin fa-2xl"></i></a></li>
 					</ul>
 				</div>
-				<div class="social">
+				<div class="form">
 					<form
 					  action="https://buttondown.email/api/emails/embed-subscribe/natureslab"
 					  method="post"
@@ -38,7 +40,7 @@
 					  onsubmit="window.open('https://buttondown.email/natureslab', 'popupwindow')"
 					  class="embeddable-buttondown-form"
 					>
-					  <label for="bd-email">Subscribe to our Mailing List</label>
+					  <label for="bd-email"><strong>Subscribe to our Mailing List</strong></label>
 					  <input type="email" name="email" id="bd-email" placeholder="No spam, unsubscribe any time" />
 					  <input type="submit" value="Subscribe" />
 					</form>
@@ -48,9 +50,9 @@
 
 	</main>
 	
-	<footer class="c-footer">
-		<div class="l-wrap">
-			<p class="copyright">
+	<footer>
+		<div>
+			<p class="size_400">
 				<strong>Nature's Laboratory &mdash; <span>Home of Three-Dimensional Health</span></strong><br />
 				&copy; Nature's Laboratory Limited <?php echo date('Y'); ?><br />
 				Company Reg. 04375564 | <a href="/privacy/">Privacy</a> | <span>+44(0)1947 602346</span>
@@ -67,8 +69,8 @@
 	</body>
 	<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 	<script>
-		$('.c-hamburger button').click(function(){
-			$('.c-hamburger.hide ul').toggleClass('show');
+		$('header nav button').click(function(){
+			$('header nav').toggleClass('show');
 		})
 	</script>
 	</html>

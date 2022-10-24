@@ -1,24 +1,14 @@
-<h1><perch:blog id="postTitle" type="text" label="Title" required="true" size="xl autowidth" order="1" /></h1>
-<perch:blog id="featureImage" type="image" width="400" height="200" crop="true" label="Feature Image" suppress="true"/>
-<div class="l-row">
-    <div class="col-centered">
-        <article class="c-article">
-            <p class="meta">
-                <div class="c-post-details">
-                    <perch:template path="blog/post_details.html" />
-                </div>
-            </p>
-            <perch:if exists="image">
-                <div>
-                    <img src="<perch:blog id="authorImage" type="image" width="100" height="100" crop="true" label="Author Image" order="4" />" alt="<perch:blog id="authorGivenName" type="hidden" />" />
-                </div>
-            </perch:if>
-            <div class="c-post l-flow flow">
-                <perch:template path="content/blocks/post_blocks.html" />
-            </div>
-        </article>
-    </div>
-</div>
+<article class="flow">
+	<h1><perch:blog id="postTitle" type="text" label="Title" required="true" size="xl autowidth" order="1" /></h1>
+	<perch:blog id="featureImage" type="image" width="400" height="200" crop="true" label="Feature Image" suppress="true"/>
+    <p class="date"><perch:blog id="postDateTime" type="date" time="true" format="%d %B %Y" label="Date Published" /></p>
+    <perch:if exists="image">
+        <div>
+            <img src="<perch:blog id="authorImage" type="image" width="100" height="100" crop="true" label="Author Image" order="4" />" alt="<perch:blog id="authorGivenName" type="hidden" />" />
+        </div>
+    </perch:if>
+	<perch:blog type="textarea" id="text" label="Text" html editor="redactor" size="xxl autowidth" />
+</article>
 
 <perch:blog id="postURL" suppress="true" label="Post URL" />
 <perch:blog id="excerpt" type="textarea" label="Excerpt" editor="markitup" markdown="true" order="3" suppress="true" size="s" />

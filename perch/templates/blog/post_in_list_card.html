@@ -1,22 +1,18 @@
 <perch:before>
-    <div class="c-post-cards">
+		    <ul class="posts">
 </perch:before>
-        <div class="c-post-card c-post-card--<perch:blog id="type"> ">
-            <div class="c-post-card__content flow">
-                <a href="/news/<perch:if exists="section"><perch:blog id="section"><perch:else>post</perch:if>/<perch:blog id="postSlug">" rel="bookmark" class="c-post-card__title-link">
-                    <h2 class="c-post-card__title">
-                        <perch:blog id="postTitle" />
-                    </h2>
-                </a>
-                <p class="c-post-card__date"><perch:blog id="postDateTime" type="date" time="true" format="%d %B %Y" label="Date Published"/></p>
-                <div class="c-post-card__description l-flow">
-                    <perch:blog id="excerpt" type="textarea" textile="true" />
-                </div>
-                <p><a href="/news/<perch:if exists="section"><perch:blog id="section"><perch:else>post</perch:if>/<perch:blog id="postSlug">" rel="bookmark" class="c-button">Read Post</a></p>
-            </div>
-        </div>
+        		<li class="flow padding background_white border_grey shadow">
+	                <a href="/news/<perch:if exists="section"><perch:blog id="section"><perch:else>post</perch:if>/<perch:blog id="postSlug">" rel="bookmark">
+	                    <h2>
+	                        <perch:blog id="postTitle" />
+	                    </h2>
+	                </a>
+	                <p class="date"><perch:blog id="postDateTime" type="date" time="true" format="%d %B %Y" label="Date Published"/></p>
+	                <perch:blog id="excerpt" type="textarea" textile="true" />
+	                <p><a href="/news/<perch:if exists="section"><perch:blog id="section"><perch:else>post</perch:if>/<perch:blog id="postSlug">" rel="bookmark" class="button">Read Post</a></p>
+        		</li>
 <perch:after>
-</div>
+			</ul>
     <perch:if exists="paging">
         <div class="paging">
             Page

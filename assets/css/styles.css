@@ -168,10 +168,12 @@ ul.staff{
 ul.staff li{
 	border-left:1px solid #ccc;
 	padding-left:1rem;
+	line-height:1;
 }
 
 ul.staff li em{
 	font-size:var(--size-400);
+	margin-bottom:1rem;
 }
 
 ul.staff li span{

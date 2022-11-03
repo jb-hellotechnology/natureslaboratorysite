@@ -278,6 +278,10 @@ ul.timeline li img{
 	right: -10px;
 }
 
+ul.timeline li:nth-child(odd) img{
+	left:-10px;
+}
+
 .card{
 	width:100%;
 	display:grid;

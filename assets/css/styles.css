@@ -274,12 +274,13 @@ ul.timeline li img{
 	border-radius: 50%;
 	box-shadow: 0px 0px 5px #777;
 	position: absolute;
-	top: 0px;
-	right: -10px;
+	top:calc(50% - 24px);
+	left:-29px;
 }
 
 ul.timeline li:nth-child(odd) img{
-	left:-10px;
+	right:-29px;
+	left:auto;
 }
 
 .card{
@@ -626,7 +627,8 @@ ul.timeline li:nth-child(odd) img{
 		border-left:10px solid #ccc;
 		border-right:none;
 	}
-	ul.timeline li:nth-child(odd) .blob{
+	ul.timeline li:nth-child(odd) .blob,
+	ul.timeline li:nth-child(odd) img{
 		left:-29px;
 		right:auto;
 	}

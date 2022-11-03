@@ -236,6 +236,15 @@ ul.timeline li div{
 	font-size:var(--size-400);
 }
 
+ul.timeline li div strong{
+	font-size:var(--size-500);
+}
+
+ul.timeline li div strong em{
+	font-size:var(--size-400);
+	margin-bottom:1rem;
+}
+
 ul.timeline li:nth-child(odd) div{
 	border-right:none;
 	border-left:1px solid #ccc;

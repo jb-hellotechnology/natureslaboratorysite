@@ -233,6 +233,7 @@ ul.timeline li div{
 	width:100%;
 	padding:2rem;
 	box-sizing: border-box;
+	font-size:var(--size-400);
 }
 
 ul.timeline li:nth-child(odd) div{

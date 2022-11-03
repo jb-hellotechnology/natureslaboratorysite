@@ -243,6 +243,11 @@ ul.timeline li div strong{
 ul.timeline li div strong em{
 	font-size:var(--size-400);
 	margin-bottom:1rem;
+	width:100%;
+}
+
+ul.timeline li div a.button{
+	font-size:var(--size-400);
 }
 
 ul.timeline li:nth-child(odd) div{

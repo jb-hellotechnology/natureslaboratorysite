@@ -236,6 +236,10 @@ ul.timeline li div{
 	font-size:var(--size-400);
 }
 
+ul.timeline li div br{
+	display:block;
+}
+
 ul.timeline li div strong{
 	font-size:var(--size-500);
 }
@@ -244,6 +248,7 @@ ul.timeline li div strong em{
 	font-size:var(--size-400);
 	margin-bottom:1rem;
 	width:100%;
+	display:block;
 }
 
 ul.timeline li div a.button{

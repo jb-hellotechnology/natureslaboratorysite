@@ -47,7 +47,7 @@
 	    <div>
 		    <ul class="timeline">
 	            <perch:repeater id="items" label="Items">
-	            <li><div><strong><perch:content type="text" label="Heading" id="heading" /><br /><em><perch:content type="text" label="Date" id="date" /></em></strong><br /><perch:content type="text" label="Description" id="description" />
+	            <li><div><strong><perch:content type="text" label="Heading" id="heading" /><br /><em><perch:content type="text" label="Date" id="date" /></em></strong><perch:content type="text" label="Description" id="description" />
 		            <perch:if exists="button"><p><a class="button" href="<perch:content type="text" id="url" label="URL" />"><perch:content type="text" id="button" label="Button" /></a></p></perch:if>
 		            <perch:if exists="image"><img src="<perch:content type="image" id="image" width="200px" height="200px" crop="true" />" alt="" /></perch:if>
 	            </div><div class="blob"></div></li>

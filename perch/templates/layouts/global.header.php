@@ -32,6 +32,12 @@
 </head>
 
 <body>	
+	<section class="background_dark minimal">
+		<div>
+			<p><i class="fa fa-phone"></i> <a href="tel:+44(0)1947 602 346">+44(0)1947 602 346</a></p>
+			<p class="right"><i class="fa fa-envelope"></i> <a href="mailto:info@natureslaboratory.co.uk">info@natureslaboratory.co.uk</a></p>
+		</div>
+	</section>
 	<section class="background_white">
 		<div>
 			<header>

@@ -34,6 +34,7 @@ header nav ul li{
 	float:left;
 	line-height:100px;
 	margin-left:4rem;
+	position: relative;
 }
 
 header nav ul li a{
@@ -42,6 +43,55 @@ header nav ul li a{
 
 header nav ul li a:hover{
 	color:var(--yellow);
+}
+
+header nav ul li ul{
+	display:none;
+}
+
+header nav ul li:hover ul{
+	display:block;
+	position:absolute;
+	top:80px;
+	left:0px;
+	width:200px;
+	line-height:3rem;
+	left:0px;
+	text-align: left;
+	background:#fff;
+	box-shadow: 0px 0px 5px #ccc;
+	background-image: linear-gradient(#045f5f, #014040);
+	border-radius: 3px;
+}
+
+header nav ul li .arrow-up{
+	display:none;
+}
+
+header nav ul li:hover .arrow-up{
+	display:block;
+	position:absolute;
+	bottom:20px;
+	left:50%;
+	width: 0; 
+	height: 0; 
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;	
+	border-bottom: 5px solid #045f5f;
+}
+
+header nav ul li ul li{
+	margin-left:0px;
+	width:100%;
+	line-height:1.4rem;
+	padding:0.3rem 0.5rem;
+	margin:0;
+}
+
+header nav ul li ul li a{
+	color:#fff;
+	font-size:var(--size-400);
+	text-decoration: none;
 }
 
 footer{
@@ -625,6 +675,28 @@ ul.timeline li:nth-child(odd) img{
 	}
 	header nav.show ul{
 		display:block;
+	}
+	header nav.show ul li:hover .arrow-up{
+		display:none;
+	}
+	header nav.show ul li:hover ul,
+	header nav.show ul li ul{
+		display:block;
+		background:#fff;
+		position:relative;
+		top:0px;
+		left:0px;
+		width:100%;
+		box-shadow: none;
+		text-align: center;
+	}
+	header nav.show ul li:hover ul li a,
+	header nav.show ul li ul li a{
+		color: #333;
+	}
+	header nav.show ul li:hover ul li a:hover,
+	header nav.show ul li ul li a:hover{
+		color: var(--yellow);
 	}
 	header nav ul li{
 		width:100%;

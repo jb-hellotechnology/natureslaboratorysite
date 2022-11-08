@@ -72,6 +72,10 @@
 		$restriction[] = array('value'=>'poison', 'label'=>'Poison');
 		echo $Form->select_field('restriction','Restriction',$restriction,$details['restriction']);
 		
+		$organic[] = array('value'=>'', 'label'=>'Not Organic');
+		$organic[] = array('value'=>'organic', 'label'=>'Organic');
+		echo $Form->select_field('organic','Organic',$organic,$details['organic']);
+		
 		echo $Form->submit_field('btnSubmit', 'Create Product', $API->app_path());
 		
 		echo $Form->form_end();

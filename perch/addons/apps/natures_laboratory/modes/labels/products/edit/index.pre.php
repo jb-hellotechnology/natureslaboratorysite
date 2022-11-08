@@ -18,7 +18,7 @@
     if($Form->submitted()) {
     
         //FOR ITEMS PROGRAMMATICALLY ADDED TO FORM
-        $postvars = array('productCode','productName','productType','notes', 'productRange','restriction');	   
+        $postvars = array('productCode','productName','productType','notes', 'productRange','restriction','organic');	   
     	$data = $Form->receive($postvars);     
 
         $new_product = $Product->update($data);

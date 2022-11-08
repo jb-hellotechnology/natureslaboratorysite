@@ -43,11 +43,14 @@ error_reporting(E_ALL);
 			}
 			
 			$productData = $NaturesLaboratoryLabelsProducts->getProduct($batchData['productCode']);
-	    	if($productData['productRange']==''){
+	    	if($productData['productRange']=='' AND $productData['organic']!=='organic'){
 		    	$labelBg = '../label.jpg';
 	    	}elseif($productData['productRange']==1){
 		    	$labelBg = '../label_ruskin.jpg';
 		    	$ruskin = 1;
+	    	}elseif($productData['organic']=='organic'){
+		    	$labelBg = '../label_organic.jpg';
+		    	$organic = 1;
 	    	}
 			
 			$tL = $totalLabels;

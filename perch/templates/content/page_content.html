@@ -8,6 +8,60 @@
     </section>
     </perch:block>
     
+    <perch:block label="Social Media" type="socialmedia">
+    <section>
+	    <div>
+		    <p><strong><perch:content type="text" id="heading" label="Heading" /></strong></p>
+	    </div>
+    </section>
+    <section class="background_dark">
+	    <div>
+		    <ul class="social_media">
+			    <perch:repeater id="links" label="Links">
+			    <li><a href="<perch:content type="text" label="URL" id="url" />"><i class="<perch:content type="select" id="icon" options="LinkedIn|fab fa-linkedin,Facebook|fab fa-facebook,Twitter|fab fa-twitter" />"></i></a></li>
+			    </perch:repeater>
+		    </ul>
+	    </div>
+    </section>
+    </perch:block>
+    
+    <perch:block label="Media" type="media">
+    <section>
+	    <div>
+		    <h2><perch:content type="text" id="heading" label="Heading" /></h2>
+		    <ul class="media">
+			    <perch:repeater id="items" label="Items">
+			    <li>
+			    	<h3><perch:content type="text" id="heading" label="Heading" /></h3>
+			    	<p><perch:content type="text" id="description" label="Description" /></p>
+			    	<div class="video-container">
+					  <iframe
+					    src="https://www.youtube.com/embed/msizPweg3kE"
+					    frameborder="0"
+					    allow="accelerometer; autoplay; encrypted-media; gyroscope;"
+					    allowfullscreen></iframe>
+					</div>
+			    	<p><a class="button" href="<perch:content id="url" label="URL" type="text" />"><perch:content type="text" id="buttontext" label="Button" /></a></p>
+			    </li>
+			    </perch:repeater>
+		    </ul>
+	    </div>
+    </section>
+    </perch:block>
+    
+    <perch:block label="Tags" type="specialist">
+    <section>
+	    <div>
+		    <p><strong><perch:content type="text" id="heading" label="Heading" /></strong></p>
+		    <ul class="tags">
+			    <perch:repeater id="items" label="Items">
+			    <li><perch:content type="text" id="item" label="Item" /></li>
+			    </perch:repeater>
+		    </ul>
+	    </div>
+    </section>
+    </perch:block>
+    
     <perch:block label="CTA" type="cta">
     <section>
 	    <div class="flow padding background_white border_grey shadow">
@@ -35,7 +89,7 @@
 	    <div class="flow">
 		   	<ul class="staff">
 	            <perch:repeater id="staff" label="Staff">
-	            <li><strong><perch:content type="text" label="Name" id="name" /><br /><em><perch:content type="text" label="Role" id="role" /></em></strong><br /><span><perch:content type="text" label="Bio" id="bio" /></span></li>
+	            <li class="<perch:if exists="url">link</perch:if>"><perch:if exists="url"><a href="<perch:content type="text" id="url" label="Link" />"></perch:if><strong><perch:content type="text" label="Name" id="name" /><br /><em><perch:content type="text" label="Role" id="role" /></em></strong><br /><span><perch:content type="text" label="Bio" id="bio" /></span><perch:if exists="url"></a></perch:if></li>
 	            </perch:repeater>
 	        </ul>
 	    </div>

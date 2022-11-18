@@ -643,6 +643,7 @@ ul.tags li{
 	background:#014040;
 	color:#fff;
 	margin-right:1rem;
+	margin-bottom:1rem;
 	display:inline-block;
 	font-size:var(--size-400);
 }
@@ -853,6 +854,9 @@ ul.media .video-container{
 	.cta_logos ul li img{
 		width:60px;
 		height:auto;
+	}
+	ul.media{
+		grid-template-columns: 1fr;
 	}
 }
 

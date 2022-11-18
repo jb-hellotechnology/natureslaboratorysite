@@ -34,14 +34,18 @@
 			    <li>
 			    	<h3><perch:content type="text" id="heading" label="Heading" /></h3>
 			    	<p><perch:content type="text" id="description" label="Description" /></p>
+			    	<perch:if exists="youtube">
 			    	<div class="video-container">
 					  <iframe
-					    src="https://www.youtube.com/embed/msizPweg3kE"
+					    src="https://www.youtube.com/embed/<perch:content id="youtube" label="YouTube" />"
 					    frameborder="0"
 					    allow="accelerometer; autoplay; encrypted-media; gyroscope;"
 					    allowfullscreen></iframe>
 					</div>
+			    	</perch:if>
+			    	<perch:if exists="url">
 			    	<p><a class="button" href="<perch:content id="url" label="URL" type="text" />"><perch:content type="text" id="buttontext" label="Button" /></a></p>
+			    	</perch:if>
 			    </li>
 			    </perch:repeater>
 		    </ul>

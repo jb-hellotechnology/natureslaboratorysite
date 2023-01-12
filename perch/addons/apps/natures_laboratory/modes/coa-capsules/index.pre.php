@@ -254,7 +254,7 @@ error_reporting(E_ALL);
 		$pdf->Line(0,44,300,44);
 		$pdf->SetFont('Arial','',9);
 		$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Type: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,'Capsule',0,1);
-		$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Code: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$details['spec'].' Capsule',0,1);
+		$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Code: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$details['spec'],0,1);
 		$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Batch Number: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$details['ourBatch'],0,1);
 		$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Date of Manufacturing: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$manDate,0,1);
 		$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Best Before Use Date: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$bbeDate,0,1);
@@ -278,9 +278,10 @@ error_reporting(E_ALL);
 			
 			$spec = $NaturesLaboratoryHerbSpec->getSpec($component['productCode']);
 			$spec = json_decode($spec,true);
+			print_r($spec);
 			$data .= "$component[productCode],$spec[botanicalSource],$spec[plantPart],$component[quantityRatio],";
 		}
-
+		echo $data;
 		$data = substr($data,0,-1);
 		$pdf->BasicTable2($header,$data);
 		$pdf->Cell(0,3,'',0,1);

@@ -252,7 +252,8 @@ error_reporting(E_ALL);
 		
 		$pdf->Line(0,44,300,44);
 		$pdf->SetFont('Arial','',9);
-		$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Description: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,'Capsule',0,1);
+		$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Type: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,'Capsule',0,1);
+		$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Name: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$components['commonname'].' Capsule',0,1);
 		$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Batch Number: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$details['ourBatch'],0,1);
 		$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Date of Manufacturing: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$manDate,0,1);
 		$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Best Before Use Date: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$bbeDate,0,1);

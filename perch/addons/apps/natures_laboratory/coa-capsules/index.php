@@ -20,6 +20,8 @@
     include('../Natures_Laboratorys.class.php');
     include('../Natures_Laboratory.goodsin.class.php');
     include('../Natures_Laboratory.goodsins.class.php');
+    include('../Natures_Laboratory.coa.spec.class.php');
+    include('../Natures_Laboratory.coa.specs.class.php');
     include('../Natures_Laboratory.coa.capsules.class.php');
     include('../Natures_Laboratory.coas.capsules.class.php');
     include('../Natures_Laboratory.coa.capsules.spec.class.php');

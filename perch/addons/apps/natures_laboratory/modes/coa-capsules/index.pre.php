@@ -8,6 +8,7 @@ error_reporting(E_ALL);
     
     $NaturesLaboratoryCOA = new Natures_Laboratory_COA_Capsules($API);
     $NaturesLaboratoryCOASpec = new Natures_Laboratory_COA_Capsules_Specs($API);
+    $NaturesLaboratoryHerbSpec = new Natures_Laboratory_COA_Specs($API);
     $NaturesLaboratoryGoodsIn = new Natures_Laboratory_Goods_Ins($API);
     
     $HTML = $API->get('HTML');
@@ -238,7 +239,7 @@ error_reporting(E_ALL);
 		
 		$pdf->SetXY(10, 35);
 		$pdf->SetFont('Arial','B',16);
-		$pdf->Cell(0,10,'Certificate of Analysis: '.$details['spec'].' '.$components['commonname'],0,1);
+		$pdf->Cell(0,10,'Certificate of Analysis: '.$components['commonname'],0,1);
 
 		if($details['image']['_default']<>''){
 			$pdf->Image("../../../../../perch/resources/".$details['image']['path'],140,50,0,40);
@@ -253,7 +254,7 @@ error_reporting(E_ALL);
 		$pdf->Line(0,44,300,44);
 		$pdf->SetFont('Arial','',9);
 		$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Type: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,'Capsule',0,1);
-		$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Name: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$components['commonname'].' Capsule',0,1);
+		$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Code: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$details['spec'].' Capsule',0,1);
 		$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Batch Number: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$details['ourBatch'],0,1);
 		$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Date of Manufacturing: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$manDate,0,1);
 		$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Best Before Use Date: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$bbeDate,0,1);
@@ -274,8 +275,12 @@ error_reporting(E_ALL);
 		$data = '';
 		
 		foreach($components['components'] as $component){
+			
+			$spec = $NaturesLaboratoryHerbSpec->getSpec($component['productCode']);
+			print_r($spec);
 			$data .= "$component[productCode],$component[botanicalSource],$component[plantPart],$component[quantityRatio],";
 		}
+		print_r($data);
 		$data = substr($data,0,-1);
 		$pdf->BasicTable2($header,$data);
 		$pdf->Cell(0,3,'',0,1);

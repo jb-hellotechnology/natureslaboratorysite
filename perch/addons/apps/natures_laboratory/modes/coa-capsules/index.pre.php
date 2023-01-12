@@ -275,8 +275,8 @@ error_reporting(E_ALL);
 		foreach($components['components'] as $component){
 			
 			$spec = $NaturesLaboratoryHerbSpec->getSpec($component['productCode']);
-			print_r($spec);
-			$data .= "$component[productCode],$component[botanicalSource],$component[plantPart],$component[quantityRatio],";
+			$spec = json_decode($spec,true);
+			$data .= "$component[productCode],$spec[botanicalSource],$spec[plantPart],$component[quantityRatio],";
 		}
 		print_r($data);
 		$data = substr($data,0,-1);

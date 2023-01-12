@@ -258,7 +258,7 @@
 		$components = json_decode($specDetails['natures_laboratory_coa_capsules_specDynamicFields'],true);
 		
 		foreach($components['components'] as $component){
-			$data .= "$component[productCode],$component[botanicalSource],$component[plantPart],$component[quantityRatio],";
+			$data .= "$component[productCode],$component[botanicalSource],$component[plantPart],$component[quantityRatio];";
 		}
 		$data = substr($data,0,-1);
 		$pdf->BasicTable2($header,$data);

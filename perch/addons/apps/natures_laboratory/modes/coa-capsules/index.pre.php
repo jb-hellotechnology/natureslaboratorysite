@@ -261,12 +261,12 @@
 		$pdf->SetFont('Arial','B',11);
 		$pdf->Cell(0,10,'Composition',0,1);
 		$pdf->SetFont('Arial','',9);
-		$header = array('Product Code','Quantity Ratio','Botanical Source','Plant Part');
+		$header = array('Product Code','Botanical Source','Plant Part','Quantity Ratio');
 		$data = '';
 		$components = json_decode($specDetails['natures_laboratory_coa_capsules_specDynamicFields'],true);
 		
 		foreach($components['components'] as $component){
-			$data .= "$component[productCode],$component[quantityRatio],$component[botanicalSource],$component[plantPart],";
+			$data .= "$component[productCode],$component[botanicalSource],$component[plantPart],$component[quantityRatio],";
 		}
 		$data = substr($data,0,-1);
 		$pdf->BasicTable2($header,$data);

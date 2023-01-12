@@ -17,6 +17,8 @@
     # include your class files
     include('../../Natures_Laboratory.class.php');
     include('../../Natures_Laboratorys.class.php');
+    include('../../Natures_Laboratory.coa.spec.class.php');
+    include('../../Natures_Laboratory.coa.specs.class.php');
     include('../../Natures_Laboratory.coa.capsules.country.class.php');
     include('../../Natures_Laboratory.coa.capsules.countries.class.php');
     include('../../Natures_Laboratory.coa.capsules.spec.class.php');

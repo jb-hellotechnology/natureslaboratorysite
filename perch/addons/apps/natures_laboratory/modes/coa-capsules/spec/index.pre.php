@@ -2,6 +2,7 @@
 	if (!$CurrentUser->has_priv('natures_laboratory.coa')) exit;
 
 	$NaturesLaboratoryCOASpec = new Natures_Laboratory_COA_Capsules_Specs($API); 
+	$NaturesLaboratoryHerbSpec = new Natures_Laboratory_COA_Specs($API);
     
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
@@ -258,7 +259,9 @@
 		$components = json_decode($specDetails['natures_laboratory_coa_capsules_specDynamicFields'],true);
 		
 		foreach($components['components'] as $component){
-			$data .= "$component[productCode],$component[botanicalSource],$component[plantPart],$component[quantityRatio];";
+			$spec = $NaturesLaboratoryHerbSpec->getSpec($component['productCode']);
+			$spec = json_decode($spec,true);
+			$data .= "$component[productCode],$spec[biologicalSource],$spec[plantPart],$component[quantityRatio];";
 		}
 		$data = substr($data,0,-1);
 		$pdf->BasicTable2($header,$data);

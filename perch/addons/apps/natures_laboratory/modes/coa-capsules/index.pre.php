@@ -1,7 +1,9 @@
 <?php
+/*
 	ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+*/
 	if (!$CurrentUser->has_priv('natures_laboratory.coa')) exit;
     
     $NaturesLaboratoryCOA = new Natures_Laboratory_COA_Capsules($API);
@@ -278,7 +280,7 @@ error_reporting(E_ALL);
 			$spec = json_decode($spec,true);
 			$data .= "$component[productCode],$spec[botanicalSource],$spec[plantPart],$component[quantityRatio],";
 		}
-		print_r($data);
+
 		$data = substr($data,0,-1);
 		$pdf->BasicTable2($header,$data);
 		$pdf->Cell(0,3,'',0,1);

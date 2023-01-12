@@ -1,7 +1,9 @@
 <?php
 	ini_set('display_errors', 1);
+/*
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+*/
 	if (!$CurrentUser->has_priv('natures_laboratory.coa')) exit;
     
     $NaturesLaboratoryCOA = new Natures_Laboratory_COA_Capsules($API);
@@ -236,7 +238,6 @@ error_reporting(E_ALL);
 		
 		$pdf->SetXY(10, 35);
 		$pdf->SetFont('Arial','B',16);
-		print_r($details);
 		$pdf->Cell(0,10,'Certificate of Analysis: '.$details['spec'].' '.$components['commonname'],0,1);
 
 		if($details['image']['_default']<>''){

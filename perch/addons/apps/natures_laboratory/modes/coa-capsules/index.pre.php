@@ -261,6 +261,7 @@ error_reporting(E_ALL);
 		$pdf->SetFont('Arial','B',11);
 		$pdf->Cell(0,10,'Product Description',0,1);
 		$pdf->SetFont('Arial','',9);
+		if($details['capsuleWeight']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Capsule Weight:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$details['capsuleWeight'],0,1);}
 		if($details['colour']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Colour:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$details['colour'],0,1);}
 		if($details['odour']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Odour:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$details['odour'],0,1);}
 		if($details['taste']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Taste:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$details['taste'],0,1);}

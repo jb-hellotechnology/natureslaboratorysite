@@ -230,7 +230,7 @@
 		
 		$pdf->SetXY(10, 35);
 		$pdf->SetFont('Arial','B',16);
-		$pdf->Cell(0,10,'Specification: '.$specDetails['productCode'],0,1);
+		$pdf->Cell(0,10,'Specification: '.$specDetails['productCode'].' '.$specDetails['commonname'],0,1);
 
 		if($details['image']['_default']<>''){
 			$pdf->Image("../../../../../../perch/resources/".$details['image']['path'],140,50,0,40);

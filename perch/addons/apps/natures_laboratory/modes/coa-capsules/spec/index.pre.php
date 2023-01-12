@@ -240,7 +240,6 @@
 		$pdf->Line(0,44,300,44);
 		$pdf->SetFont('Arial','',9);
 		$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Type: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,'Capsule',0,1);
-		$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Code: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$specDetails['spec'],0,1);
 		if($specDetails['productCode']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Code: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$specDetails['productCode'],0,1);}
 
 		$pdf->SetFont('Arial','B',11);

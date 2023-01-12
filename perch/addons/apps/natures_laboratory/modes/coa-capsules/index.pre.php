@@ -278,7 +278,7 @@ error_reporting(E_ALL);
 			
 			$spec = $NaturesLaboratoryHerbSpec->getSpec($component['productCode']);
 			$spec = json_decode($spec,true);
-			$data .= "$component[productCode],$spec[biologicalSource],$spec[plantPart],$component[quantityRatio],";
+			$data .= "$component[productCode],$spec[biologicalSource],$spec[plantPart],$component[quantityRatio];";
 		}
 
 		$data = substr($data,0,-1);

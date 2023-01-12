@@ -232,7 +232,7 @@
 		
 		$pdf->SetXY(10, 35);
 		$pdf->SetFont('Arial','B',16);
-		$pdf->Cell(0,10,'Certificate of Analysis: '.$details['spec'],0,1);
+		$pdf->Cell(0,10,'Certificate of Analysis: '.$details['spec'].' '.$details['commonName'],0,1);
 
 		if($details['image']['_default']<>''){
 			$pdf->Image("../../../../../perch/resources/".$details['image']['path'],140,50,0,40);

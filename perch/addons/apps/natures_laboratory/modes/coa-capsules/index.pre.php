@@ -1,5 +1,7 @@
 <?php
-	
+	ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 	if (!$CurrentUser->has_priv('natures_laboratory.coa')) exit;
     
     $NaturesLaboratoryCOA = new Natures_Laboratory_COA_Capsules($API);
@@ -230,9 +232,12 @@
 		$pdf->Cell(0,3,"YO22 4NH",0,1,'R');
 		$pdf->Cell(0,6,iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE','01947 602346  |  info@natureslaboratory.co.uk  |  natureslaboratory.co.uk'),0,1,'R');
 		
+		$components = json_decode($specDetails['natures_laboratory_coa_capsules_specDynamicFields'],true);
+		
 		$pdf->SetXY(10, 35);
 		$pdf->SetFont('Arial','B',16);
-		$pdf->Cell(0,10,'Certificate of Analysis: '.$details['spec'].' '.$details['commonName'],0,1);
+		print_r($details);
+		$pdf->Cell(0,10,'Certificate of Analysis: '.$details['spec'].' '.$components['commonname'],0,1);
 
 		if($details['image']['_default']<>''){
 			$pdf->Image("../../../../../perch/resources/".$details['image']['path'],140,50,0,40);
@@ -264,7 +269,6 @@
 		$pdf->SetFont('Arial','',9);
 		$header = array('Product Code','Botanical Source','Plant Part','Quantity Ratio');
 		$data = '';
-		$components = json_decode($specDetails['natures_laboratory_coa_capsules_specDynamicFields'],true);
 		
 		foreach($components['components'] as $component){
 			$data .= "$component[productCode],$component[botanicalSource],$component[plantPart],$component[quantityRatio],";

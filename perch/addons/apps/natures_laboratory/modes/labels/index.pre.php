@@ -306,7 +306,7 @@ error_reporting(E_ALL);
 					    }else{
 						    $x = 6;
 						    $imgX = 44;
-						    $imgX2 = 51;
+						    $imgX2 = 65;
 					    }
 					    
 					    $first = array(44,55,70);
@@ -316,7 +316,7 @@ error_reporting(E_ALL);
 					    
 					    if($row==1){
 						    $imgY = 16;
-						    $imgY2 = 48;
+						    $imgY2 = 65;
 						    $y1 = 37;
 						    $y2 = 48;
 						    $y3 = 65;
@@ -357,10 +357,10 @@ error_reporting(E_ALL);
 						$pdf->Cell(90,10,"$productData[productType]   $productCode",0);
 						$pdf->SetFont('Arial','B',10);
 						$pdf->SetXY($x, $y2);
-						$pdf->MultiCell(40, 4, $productName, 0, "L");
+						$pdf->MultiCell(60, 4, $productName, 0, "L");
 						$pdf->SetXY($x, $y3);
 						$pdf->SetFont('Arial','B',5);
-						$pdf->MultiCell(40,2,"$productData[notes]",0);
+						$pdf->MultiCell(60,2,"$productData[notes]",0);
 						$pdf->SetFont('Arial','B',10);
 						$pdf->SetXY($x, $y4);
 						$pdf->Cell(90,2,"$batch        $bbe     $size",0);

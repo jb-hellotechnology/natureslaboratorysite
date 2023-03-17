@@ -99,7 +99,7 @@ error_reporting(E_ALL);
 		mkdir("../pngs/$labelsID", 0755);
 		$url = "../pngs/$labelsID";
 		
-		$name = wordwrap($productName, 18, "<br />");
+		$name = wordwrap($productName, 22, "<br />");
 		$nameLines = explode("<br />", $name);
 		
 		$notes = wordwrap($productNotes, 50, "<br />");
@@ -129,7 +129,7 @@ error_reporting(E_ALL);
 			
 			$lineStart = 360;
 			foreach($nameLines as $line){
-				imagettftext($im, 48, 0, 40, $lineStart, $green, $fontLight, $line);
+				imagettftext($im, 40, 0, 40, $lineStart, $green, $fontLight, $line);
 				$lineStart = $lineStart + 60;
 			}
 			
@@ -138,17 +138,17 @@ error_reporting(E_ALL);
 				$lineStart = $lineStart + 24;
 			}
 	
-			imagettftext($im, 16, 0, 40, 720, $green, $fontHeavy, "Batch");
-			imagettftext($im, 20, 0, 40, 750, $green, $fontLight, "$batch");
+			imagettftext($im, 20, 0, 40, 710, $green, $fontHeavy, "Batch");
+			imagettftext($im, 28, 0, 40, 750, $green, $fontLight, "$batch");
 			
-			imagettftext($im, 16, 0, 270, 720, $green, $fontHeavy, "BBE");
-			imagettftext($im, 20, 0, 270, 750, $green, $fontLight, "$productBBE");
+			imagettftext($im, 20, 0, 270, 710, $green, $fontHeavy, "BBE");
+			imagettftext($im, 28, 0, 270, 750, $green, $fontLight, "$productBBE");
 			
-			imagettftext($im, 16, 0, 500, 720, $green, $fontHeavy, "Size");
+			imagettftext($im, 20, 0, 500, 710, $green, $fontHeavy, "Size");
 			if($bag==$data['bags']){
-				imagettftext($im, 20, 0, 500, 750, $green, $fontLight, "SAMPLE");
+				imagettftext($im, 28, 0, 500, 750, $green, $fontLight, "SAMPLE");
 			}else{
-				imagettftext($im, 20, 0, 500, 750, $green, $fontLight, "$weights[$bag]");
+				imagettftext($im, 28, 0, 500, 750, $green, $fontLight, "$weights[$bag]");
 			}
 			
 			$codeContents = "https://natureslaboratory.co.uk/perch/addons/apps/natures_laboratory/goods-in/go/?id=".$batch;

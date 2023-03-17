@@ -55,7 +55,7 @@
 		mkdir("../pngs/$labelsID", 0755);
 		$url = "../pngs/$labelsID";
 		
-		$name = wordwrap($productName, 18, "<br />");
+		$name = wordwrap($productName, 22, "<br />");
 		$nameLines = explode("<br />", $name);
 		
 		$notes = wordwrap($productNotes, 60, "<br />");
@@ -82,7 +82,7 @@
 		$lineStart = 360;
 		foreach($nameLines as $line){
 			$line = trim($line);
-			imagettftext($im, 48, 0, 40, $lineStart, $green, $fontLight, $line);
+			imagettftext($im, 40, 0, 40, $lineStart, $green, $fontLight, $line);
 			$lineStart = $lineStart + 65;
 		}
 		

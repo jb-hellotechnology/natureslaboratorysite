@@ -102,7 +102,7 @@ error_reporting(E_ALL);
 		$name = wordwrap($productName, 22, "<br />");
 		$nameLines = explode("<br />", $name);
 		
-		$notes = wordwrap($productNotes, 40, "<br />");
+		$notes = wordwrap($productNotes, 50, "<br />");
 		$notesLines = explode("<br />", $notes);
 		
 		$batch = $new_goods->ourBatch();

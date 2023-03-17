@@ -58,7 +58,7 @@
 		$name = wordwrap($productName, 22, "<br />");
 		$nameLines = explode("<br />", $name);
 		
-		$notes = wordwrap($productNotes, 50, "<br />");
+		$notes = wordwrap($productNotes, 46, "<br />");
 		$notesLines = explode("<br />", $notes);
 					
 		// Create the image

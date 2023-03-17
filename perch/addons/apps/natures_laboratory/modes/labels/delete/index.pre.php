@@ -16,6 +16,10 @@
 		
 		$Labels->delete();
 		$deleted = true;
+		
+		array_map('unlink', glob("../pngs/$labelsID/*.*"));
+		rmdir('../pngs/'.$labelsID);
+		
 		$message = $HTML->success_message('Labels have been successfully deleted. Return to %sLabels%s', '<a href="'.$API->app_path().'/labels/">', '</a>'); 
         
     }else{

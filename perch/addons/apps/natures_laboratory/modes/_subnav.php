@@ -36,4 +36,8 @@
             'page' => 'natures_laboratory/production',
             'label'=> 'Production'
         ],
+        [
+            'page' => 'natures_laboratory/shopify',
+            'label'=> 'Shopify'
+        ],
     ], $CurrentUser);

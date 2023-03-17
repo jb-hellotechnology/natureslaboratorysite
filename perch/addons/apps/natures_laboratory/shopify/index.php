@@ -5,19 +5,19 @@
 	error_reporting(E_ALL);
 	
     # include the API
-    include('../../../../../core/inc/api.php');
+    include('../../../../core/inc/api.php');
     
     $API  = new PerchAPI(1.0, 'natures_laboratory');
 
     # include your class files
-    include('../../phpqrcode/qrlib.php');
     
-    include('../../Natures_Laboratory.class.php');
-    include('../../Natures_Laboratorys.class.php');
-    include('../../Natures_Laboratory.label.class.php');
-    include('../../Natures_Laboratory.labels.class.php');
-    include('../../Natures_Laboratory.labels.product.class.php');
-    include('../../Natures_Laboratory.labels.products.class.php');
+    require('../fpdf/fpdf.php');
+    include('../phpqrcode/qrlib.php');
+    
+    include('../Natures_Laboratory.class.php');
+    include('../Natures_Laboratorys.class.php');
+    include('../Natures_Laboratory.shopify.class.php');
+    include('../Natures_Laboratory.shopifys.class.php');
     
     # Grab an instance of the Lang class for translations
     $Lang = $API->get('Lang');
@@ -25,12 +25,13 @@
     # Set the page title
     $Perch->page_title = 'Nature\'s Laboratory';
     
+    
     # Set Subnav
-    include('../../modes/_subnav.php');
+    include('../modes/_subnav.php');
 
 
     # Do anything you want to do before output is started
-    include('../../modes/labels/add/index.pre.php');
+    include('../modes/shopify/index.pre.php');
     
     
     # Top layout
@@ -38,7 +39,7 @@
 
     
     # Display your page
-    include('../../modes/labels/add/index.post.php');
+    include('../modes/shopify/index.post.php');
     
     
     # Bottom layout

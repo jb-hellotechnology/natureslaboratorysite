@@ -16,6 +16,10 @@
 		$Goods = $NaturesLaboratoryGoodsIn->find($goodsID, true);
 		
 		$Goods->delete();
+		
+		array_map('unlink', glob("../pngs/$goodsID/*.*"));
+		rmdir('../pngs/'.$goodsID);
+		
 		$deleted = true;
 		$message = $HTML->success_message('Goods have been successfully deleted. Return to %sGoods In%s', '<a href="'.$API->app_path().'/goods-in/">', '</a>'); 
         

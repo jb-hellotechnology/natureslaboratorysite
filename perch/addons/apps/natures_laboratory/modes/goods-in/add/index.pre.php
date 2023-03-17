@@ -134,8 +134,8 @@ error_reporting(E_ALL);
 			}
 			
 			foreach($notesLines as $line){
-				imagettftext($im, 16, 0, 40, $lineStart, $green, $fontLight, $line);
-				$lineStart = $lineStart + 24;
+				imagettftext($im, 20, 0, 40, $lineStart, $green, $fontLight, $line);
+				$lineStart = $lineStart + 26;
 			}
 	
 			imagettftext($im, 20, 0, 40, 710, $green, $fontHeavy, "Batch");

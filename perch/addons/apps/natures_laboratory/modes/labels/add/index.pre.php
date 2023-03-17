@@ -88,7 +88,7 @@
 		
 		foreach($notesLines as $line){
 			$line = trim($line);
-			imagettftext($im, 16, 0, 40, $lineStart, $green, $fontLight, $line);
+			imagettftext($im, 20, 0, 40, $lineStart, $green, $fontLight, $line);
 			$lineStart = $lineStart + 26;
 		}
 

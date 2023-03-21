@@ -88,10 +88,19 @@ error_reporting(E_ALL);
         
         // GET BG IMAGE
         $productLabel = '../../label_standard.jpg';
-        if($productRestriction == 'allergen' AND $productOrganic==''){
+        if($productRestriction == 'allergen'){
 	        $productLabel = '../../label_allergen.jpg';
-        }elseif($productRestriction == 'poison' AND $productOrganic==''){
+        }elseif($productRestriction == 'poison'){
 	        $productLabel = '../../label_poison.jpg';
+        }
+        
+        if($productType=='Organic'){
+	        $productLabel = '../../label_organic.jpg';
+	        if($productRestriction == 'allergen'){
+		        $productLabel = '../../label_organic_allergen.jpg';
+	        }elseif($productRestriction == 'poison'){
+		        $productLabel = '../../label_organic_poison.jpg';
+	        }
         }
         
         // CREATE FOLDER

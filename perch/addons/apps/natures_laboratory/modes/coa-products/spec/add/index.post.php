@@ -76,6 +76,7 @@
 		echo $Form->text_field("strengthVolume","Strength/Volume",'');
 		
 		$alcoholList[] = array('label'=>'Please Select', 'value'=>0);
+		$alcoholList[] = array('label'=>'0%', 'value'=>'0%');
 		$alcoholList[] = array('label'=>'25%', 'value'=>'25%');
 		$alcoholList[] = array('label'=>'30%', 'value'=>'30%');
 		$alcoholList[] = array('label'=>'35%', 'value'=>'35%');

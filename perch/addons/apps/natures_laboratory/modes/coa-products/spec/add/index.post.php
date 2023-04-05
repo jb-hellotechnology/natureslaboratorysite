@@ -48,6 +48,7 @@
 		$optionsList[] = array('label'=>'Please Select', 'value'=>0);
 		$optionsList[] = array('label'=>'Tincture', 'value'=>'Tincture');
 		$optionsList[] = array('label'=>'Fluid Extract', 'value'=>'Fluid Extract');
+		$optionsList[] = array('label'=>'Glycerite', 'value'=>'Glycerite');
 		echo $Form->select_field("productType","Product Type",$optionsList,'');
 
 		echo $Form->text_field("productCode","Product Code",'');

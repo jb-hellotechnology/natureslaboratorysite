@@ -40,4 +40,12 @@
             'page' => 'natures_laboratory/shopify',
             'label'=> 'Shopify'
         ],
+        [
+            'page' => 'natures_laboratory/catalogue',
+            'label'=> 'Catalogue'
+        ],
+        [
+            'page' => 'natures_laboratory/spreadsheet',
+            'label'=> 'Spreadsheet'
+        ],
     ], $CurrentUser);

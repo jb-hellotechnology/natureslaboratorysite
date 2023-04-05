@@ -68,6 +68,8 @@
 		$plantList[] = array('label'=>'Berries', 'value'=>'Berries');
 		$plantList[] = array('label'=>'Tops & Berries', 'value'=>'Tops & Berries');
 		$plantList[] = array('label'=>'Moss', 'value'=>'Moss');
+		$plantList[] = array('label'=>'Bamboo Shoot', 'value'=>'Bamboo Shoot');
+		$plantList[] = array('label'=>'Fungi', 'value'=>'Fungi');
 		echo $Form->select_field("plantPart","Plant Part",$plantList,'');
 		
 		echo $Form->text_field("strengthVolume","Strength/Volume",'');

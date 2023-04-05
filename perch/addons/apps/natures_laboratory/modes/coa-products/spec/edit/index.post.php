@@ -48,6 +48,7 @@
 		$optionsList[] = array('label'=>'Please Select', 'value'=>0);
 		$optionsList[] = array('label'=>'Tincture', 'value'=>'Tincture');
 		$optionsList[] = array('label'=>'Fluid Extract', 'value'=>'Fluid Extract');
+		$optionsList[] = array('label'=>'Glycerite', 'value'=>'Glycerite');
 		echo $Form->select_field("productType","Product Type",$optionsList,$details['productType']);
 
 		echo $Form->text_field("productCode","Product Code",$details['productCode']);
@@ -68,6 +69,8 @@
 		$plantList[] = array('label'=>'Berries', 'value'=>'Berries');
 		$plantList[] = array('label'=>'Tops & Berries', 'value'=>'Tops & Berries');
 		$plantList[] = array('label'=>'Moss', 'value'=>'Moss');
+		$plantList[] = array('label'=>'Bamboo Shoot', 'value'=>'Bamboo Shoot');
+		$plantList[] = array('label'=>'Fungi', 'value'=>'Fungi');
 		echo $Form->select_field("plantPart","Plant Part",$plantList,$details['plantPart']);
 		
 		echo $Form->text_field("strengthVolume","Strength/Volume",$details['strengthVolume']);

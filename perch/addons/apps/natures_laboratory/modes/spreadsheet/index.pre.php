@@ -221,6 +221,88 @@
 
     }
     
+    /** POWDER BLENDS **/
+    
+    $export = $NaturesLaboratoryShopify->getCatalogueParents(17);
+    
+    fputcsv($output, array('','','',''));
+    fputcsv($output, array('Powder Blends','Size','SKU','Price'));
+    
+    foreach($export as $row){
+	    $handle = str_replace("-1000g", "", $row['WEB_CATEGORY_1']);
+	    $parts = explode(" ", $row['DESCRIPTION']);
+	    $size = end($parts);
+	    $name = str_replace(" 1000g", "", $row['DESCRIPTION']);
+	    if($size=='250g'){
+			$weight = 250;
+		}elseif($size=='500g'){
+			$weight = 500;
+		}else{
+			$weight = 1000;
+		}
+		
+		$data = array($name,$size,$row['STOCK_CODE'],chr(163).number_format($row['SALES_PRICE'],2));
+		
+		fputcsv($output, $data);
+		
+	    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
+	    foreach($children as $row){
+		    $parts = explode(" ", $row['DESCRIPTION']);
+			$size = end($parts);
+			if($size=='250g'){
+				$weight = 250;
+			}elseif($size=='500g'){
+				$weight = 500;
+			}else{
+				$weight = 1000;
+			}
+			$data = array($name,$size,$row['STOCK_CODE'],chr(163).number_format($row['SALES_PRICE'],2));
+			fputcsv($output, $data);
+	    }
+
+    }
+    
+    /** ORGANIC **/
+    
+    $export = $NaturesLaboratoryShopify->getCatalogueParents(18);
+    
+    fputcsv($output, array('','','',''));
+    fputcsv($output, array('Organic','Size','SKU','Price'));
+    
+    foreach($export as $row){
+	    $handle = str_replace("-1000g", "", $row['WEB_CATEGORY_1']);
+	    $parts = explode(" ", $row['DESCRIPTION']);
+	    $size = end($parts);
+	    $name = str_replace(" 1000g", "", $row['DESCRIPTION']);
+	    if($size=='250g'){
+			$weight = 250;
+		}elseif($size=='500g'){
+			$weight = 500;
+		}else{
+			$weight = 1000;
+		}
+		
+		$data = array($name,$size,$row['STOCK_CODE'],chr(163).number_format($row['SALES_PRICE'],2));
+		
+		fputcsv($output, $data);
+		
+	    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
+	    foreach($children as $row){
+		    $parts = explode(" ", $row['DESCRIPTION']);
+			$size = end($parts);
+			if($size=='250g'){
+				$weight = 250;
+			}elseif($size=='500g'){
+				$weight = 500;
+			}else{
+				$weight = 1000;
+			}
+			$data = array($name,$size,$row['STOCK_CODE'],chr(163).number_format($row['SALES_PRICE'],2));
+			fputcsv($output, $data);
+	    }
+
+    }
+    
     /** CAPSULES **/
     
     $export = $NaturesLaboratoryShopify->getCatalogueParentsCapsules();
@@ -260,6 +342,206 @@
 			fputcsv($output, $data);
 	    }
 	    
+    }
+    
+    /** CREAMS **/
+    
+    $export = $NaturesLaboratoryShopify->getCatalogueParents(11);
+    
+    fputcsv($output, array('','','',''));
+    fputcsv($output, array('Creams','Size','SKU','Price'));
+    
+    foreach($export as $row){
+	    $handle = str_replace("-1000g", "", $row['WEB_CATEGORY_1']);
+	    $parts = explode(" ", $row['DESCRIPTION']);
+	    $size = end($parts);
+	    $name = str_replace(" 1000g", "", $row['DESCRIPTION']);
+	    if($size=='250g'){
+			$weight = 250;
+		}elseif($size=='500g'){
+			$weight = 500;
+		}else{
+			$weight = 1000;
+		}
+		
+		$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+
+		fputcsv($output, $data);
+		
+	    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
+	    foreach($children as $row){
+		    $parts = explode(" ", $row['DESCRIPTION']);
+			$size = end($parts);
+			if($size=='250g'){
+				$weight = 250;
+			}elseif($size=='500g'){
+				$weight = 500;
+			}else{
+				$weight = 1000;
+			}
+			$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+			fputcsv($output, $data);
+	    }
+    }
+    
+    /** FIXED OILS **/
+    
+    $export = $NaturesLaboratoryShopify->getCatalogueParents(13);
+    
+    fputcsv($output, array('','','',''));
+    fputcsv($output, array('Fixed Oils','Size','SKU','Price'));
+    
+    foreach($export as $row){
+	    $handle = str_replace("-1000ml", "", $row['WEB_CATEGORY_1']);
+	    $parts = explode(" ", $row['DESCRIPTION']);
+	    $size = end($parts);
+	    $name = str_replace(" 1000ml", "", $row['DESCRIPTION']);
+	    if($size=='250ml'){
+			$weight = 250;
+		}elseif($size=='500ml'){
+			$weight = 500;
+		}else{
+			$weight = 1000;
+		}
+		
+		$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+
+		fputcsv($output, $data);
+		
+	    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
+	    foreach($children as $row){
+		    $parts = explode(" ", $row['DESCRIPTION']);
+			$size = end($parts);
+			if($size=='250ml'){
+				$weight = 250;
+			}elseif($size=='500ml'){
+				$weight = 500;
+			}else{
+				$weight = 1000;
+			}
+			$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+			fputcsv($output, $data);
+	    }
+    }
+    
+    /** ESSSENTIAL OILS **/
+    
+    $export = $NaturesLaboratoryShopify->getCatalogueParents(12);
+    
+    fputcsv($output, array('','','',''));
+    fputcsv($output, array('Essential Oils','Size','SKU','Price'));
+    
+    foreach($export as $row){
+	    $handle = str_replace("-1000ml", "", $row['WEB_CATEGORY_1']);
+	    $parts = explode(" ", $row['DESCRIPTION']);
+	    $size = end($parts);
+	    $name = str_replace(" 1000ml", "", $row['DESCRIPTION']);
+	    if($size=='250ml'){
+			$weight = 250;
+		}elseif($size=='500ml'){
+			$weight = 500;
+		}else{
+			$weight = 1000;
+		}
+		
+		$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+
+		fputcsv($output, $data);
+		
+	    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
+	    foreach($children as $row){
+		    $parts = explode(" ", $row['DESCRIPTION']);
+			$size = end($parts);
+			if($size=='250ml'){
+				$weight = 250;
+			}elseif($size=='500ml'){
+				$weight = 500;
+			}else{
+				$weight = 1000;
+			}
+			$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+			fputcsv($output, $data);
+	    }
+    }
+    
+    /** WAXES AND GUMS **/
+    
+    $export = $NaturesLaboratoryShopify->getCatalogueParents(15);
+    
+    fputcsv($output, array('','','',''));
+    fputcsv($output, array('Waxes and Gums','Size','SKU','Price'));
+    
+    foreach($export as $row){
+	    $handle = str_replace("-1000g", "", $row['WEB_CATEGORY_1']);
+	    $parts = explode(" ", $row['DESCRIPTION']);
+	    $size = end($parts);
+	    $name = str_replace(" 1000g", "", $row['DESCRIPTION']);
+	    if($size=='250g'){
+			$weight = 250;
+		}elseif($size=='500g'){
+			$weight = 500;
+		}else{
+			$weight = 1000;
+		}
+		
+		$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+
+		fputcsv($output, $data);
+		
+	    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
+	    foreach($children as $row){
+		    $parts = explode(" ", $row['DESCRIPTION']);
+			$size = end($parts);
+			if($size=='250g'){
+				$weight = 250;
+			}elseif($size=='500g'){
+				$weight = 500;
+			}else{
+				$weight = 1000;
+			}
+			$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+			fputcsv($output, $data);
+	    }
+    }
+    
+    /** WAXES AND GUMS **/
+    
+    $export = $NaturesLaboratoryShopify->getCatalogueParents(14);
+    
+    fputcsv($output, array('','','',''));
+    fputcsv($output, array('Packaging','Size','SKU','Price'));
+    
+    foreach($export as $row){
+	    $handle = str_replace("-1000g", "", $row['WEB_CATEGORY_1']);
+	    $parts = explode(" ", $row['DESCRIPTION']);
+	    $size = end($parts);
+	    $name = str_replace(" 1000g", "", $row['DESCRIPTION']);
+	    if($size=='250g'){
+			$weight = 250;
+		}elseif($size=='500g'){
+			$weight = 500;
+		}else{
+			$weight = 1000;
+		}
+		
+		$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+
+		fputcsv($output, $data);
+		
+	    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
+	    foreach($children as $row){
+		    $parts = explode(" ", $row['DESCRIPTION']);
+			$size = end($parts);
+			if($size=='250g'){
+				$weight = 250;
+			}elseif($size=='500g'){
+				$weight = 500;
+			}else{
+				$weight = 1000;
+			}
+			$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+			fputcsv($output, $data);
+	    }
     }
     
 	exit();

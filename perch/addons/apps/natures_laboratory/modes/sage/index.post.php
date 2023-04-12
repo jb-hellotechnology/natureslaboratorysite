@@ -9,6 +9,12 @@
 
     echo $HTML->main_panel_start();
     
+    if (isset($message)){ 
+	    
+	    echo $message;
+	    
+	}
+    
     echo $Form->form_start();
     echo $Form->file_field('file','File','');
     echo $Form->submit_field('btnSubmit', 'Process', $API->app_path());	

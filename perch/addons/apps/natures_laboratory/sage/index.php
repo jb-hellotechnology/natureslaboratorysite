@@ -1,8 +1,10 @@
 <?php
 	
+/*
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
+*/
 	
     # include the API
     include('../../../../core/inc/api.php');
@@ -59,7 +61,7 @@
 
         if ($didUpload) {
           //echo "The file " . basename($fileName) . " has been uploaded";
-          
+          $message = $HTML->success_message('Data has been successfully imported');
           //EMPTY TABLE
           $NaturesLaboratoryShopify->emptyStock();
           
@@ -69,10 +71,11 @@
           
         } else {
           //echo "An error occurred. Please contact the administrator.";
+          $message = $HTML->error_message('There was an error');
         }
       } else {
         foreach ($errors as $error) {
-          //echo $error . "These are the errors" . "\n";
+          $message = $HTML->error_message('There was an error');
         }
       }
 

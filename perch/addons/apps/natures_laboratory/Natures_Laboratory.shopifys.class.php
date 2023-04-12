@@ -43,14 +43,16 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		}
 	}
 
-	public function getParents($category){
-		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE (STOCK_CODE NOT LIKE "%/%" AND STOCK_CODE NOT LIKE "%/ORG%") AND STOCK_CAT="'.$category.'" ORDER BY STOCK_CODE ASC';
-		$data = $this->db->get_rows($sql);
-		return $data;
-	}
-	
-	public function getCatalogueParents($category){
-		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE (STOCK_CODE NOT LIKE "%/%" AND STOCK_CODE NOT LIKE "%/ORG%") AND STOCK_CAT="'.$category.'" ORDER BY STOCK_CODE ASC';
+	public function getParents($category,$slash,$stock){
+		$stockLevel = '';
+		if($stock){
+			$stockLevel = 'AND QTY_IN_STOCK>0 ';
+		}
+		$slashQ = '';
+		if($slash){
+			$slashQ = 'AND STOCK_CODE NOT LIKE "%/%" ';
+		}
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CAT="'.$category.'" '.$slashQ.''.$stockLevel.'ORDER BY STOCK_CODE ASC';
 		$data = $this->db->get_rows($sql);
 		return $data;
 	}
@@ -71,6 +73,12 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 	public function getChildrenCapsules($sku){
 		$skuParts = explode("/",$sku);
 		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CODE LIKE "'.$sku.'/%" ORDER BY STOCK_CODE DESC';
+		$data = $this->db->get_rows($sql);
+		return $data;
+	}
+	
+	public function getCatalogueParents($category){
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE (STOCK_CODE NOT LIKE "%/%" AND STOCK_CODE NOT LIKE "%/ORG%") AND STOCK_CAT="'.$category.'" ORDER BY STOCK_CODE ASC';
 		$data = $this->db->get_rows($sql);
 		return $data;
 	}

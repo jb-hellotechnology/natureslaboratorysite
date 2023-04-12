@@ -16,11 +16,11 @@
     
     /** CHEMICALS **/
     
-    $export = $NaturesLaboratoryShopify->getParents(1);
+    $export = $NaturesLaboratoryShopify->getParents(1,true,false);
     
     /** TINCTURES **/
     
-    $export = $NaturesLaboratoryShopify->getCatalogueParents(2);
+    $export = $NaturesLaboratoryShopify->getParents(2,true,false);
     
     fputcsv($output, array('Tinctures','Size','SKU','Price'));
     
@@ -59,7 +59,7 @@
     
     /** FLUID EXTRACTS **/
     
-    $export = $NaturesLaboratoryShopify->getCatalogueParents(4);
+    $export = $NaturesLaboratoryShopify->getParents(4,true,false);
     
     fputcsv($output, array('','','',''));
     fputcsv($output, array('Fluid Extracts','Size','SKU','Price'));
@@ -100,7 +100,7 @@
     
     /** CUT HERBS **/
     
-    $export = $NaturesLaboratoryShopify->getCatalogueParents(5);
+    $export = $NaturesLaboratoryShopify->getParents(5,true,false);
 
     fputcsv($output, array('','','',''));
     fputcsv($output, array('Cut Herbs','Size','SKU','Price'));
@@ -141,7 +141,7 @@
     
     /** WHOLE HERBS **/
     
-    $export = $NaturesLaboratoryShopify->getCatalogueParents(6);
+    $export = $NaturesLaboratoryShopify->getParents(6,true,false);
     
     fputcsv($output, array('','','',''));
     fputcsv($output, array('Whole Herbs','Size','SKU','Price'));
@@ -182,7 +182,7 @@
     
     /** POWDERS **/
     
-    $export = $NaturesLaboratoryShopify->getCatalogueParents(7);
+    $export = $NaturesLaboratoryShopify->getParents(7,true,false);
     
     fputcsv($output, array('','','',''));
     fputcsv($output, array('Powders','Size','SKU','Price'));
@@ -223,7 +223,7 @@
     
     /** POWDER BLENDS **/
     
-    $export = $NaturesLaboratoryShopify->getCatalogueParents(17);
+    $export = $NaturesLaboratoryShopify->getParents(17,true,false);
     
     fputcsv($output, array('','','',''));
     fputcsv($output, array('Powder Blends','Size','SKU','Price'));
@@ -264,7 +264,7 @@
     
     /** ORGANIC **/
     
-    $export = $NaturesLaboratoryShopify->getCatalogueParents(18);
+    $export = $NaturesLaboratoryShopify->getParents(18,true,false);
     
     fputcsv($output, array('','','',''));
     fputcsv($output, array('Organic','Size','SKU','Price'));
@@ -305,7 +305,7 @@
     
     /** CAPSULES **/
     
-    $export = $NaturesLaboratoryShopify->getCatalogueParentsCapsules();
+    $export = $NaturesLaboratoryShopify->getParentsCapsules();
     
 	fputcsv($output, array('','','',''));
 	fputcsv($output, array('Capsules','Size','SKU','Price'));
@@ -327,7 +327,7 @@
 		
 		fputcsv($output, $data);
 		
-	    $children = $NaturesLaboratoryShopify->getCatalogueChildrenCapsules($row['STOCK_CODE']);
+	    $children = $NaturesLaboratoryShopify->getChildrenCapsules($row['STOCK_CODE']);
 	    foreach($children as $row){
 		    $parts = explode(" ", $row['DESCRIPTION']);
 			$size = end($parts);
@@ -346,7 +346,7 @@
     
     /** CREAMS **/
     
-    $export = $NaturesLaboratoryShopify->getCatalogueParents(11);
+    $export = $NaturesLaboratoryShopify->getParents(11,true,false);
     
     fputcsv($output, array('','','',''));
     fputcsv($output, array('Creams','Size','SKU','Price'));
@@ -386,7 +386,7 @@
     
     /** FIXED OILS **/
     
-    $export = $NaturesLaboratoryShopify->getCatalogueParents(13);
+    $export = $NaturesLaboratoryShopify->getParents(13,true,false);
     
     fputcsv($output, array('','','',''));
     fputcsv($output, array('Fixed Oils','Size','SKU','Price'));
@@ -426,7 +426,7 @@
     
     /** ESSSENTIAL OILS **/
     
-    $export = $NaturesLaboratoryShopify->getCatalogueParents(12);
+    $export = $NaturesLaboratoryShopify->getParents(12,true,false);
     
     fputcsv($output, array('','','',''));
     fputcsv($output, array('Essential Oils','Size','SKU','Price'));
@@ -466,7 +466,7 @@
     
     /** WAXES AND GUMS **/
     
-    $export = $NaturesLaboratoryShopify->getCatalogueParents(15);
+    $export = $NaturesLaboratoryShopify->getParents(15,true,false);
     
     fputcsv($output, array('','','',''));
     fputcsv($output, array('Waxes and Gums','Size','SKU','Price'));
@@ -506,7 +506,7 @@
     
     /** PACKAGING **/
     
-    $export = $NaturesLaboratoryShopify->getCatalogueParents(14);
+    $export = $NaturesLaboratoryShopify->getParents(14,false,false);
     
     fputcsv($output, array('','','',''));
     fputcsv($output, array('Packaging','Size','SKU','Price'));
@@ -546,7 +546,7 @@
     
     /** BEEVITAL **/
     
-    $export = $NaturesLaboratoryShopify->getCatalogueParents(10);
+    $export = $NaturesLaboratoryShopify->getParents(10,true,false);
     
     fputcsv($output, array('','','',''));
     fputcsv($output, array('BeeVital','Size','SKU','Price'));
@@ -586,7 +586,7 @@
     
     /** SWEET CECILYS **/
     
-    $export = $NaturesLaboratoryShopify->getCatalogueParents(22);
+    $export = $NaturesLaboratoryShopify->getParents(22,true,false);
     
     fputcsv($output, array('','','',''));
     fputcsv($output, array('Sweet Cecilys','Size','SKU','Price'));

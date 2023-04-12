@@ -48,4 +48,8 @@
             'page' => 'natures_laboratory/spreadsheet',
             'label'=> 'Spreadsheet'
         ],
+        [
+            'page' => 'natures_laboratory/sage',
+            'label'=> 'Sage Import'
+        ],
     ], $CurrentUser);

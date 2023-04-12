@@ -504,12 +504,92 @@
 	    }
     }
     
-    /** WAXES AND GUMS **/
+    /** PACKAGING **/
     
     $export = $NaturesLaboratoryShopify->getCatalogueParents(14);
     
     fputcsv($output, array('','','',''));
     fputcsv($output, array('Packaging','Size','SKU','Price'));
+    
+    foreach($export as $row){
+	    $handle = str_replace("-1000g", "", $row['WEB_CATEGORY_1']);
+	    $parts = explode(" ", $row['DESCRIPTION']);
+	    $size = end($parts);
+	    $name = str_replace(" 1000g", "", $row['DESCRIPTION']);
+	    if($size=='250g'){
+			$weight = 250;
+		}elseif($size=='500g'){
+			$weight = 500;
+		}else{
+			$weight = 1000;
+		}
+		
+		$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+
+		fputcsv($output, $data);
+		
+	    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
+	    foreach($children as $row){
+		    $parts = explode(" ", $row['DESCRIPTION']);
+			$size = end($parts);
+			if($size=='250g'){
+				$weight = 250;
+			}elseif($size=='500g'){
+				$weight = 500;
+			}else{
+				$weight = 1000;
+			}
+			$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+			fputcsv($output, $data);
+	    }
+    }
+    
+    /** BEEVITAL **/
+    
+    $export = $NaturesLaboratoryShopify->getCatalogueParents(10);
+    
+    fputcsv($output, array('','','',''));
+    fputcsv($output, array('BeeVital','Size','SKU','Price'));
+    
+    foreach($export as $row){
+	    $handle = str_replace("-1000g", "", $row['WEB_CATEGORY_1']);
+	    $parts = explode(" ", $row['DESCRIPTION']);
+	    $size = end($parts);
+	    $name = str_replace(" 1000g", "", $row['DESCRIPTION']);
+	    if($size=='250g'){
+			$weight = 250;
+		}elseif($size=='500g'){
+			$weight = 500;
+		}else{
+			$weight = 1000;
+		}
+		
+		$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+
+		fputcsv($output, $data);
+		
+	    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
+	    foreach($children as $row){
+		    $parts = explode(" ", $row['DESCRIPTION']);
+			$size = end($parts);
+			if($size=='250g'){
+				$weight = 250;
+			}elseif($size=='500g'){
+				$weight = 500;
+			}else{
+				$weight = 1000;
+			}
+			$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+			fputcsv($output, $data);
+	    }
+    }
+    
+    /** SWEET CECILYS **/
+    
+    $export = $NaturesLaboratoryShopify->getCatalogueParents(22);
+    
+    fputcsv($output, array('','','',''));
+    fputcsv($output, array('Sweet Cecilys','Size','SKU','Price'));
     
     foreach($export as $row){
 	    $handle = str_replace("-1000g", "", $row['WEB_CATEGORY_1']);

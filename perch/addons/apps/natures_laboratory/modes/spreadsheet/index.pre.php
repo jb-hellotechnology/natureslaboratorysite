@@ -6,12 +6,12 @@ error_reporting(E_ALL);
 
 	if (!$CurrentUser->has_priv('natures_laboratory.labels')) exit;
     
-    global $NaturesLaboratoryShopify = new Natures_Laboratory_Shopifys($API); 
+    $NaturesLaboratoryShopify = new Natures_Laboratory_Shopifys($API); 
     
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
     
-    function exportData($export,$output,$name,$quantity){
+    function exportData($export,$output,$name,$quantity,$NaturesLaboratoryShopify){
 	    fputcsv($output, array('','','',''));
 	    fputcsv($output, array($name,'Size','SKU','Price'));
 	    
@@ -93,7 +93,7 @@ error_reporting(E_ALL);
     
     $export = $NaturesLaboratoryShopify->getParents(2,true,false);
     
-    exportData($export,$output,'Tinctures','1000ml');
+    exportData($export,$output,'Tinctures','1000ml',$NaturesLaboratoryShopify);
     
     /** FLUID EXTRACTS **/
     

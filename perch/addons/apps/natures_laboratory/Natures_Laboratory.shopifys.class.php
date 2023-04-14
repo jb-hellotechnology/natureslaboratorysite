@@ -64,8 +64,12 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		return $data;
 	}
 	
-	public function getParentsCapsules(){
-		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE (STOCK_CODE LIKE "%/1000%") AND STOCK_CAT="8" ORDER BY STOCK_CODE ASC';
+	public function getParentsCapsules($stock){
+		$stockLevel = '';
+		if($stock){
+			$stockLevel = 'AND QTY_IN_STOCK>0 ';
+		}
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE (STOCK_CODE LIKE "%/1000%") AND STOCK_CAT="8" '.$stockLevel.'ORDER BY STOCK_CODE ASC';
 		$data = $this->db->get_rows($sql);
 		return $data;
 	}

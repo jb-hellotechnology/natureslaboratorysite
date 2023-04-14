@@ -37,7 +37,13 @@
 			$weight = 1000;
 		}
 		
-		$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+		if($row['QTY_IN_STOCK']>0){
+			$price = chr(163).number_format($row['SALES_PRICE'],2);
+		}else{
+			$price = 'OUT OF STOCK';
+		}
+		
+		$data = array($name,$size,"$row[STOCK_CODE]",$price);
 
 		fputcsv($output, $data);
 		
@@ -52,6 +58,13 @@
 			}else{
 				$weight = 1000;
 			}
+			
+			if($row['QTY_IN_STOCK']>0){
+				$price = chr(163).number_format($row['SALES_PRICE'],2);
+			}else{
+				$price = 'OUT OF STOCK';
+			}
+			
 			$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
 			fputcsv($output, $data);
 	    }
@@ -77,7 +90,13 @@
 			$weight = 1000;
 		}
 		
-		$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+		if($row['QTY_IN_STOCK']>0){
+			$price = chr(163).number_format($row['SALES_PRICE'],2);
+		}else{
+			$price = 'OUT OF STOCK';
+		}
+		
+		$data = array($name,$size,"$row[STOCK_CODE]",$price);
 
 		fputcsv($output, $data);
 		
@@ -92,7 +111,14 @@
 			}else{
 				$weight = 1000;
 			}
-			$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+			
+			if($row['QTY_IN_STOCK']>0){
+				$price = chr(163).number_format($row['SALES_PRICE'],2);
+			}else{
+				$price = 'OUT OF STOCK';
+			}
+
+			$data = array($name,$size,"$row[STOCK_CODE]",$price);
 			fputcsv($output, $data);
 	    }
     }
@@ -118,7 +144,13 @@
 			$weight = 1000;
 		}
 		
-		$data = array($name,$size,$row['STOCK_CODE'],chr(163).number_format($row['SALES_PRICE'],2));
+		if($row['QTY_IN_STOCK']>0){
+			$price = chr(163).number_format($row['SALES_PRICE'],2);
+		}else{
+			$price = 'POA';
+		}
+		
+		$data = array($name,$size,$row['STOCK_CODE'],$price);
 		
 		fputcsv($output, $data);
 		
@@ -133,7 +165,14 @@
 			}else{
 				$weight = 1000;
 			}
-			$data = array($name,$size,$row['STOCK_CODE'],chr(163).number_format($row['SALES_PRICE'],2));
+			
+			if($row['POA']>0){
+				$price = chr(163).number_format($row['SALES_PRICE'],2);
+			}else{
+				$price = 'OUT OF STOCK';
+			}
+			
+			$data = array($name,$size,$row['STOCK_CODE'],$price);
 			fputcsv($output, $data);
 	    }
 
@@ -159,7 +198,13 @@
 			$weight = 1000;
 		}
 		
-		$data = array($name,$size,$row['STOCK_CODE'],chr(163).number_format($row['SALES_PRICE'],2));
+		if($row['QTY_IN_STOCK']>0){
+			$price = chr(163).number_format($row['SALES_PRICE'],2);
+		}else{
+			$price = 'POA';
+		}
+		
+		$data = array($name,$size,$row['STOCK_CODE'],$price);
 		
 		fputcsv($output, $data);
 		
@@ -174,7 +219,14 @@
 			}else{
 				$weight = 1000;
 			}
-			$data = array($name,$size,$row['STOCK_CODE'],chr(163).number_format($row['SALES_PRICE'],2));
+			
+			if($row['QTY_IN_STOCK']>0){
+				$price = chr(163).number_format($row['SALES_PRICE'],2);
+			}else{
+				$price = 'POA';
+			}
+			
+			$data = array($name,$size,$row['STOCK_CODE'],$price);
 			fputcsv($output, $data);
 	    }
 
@@ -200,7 +252,13 @@
 			$weight = 1000;
 		}
 		
-		$data = array($name,$size,$row['STOCK_CODE'],chr(163).number_format($row['SALES_PRICE'],2));
+		if($row['QTY_IN_STOCK']>0){
+			$price = chr(163).number_format($row['SALES_PRICE'],2);
+		}else{
+			$price = 'POA';
+		}
+		
+		$data = array($name,$size,$row['STOCK_CODE'],$price);
 		
 		fputcsv($output, $data);
 		
@@ -215,7 +273,14 @@
 			}else{
 				$weight = 1000;
 			}
-			$data = array($name,$size,$row['STOCK_CODE'],chr(163).number_format($row['SALES_PRICE'],2));
+			
+			if($row['QTY_IN_STOCK']>0){
+				$price = chr(163).number_format($row['SALES_PRICE'],2);
+			}else{
+				$price = 'POA';
+			}
+			
+			$data = array($name,$size,$row['STOCK_CODE'],$price);
 			fputcsv($output, $data);
 	    }
 
@@ -241,7 +306,13 @@
 			$weight = 1000;
 		}
 		
-		$data = array($name,$size,$row['STOCK_CODE'],chr(163).number_format($row['SALES_PRICE'],2));
+		if($row['QTY_IN_STOCK']>0){
+			$price = chr(163).number_format($row['SALES_PRICE'],2);
+		}else{
+			$price = 'OUT OF STOCK';
+		}
+		
+		$data = array($name,$size,$row['STOCK_CODE'],$price);
 		
 		fputcsv($output, $data);
 		
@@ -256,7 +327,14 @@
 			}else{
 				$weight = 1000;
 			}
-			$data = array($name,$size,$row['STOCK_CODE'],chr(163).number_format($row['SALES_PRICE'],2));
+			
+			if($row['QTY_IN_STOCK']>0){
+				$price = chr(163).number_format($row['SALES_PRICE'],2);
+			}else{
+				$price = 'OUT OF STOCK';
+			}
+			
+			$data = array($name,$size,$row['STOCK_CODE'],$price);
 			fputcsv($output, $data);
 	    }
 
@@ -282,7 +360,13 @@
 			$weight = 1000;
 		}
 		
-		$data = array($name,$size,$row['STOCK_CODE'],chr(163).number_format($row['SALES_PRICE'],2));
+		if($row['QTY_IN_STOCK']>0){
+			$price = chr(163).number_format($row['SALES_PRICE'],2);
+		}else{
+			$price = 'POA';
+		}
+		
+		$data = array($name,$size,$row['STOCK_CODE'],$price);
 		
 		fputcsv($output, $data);
 		
@@ -297,7 +381,14 @@
 			}else{
 				$weight = 1000;
 			}
-			$data = array($name,$size,$row['STOCK_CODE'],chr(163).number_format($row['SALES_PRICE'],2));
+			
+			if($row['QTY_IN_STOCK']>0){
+				$price = chr(163).number_format($row['SALES_PRICE'],2);
+			}else{
+				$price = 'POA';
+			}
+			
+			$data = array($name,$size,$row['STOCK_CODE'],$price);
 			fputcsv($output, $data);
 	    }
 
@@ -305,7 +396,7 @@
     
     /** CAPSULES **/
     
-    $export = $NaturesLaboratoryShopify->getParentsCapsules();
+    $export = $NaturesLaboratoryShopify->getParentsCapsules(false);
     
 	fputcsv($output, array('','','',''));
 	fputcsv($output, array('Capsules','Size','SKU','Price'));
@@ -323,7 +414,13 @@
 			$weight = 1000;
 		}
 		
-		$data = array($name,'1000',$row['STOCK_CODE'],chr(163).number_format($row['SALES_PRICE'],2));
+		if($row['QTY_IN_STOCK']>0){
+			$price = chr(163).number_format($row['SALES_PRICE'],2);
+		}else{
+			$price = 'POA';
+		}
+		
+		$data = array($name,'1000',$row['STOCK_CODE'],$price);
 		
 		fputcsv($output, $data);
 		
@@ -338,7 +435,14 @@
 			}else{
 				$weight = 1000;
 			}
-			$data = array($name,$size,$row['STOCK_CODE'],chr(163).number_format($row['SALES_PRICE'],2));
+			
+			if($row['QTY_IN_STOCK']>0){
+				$price = chr(163).number_format($row['SALES_PRICE'],2);
+			}else{
+				$price = 'POA';
+			}
+			
+			$data = array($name,$size,$row['STOCK_CODE'],$price);
 			fputcsv($output, $data);
 	    }
 	    
@@ -364,7 +468,13 @@
 			$weight = 1000;
 		}
 		
-		$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+		if($row['QTY_IN_STOCK']>0){
+			$price = chr(163).number_format($row['SALES_PRICE'],2);
+		}else{
+			$price = 'OUT OF STOCK';
+		}
+		
+		$data = array($name,$size,"$row[STOCK_CODE]",$price);
 
 		fputcsv($output, $data);
 		
@@ -379,7 +489,14 @@
 			}else{
 				$weight = 1000;
 			}
-			$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+			
+			if($row['QTY_IN_STOCK']>0){
+				$price = chr(163).number_format($row['SALES_PRICE'],2);
+			}else{
+				$price = 'OUT OF STOCK';
+			}
+			
+			$data = array($name,$size,"$row[STOCK_CODE]",$price);
 			fputcsv($output, $data);
 	    }
     }
@@ -404,7 +521,13 @@
 			$weight = 1000;
 		}
 		
-		$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+		if($row['QTY_IN_STOCK']>0){
+			$price = chr(163).number_format($row['SALES_PRICE'],2);
+		}else{
+			$price = 'OUT OF STOCK';
+		}
+		
+		$data = array($name,$size,"$row[STOCK_CODE]",$price);
 
 		fputcsv($output, $data);
 		
@@ -419,7 +542,14 @@
 			}else{
 				$weight = 1000;
 			}
-			$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+			
+			if($row['QTY_IN_STOCK']>0){
+				$price = chr(163).number_format($row['SALES_PRICE'],2);
+			}else{
+				$price = 'OUT OF STOCK';
+			}
+			
+			$data = array($name,$size,"$row[STOCK_CODE]",$price);
 			fputcsv($output, $data);
 	    }
     }
@@ -444,7 +574,13 @@
 			$weight = 1000;
 		}
 		
-		$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+		if($row['QTY_IN_STOCK']>0){
+			$price = chr(163).number_format($row['SALES_PRICE'],2);
+		}else{
+			$price = 'OUT OF STOCK';
+		}
+		
+		$data = array($name,$size,"$row[STOCK_CODE]",$price);
 
 		fputcsv($output, $data);
 		
@@ -459,7 +595,14 @@
 			}else{
 				$weight = 1000;
 			}
-			$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+			
+			if($row['QTY_IN_STOCK']>0){
+				$price = chr(163).number_format($row['SALES_PRICE'],2);
+			}else{
+				$price = 'OUT OF STOCK';
+			}
+			
+			$data = array($name,$size,"$row[STOCK_CODE]",$price);
 			fputcsv($output, $data);
 	    }
     }
@@ -484,7 +627,13 @@
 			$weight = 1000;
 		}
 		
-		$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+		if($row['QTY_IN_STOCK']>0){
+			$price = chr(163).number_format($row['SALES_PRICE'],2);
+		}else{
+			$price = 'OUT OF STOCK';
+		}
+		
+		$data = array($name,$size,"$row[STOCK_CODE]",$price);
 
 		fputcsv($output, $data);
 		
@@ -499,7 +648,14 @@
 			}else{
 				$weight = 1000;
 			}
-			$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+			
+			if($row['QTY_IN_STOCK']>0){
+				$price = chr(163).number_format($row['SALES_PRICE'],2);
+			}else{
+				$price = 'OUT OF STOCK';
+			}
+			
+			$data = array($name,$size,"$row[STOCK_CODE]",$price);
 			fputcsv($output, $data);
 	    }
     }
@@ -512,36 +668,18 @@
     fputcsv($output, array('Packaging','Size','SKU','Price'));
     
     foreach($export as $row){
-	    $handle = str_replace("-1000g", "", $row['WEB_CATEGORY_1']);
-	    $parts = explode(" ", $row['DESCRIPTION']);
-	    $size = end($parts);
-	    $name = str_replace(" 1000g", "", $row['DESCRIPTION']);
-	    if($size=='250g'){
-			$weight = 250;
-		}elseif($size=='500g'){
-			$weight = 500;
+	    $name = $row['DESCRIPTION'];
+		$size = '';
+		
+		if($row['QTY_IN_STOCK']>0){
+			$price = chr(163).number_format($row['SALES_PRICE'],2);
 		}else{
-			$weight = 1000;
+			$price = 'OUT OF STOCK';
 		}
 		
-		$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+		$data = array($name,$size,"$row[STOCK_CODE]",$price);
 
 		fputcsv($output, $data);
-		
-	    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
-	    foreach($children as $row){
-		    $parts = explode(" ", $row['DESCRIPTION']);
-			$size = end($parts);
-			if($size=='250g'){
-				$weight = 250;
-			}elseif($size=='500g'){
-				$weight = 500;
-			}else{
-				$weight = 1000;
-			}
-			$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
-			fputcsv($output, $data);
-	    }
     }
     
     /** BEEVITAL **/
@@ -552,36 +690,18 @@
     fputcsv($output, array('BeeVital','Size','SKU','Price'));
     
     foreach($export as $row){
-	    $handle = str_replace("-1000g", "", $row['WEB_CATEGORY_1']);
-	    $parts = explode(" ", $row['DESCRIPTION']);
-	    $size = end($parts);
-	    $name = str_replace(" 1000g", "", $row['DESCRIPTION']);
-	    if($size=='250g'){
-			$weight = 250;
-		}elseif($size=='500g'){
-			$weight = 500;
+	    $name = $row['DESCRIPTION'];
+		$size = '';
+		
+		if($row['QTY_IN_STOCK']>0){
+			$price = chr(163).number_format($row['SALES_PRICE'],2);
 		}else{
-			$weight = 1000;
+			$price = 'OUT OF STOCK';
 		}
 		
-		$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+		$data = array($name,$size,"$row[STOCK_CODE]",$price);
 
 		fputcsv($output, $data);
-		
-	    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
-	    foreach($children as $row){
-		    $parts = explode(" ", $row['DESCRIPTION']);
-			$size = end($parts);
-			if($size=='250g'){
-				$weight = 250;
-			}elseif($size=='500g'){
-				$weight = 500;
-			}else{
-				$weight = 1000;
-			}
-			$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
-			fputcsv($output, $data);
-	    }
     }
     
     /** SWEET CECILYS **/
@@ -592,36 +712,18 @@
     fputcsv($output, array('Sweet Cecilys','Size','SKU','Price'));
     
     foreach($export as $row){
-	    $handle = str_replace("-1000g", "", $row['WEB_CATEGORY_1']);
-	    $parts = explode(" ", $row['DESCRIPTION']);
-	    $size = end($parts);
-	    $name = str_replace(" 1000g", "", $row['DESCRIPTION']);
-	    if($size=='250g'){
-			$weight = 250;
-		}elseif($size=='500g'){
-			$weight = 500;
+	    $name = $row['DESCRIPTION'];
+		$size = '';
+		
+		if($row['QTY_IN_STOCK']>0){
+			$price = chr(163).number_format($row['SALES_PRICE'],2);
 		}else{
-			$weight = 1000;
+			$price = 'OUT OF STOCK';
 		}
 		
-		$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
+		$data = array($name,$size,"$row[STOCK_CODE]",$price);
 
 		fputcsv($output, $data);
-		
-	    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
-	    foreach($children as $row){
-		    $parts = explode(" ", $row['DESCRIPTION']);
-			$size = end($parts);
-			if($size=='250g'){
-				$weight = 250;
-			}elseif($size=='500g'){
-				$weight = 500;
-			}else{
-				$weight = 1000;
-			}
-			$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
-			fputcsv($output, $data);
-	    }
     }
     
 	exit();

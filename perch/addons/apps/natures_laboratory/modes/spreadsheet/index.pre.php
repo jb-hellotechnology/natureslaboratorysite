@@ -354,7 +354,7 @@
     
     /** ORGANIC **/
     
-    $export = $NaturesLaboratoryShopify->getParents(18,true,false);
+    $export = $NaturesLaboratoryShopify->getOrganicParents(18,true,false);
     
     fputcsv($output, array('','','',''));
     fputcsv($output, array('Organic','Size','SKU','Price'));
@@ -382,7 +382,7 @@
 		
 		fputcsv($output, $data);
 		
-	    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
+	    $children = $NaturesLaboratoryShopify->getOrganicChildren($row['STOCK_CODE']);
 	    foreach($children as $row){
 		    $parts = explode(" ", $row['DESCRIPTION']);
 			$size = end($parts);

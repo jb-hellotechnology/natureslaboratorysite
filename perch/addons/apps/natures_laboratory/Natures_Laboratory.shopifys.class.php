@@ -57,9 +57,30 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		return $data;
 	}
 	
+	public function getOrganicParents($category,$slash,$stock){
+		$stockLevel = '';
+		if($stock){
+			$stockLevel = 'AND QTY_IN_STOCK>0 ';
+		}
+		$slashQ = '';
+		if($slash){
+			$slashQ = 'AND STOCK_CODE LIKE "%/ORG%" ';
+		}
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CAT="'.$category.'" '.$slashQ.''.$stockLevel.'ORDER BY STOCK_CODE ASC';
+		$data = $this->db->get_rows($sql);
+		return $data;
+	}
+	
 	public function getChildren($sku){
 		$skuParts = explode("/",$sku);
 		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CODE LIKE "'.$sku.'/%" AND STOCK_CODE NOT LIKE "%/ORG%" AND DESCRIPTION NOT LIKE "%Discontinued%" ORDER BY STOCK_CODE DESC';
+		$data = $this->db->get_rows($sql);
+		return $data;
+	}
+	
+	public function getOrganicChildren($sku){
+		$skuParts = explode("/",$sku);
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CODE LIKE "'.$sku.'/%" AND DESCRIPTION NOT LIKE "%Discontinued%" ORDER BY STOCK_CODE DESC';
 		$data = $this->db->get_rows($sql);
 		return $data;
 	}

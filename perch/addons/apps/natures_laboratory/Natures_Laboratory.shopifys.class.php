@@ -67,6 +67,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 			$slashQ = 'AND STOCK_CODE LIKE "%/ORG%" ';
 		}
 		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CAT="'.$category.'" '.$slashQ.''.$stockLevel.'ORDER BY STOCK_CODE ASC';
+		echo $sql;
 		$data = $this->db->get_rows($sql);
 		return $data;
 	}

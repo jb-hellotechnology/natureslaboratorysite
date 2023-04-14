@@ -7,6 +7,73 @@
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
     
+    function exportData($name,$quantity){
+	    fputcsv($output, array('','','',''));
+	    fputcsv($output, array($name,'Size','SKU','Price'));
+	    
+	    foreach($export as $row){
+		    $parts = explode(" ", $row['DESCRIPTION']);
+		    $size = end($parts);
+		    $name = str_replace(" ".$quantity, "", $row['DESCRIPTION']);
+			$sku = $row['STOCK_CODE'];
+			
+			if($row['QTY_IN_STOCK']>0){
+				$price = chr(163).number_format($row['SALES_PRICE'],2);
+			}else{
+				$price = 'OUT OF STOCK';
+			}
+			
+			$data = array($name,$size,$sku,$price);
+	
+			fputcsv($output, $data);
+			
+		    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
+		    foreach($children as $row){
+			    $parts = explode(" ", $row['DESCRIPTION']);
+				$size = end($parts);
+				
+				if($row['QTY_IN_STOCK']>0){
+					$price = chr(163).number_format($row['SALES_PRICE'],2);
+				}else{
+					$price = 'OUT OF STOCK';
+				}
+				
+				$data = array($name,$size,"$row[STOCK_CODE]",$price);
+				fputcsv($output, $data);
+		    }
+		    
+		    $organic = $NaturesLaboratoryShopify->getOrganic($sku.'/ORG');
+		    if($organic){
+			    $parts = explode(" ", $organic['DESCRIPTION']);
+			    $size = end($parts);
+				$sku = $organic['STOCK_CODE'];
+				if($row['QTY_IN_STOCK']>0){
+					$price = chr(163).number_format($organic['SALES_PRICE'],2);
+				}else{
+					$price = 'OUT OF STOCK';
+				}
+			    $data = array($name.' Organic',$size,$sku,$price);
+				fputcsv($output, $data);
+				
+				$children = $NaturesLaboratoryShopify->getOrganicChildren($organic['STOCK_CODE']);
+			    foreach($children as $child){
+				    $parts = explode(" ", $child['DESCRIPTION']);
+					$size = end($parts);
+					
+					if($row['QTY_IN_STOCK']>0){
+						$price = chr(163).number_format($child['SALES_PRICE'],2);
+					}else{
+						$price = 'OUT OF STOCK';
+					}
+					
+					$data = array($name.' Organic',$size,"$child[STOCK_CODE]",$price);
+					fputcsv($output, $data);
+			    }
+		    
+		    }
+	    }
+    }
+    
     header('Content-Type: text/csv; charset=utf-8');
 	header('Content-Disposition: attachment; filename=herbalapothecary.csv');
 	
@@ -22,38 +89,7 @@
     
     $export = $NaturesLaboratoryShopify->getParents(2,true,false);
     
-    fputcsv($output, array('Tinctures','Size','SKU','Price'));
-    
-    foreach($export as $row){
-	    $parts = explode(" ", $row['DESCRIPTION']);
-	    $size = end($parts);
-	    $name = str_replace(" 1000ml", "", $row['DESCRIPTION']);
-		
-		if($row['QTY_IN_STOCK']>0){
-			$price = chr(163).number_format($row['SALES_PRICE'],2);
-		}else{
-			$price = 'OUT OF STOCK';
-		}
-		
-		$data = array($name,$size,"$row[STOCK_CODE]",$price);
-
-		fputcsv($output, $data);
-		
-	    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
-	    foreach($children as $row){
-		    $parts = explode(" ", $row['DESCRIPTION']);
-			$size = end($parts);
-			
-			if($row['QTY_IN_STOCK']>0){
-				$price = chr(163).number_format($row['SALES_PRICE'],2);
-			}else{
-				$price = 'OUT OF STOCK';
-			}
-			
-			$data = array($name,$size,"$row[STOCK_CODE]",chr(163).number_format($row['SALES_PRICE'],2));
-			fputcsv($output, $data);
-	    }
-    }
+    exportData('Tinctures','1000ml');
     
     /** FLUID EXTRACTS **/
     
@@ -395,70 +431,7 @@
     
     $export = $NaturesLaboratoryShopify->getParents(11,true,false);
     
-    fputcsv($output, array('','','',''));
-    fputcsv($output, array('Creams','Size','SKU','Price'));
-    
-    foreach($export as $row){
-	    $parts = explode(" ", $row['DESCRIPTION']);
-	    $size = end($parts);
-	    $name = str_replace(" 1000ml", "", $row['DESCRIPTION']);
-		$sku = $row['STOCK_CODE'];
-		
-		if($row['QTY_IN_STOCK']>0){
-			$price = chr(163).number_format($row['SALES_PRICE'],2);
-		}else{
-			$price = 'OUT OF STOCK';
-		}
-		
-		$data = array($name,$size,$sku,$price);
-
-		fputcsv($output, $data);
-		
-	    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
-	    foreach($children as $row){
-		    $parts = explode(" ", $row['DESCRIPTION']);
-			$size = end($parts);
-			
-			if($row['QTY_IN_STOCK']>0){
-				$price = chr(163).number_format($row['SALES_PRICE'],2);
-			}else{
-				$price = 'OUT OF STOCK';
-			}
-			
-			$data = array($name,$size,"$row[STOCK_CODE]",$price);
-			fputcsv($output, $data);
-	    }
-	    
-	    $organic = $NaturesLaboratoryShopify->getOrganic($sku.'/ORG');
-	    if($organic){
-		    $parts = explode(" ", $organic['DESCRIPTION']);
-		    $size = end($parts);
-			$sku = $organic['STOCK_CODE'];
-			if($row['QTY_IN_STOCK']>0){
-				$price = chr(163).number_format($organic['SALES_PRICE'],2);
-			}else{
-				$price = 'OUT OF STOCK';
-			}
-		    $data = array($name.' Organic',$size,$sku,$price);
-			fputcsv($output, $data);
-			
-			$children = $NaturesLaboratoryShopify->getOrganicChildren($organic['STOCK_CODE']);
-		    foreach($children as $child){
-			    $parts = explode(" ", $child['DESCRIPTION']);
-				$size = end($parts);
-				
-				if($row['QTY_IN_STOCK']>0){
-					$price = chr(163).number_format($child['SALES_PRICE'],2);
-				}else{
-					$price = 'OUT OF STOCK';
-				}
-				
-				$data = array($name.' Organic',$size,"$child[STOCK_CODE]",$price);
-				fputcsv($output, $data);
-		    }
-	    
-	    }
-    }
+    liquids();
     
     /** FIXED OILS **/
     

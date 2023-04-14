@@ -11,7 +11,7 @@ error_reporting(E_ALL);
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
     
-    function exportData($export,$name,$quantity){
+    function exportData($export,$output,$name,$quantity){
 	    fputcsv($output, array('','','',''));
 	    fputcsv($output, array($name,'Size','SKU','Price'));
 	    
@@ -93,7 +93,7 @@ error_reporting(E_ALL);
     
     $export = $NaturesLaboratoryShopify->getParents(2,true,false);
     
-    exportData($export,'Tinctures','1000ml');
+    exportData($export,$output,'Tinctures','1000ml');
     
     /** FLUID EXTRACTS **/
     

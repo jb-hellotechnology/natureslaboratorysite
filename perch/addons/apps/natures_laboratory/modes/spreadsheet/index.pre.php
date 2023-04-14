@@ -453,7 +453,7 @@
 					$price = 'OUT OF STOCK';
 				}
 				
-				$data = array($name,$size,"$child[STOCK_CODE]",$price);
+				$data = array($name.' Organic',$size,"$child[STOCK_CODE]",$price);
 				fputcsv($output, $data);
 		    }
 	    

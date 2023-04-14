@@ -144,8 +144,11 @@
 			$weight = 1000;
 		}
 		
+		$parentStock = false;
+		
 		if($row['QTY_IN_STOCK']>0){
 			$price = chr(163).number_format($row['SALES_PRICE'],2);
+			$parentStock = true;
 		}else{
 			$price = 'POA';
 		}
@@ -166,10 +169,10 @@
 				$weight = 1000;
 			}
 			
-			if($row['POA']>0){
+			if($parentStock){
 				$price = chr(163).number_format($row['SALES_PRICE'],2);
 			}else{
-				$price = 'OUT OF STOCK';
+				$price = 'POA';
 			}
 			
 			$data = array($name,$size,$row['STOCK_CODE'],$price);
@@ -198,8 +201,11 @@
 			$weight = 1000;
 		}
 		
+		$parentStock = false;
+		
 		if($row['QTY_IN_STOCK']>0){
 			$price = chr(163).number_format($row['SALES_PRICE'],2);
+			$parentStock = true;
 		}else{
 			$price = 'POA';
 		}
@@ -220,7 +226,7 @@
 				$weight = 1000;
 			}
 			
-			if($row['QTY_IN_STOCK']>0){
+			if($parentStock){
 				$price = chr(163).number_format($row['SALES_PRICE'],2);
 			}else{
 				$price = 'POA';
@@ -252,8 +258,11 @@
 			$weight = 1000;
 		}
 		
+		$parentStock = false;
+		
 		if($row['QTY_IN_STOCK']>0){
 			$price = chr(163).number_format($row['SALES_PRICE'],2);
+			$parentStock = true;
 		}else{
 			$price = 'POA';
 		}
@@ -274,7 +283,7 @@
 				$weight = 1000;
 			}
 			
-			if($row['QTY_IN_STOCK']>0){
+			if($parentStock){
 				$price = chr(163).number_format($row['SALES_PRICE'],2);
 			}else{
 				$price = 'POA';
@@ -306,8 +315,11 @@
 			$weight = 1000;
 		}
 		
+		$parentStock = false;
+		
 		if($row['QTY_IN_STOCK']>0){
 			$price = chr(163).number_format($row['SALES_PRICE'],2);
+			$parentStock = true;
 		}else{
 			$price = 'OUT OF STOCK';
 		}
@@ -328,7 +340,7 @@
 				$weight = 1000;
 			}
 			
-			if($row['QTY_IN_STOCK']>0){
+			if($parentStock){
 				$price = chr(163).number_format($row['SALES_PRICE'],2);
 			}else{
 				$price = 'OUT OF STOCK';

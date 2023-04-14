@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 
 	if (!$CurrentUser->has_priv('natures_laboratory.labels')) exit;
     
-    $NaturesLaboratoryShopify = new Natures_Laboratory_Shopifys($API); 
+    global $NaturesLaboratoryShopify = new Natures_Laboratory_Shopifys($API); 
     
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');

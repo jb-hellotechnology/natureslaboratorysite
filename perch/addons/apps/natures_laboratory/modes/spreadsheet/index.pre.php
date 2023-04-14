@@ -8,14 +8,14 @@ error_reporting(E_ALL);
 
 	if (!$CurrentUser->has_priv('natures_laboratory.labels')) exit;
     
-    global $NaturesLaboratoryShopify = new Natures_Laboratory_Shopifys($API); 
+    $NaturesLaboratoryShopify = new Natures_Laboratory_Shopifys($API); 
     
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
     
     function exportData($export,$output,$name,$quantity){
 	    
-	    global $NaturesLaboratoryShopify;
+	    $NaturesLaboratoryShopify = new Natures_Laboratory_Shopifys($API); 
 	    
 	    fputcsv($output, array('','','',''));
 	    fputcsv($output, array($name,'Size','SKU','Price'));

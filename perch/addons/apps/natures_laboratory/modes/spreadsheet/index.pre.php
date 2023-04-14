@@ -8,12 +8,15 @@ error_reporting(E_ALL);
 
 	if (!$CurrentUser->has_priv('natures_laboratory.labels')) exit;
     
-    $NaturesLaboratoryShopify = new Natures_Laboratory_Shopifys($API); 
+    global $NaturesLaboratoryShopify = new Natures_Laboratory_Shopifys($API); 
     
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
     
-    function exportData($export,$output,$name,$quantity,$NaturesLaboratoryShopify){
+    function exportData($export,$output,$name,$quantity){
+	    
+	    global $NaturesLaboratoryShopify;
+	    
 	    fputcsv($output, array('','','',''));
 	    fputcsv($output, array($name,'Size','SKU','Price'));
 	    
@@ -94,58 +97,58 @@ error_reporting(E_ALL);
     /** TINCTURES **/
     
     $export = $NaturesLaboratoryShopify->getParents(2,true,false);
-    exportData($export,$output,'Tinctures','1000ml',$NaturesLaboratoryShopify);
+    exportData($export,$output,'Tinctures','1000ml');
     
     /** FLUID EXTRACTS **/
     
     $export = $NaturesLaboratoryShopify->getParents(4,true,false);
-    exportData($export,$output,'Fluid Extracts','1000ml',$NaturesLaboratoryShopify);
+    exportData($export,$output,'Fluid Extracts','1000ml');
     
     
     /** CUT HERBS **/
     
     $export = $NaturesLaboratoryShopify->getParents(5,true,false);
-	exportData($export,$output,'Cut Herbs','1000g',$NaturesLaboratoryShopify);
+	exportData($export,$output,'Cut Herbs','1000g');
     
     /** WHOLE HERBS **/
     
     $export = $NaturesLaboratoryShopify->getParents(6,true,false);
-    exportData($export,$output,'Whole Herbs','1000g',$NaturesLaboratoryShopify);
+    exportData($export,$output,'Whole Herbs','1000g');
     
     /** POWDERS **/
     
     $export = $NaturesLaboratoryShopify->getParents(7,true,false);
-    exportData($export,$output,'Powders','1000g',$NaturesLaboratoryShopify);
+    exportData($export,$output,'Powders','1000g');
     
     /** POWDER BLENDS **/
     
     $export = $NaturesLaboratoryShopify->getParents(17,true,false);
-    exportData($export,$output,'Powder Blends','1000g',$NaturesLaboratoryShopify);
+    exportData($export,$output,'Powder Blends','1000g');
     
     /** CAPSULES **/
     
     $export = $NaturesLaboratoryShopify->getParentsCapsules(false);
-    exportData($export,$output,'Capsules','1000',$NaturesLaboratoryShopify);
+    exportData($export,$output,'Capsules','1000');
     
     /** CREAMS **/
     
     $export = $NaturesLaboratoryShopify->getParents(11,true,false);
-    exportData($export,$output,'Creams','1000ml',$NaturesLaboratoryShopify);
+    exportData($export,$output,'Creams','1000ml');
     
     /** FIXED OILS **/
     
     $export = $NaturesLaboratoryShopify->getParents(13,true,false);
-    exportData($export,$output,'Fixed Oils','1000ml',$NaturesLaboratoryShopify);
+    exportData($export,$output,'Fixed Oils','1000ml');
     
     /** ESSSENTIAL OILS **/
     
     $export = $NaturesLaboratoryShopify->getParents(12,true,false);
-    exportData($export,$output,'Essential Oils','1000ml',$NaturesLaboratoryShopify);
+    exportData($export,$output,'Essential Oils','1000ml');
     
     /** WAXES AND GUMS **/
     
     $export = $NaturesLaboratoryShopify->getParents(15,true,false);
-    exportData($export,$output,'Waxes and Gums','1000g',$NaturesLaboratoryShopify);
+    exportData($export,$output,'Waxes and Gums','1000g');
     
     /** PACKAGING **/
     

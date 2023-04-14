@@ -442,18 +442,18 @@
 		    $data = array($name.' Organic',$size,$sku,$price);
 			fputcsv($output, $data);
 			
-			$children = $NaturesLaboratoryShopify->getChildren($organic['STOCK_CODE']);
-		    foreach($children as $row){
-			    $parts = explode(" ", $row['DESCRIPTION']);
+			$children = $NaturesLaboratoryShopify->getOrganicChildren($organic['STOCK_CODE']);
+		    foreach($children as $child){
+			    $parts = explode(" ", $child['DESCRIPTION']);
 				$size = end($parts);
 				
 				if($row['QTY_IN_STOCK']>0){
-					$price = chr(163).number_format($row['SALES_PRICE'],2);
+					$price = chr(163).number_format($child['SALES_PRICE'],2);
 				}else{
 					$price = 'OUT OF STOCK';
 				}
 				
-				$data = array($name,$size,"$row[STOCK_CODE]",$price);
+				$data = array($name,$size,"$child[STOCK_CODE]",$price);
 				fputcsv($output, $data);
 		    }
 	    

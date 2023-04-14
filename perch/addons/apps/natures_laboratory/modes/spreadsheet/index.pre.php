@@ -25,17 +25,9 @@
     fputcsv($output, array('Tinctures','Size','SKU','Price'));
     
     foreach($export as $row){
-	    $handle = str_replace("-1000ml", "", $row['WEB_CATEGORY_1']);
 	    $parts = explode(" ", $row['DESCRIPTION']);
 	    $size = end($parts);
 	    $name = str_replace(" 1000ml", "", $row['DESCRIPTION']);
-	    if($size=='250ml'){
-			$weight = 250;
-		}elseif($size=='500ml'){
-			$weight = 500;
-		}else{
-			$weight = 1000;
-		}
 		
 		if($row['QTY_IN_STOCK']>0){
 			$price = chr(163).number_format($row['SALES_PRICE'],2);
@@ -51,13 +43,6 @@
 	    foreach($children as $row){
 		    $parts = explode(" ", $row['DESCRIPTION']);
 			$size = end($parts);
-			if($size=='250ml'){
-				$weight = 250;
-			}elseif($size=='500ml'){
-				$weight = 500;
-			}else{
-				$weight = 1000;
-			}
 			
 			if($row['QTY_IN_STOCK']>0){
 				$price = chr(163).number_format($row['SALES_PRICE'],2);
@@ -352,60 +337,6 @@
 
     }
     
-    /** ORGANIC **/
-    
-    $export = $NaturesLaboratoryShopify->getOrganicParents(18,true,false);
-    
-    fputcsv($output, array('','','',''));
-    fputcsv($output, array('Organic','Size','SKU','Price'));
-    
-    foreach($export as $row){
-	    $handle = str_replace("-1000g", "", $row['WEB_CATEGORY_1']);
-	    $parts = explode(" ", $row['DESCRIPTION']);
-	    $size = end($parts);
-	    $name = str_replace(" 1000g", "", $row['DESCRIPTION']);
-	    if($size=='250g'){
-			$weight = 250;
-		}elseif($size=='500g'){
-			$weight = 500;
-		}else{
-			$weight = 1000;
-		}
-		
-		if($row['QTY_IN_STOCK']>0){
-			$price = chr(163).number_format($row['SALES_PRICE'],2);
-		}else{
-			$price = 'POA';
-		}
-		
-		$data = array($name,$size,$row['STOCK_CODE'],$price);
-		
-		fputcsv($output, $data);
-		
-	    $children = $NaturesLaboratoryShopify->getOrganicChildren($row['STOCK_CODE']);
-	    foreach($children as $row){
-		    $parts = explode(" ", $row['DESCRIPTION']);
-			$size = end($parts);
-			if($size=='250g'){
-				$weight = 250;
-			}elseif($size=='500g'){
-				$weight = 500;
-			}else{
-				$weight = 1000;
-			}
-			
-			if($row['QTY_IN_STOCK']>0){
-				$price = chr(163).number_format($row['SALES_PRICE'],2);
-			}else{
-				$price = 'POA';
-			}
-			
-			$data = array($name,$size,$row['STOCK_CODE'],$price);
-			fputcsv($output, $data);
-	    }
-
-    }
-    
     /** CAPSULES **/
     
     $export = $NaturesLaboratoryShopify->getParentsCapsules(false);
@@ -468,17 +399,10 @@
     fputcsv($output, array('Creams','Size','SKU','Price'));
     
     foreach($export as $row){
-	    $handle = str_replace("-1000g", "", $row['WEB_CATEGORY_1']);
 	    $parts = explode(" ", $row['DESCRIPTION']);
 	    $size = end($parts);
 	    $name = str_replace(" 1000g", "", $row['DESCRIPTION']);
-	    if($size=='250g'){
-			$weight = 250;
-		}elseif($size=='500g'){
-			$weight = 500;
-		}else{
-			$weight = 1000;
-		}
+		$sku = $row['STOCK_CODE'];
 		
 		if($row['QTY_IN_STOCK']>0){
 			$price = chr(163).number_format($row['SALES_PRICE'],2);
@@ -486,7 +410,7 @@
 			$price = 'OUT OF STOCK';
 		}
 		
-		$data = array($name,$size,"$row[STOCK_CODE]",$price);
+		$data = array($name,$size,$sku,$price);
 
 		fputcsv($output, $data);
 		
@@ -494,13 +418,6 @@
 	    foreach($children as $row){
 		    $parts = explode(" ", $row['DESCRIPTION']);
 			$size = end($parts);
-			if($size=='250g'){
-				$weight = 250;
-			}elseif($size=='500g'){
-				$weight = 500;
-			}else{
-				$weight = 1000;
-			}
 			
 			if($row['QTY_IN_STOCK']>0){
 				$price = chr(163).number_format($row['SALES_PRICE'],2);
@@ -509,6 +426,20 @@
 			}
 			
 			$data = array($name,$size,"$row[STOCK_CODE]",$price);
+			fputcsv($output, $data);
+	    }
+	    
+	    $organic = $NaturesLaboratoryShopify->getOrganic($sku.'/ORG');
+	    if($organic){
+		    $parts = explode(" ", $organic['DESCRIPTION']);
+		    $size = end($parts);
+			$sku = $row['STOCK_CODE'];
+			if($row['QTY_IN_STOCK']>0){
+				$price = chr(163).number_format($organic['SALES_PRICE'],2);
+			}else{
+				$price = 'OUT OF STOCK';
+			}
+		    $data = array($name.' Organic',$size,$sku,$price);
 			fputcsv($output, $data);
 	    }
     }

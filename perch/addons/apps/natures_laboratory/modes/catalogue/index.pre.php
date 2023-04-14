@@ -114,7 +114,7 @@ error_reporting(E_ALL);
     
 	$pdf->Image('tinctures.jpg', -80, -10, -300);
 	$pdf->SetFont('HELVETICA','B',30);
-	$pdf->SetTextColor(1,139,134);
+	$pdf->SetTextColor(255,255,255);
 	$pdf->Cell(0,160,'TINCTURES',0,1);
 	
     $pdf->AddPage();

@@ -25,9 +25,10 @@ error_reporting(E_ALL);
 		    $size = end($parts);
 		    $name = str_replace(" ".$quantity, "", $row['DESCRIPTION']);
 			$sku = $row['STOCK_CODE'];
-			
+			$parentStock = false;
 			if($row['QTY_IN_STOCK']>0){
 				$price = chr(163).number_format($row['SALES_PRICE'],2);
+				$parentStock = true;
 			}else{
 				$price = 'OUT OF STOCK';
 			}
@@ -41,7 +42,7 @@ error_reporting(E_ALL);
 			    $parts = explode(" ", $row['DESCRIPTION']);
 				$size = end($parts);
 				
-				if($row['QTY_IN_STOCK']>0){
+				if($row['QTY_IN_STOCK']>0 OR ($quantity=='1000g' AND $parentStock)){
 					$price = chr(163).number_format($row['SALES_PRICE'],2);
 				}else{
 					$price = 'OUT OF STOCK';
@@ -56,8 +57,10 @@ error_reporting(E_ALL);
 			    $parts = explode(" ", $organic['DESCRIPTION']);
 			    $size = end($parts);
 				$sku = $organic['STOCK_CODE'];
+				$parentStock = false;
 				if($row['QTY_IN_STOCK']>0){
 					$price = chr(163).number_format($organic['SALES_PRICE'],2);
+					$parentStock = true;
 				}else{
 					$price = 'OUT OF STOCK';
 				}
@@ -69,7 +72,7 @@ error_reporting(E_ALL);
 				    $parts = explode(" ", $child['DESCRIPTION']);
 					$size = end($parts);
 					
-					if($row['QTY_IN_STOCK']>0){
+					if($row['QTY_IN_STOCK']>0 OR ($quantity=='1000g' AND $parentStock)){
 						$price = chr(163).number_format($child['SALES_PRICE'],2);
 					}else{
 						$price = 'OUT OF STOCK';

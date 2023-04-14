@@ -401,7 +401,7 @@
     foreach($export as $row){
 	    $parts = explode(" ", $row['DESCRIPTION']);
 	    $size = end($parts);
-	    $name = str_replace(" 1000g", "", $row['DESCRIPTION']);
+	    $name = str_replace(" 1000ml", "", $row['DESCRIPTION']);
 		$sku = $row['STOCK_CODE'];
 		
 		if($row['QTY_IN_STOCK']>0){

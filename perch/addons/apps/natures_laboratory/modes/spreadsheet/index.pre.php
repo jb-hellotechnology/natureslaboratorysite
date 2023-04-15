@@ -52,7 +52,11 @@ error_reporting(E_ALL);
 				fputcsv($output, $data);
 		    }
 		    
-		    $organic = $NaturesLaboratoryShopify->getOrganic($sku.'/ORG');
+		    if($row['STOCK_CAT']=='2'){
+		    	$organic = $NaturesLaboratoryShopify->getOrganic($sku.'/ORG');
+		    }else{
+			    $organic = $NaturesLaboratoryShopify->getOrganic('1'.$sku);
+		    }
 		    if($organic){
 			    $parts = explode(" ", $organic['DESCRIPTION']);
 			    $size = end($parts);

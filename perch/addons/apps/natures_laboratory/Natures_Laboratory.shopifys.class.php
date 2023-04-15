@@ -19,7 +19,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		$csvFile = file('uploads/stock.csv');
 		$i = 0;
 	    foreach ($csvFile as $line) {
-		    if($i>0){
+		    if($i>=0){
 		        $data = str_getcsv($line);
 		        $str = '';
 		        foreach($data as $item){
@@ -52,7 +52,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		if($slash){
 			$slashQ = 'AND STOCK_CODE NOT LIKE "%/%" ';
 		}
-		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CAT="'.$category.'" '.$slashQ.''.$stockLevel.'ORDER BY STOCK_CODE ASC';
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CAT="'.$category.'" '.$slashQ.''.$stockLevel.'ORDER BY DESCRIPTION ASC';
 		$data = $this->db->get_rows($sql);
 		return $data;
 	}

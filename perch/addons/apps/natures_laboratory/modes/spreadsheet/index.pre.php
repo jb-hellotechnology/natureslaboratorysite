@@ -53,9 +53,9 @@ error_reporting(E_ALL);
 		    }
 		    
 		    if($row['STOCK_CAT']=='2'){
-		    	$organic = $NaturesLaboratoryShopify->getOrganic($sku.'/ORG');
+		    	$organic = $NaturesLaboratoryShopify->getOrganic('1'.$sku);
 		    }else{
-			    $organic = $NaturesLaboratoryShopify->getOrganic('1'.$sku);
+			    $organic = $NaturesLaboratoryShopify->getOrganic($sku.'/ORG');
 		    }
 		    if($organic){
 			    $parts = explode(" ", $organic['DESCRIPTION']);

@@ -50,7 +50,7 @@ error_reporting(E_ALL);
 			$handle = str_replace(array("%",":","/"),"",$name);
 			$handle = strtolower(str_replace(" ","-",$handle));
 			$handle = strtolower(str_replace("--","-",$handle));
-			$qty = $row['QUANTITY_IN_STOCK']-$row['QUANTITY_ALLOCATED'];
+			$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];
 			
 			$taxable = FALSE;
 			
@@ -69,7 +69,7 @@ error_reporting(E_ALL);
 				
 				$price = number_format($row['SALES_PRICE'],2);
 				
-				$qty = $row['QUANTITY_IN_STOCK']-$row['QUANTITY_ALLOCATED'];
+				$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];
 				
 				$taxable = FALSE;
 				
@@ -95,7 +95,7 @@ error_reporting(E_ALL);
 				$handle = str_replace(array("%",":","/"),"",$name);
 				$handle = strtolower(str_replace(" ","-",$handle));
 				$handle = strtolower(str_replace("--","-",$handle));
-				$qty = $organic['QUANTITY_IN_STOCK']-$organic['QUANTITY_ALLOCATED'];
+				$qty = $organic['QTY_IN_STOCK']-$organic['QTY_ALLOCATED'];
 				
 				$taxable = FALSE;
 				
@@ -113,7 +113,7 @@ error_reporting(E_ALL);
 					
 					$price = number_format($child['SALES_PRICE'],2);
 
-					$qty = $child['QUANTITY_IN_STOCK']-$child['QUANTITY_ALLOCATED'];
+					$qty = $child['QTY_IN_STOCK']-$child['QTY_ALLOCATED'];
 					
 					$taxable = FALSE;
 					

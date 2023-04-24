@@ -203,7 +203,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 			echo '<img src="/perch/addons/apps/natures_laboratory/assets/images/'.$sku.'.jpg" />';
 		}else{
 			//SOMETHING ELSE
-			echo '<img src="/perch/addons/apps/natures_laboratory/assets/herbal_apothecary_logo.jpg" />';
+			echo '<img src="/perch/addons/apps/natures_laboratory/assets/images/herbal_apothecary_logo.jpg" />';
 		}
 	}
 	

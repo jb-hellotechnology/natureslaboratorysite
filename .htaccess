@@ -1,5 +1,7 @@
 <IfModule mod_rewrite.c>  
     RewriteEngine on  
+    RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^product-image/(.*)\.(jpg|png|jpeg|gif)$ /product-image/index.php?sku=$1 [NC,L]
     RewriteRule ^news/tag/([a-zA-Z-]+)$ /news/index.php?tag=$1 [L,B]
     RewriteRule ^news/([a-zA-Z-]+)/([a-zA-Z0-9-]+)$ /news/index.php?section=$1&s=$2 [L]
     RewriteRule ^news/([a-zA-Z-]+)$ /news/index.php?section=$1 [L,B]

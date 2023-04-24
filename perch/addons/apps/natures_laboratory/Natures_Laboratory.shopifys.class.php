@@ -113,4 +113,98 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		return $data;
 	}
 	
+	public function productImage($sku){
+		$sku = str_replace("_","/",$sku);
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CODE = "'.$sku.'"';
+		$data = $this->db->get_row($sql);
+		if($data['STOCK_CAT']=='2' OR $data['STOCK_CAT']=='4' OR $data['STOCK_CAT']=='15' OR $data['STOCK_CAT']=='18'){
+			//TINCTURE FLUID OR ORGANIC
+		    header("Content-type: image/jpeg");
+		    $img_path = '../perch/addons/apps/natures_laboratory/assets/images/liquids.jpg';
+		    $font_path = realpath("../perch/addons/apps/natures_laboratory/Helvetica.ttf");
+		    $jpg_img = imagecreatefromjpeg($img_path);
+		    $font_color = imagecolorallocate($jpg_img, 1, 139, 145);
+		    $text = $data['DESCRIPTION'];
+		    $lines = explode('|', wordwrap($text, 20, '|'));
+		    $y = 1120;
+		    foreach ($lines as $line)
+			{
+		    	imagettftext($jpg_img, 40, 0, 680, $y, $font_color, $font_path, $line);
+		    	$y += 68;
+		    }
+		    imagejpeg($jpg_img);
+		    imagedestroy($jpg_img);
+		}elseif($data['STOCK_CAT']=='5' OR $data['STOCK_CAT']=='6' OR $data['STOCK_CAT']=='7' OR $data['STOCK_CAT']=='8' OR $data['STOCK_CAT']=='17'){
+			//CUT WHOLE POWDER CAPSULE
+			header("Content-type: image/jpeg");
+		    $img_path = '../perch/addons/apps/natures_laboratory/assets/images/herbs.jpg';
+		    $font_path = realpath("../perch/addons/apps/natures_laboratory/Helvetica.ttf");
+		    $jpg_img = imagecreatefromjpeg($img_path);
+		    $font_color = imagecolorallocate($jpg_img, 1, 139, 145);
+		    $text = $data['DESCRIPTION'];
+		    $lines = explode('|', wordwrap($text, 20, '|'));
+		    $y = 920;
+		    foreach ($lines as $line)
+			{
+		    	imagettftext($jpg_img, 46, 0, 650, $y, $font_color, $font_path, $line);
+		    	$y += 70;
+		    }
+		    imagejpeg($jpg_img);
+		    imagedestroy($jpg_img);
+		}elseif($data['STOCK_CAT']=='10'){
+			//BEEVITAL
+			echo '<img src="/perch/addons/apps/natures_laboratory/assets/images/'.$sku.'.jpg" />';
+		}elseif($data['STOCK_CAT']=='11'){
+			//CREAMS
+			header("Content-type: image/jpeg");
+		    $img_path = '../perch/addons/apps/natures_laboratory/assets/images/creams.jpg';
+		    $font_path = realpath("../perch/addons/apps/natures_laboratory/Helvetica.ttf");
+		    $jpg_img = imagecreatefromjpeg($img_path);
+		    $font_color = imagecolorallocate($jpg_img, 1, 139, 145);
+		    $text = $data['DESCRIPTION'];
+		    $lines = explode('|', wordwrap($text, 20, '|'));
+		    $y = 980;
+		    foreach ($lines as $line)
+			{
+		    	imagettftext($jpg_img, 54, 0, 570, $y, $font_color, $font_path, $line);
+		    	$y += 78;
+		    }
+		    imagejpeg($jpg_img);
+		    imagedestroy($jpg_img);
+		}elseif($data['STOCK_CAT']=='12'){
+			//ESSENTIAL OILS
+			header("Content-type: image/jpeg");
+		    $img_path = '../perch/addons/apps/natures_laboratory/assets/images/essentialoils.jpg';
+		    $font_path = realpath("../perch/addons/apps/natures_laboratory/Helvetica.ttf");
+		    $jpg_img = imagecreatefromjpeg($img_path);
+		    $font_color = imagecolorallocate($jpg_img, 1, 139, 145);
+		    $text = $data['DESCRIPTION'];
+		    $lines = explode('|', wordwrap($text, 16, '|'));
+		    $y = 1340;
+		    foreach ($lines as $line)
+			{
+				$length = strlen($line);
+				$r = 0;
+				$r = (20-$length)/2;
+				$pad = "";
+				$i = 0;
+				while($i <= $r){
+					$pad .= " ";
+					$i++;
+				}
+		    	imagettftext($jpg_img, 54, 0, 690, $y, $font_color, $font_path, $pad.$line);
+		    	$pad = '';
+		    	$y += 76;
+		    }
+		    imagejpeg($jpg_img);
+		    imagedestroy($jpg_img);
+		}elseif($data['STOCK_CAT']=='22'){
+			//SWEET CECILYS
+			echo '<img src="/perch/addons/apps/natures_laboratory/assets/images/'.$sku.'.jpg" />';
+		}else{
+			//SOMETHING ELSE
+			echo '<img src="/perch/addons/apps/natures_laboratory/assets/herbal_apothecary_logo.jpg" />';
+		}
+	}
+	
 }

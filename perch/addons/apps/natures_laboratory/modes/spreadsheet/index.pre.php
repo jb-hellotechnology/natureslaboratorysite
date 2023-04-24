@@ -27,7 +27,7 @@ error_reporting(E_ALL);
 			$sku = $row['STOCK_CODE'];
 			$parentStock = false;
 			if($row['QTY_IN_STOCK']>0){
-				$price = chr(163).number_format($row['SALES_PRICE'],2);
+				$price = number_format($row['SALES_PRICE'],2);
 				$parentStock = true;
 			}else{
 				$price = 'OUT OF STOCK';
@@ -43,7 +43,7 @@ error_reporting(E_ALL);
 				$size = end($parts);
 				
 				if($row['QTY_IN_STOCK']>0 OR ($quantity=='1000g' AND $parentStock)){
-					$price = chr(163).number_format($row['SALES_PRICE'],2);
+					$price = number_format($row['SALES_PRICE'],2);
 				}else{
 					$price = 'OUT OF STOCK';
 				}
@@ -63,7 +63,7 @@ error_reporting(E_ALL);
 				$sku = $organic['STOCK_CODE'];
 				$parentStock = false;
 				if($row['QTY_IN_STOCK']>0){
-					$price = chr(163).number_format($organic['SALES_PRICE'],2);
+					$price = number_format($organic['SALES_PRICE'],2);
 					$parentStock = true;
 				}else{
 					$price = 'OUT OF STOCK';
@@ -77,7 +77,7 @@ error_reporting(E_ALL);
 					$size = end($parts);
 					
 					if($row['QTY_IN_STOCK']>0 OR ($quantity=='1000g' AND $parentStock)){
-						$price = chr(163).number_format($child['SALES_PRICE'],2);
+						$price = number_format($child['SALES_PRICE'],2);
 					}else{
 						$price = 'OUT OF STOCK';
 					}
@@ -169,7 +169,7 @@ error_reporting(E_ALL);
 		$size = '';
 		
 		if($row['QTY_IN_STOCK']>0){
-			$price = chr(163).number_format($row['SALES_PRICE'],2);
+			$price = number_format($row['SALES_PRICE'],2);
 		}else{
 			$price = 'OUT OF STOCK';
 		}
@@ -191,7 +191,7 @@ error_reporting(E_ALL);
 		$size = '';
 		
 		if($row['QTY_IN_STOCK']>0){
-			$price = chr(163).number_format($row['SALES_PRICE'],2);
+			$price = number_format($row['SALES_PRICE'],2);
 		}else{
 			$price = 'OUT OF STOCK';
 		}
@@ -213,7 +213,7 @@ error_reporting(E_ALL);
 		$size = '';
 		
 		if($row['QTY_IN_STOCK']>0){
-			$price = chr(163).number_format($row['SALES_PRICE'],2);
+			$price = number_format($row['SALES_PRICE'],2);
 		}else{
 			$price = 'OUT OF STOCK';
 		}

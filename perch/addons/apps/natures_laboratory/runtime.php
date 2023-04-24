@@ -24,6 +24,8 @@
 	include('Natures_Laboratory.coas.products.class.php');
 	include('Natures_Laboratory.goodsin.class.php');
 	include('Natures_Laboratory.goodsins.class.php');
+	include('Natures_Laboratory.shopify.class.php');
+	include('Natures_Laboratory.shopifys.class.php');
 	
 	function timemoto_log($name,$timeLoggedRounded,$attendanceStatus,$data){
 
@@ -38,6 +40,14 @@
 		$Time = new Natures_Laboratory_Staff_Member_Times();
 		
 		$Time->clockedIn();
+		
+	}
+	
+	function productImage($sku){
+		
+		$NaturesLaboratoryShopify = new Natures_Laboratory_Shopifys($API);
+		
+		$NaturesLaboratoryShopify->productImage($sku);
 		
 	}
 	

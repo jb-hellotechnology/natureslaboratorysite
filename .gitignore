@@ -42,3 +42,6 @@ perch/*
 
 !find-us
 !find-us/**
+
+!perch/addons/apps/natures_laboratory/assets/images/
+!perch/addons/apps/natures_laboratory/assets/images/**

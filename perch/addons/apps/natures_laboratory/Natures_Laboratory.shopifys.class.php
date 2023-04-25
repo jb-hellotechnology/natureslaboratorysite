@@ -151,9 +151,6 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		    }
 		    imagejpeg($jpg_img);
 		    imagedestroy($jpg_img);
-		}elseif($data['STOCK_CAT']=='10'){
-			//BEEVITAL
-			echo '<img src="/perch/addons/apps/natures_laboratory/assets/images/'.$sku.'.jpg" />';
 		}elseif($data['STOCK_CAT']=='11'){
 			//CREAMS
 			header("Content-type: image/jpeg");
@@ -198,12 +195,16 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		    }
 		    imagejpeg($jpg_img);
 		    imagedestroy($jpg_img);
-		}elseif($data['STOCK_CAT']=='22'){
-			//SWEET CECILYS
-			echo '<img src="/perch/addons/apps/natures_laboratory/assets/images/'.$sku.'.jpg" />';
+		}elseif($data['STOCK_CAT']=='10' OR $data['STOCK_CAT']=='22'){
+			//SWEET CECILYS & BEEVITAL
+			header("Content-type: image/jpeg");
+			$image = imagecreatefromjpeg("/perch/addons/apps/natures_laboratory/assets/images/".$sku."jpg");
+			imagejpeg($image);
 		}else{
 			//SOMETHING ELSE
-			echo '<img src="/perch/addons/apps/natures_laboratory/assets/images/herbal_apothecary_logo.jpg" />';
+			header("Content-type: image/jpeg");
+			$image = imagecreatefromjpeg("/perch/addons/apps/natures_laboratory/assets/images/herbal_apothecary_logo.jpg");
+			imagejpeg($image);
 		}
 	}
 	

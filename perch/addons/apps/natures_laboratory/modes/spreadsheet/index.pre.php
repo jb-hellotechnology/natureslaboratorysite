@@ -111,7 +111,6 @@ error_reporting(E_ALL);
     $export = $NaturesLaboratoryShopify->getParents(4,true,false);
     exportData($export,$output,'Fluid Extracts','1000ml');
     
-    
     /** CUT HERBS **/
     
     $export = $NaturesLaboratoryShopify->getParents(5,true,false);

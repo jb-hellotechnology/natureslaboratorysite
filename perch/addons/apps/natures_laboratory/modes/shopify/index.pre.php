@@ -32,6 +32,125 @@ error_reporting(E_ALL);
     $export = $NaturesLaboratoryShopify->getParents(2,true,false);
     exportData($export,$output,'Tinctures','1000ml');
     
+    /** FLUID EXTRACTS **/
+    
+    $export = $NaturesLaboratoryShopify->getParents(4,true,false);
+    exportData($export,$output,'Fluid Extracts','1000ml');
+    
+    /** CUT HERBS **/
+    
+    $export = $NaturesLaboratoryShopify->getParents(5,true,false);
+	exportData($export,$output,'Cut Herbs','1000g');
+    
+    /** WHOLE HERBS **/
+    
+    $export = $NaturesLaboratoryShopify->getParents(6,true,false);
+    exportData($export,$output,'Whole Herbs','1000g');
+    
+    /** POWDERS **/
+    
+    $export = $NaturesLaboratoryShopify->getParents(7,true,false);
+    exportData($export,$output,'Powders','1000g');
+    
+    /** POWDER BLENDS **/
+    
+    $export = $NaturesLaboratoryShopify->getParents(17,true,false);
+    exportData($export,$output,'Powder Blends','1000g');
+    
+    /** CAPSULES **/
+    
+    $export = $NaturesLaboratoryShopify->getParentsCapsules(false);
+    exportData($export,$output,'Capsules','1000');
+    
+    /** CREAMS **/
+    
+    $export = $NaturesLaboratoryShopify->getParents(11,true,false);
+    exportData($export,$output,'Creams','1000ml');
+    
+    /** FIXED OILS **/
+    
+    $export = $NaturesLaboratoryShopify->getParents(13,true,false);
+    exportData($export,$output,'Fixed Oils','1000ml');
+    
+    /** ESSSENTIAL OILS **/
+    
+    $export = $NaturesLaboratoryShopify->getParents(12,true,false);
+    exportData($export,$output,'Essential Oils','1000ml');
+    
+    /** WAXES AND GUMS **/
+    
+    $export = $NaturesLaboratoryShopify->getParents(15,true,false);
+    exportData($export,$output,'Waxes and Gums','1000g');
+    
+    /** PACKAGING **/
+    
+    $export = $NaturesLaboratoryShopify->getParents(14,false,false);
+    
+    foreach($export as $row){
+	    $name = $row['DESCRIPTION'];
+		$sku = $row['STOCK_CODE'];
+
+		$price = number_format($row['SALES_PRICE'],2);
+		
+		$handle = str_replace(array("%",":","/"),"",$name);
+		$handle = strtolower(str_replace(" ","-",$handle));
+		$handle = strtolower(str_replace("--","-",$handle));
+		$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];
+		if($qty<=1){$qty = 0;}
+		
+		$taxable = FALSE;
+		
+		$data = array($handle, $name, "", "Herbal Apothecary", "Health & Beauty > Health Care > Medicine & Drugs", "", "$row[WEB_CATEGORY_1],$row[WEB_CATEGORY_2],$row[WEB_CATEGORY_3]", "Published", "Size", "$size", "", "", "", "", "$row[STOCK_CODE]", "$weight", "shopify", "$qty", "deny", "manual", "$row[SALES_PRICE]", "", "TRUE", "$taxable", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "", "$row[DESCRIPTION]", "FALSE", "$row[DESCRIPTION]", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "g", "", "$row[LAST_PURCHASE_PRICE]", "", "", "active");
+
+		fputcsv($output, $data);
+    }
+    
+    /** BEEVITAL **/
+    
+    $export = $NaturesLaboratoryShopify->getParents(10,true,false);
+    
+    foreach($export as $row){
+	    $name = $row['DESCRIPTION'];
+		$sku = $row['STOCK_CODE'];
+
+		$price = number_format($row['SALES_PRICE'],2);
+		
+		$handle = str_replace(array("%",":","/"),"",$name);
+		$handle = strtolower(str_replace(" ","-",$handle));
+		$handle = strtolower(str_replace("--","-",$handle));
+		$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];
+		if($qty<=1){$qty = 0;}
+		
+		$taxable = FALSE;
+		
+		$data = array($handle, $name, "", "BeeVital", "Health & Beauty > Health Care > Medicine & Drugs", "", "$row[WEB_CATEGORY_1],$row[WEB_CATEGORY_2],$row[WEB_CATEGORY_3]", "Published", "Size", "$size", "", "", "", "", "$row[STOCK_CODE]", "$weight", "shopify", "$qty", "deny", "manual", "$row[SALES_PRICE]", "", "TRUE", "$taxable", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "", "$row[DESCRIPTION]", "FALSE", "$row[DESCRIPTION]", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "g", "", "$row[LAST_PURCHASE_PRICE]", "", "", "active");
+
+		fputcsv($output, $data);
+    }
+    
+    /** SWEET CECILYS **/
+    
+    $export = $NaturesLaboratoryShopify->getParents(22,true,false);
+    
+    foreach($export as $row){
+	    $name = $row['DESCRIPTION'];
+		$sku = $row['STOCK_CODE'];
+
+		$price = number_format($row['SALES_PRICE'],2);
+		
+		$handle = str_replace(array("%",":","/"),"",$name);
+		$handle = strtolower(str_replace(" ","-",$handle));
+		$handle = strtolower(str_replace("--","-",$handle));
+		$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];
+		if($qty<=1){$qty = 0;}
+		
+		$taxable = FALSE;
+		
+		$data = array($handle, $name, "", "Sweet Cecily's", "Health & Beauty > Health Care > Medicine & Drugs", "", "$row[WEB_CATEGORY_1],$row[WEB_CATEGORY_2],$row[WEB_CATEGORY_3]", "Published", "Size", "$size", "", "", "", "", "$row[STOCK_CODE]", "$weight", "shopify", "$qty", "deny", "manual", "$row[SALES_PRICE]", "", "TRUE", "$taxable", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "", "$row[DESCRIPTION]", "FALSE", "$row[DESCRIPTION]", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "g", "", "$row[LAST_PURCHASE_PRICE]", "", "", "active");
+
+		fputcsv($output, $data);
+    }
+    
     function exportData($export,$output,$name,$quantity){
 	    
 	    $NaturesLaboratoryShopify = new Natures_Laboratory_Shopifys($API); 

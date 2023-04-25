@@ -96,7 +96,7 @@ error_reporting(E_ALL);
 		$handle = strtolower(str_replace(" ","-",$handle));
 		$handle = strtolower(str_replace("--","-",$handle));
 		$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];
-		if($qty<=1){$qty = 0;}
+		if($qty<1){$qty = 0;}
 		
 		$taxable = FALSE;
 		
@@ -119,7 +119,7 @@ error_reporting(E_ALL);
 		$handle = strtolower(str_replace(" ","-",$handle));
 		$handle = strtolower(str_replace("--","-",$handle));
 		$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];
-		if($qty<=1){$qty = 0;}
+		if($qty<1){$qty = 0;}
 		
 		$taxable = FALSE;
 		
@@ -142,7 +142,7 @@ error_reporting(E_ALL);
 		$handle = strtolower(str_replace(" ","-",$handle));
 		$handle = strtolower(str_replace("--","-",$handle));
 		$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];
-		if($qty<=1){$qty = 0;}
+		if($qty<1){$qty = 0;}
 		
 		$taxable = FALSE;
 		
@@ -170,7 +170,8 @@ error_reporting(E_ALL);
 			$handle = strtolower(str_replace(" ","-",$handle));
 			$handle = strtolower(str_replace("--","-",$handle));
 			$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];
-			if($qty<=1){$qty = 0;}
+			if($qty<1){$qty = 0;}
+			$parentQty = $qty;
 			
 			$taxable = FALSE;
 			
@@ -189,8 +190,17 @@ error_reporting(E_ALL);
 				
 				$price = number_format($row['SALES_PRICE'],2);
 				
-				$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];
-				if($qty<=1){$qty = 0;}
+				if($row['STOCK_CAT']==5 OR $row['STOCK_CAT']==6 OR $row['STOCK_CAT']===7 OR $row['STOCK_CAT']==17){
+					if($size=='500g'){
+						$qty = $parentQty*2;
+					}elseif($size=='250g'){
+						$qty = $parentQty*4;
+					}
+				}else{
+					$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];
+					if($qty<1){$qty = 0;}	
+				}
+				
 				
 				$taxable = FALSE;
 				
@@ -217,7 +227,7 @@ error_reporting(E_ALL);
 				$handle = strtolower(str_replace(" ","-",$handle));
 				$handle = strtolower(str_replace("--","-",$handle));
 				$qty = $organic['QTY_IN_STOCK']-$organic['QTY_ALLOCATED'];
-				if($qty<=1){$qty = 0;}
+				if($qty<1){$qty = 0;}
 				
 				$taxable = FALSE;
 				
@@ -236,7 +246,7 @@ error_reporting(E_ALL);
 					$price = number_format($child['SALES_PRICE'],2);
 
 					$qty = $child['QTY_IN_STOCK']-$child['QTY_ALLOCATED'];
-					if($qty<=1){$qty = 0;}
+					if($qty<1){$qty = 0;}
 					
 					$taxable = FALSE;
 					

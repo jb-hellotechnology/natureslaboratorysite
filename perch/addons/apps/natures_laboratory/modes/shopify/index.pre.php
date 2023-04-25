@@ -190,7 +190,7 @@ error_reporting(E_ALL);
 				
 				$price = number_format($row['SALES_PRICE'],2);
 				
-				if($row['STOCK_CAT']==5 OR $row['STOCK_CAT']==6 OR $row['STOCK_CAT']===7 OR $row['STOCK_CAT']==17){
+				if($row['STOCK_CAT']==5 OR $row['STOCK_CAT']==6 OR $row['STOCK_CAT']==7 OR $row['STOCK_CAT']==17){
 					if($size=='500g'){
 						$qty = $parentQty*2;
 					}elseif($size=='250g'){

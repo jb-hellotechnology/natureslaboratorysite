@@ -173,7 +173,7 @@ error_reporting(E_ALL);
 			if($qty<1){$qty = 0;}
 			$parentQty = $qty;
 			
-			if($row['TAX_CODE']=='T2'){
+			if($row['TAX_CODE']=='T1'){
 				$taxable = TRUE;	
 			}else{
 				$taxable = FALSE;

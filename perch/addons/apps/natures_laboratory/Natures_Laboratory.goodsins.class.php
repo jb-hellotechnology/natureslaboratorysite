@@ -13,7 +13,7 @@ class Natures_Laboratory_Goods_Ins extends PerchAPI_Factory
 	public function getGoodsIn(){
 		
 		$today = date('Y-m-d');
-		$date = strtotime($today.' -1 year');
+		$date = strtotime($today.' -2 year');
 		$date = date('Y-m-d', $date);
 		
 		$sql = 'SELECT * FROM perch3_natures_laboratory_goods_in WHERE dateIn>="'.$date.'" ORDER BY ourBatch DESC';

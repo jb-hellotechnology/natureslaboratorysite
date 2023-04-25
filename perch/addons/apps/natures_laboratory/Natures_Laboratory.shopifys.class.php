@@ -177,20 +177,10 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		    $font_color = imagecolorallocate($jpg_img, 1, 139, 145);
 		    $text = $data['DESCRIPTION'];
 		    $lines = explode('|', wordwrap($text, 16, '|'));
-		    $y = 1340;
+		    $y = 1330;
 		    foreach ($lines as $line)
 			{
-				$length = strlen($line);
-				$r = 0;
-				$r = (20-$length)/2;
-				$pad = "";
-				$i = 0;
-				while($i <= $r){
-					$pad .= " ";
-					$i++;
-				}
-		    	imagettftext($jpg_img, 54, 0, 690, $y, $font_color, $font_path, $pad.$line);
-		    	$pad = '';
+		    	imagettftext($jpg_img, 54, 0, 710, $y, $font_color, $font_path, $pad.$line);
 		    	$y += 76;
 		    }
 		    imagejpeg($jpg_img);

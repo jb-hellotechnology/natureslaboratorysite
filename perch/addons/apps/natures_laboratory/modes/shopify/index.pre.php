@@ -163,6 +163,10 @@ error_reporting(E_ALL);
 		    $name = str_replace(" ".$quantity, "", $row['DESCRIPTION']);
 			$sku = $row['STOCK_CODE'];
 			$parentSku = $sku;
+			
+			if($row['STOCK_CAT']=='12'){
+				$name = $name.' Essential Oil';
+			}
 
 			$price = number_format($row['SALES_PRICE'],2);
 			

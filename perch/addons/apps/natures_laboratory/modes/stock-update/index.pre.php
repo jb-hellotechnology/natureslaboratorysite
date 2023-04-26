@@ -229,6 +229,7 @@ error_reporting(E_ALL);
 					}
 					
 					$data = array($handle, $name, "", "", "", "", "", "", "Size", "$size", "", "", "", "", "", "", "", "$qty", "deny", "manual", "$row[SALES_PRICE]", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "active");
+					fputcsv($output, $data);
 			    }
 			    
 			    if($row['STOCK_CAT']=='2'){

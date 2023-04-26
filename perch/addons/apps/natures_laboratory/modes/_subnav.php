@@ -52,4 +52,8 @@
             'page' => 'natures_laboratory/sage',
             'label'=> 'Sage Import'
         ],
+        [
+            'page' => 'natures_laboratory/stock-update',
+            'label'=> 'Stock Update'
+        ],
     ], $CurrentUser);

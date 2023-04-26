@@ -100,7 +100,7 @@ error_reporting(E_ALL);
 		
 		$taxable = "TRUE";
 		
-		$data = array($handle, $name, "", "Herbal Apothecary", "Health & Beauty > Health Care > Medicine & Drugs", "", "$row[WEB_CATEGORY_1],$row[WEB_CATEGORY_2],$row[WEB_CATEGORY_3]", "Published", "", "", "", "", "", "", "$row[STOCK_CODE]", "$weight", "shopify", "$qty", "deny", "manual", "$row[SALES_PRICE]", "", "TRUE", "$taxable", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "", "$row[DESCRIPTION]", "FALSE", "$row[DESCRIPTION]", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "g", "", "$row[LAST_PURCHASE_PRICE]", "", "", "active");
+		$data = array($handle, $name, "", "Herbal Apothecary", "Health & Beauty > Health Care > Medicine & Drugs", "", "$row[WEB_CATEGORY_1],$row[WEB_CATEGORY_2],$row[WEB_CATEGORY_3]", "Published", "Title", "Default Title", "", "", "", "", "$row[STOCK_CODE]", "$weight", "shopify", "$qty", "deny", "manual", "$row[SALES_PRICE]", "", "TRUE", "$taxable", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "", "$row[DESCRIPTION]", "FALSE", "$row[DESCRIPTION]", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "g", "", "$row[LAST_PURCHASE_PRICE]", "", "", "active");
 
 		fputcsv($output, $data);
     }
@@ -123,7 +123,18 @@ error_reporting(E_ALL);
 		
 		$taxable = "TRUE";
 		
-		$data = array($handle, $name, "", "BeeVital", "Health & Beauty > Health Care > Medicine & Drugs", "", "$row[WEB_CATEGORY_1],$row[WEB_CATEGORY_2],$row[WEB_CATEGORY_3]", "Published", "", "", "", "", "", "", "$row[STOCK_CODE]", "$weight", "shopify", "$qty", "deny", "manual", "$row[SALES_PRICE]", "", "TRUE", "$taxable", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "", "$row[DESCRIPTION]", "FALSE", "$row[DESCRIPTION]", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "g", "", "$row[LAST_PURCHASE_PRICE]", "", "", "active");
+		$trade = substr($row['STOCK_CODE'], -1);
+		if($trade=='T'){
+			
+			$SKU = str_replace("T","",$row['STOCK_CODE']);
+			
+			$data = array($handle, $name, "", "BeeVital", "Health & Beauty > Health Care > Medicine & Drugs", "", "$row[WEB_CATEGORY_1],$row[WEB_CATEGORY_2],$row[WEB_CATEGORY_3]", "Published", "Title", "Default Title", "", "", "", "", "$row[STOCK_CODE]", "$weight", "shopify", "$qty", "continue", "manual", "$row[SALES_PRICE]", "", "TRUE", "$taxable", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$SKU).".jpg", "", "$row[DESCRIPTION]", "FALSE", "$row[DESCRIPTION]", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$SKU).".jpg", "g", "", "$row[LAST_PURCHASE_PRICE]", "", "", "active");
+			
+		}else{
+		
+			$data = array($handle, $name, "", "BeeVital", "Health & Beauty > Health Care > Medicine & Drugs", "", "$row[WEB_CATEGORY_1],$row[WEB_CATEGORY_2],$row[WEB_CATEGORY_3]", "Published", "Title", "Default Title", "", "", "", "", "$row[STOCK_CODE]", "$weight", "shopify", "$qty", "deny", "manual", "$row[SALES_PRICE]", "", "TRUE", "$taxable", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "", "$row[DESCRIPTION]", "FALSE", "$row[DESCRIPTION]", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "g", "", "$row[LAST_PURCHASE_PRICE]", "", "", "active");
+		
+		}
 
 		fputcsv($output, $data);
     }
@@ -146,7 +157,7 @@ error_reporting(E_ALL);
 		
 		$taxable = "TRUE";
 		
-		$data = array($handle, $name, "", "Sweet Cecily's", "Health & Beauty > Health Care > Medicine & Drugs", "", "$row[WEB_CATEGORY_1],$row[WEB_CATEGORY_2],$row[WEB_CATEGORY_3]", "Published", "", "", "", "", "", "", "$row[STOCK_CODE]", "$weight", "shopify", "$qty", "deny", "manual", "$row[SALES_PRICE]", "", "TRUE", "$taxable", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "", "$row[DESCRIPTION]", "FALSE", "$row[DESCRIPTION]", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "g", "", "$row[LAST_PURCHASE_PRICE]", "", "", "active");
+		$data = array($handle, $name, "", "Sweet Cecily's", "Health & Beauty > Health Care > Medicine & Drugs", "", ""str_replace("'","",$row['WEB_CATEGORY_1'],$row['WEB_CATEGORY_2'],$row['WEB_CATEGORY_3'])."", "Published", "Title", "Default Title", "", "", "", "", "$row[STOCK_CODE]", "$weight", "shopify", "$qty", "deny", "manual", "$row[SALES_PRICE]", "", "TRUE", "$taxable", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "", "$row[DESCRIPTION]", "FALSE", "$row[DESCRIPTION]", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "g", "", "$row[LAST_PURCHASE_PRICE]", "", "", "active");
 
 		fputcsv($output, $data);
     }
@@ -167,6 +178,10 @@ error_reporting(E_ALL);
 			if($row['STOCK_CAT']=='12'){
 				$name = $name.' Essential Oil';
 			}
+			
+			if($row['STOCK_CAT']=='8'){
+				$size = '1000 '.$size;
+			}
 
 			$price = number_format($row['SALES_PRICE'],2);
 			
@@ -183,79 +198,82 @@ error_reporting(E_ALL);
 				$taxable = "";
 			}
 			
-			$data = array($handle, $name, "", "Herbal Apothecary", "Health & Beauty > Health Care > Medicine & Drugs", "", "$row[WEB_CATEGORY_1],$row[WEB_CATEGORY_2],$row[WEB_CATEGORY_3]", "Published", "Size", "$size", "", "", "", "", "$row[STOCK_CODE]", "$weight", "shopify", "$qty", "deny", "manual", "$row[SALES_PRICE]", "", "TRUE", "$taxable", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "", "$row[DESCRIPTION]", "FALSE", "$row[DESCRIPTION]", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "g", "", "$row[LAST_PURCHASE_PRICE]", "", "", "active");
-	
-			fputcsv($output, $data);
+			if($row['SALES_PRICE']>0){
 			
-		    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
-		    foreach($children as $row){
-			    $parts = explode(" ", $row['DESCRIPTION']);
-			    $size = end($parts);
-			    $weight = preg_replace("/[^0-9]/", "", $size);
-			    $unit = preg_replace('/[0-9]+/', '', $size);
-			    //$name = str_replace(" ".$quantity, "", $row['DESCRIPTION']);
-				$sku = $row['STOCK_CODE'];
-				
-				$price = number_format($row['SALES_PRICE'],2);
-				
-				if($row['STOCK_CAT']==5 OR $row['STOCK_CAT']==6 OR $row['STOCK_CAT']==7 OR $row['STOCK_CAT']==17){
-					if($size=='500g'){
-						$qty = $parentQty*2;
-					}elseif($size=='250g'){
-						$qty = $parentQty*4;
-					}
-				}else{
-					$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];
-					if($qty<1){$qty = 0;}	
-				}
-				
 				$data = array($handle, $name, "", "Herbal Apothecary", "Health & Beauty > Health Care > Medicine & Drugs", "", "$row[WEB_CATEGORY_1],$row[WEB_CATEGORY_2],$row[WEB_CATEGORY_3]", "Published", "Size", "$size", "", "", "", "", "$row[STOCK_CODE]", "$weight", "shopify", "$qty", "deny", "manual", "$row[SALES_PRICE]", "", "TRUE", "$taxable", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "", "$row[DESCRIPTION]", "FALSE", "$row[DESCRIPTION]", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "g", "", "$row[LAST_PURCHASE_PRICE]", "", "", "active");
-				fputcsv($output, $data);
-		    }
-		    
-		    if($row['STOCK_CAT']=='2'){
-		    	$organic = $NaturesLaboratoryShopify->getOrganic('1'.$parentSku);
-		    }else{
-			    $organic = $NaturesLaboratoryShopify->getOrganic($parentSku.'/ORG');
-		    }
-		    if($organic){
-			    $parts = explode(" ", $organic['DESCRIPTION']);
-			    $size = end($parts);
-			    $weight = preg_replace("/[^0-9]/", "", $size);
-			    $unit = preg_replace('/[0-9]+/', '', $size);
-			    $name = str_replace(" ".$quantity, "", $organic['DESCRIPTION']);
-				$sku = $organic['STOCK_CODE'];
-				
-				$price = number_format($organic['SALES_PRICE'],2);
-				
-				$handle = str_replace(array("%",":","/"),"",$name);
-				$handle = strtolower(str_replace(" ","-",$handle));
-				$handle = strtolower(str_replace("--","-",$handle));
-				$qty = $organic['QTY_IN_STOCK']-$organic['QTY_ALLOCATED'];
-				if($qty<1){$qty = 0;}
-				
-			    $data = array($handle, "$name", "", "Herbal Apothecary", "Health & Beauty > Health Care > Medicine & Drugs", "", "$organic[WEB_CATEGORY_1],$organic[WEB_CATEGORY_2],$organic[WEB_CATEGORY_3]", "Published", "Size", "$size", "", "", "", "", "$organic[STOCK_CODE]", "$weight", "shopify", "$qty", "deny", "manual", "$organic[SALES_PRICE]", "", "TRUE", "$taxable", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$organic['STOCK_CODE']).".jpg", "", "$organic[DESCRIPTION]", "FALSE", "$organic[DESCRIPTION]", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$organic['STOCK_CODE']).".jpg", "g", "", "$organic[LAST_PURCHASE_PRICE]", "", "", "active");
+		
 				fputcsv($output, $data);
 				
-				$children = $NaturesLaboratoryShopify->getOrganicChildren($organic['STOCK_CODE']);
-			    foreach($children as $child){
-				    $parts = explode(" ", $child['DESCRIPTION']);
+			    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
+			    foreach($children as $row){
+				    $parts = explode(" ", $row['DESCRIPTION']);
 				    $size = end($parts);
 				    $weight = preg_replace("/[^0-9]/", "", $size);
 				    $unit = preg_replace('/[0-9]+/', '', $size);
-				    //$name = str_replace(" ".$quantity, "", $child['DESCRIPTION']);
-					$sku = $child['STOCK_CODE'];
+				    //$name = str_replace(" ".$quantity, "", $row['DESCRIPTION']);
+					$sku = $row['STOCK_CODE'];
 					
-					$price = number_format($child['SALES_PRICE'],2);
-
-					$qty = $child['QTY_IN_STOCK']-$child['QTY_ALLOCATED'];
-					if($qty<1){$qty = 0;}
+					$price = number_format($row['SALES_PRICE'],2);
 					
-				    $data = array($handle, "$name", "", "Herbal Apothecary", "Health & Beauty > Health Care > Medicine & Drugs", "", "$child[WEB_CATEGORY_1],$child[WEB_CATEGORY_2],$child[WEB_CATEGORY_3]", "Published", "Size", "$size", "", "", "", "", "$child[STOCK_CODE]", "$weight", "shopify", "$qty", "deny", "manual", "$child[SALES_PRICE]", "", "TRUE", "$taxable", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$child['STOCK_CODE']).".jpg", "", "$child[DESCRIPTION]", "FALSE", "$child[DESCRIPTION]", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$child['STOCK_CODE']).".jpg", "g", "", "$child[LAST_PURCHASE_PRICE]", "", "", "active");
+					if($row['STOCK_CAT']==5 OR $row['STOCK_CAT']==6 OR $row['STOCK_CAT']==7 OR $row['STOCK_CAT']==17){
+						if($size=='500g'){
+							$qty = $parentQty*2;
+						}elseif($size=='250g'){
+							$qty = $parentQty*4;
+						}
+					}else{
+						$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];
+						if($qty<1){$qty = 0;}	
+					}
+					
+					$data = array($handle, $name, "", "Herbal Apothecary", "Health & Beauty > Health Care > Medicine & Drugs", "", "$row[WEB_CATEGORY_1],$row[WEB_CATEGORY_2],$row[WEB_CATEGORY_3]", "Published", "Size", "$size", "", "", "", "", "$row[STOCK_CODE]", "$weight", "shopify", "$qty", "deny", "manual", "$row[SALES_PRICE]", "", "TRUE", "$taxable", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "", "$row[DESCRIPTION]", "FALSE", "$row[DESCRIPTION]", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "g", "", "$row[LAST_PURCHASE_PRICE]", "", "", "active");
 					fputcsv($output, $data);
 			    }
-		    
-		    }
+			    
+			    if($row['STOCK_CAT']=='2'){
+			    	$organic = $NaturesLaboratoryShopify->getOrganic('1'.$parentSku);
+			    }else{
+				    $organic = $NaturesLaboratoryShopify->getOrganic($parentSku.'/ORG');
+			    }
+			    if($organic){
+				    $parts = explode(" ", $organic['DESCRIPTION']);
+				    $size = end($parts);
+				    $weight = preg_replace("/[^0-9]/", "", $size);
+				    $unit = preg_replace('/[0-9]+/', '', $size);
+				    $name = str_replace(" ".$quantity, "", $organic['DESCRIPTION']);
+					$sku = $organic['STOCK_CODE'];
+					
+					$price = number_format($organic['SALES_PRICE'],2);
+					
+					$handle = str_replace(array("%",":","/"),"",$name);
+					$handle = strtolower(str_replace(" ","-",$handle));
+					$handle = strtolower(str_replace("--","-",$handle));
+					$qty = $organic['QTY_IN_STOCK']-$organic['QTY_ALLOCATED'];
+					if($qty<1){$qty = 0;}
+					
+				    $data = array($handle, "$name", "", "Herbal Apothecary", "Health & Beauty > Health Care > Medicine & Drugs", "", "$organic[WEB_CATEGORY_1],$organic[WEB_CATEGORY_2],$organic[WEB_CATEGORY_3]", "Published", "Size", "$size", "", "", "", "", "$organic[STOCK_CODE]", "$weight", "shopify", "$qty", "deny", "manual", "$organic[SALES_PRICE]", "", "TRUE", "$taxable", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$organic['STOCK_CODE']).".jpg", "", "$organic[DESCRIPTION]", "FALSE", "$organic[DESCRIPTION]", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$organic['STOCK_CODE']).".jpg", "g", "", "$organic[LAST_PURCHASE_PRICE]", "", "", "active");
+					fputcsv($output, $data);
+					
+					$children = $NaturesLaboratoryShopify->getOrganicChildren($organic['STOCK_CODE']);
+				    foreach($children as $child){
+					    $parts = explode(" ", $child['DESCRIPTION']);
+					    $size = end($parts);
+					    $weight = preg_replace("/[^0-9]/", "", $size);
+					    $unit = preg_replace('/[0-9]+/', '', $size);
+					    //$name = str_replace(" ".$quantity, "", $child['DESCRIPTION']);
+						$sku = $child['STOCK_CODE'];
+						
+						$price = number_format($child['SALES_PRICE'],2);
+	
+						$qty = $child['QTY_IN_STOCK']-$child['QTY_ALLOCATED'];
+						if($qty<1){$qty = 0;}
+						
+					    $data = array($handle, "$name", "", "Herbal Apothecary", "Health & Beauty > Health Care > Medicine & Drugs", "", "$child[WEB_CATEGORY_1],$child[WEB_CATEGORY_2],$child[WEB_CATEGORY_3]", "Published", "Size", "$size", "", "", "", "", "$child[STOCK_CODE]", "$weight", "shopify", "$qty", "deny", "manual", "$child[SALES_PRICE]", "", "TRUE", "$taxable", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$child['STOCK_CODE']).".jpg", "", "$child[DESCRIPTION]", "FALSE", "$child[DESCRIPTION]", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$child['STOCK_CODE']).".jpg", "g", "", "$child[LAST_PURCHASE_PRICE]", "", "", "active");
+						fputcsv($output, $data);
+				    }
+			    
+			    }
+			}
 	    }
     }
     

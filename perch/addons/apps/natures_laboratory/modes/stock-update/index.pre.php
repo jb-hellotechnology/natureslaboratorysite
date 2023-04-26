@@ -100,7 +100,7 @@ error_reporting(E_ALL);
 		
 		$taxable = "TRUE";
 		
-		$data = array($handle, $name, "Title", "Default Title", "$qty", "$row[SALES_PRICE]");
+		$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
 
 		fputcsv($output, $data);
     }
@@ -128,11 +128,11 @@ error_reporting(E_ALL);
 			
 			$SKU = str_replace("T","",$row['STOCK_CODE']);
 			
-			$data = array($handle, $name, "Title", "Default Title", "$qty", "$row[SALES_PRICE]");
+			$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
 			
 		}else{
 		
-			$data = array($handle, $name, "Title", "Default Title", "$qty", "$row[SALES_PRICE]");
+			$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
 		
 		}
 
@@ -159,7 +159,7 @@ error_reporting(E_ALL);
 		
 		$tags = str_replace("’","","$row[WEB_CATEGORY_1],$row[WEB_CATEGORY_2],$row[WEB_CATEGORY_3]");
 		
-		$data = array($handle, $name, "Title", "Default Title", "$qty", "$row[SALES_PRICE]");
+		$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
 
 		fputcsv($output, $data);
     }
@@ -202,7 +202,7 @@ error_reporting(E_ALL);
 			
 			if($row['SALES_PRICE']>0){
 			
-				$data = array($handle, $name, "Size", "$size", "$qty", "$price");
+				$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
 		
 				fputcsv($output, $data);
 				
@@ -228,7 +228,7 @@ error_reporting(E_ALL);
 						if($qty<1){$qty = 0;}	
 					}
 					
-					$data = array($handle, $name, "Size", "$size", "$qty", "$price");
+					$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
 					fputcsv($output, $data);
 			    }
 			    
@@ -253,7 +253,7 @@ error_reporting(E_ALL);
 					$qty = $organic['QTY_IN_STOCK']-$organic['QTY_ALLOCATED'];
 					if($qty<1){$qty = 0;}
 					
- 				    $data = array($handle, $name, "Size", "$size", "$qty", "$price");
+ 				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
 					fputcsv($output, $data);
 					
 					$children = $NaturesLaboratoryShopify->getOrganicChildren($organic['STOCK_CODE']);
@@ -270,7 +270,7 @@ error_reporting(E_ALL);
 						$qty = $child['QTY_IN_STOCK']-$child['QTY_ALLOCATED'];
 						if($qty<1){$qty = 0;}
 						
-					    $data = array($handle, $name, "Size", "$size", "$qty", "$price");
+					    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
 						fputcsv($output, $data);
 				    }
 			    

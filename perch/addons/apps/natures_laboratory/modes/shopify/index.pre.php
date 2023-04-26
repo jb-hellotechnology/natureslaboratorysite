@@ -1,8 +1,10 @@
 <?php
 	
+/*
 	ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+*/
 
 	if (!$CurrentUser->has_priv('natures_laboratory.labels')) exit;
     
@@ -155,7 +157,7 @@ error_reporting(E_ALL);
 		
 		$taxable = "TRUE";
 		
-		$data = array($handle, $name, "", "Sweet Cecily's", "Health & Beauty > Health Care > Medicine & Drugs", "", "".str_replace("'","",$row['WEB_CATEGORY_1'],$row['WEB_CATEGORY_2'],$row['WEB_CATEGORY_3'])."", "Published", "Title", "Default Title", "", "", "", "", "$row[STOCK_CODE]", "$weight", "shopify", "$qty", "deny", "manual", "$row[SALES_PRICE]", "", "TRUE", "$taxable", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "", "$row[DESCRIPTION]", "FALSE", "$row[DESCRIPTION]", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "g", "", "$row[LAST_PURCHASE_PRICE]", "TRUE", "", "", "", "", "", "", "active");
+		$data = array($handle, $name, "", "Sweet Cecily's", "Health & Beauty > Health Care > Medicine & Drugs", "", "".str_replace("'","","$row[WEB_CATEGORY_1],$row[WEB_CATEGORY_2],$row[WEB_CATEGORY_3]")."", "Published", "Title", "Default Title", "", "", "", "", "$row[STOCK_CODE]", "$weight", "shopify", "$qty", "deny", "manual", "$row[SALES_PRICE]", "", "TRUE", "$taxable", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "", "$row[DESCRIPTION]", "FALSE", "$row[DESCRIPTION]", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "g", "", "$row[LAST_PURCHASE_PRICE]", "TRUE", "", "", "", "", "", "", "active");
 
 		fputcsv($output, $data);
     }

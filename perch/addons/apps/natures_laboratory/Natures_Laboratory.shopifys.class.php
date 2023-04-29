@@ -176,7 +176,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		    $jpg_img = imagecreatefromjpeg($img_path);
 		    $font_color = imagecolorallocate($jpg_img, 1, 139, 145);
 		    $text = $data['DESCRIPTION'];
-		    $lines = explode('|', wordwrap($text, 16, '|'));
+		    $lines = explode('|', wordwrap($text, 13, '|'));
 		    $y = 1330;
 		    foreach ($lines as $line)
 			{

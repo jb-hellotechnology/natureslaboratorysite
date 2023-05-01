@@ -20,7 +20,7 @@ error_reporting(E_ALL);
 	
 	ob_end_clean();
     
-    fputcsv($output, array("Handle", "Title", "Body (HTML)", "Option1 Name", "Option1 Value", "Variant SKU", "Variant Inventory Qty", "Variant Price"));
+    fputcsv($output, array("Handle", "Title", "Option1 Name", "Option1 Value", "Variant SKU", "Variant Inventory Qty", "Variant Price"));
     
     
     /** CHEMICALS **/

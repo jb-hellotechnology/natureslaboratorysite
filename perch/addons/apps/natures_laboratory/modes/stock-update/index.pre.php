@@ -100,7 +100,7 @@ error_reporting(E_ALL);
 		
 		$taxable = "TRUE";
 		
-		$data = array($handle, $name, "Title", "", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
+		$data = array($handle, $name, "", "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
 
 		fputcsv($output, $data);
     }
@@ -128,11 +128,11 @@ error_reporting(E_ALL);
 			
 			$SKU = str_replace("T","",$row['STOCK_CODE']);
 			
-			$data = array($handle, $name, "Title", "", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
+			$data = array($handle, $name, "", "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
 			
 		}else{
 		
-			$data = array($handle, $name, "Title", "", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
+			$data = array($handle, $name, "", "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
 		
 		}
 
@@ -159,7 +159,7 @@ error_reporting(E_ALL);
 		
 		$tags = str_replace("’","","$row[WEB_CATEGORY_1],$row[WEB_CATEGORY_2],$row[WEB_CATEGORY_3]");
 		
-		$data = array($handle, $name, "Title", "", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
+		$data = array($handle, $name, "", "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
 
 		fputcsv($output, $data);
     }

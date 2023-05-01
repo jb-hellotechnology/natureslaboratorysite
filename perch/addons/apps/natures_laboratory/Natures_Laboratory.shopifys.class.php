@@ -89,8 +89,10 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 	
 	public function getChildrenCapsules($sku){
 		$skuParts = explode("/",$sku);
-		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CODE LIKE "'.$sku.'/%" ORDER BY STOCK_CODE DESC';
+		$sku = substr($sku, 0, -1);
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CODE="'.$sku.'" ORDER BY STOCK_CODE DESC';
 		$data = $this->db->get_rows($sql);
+		//print_r($data);
 		return $data;
 	}
 	

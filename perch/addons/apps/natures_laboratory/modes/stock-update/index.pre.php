@@ -20,7 +20,7 @@ error_reporting(E_ALL);
 	
 	ob_end_clean();
     
-    fputcsv($output, array("Handle", "Title", "Option1 Name", "Option1 Value", "Variant SKU", "Variant Inventory Qty", "Variant Price"));
+    fputcsv($output, array("Handle", "Title", "Body (HTML)", "Option1 Name", "Option1 Value", "Variant SKU", "Variant Inventory Qty", "Variant Price"));
     
     
     /** CHEMICALS **/
@@ -100,7 +100,7 @@ error_reporting(E_ALL);
 		
 		$taxable = "TRUE";
 		
-		$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
+		$data = array($handle, $name, "Title", "", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
 
 		fputcsv($output, $data);
     }
@@ -128,11 +128,11 @@ error_reporting(E_ALL);
 			
 			$SKU = str_replace("T","",$row['STOCK_CODE']);
 			
-			$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
+			$data = array($handle, $name, "Title", "", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
 			
 		}else{
 		
-			$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
+			$data = array($handle, $name, "Title", "", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
 		
 		}
 
@@ -159,7 +159,7 @@ error_reporting(E_ALL);
 		
 		$tags = str_replace("’","","$row[WEB_CATEGORY_1],$row[WEB_CATEGORY_2],$row[WEB_CATEGORY_3]");
 		
-		$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
+		$data = array($handle, $name, "Title", "", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
 
 		fputcsv($output, $data);
     }
@@ -200,9 +200,58 @@ error_reporting(E_ALL);
 				$taxable = "";
 			}
 			
+			if($row['STOCK_CAT']=='2'){
+				//TINCTURE
+				$nameParts = explode(" ",$name);
+				$partsCount = count($nameParts);
+				$ratio = $nameParts[$partsCount-1];
+				$ratioParts = explode(":",$ratio);
+				$waterR = $ratioParts[1];
+				$alcohol = substr($nameParts[$partsCount],-1);
+				$water = 100 - $alcohol;
+				$nameParts2 = explode(" / ",$name);
+				$herb = $nameParts2[0];
+				
+				$body = "<p>Tincture made by a process of hydro-ethanolic percolation, with a ratio of 1 part $herb to $waterR parts liquid. Liquid comprises of $water% water and $alcohol% sugar beet derived ethanol. Available in 250ml, 500ml and 1000ml amber coloured PET bottles.</p>";
+			}elseif($row['STOCK_CAT']=='4'){
+				//FLUID 
+				$nameParts = explode(" ",$name);
+				$partsCount = count($nameParts);
+				$ratio = $nameParts[$partsCount-1];
+				$alcohol = substr($nameParts[$partsCount],-1);
+				$water = 100 - $alcohol;
+				$nameParts2 = explode(" / ",$name);
+				$herb = $nameParts2[0];
+				
+				$body = "<p>Fluid Extract made by a process of hydro-ethanolic percolation, with a ratio of 1 part $herb to 1 part liquid. Liquid comprises of $water% water and $alcohol% sugar beet derived ethanol. Available in 250ml, 500ml and 1000ml amber coloured PET bottles.</p>";
+			}elseif($row['STOCK_CAT']=='5'){
+				//CUT
+				$nameParts = explode(" / ",$name);
+				$herb = $nameParts[0];
+				$body = "<p>Cut $herb, packaged in a protective foil bag. Available in 250g, 500g and 1000g quantities. Cut herbs are herbs which have been harvested, dried and then cut into smaller pieces, suitable for further processing. Cut herbs like this $herb can be used to produce tinctures or fluid extracts. They can also be used in herbal teas and infusions.</p>";
+			}elseif($row['STOCK_CAT']=='6'){
+				//WHOLE
+				$nameParts = explode(" / ",$name);
+				$herb = $nameParts[0];
+				$body = "<p>Whole $herb, packaged in a protective foil bag. Available in 250g, 500g and 1000g quantities. Cut herbs are herbs which have been harvested, dried and packaged suitable for further processing. Whole herbs like this $herb can be used to produce tinctures or fluid extracts. They can also be used in herbal teas and infusions.</p>";
+			}elseif($row['STOCK_CAT']=='7'){
+				//POWDER
+				$nameParts = explode(" / ",$name);
+				$herb = $nameParts[0];
+				$body = "<p>Powdered $herb, packaged in a protective foil bag. Available in 250g, 500g and 1000g quantities. Powdered herbs are herbs which have been harvested, dried, powdered and packaged suitable for further processing. Powdered herbs like this $herb can be used to produce powder blends, capsules or as ingredients in other products.</p>";
+			}elseif($row['STOCK_CAT']=='8'){
+				//CAPSULES
+				$nameParts = explode(" / ",$name);
+				$herb = $nameParts[0];
+				$body = "<p>Powdered $herb contained in size ‘0’ Vegetable Cellulose Capsules. Sold in Bags of 1000 Capsules or Pots of 100 Capsules.</p>";
+			}elseif($row['STOCK_CAT']=='12'){
+				//ESSENTIAL OIL
+				$body = "<p><strong>Directions for Use</strong><ul><li><em>Diffusion:</em> Use three to four drops in the diffuser of your choice.</li><li><em>Topical use:</em> Apply one to two drops to desired area. Dilute with a carrier oil to minimize any skin sensitivity.</li></ul><p><strong>Cautions</strong></p><p>Possible skin sensitivity. Keep out of reach of children. If you are pregnant, nursing, or under a doctor’s care, consult your physician. Avoid contact with eyes, inner ears, and sensitive areas.</p>";
+			}
+			
 			if($row['SALES_PRICE']>0){
 			
-				$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+				$data = array($handle, $name, "$body", "Size", "$size", "$sku", "$qty", "$price");
 		
 				fputcsv($output, $data);
 				

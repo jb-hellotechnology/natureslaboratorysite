@@ -57,6 +57,12 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		return $data;
 	}
 	
+	public function getBySKU($sku){
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CODE="'.$sku.'"';
+		$data = $this->db->get_row($sql);
+		return $data;
+	}
+	
 	public function getOrganic($sku){
 		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CODE="'.$sku.'" ORDER BY STOCK_CODE ASC';
 		$data = $this->db->get_row($sql);

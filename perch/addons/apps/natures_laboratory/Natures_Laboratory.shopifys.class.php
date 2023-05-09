@@ -129,6 +129,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		$sku = str_replace("_","/",$sku);
 		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CODE = "'.$sku.'"';
 		$data = $this->db->get_row($sql);
+		print_r($data);
 		if($data['STOCK_CAT']=='2' OR $data['STOCK_CAT']=='4' OR $data['STOCK_CAT']=='15' OR $data['STOCK_CAT']=='18'){
 			//TINCTURE FLUID OR ORGANIC
 		    header("Content-type: image/jpeg");

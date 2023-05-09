@@ -150,7 +150,7 @@ error_reporting(E_ALL);
     $data = array("propolis-mouthwash", "Multibuy", "1 Pack", "", "", "", "", "Nature's Laboratory", "0", "0", "0", "$qty", "$qty");
     fputcsv($output, $data);
     $qty2 = $qty/2;
-    $data = array("propolis-moutwash", "Multibuy", "2 Pack", "", "", "", "", "Nature's Laboratory", "0", "0", "0", "$qty2", "$qty2");
+    $data = array("propolis-mouthwash", "Multibuy", "2 Pack", "", "", "", "", "Nature's Laboratory", "0", "0", "0", "$qty2", "$qty2");
     fputcsv($output, $data);
     $qty = floor($qty/6);
     $data = array("propolis-mouthwash-6-pack", "Title", "Default Title", "", "", "", "", "Nature's Laboratory", "0", "0", "0", "$qty", "$qty");

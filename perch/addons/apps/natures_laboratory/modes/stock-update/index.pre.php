@@ -13,8 +13,10 @@ error_reporting(E_ALL);
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
     
+/*
     header('Content-Type: text/csv; charset=utf-8');
 	header('Content-Disposition: attachment; filename=shopify_stock_update.csv');
+*/
 	
 	$output = fopen( 'php://output', 'w' );
 	
@@ -23,44 +25,7 @@ error_reporting(E_ALL);
     fputcsv($output, array("Handle", "Title", "Option1 Name", "Option1 Value", "Variant SKU", "Variant Inventory Qty", "Variant Price"));
     
     
-    /** CHEMICALS **/
-    
-    $export = $NaturesLaboratoryShopify->getParents(1,true,false);
-    
-    /** TINCTURES **/
-    
-    $export = $NaturesLaboratoryShopify->getParents(2,true,false);
-    exportData($export,$output,'Tinctures','1000ml');
-    
-    /** FLUID EXTRACTS **/
-    
-    $export = $NaturesLaboratoryShopify->getParents(4,true,false);
-    exportData($export,$output,'Fluid Extracts','1000ml');
-    
-    /** CUT HERBS **/
-    
-    $export = $NaturesLaboratoryShopify->getParents(5,true,false);
-	exportData($export,$output,'Cut Herbs','1000g');
-    
-    /** WHOLE HERBS **/
-    
-    $export = $NaturesLaboratoryShopify->getParents(6,true,false);
-    exportData($export,$output,'Whole Herbs','1000g');
-    
-    /** POWDERS **/
-    
-    $export = $NaturesLaboratoryShopify->getParents(7,true,false);
-    exportData($export,$output,'Powders','1000g');
-    
-    /** POWDER BLENDS **/
-    
-    $export = $NaturesLaboratoryShopify->getParents(17,true,false);
-    exportData($export,$output,'Powder Blends','1000g');
-    
-    /** CAPSULES **/
-    
-    $export = $NaturesLaboratoryShopify->getParentsCapsules(false);
-    exportData($export,$output,'Capsules','1000');
+
     
     /** PESSARIES **/
     
@@ -191,6 +156,11 @@ error_reporting(E_ALL);
 			
 			if($row['STOCK_CAT']=='8'){
 				$size = '1000 '.$size;
+			}
+			
+			if($row['STOCK_CAT']=='17' AND substr($row['STOCK_CODE'],0,4)=='PESS'){
+				$size = $size.' Pessaries';
+				print_r($row);
 			}
 
 			$price = number_format($row['SALES_PRICE'],2);

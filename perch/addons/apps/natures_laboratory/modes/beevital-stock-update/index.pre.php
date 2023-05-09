@@ -59,7 +59,7 @@ error_reporting(E_ALL);
     fputcsv($output, $data);
     
     #THROAT SPRAY
-    $item = $NaturesLaboratoryShopify->getBySKU('BVPG');
+    $item = $NaturesLaboratoryShopify->getBySKU('BV24');
     $qty = $item['QTY_IN_STOCK']-$item['QTY_ALLOCATED'];
     $data = array("propolis-honey-throat-spray", "Multibuy", "1 Pack", "", "", "", "", "Nature's Laboratory", "0", "0", "0", "$qty", "$qty");
     fputcsv($output, $data);

@@ -13,10 +13,8 @@ error_reporting(E_ALL);
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
     
-/*
     header('Content-Type: text/csv; charset=utf-8');
 	header('Content-Disposition: attachment; filename=shopify_stock_update.csv');
-*/
 	
 	$output = fopen( 'php://output', 'w' );
 	

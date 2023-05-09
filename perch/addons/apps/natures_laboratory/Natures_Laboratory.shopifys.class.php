@@ -52,7 +52,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		if($slash){
 			$slashQ = 'AND STOCK_CODE NOT LIKE "%/%" ';
 		}
-		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CAT="'.$category.'" '.$slashQ.''.$stockLevel.'ORDER BY DESCRIPTION ASC';
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE WEB_PUBLISH="1" AND STOCK_CAT="'.$category.'" '.$slashQ.''.$stockLevel.'ORDER BY DESCRIPTION ASC';
 		$data = $this->db->get_rows($sql);
 		return $data;
 	}

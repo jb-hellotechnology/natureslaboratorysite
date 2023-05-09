@@ -44,6 +44,9 @@ error_reporting(E_ALL);
 		if($trade=='T'){
 			
 			$SKU = str_replace("T","",$row['STOCK_CODE']);
+			$individual = $NaturesLaboratoryShopify->getBySKU($SKU);
+			$stock = $individual['QTY_IN_STOCK']-$individual['QTY_ALLOCATED'];
+			$qty = floor($stock/6);
 			
 			$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
 			
@@ -55,5 +58,6 @@ error_reporting(E_ALL);
 
 		fputcsv($output, $data);
     }
-        
+
+       
 	exit();

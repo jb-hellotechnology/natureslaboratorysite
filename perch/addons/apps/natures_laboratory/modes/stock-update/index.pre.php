@@ -13,8 +13,10 @@ error_reporting(E_ALL);
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
     
+/*
     header('Content-Type: text/csv; charset=utf-8');
 	header('Content-Disposition: attachment; filename=shopify_stock_update.csv');
+*/
 	
 	$output = fopen( 'php://output', 'w' );
 	
@@ -127,10 +129,9 @@ error_reporting(E_ALL);
 		if($trade=='T'){
 			
 			$SKU = str_replace("T","",$row['STOCK_CODE']);
-
 			$individual = $NaturesLaboratoryShopify->getBySKU($SKU);
 			$stock = $individual['QTY_IN_STOCK']-$individual['QTY_ALLOCATED'];
-			$qty = floor($sock/6);
+			$qty = floor($stock/6);
 			
 			$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
 			

@@ -62,6 +62,11 @@ error_reporting(E_ALL);
     $export = $NaturesLaboratoryShopify->getParentsCapsules(false);
     exportData($export,$output,'Capsules','1000');
     
+    /** PESSARIES **/
+    
+    $export = $NaturesLaboratoryShopify->getParentsPessaries(false);
+    exportData($export,$output,'Pessaries','30');
+    
     /** CREAMS **/
     
     $export = $NaturesLaboratoryShopify->getParents(11,true,false);
@@ -226,6 +231,10 @@ error_reporting(E_ALL);
 					}else{
 						$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];
 						if($qty<1){$qty = 0;}	
+					}
+					
+					if($row['STOCK_CAT']=='17' AND substr($row['STOCK_CODE'],0,4)=='PESS'){
+						$size = $size.' Pessaries';
 					}
 					
 					$data = array($handle, $name, "", "Herbal Apothecary", "Health & Beauty > Health Care > Medicine & Drugs", "", "$row[WEB_CATEGORY_1],$row[WEB_CATEGORY_2],$row[WEB_CATEGORY_3]", "TRUE", "Size", "$size", "", "", "", "", "$row[STOCK_CODE]", "$weight", "shopify", "$qty", "deny", "manual", "$row[SALES_PRICE]", "", "TRUE", "$taxable", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "", "$row[DESCRIPTION]", "FALSE", "$row[DESCRIPTION]", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "https://natureslaboratory.co.uk/product-image/".str_replace("/","_",$row['STOCK_CODE']).".jpg", "g", "", "$row[LAST_PURCHASE_PRICE]", "TRUE", "", "", "", "", "", "", "active");

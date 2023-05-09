@@ -54,6 +54,10 @@
         ],
         [
             'page' => 'natures_laboratory/stock-update',
-            'label'=> 'Stock Update'
+            'label'=> 'Herbal Apothecary Stock Update'
+        ],
+        [
+            'page' => 'natures_laboratory/beevital-stock-update',
+            'label'=> 'BeeVital Stock Update'
         ],
     ], $CurrentUser);

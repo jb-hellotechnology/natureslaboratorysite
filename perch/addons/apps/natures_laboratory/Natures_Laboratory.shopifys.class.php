@@ -87,6 +87,16 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		return $data;
 	}
 	
+	public function getParentsPessaries($stock){
+		$stockLevel = '';
+		if($stock){
+			$stockLevel = 'AND QTY_IN_STOCK>0 ';
+		}
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE (STOCK_CODE LIKE "PESS/%") AND STOCK_CAT="17" '.$stockLevel.'ORDER BY STOCK_CODE ASC';
+		$data = $this->db->get_rows($sql);
+		return $data;
+	}
+	
 	public function getChildrenCapsules($sku){
 		$skuParts = explode("/",$sku);
 		$sku = substr($sku, 0, -1);
@@ -136,7 +146,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		    }
 		    imagejpeg($jpg_img);
 		    imagedestroy($jpg_img);
-		}elseif($data['STOCK_CAT']=='5' OR $data['STOCK_CAT']=='6' OR $data['STOCK_CAT']=='7' OR $data['STOCK_CAT']=='8' OR $data['STOCK_CAT']=='17'){
+		}elseif($data['STOCK_CAT']=='5' OR $data['STOCK_CAT']=='6' OR $data['STOCK_CAT']=='7' OR $data['STOCK_CAT']=='8' OR ($data['STOCK_CAT']=='17' AND substr($data['STOCK_CODE'],0,4)<>'PESS')){
 			//CUT WHOLE POWDER CAPSULE
 			header("Content-type: image/jpeg");
 		    $img_path = '../perch/addons/apps/natures_laboratory/assets/images/herbs.jpg';
@@ -153,7 +163,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		    }
 		    imagejpeg($jpg_img);
 		    imagedestroy($jpg_img);
-		}elseif($data['STOCK_CAT']=='11'){
+		}elseif($data['STOCK_CAT']=='11' OR ($data['STOCK_CAT']=='17' AND substr($data['STOCK_CODE'],0,4)=='PESS')){
 			//CREAMS
 			header("Content-type: image/jpeg");
 		    $img_path = '../perch/addons/apps/natures_laboratory/assets/images/creams.jpg';

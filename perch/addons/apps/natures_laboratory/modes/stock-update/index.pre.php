@@ -62,6 +62,11 @@ error_reporting(E_ALL);
     $export = $NaturesLaboratoryShopify->getParentsCapsules(false);
     exportData($export,$output,'Capsules','1000');
     
+    /** PESSARIES **/
+    
+    $export = $NaturesLaboratoryShopify->getParentsPessaries(false);
+    exportData($export,$output,'Pessaries','30');
+    
     /** CREAMS **/
     
     $export = $NaturesLaboratoryShopify->getParents(11,true,false);

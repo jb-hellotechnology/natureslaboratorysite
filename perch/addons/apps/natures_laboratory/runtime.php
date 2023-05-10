@@ -27,6 +27,14 @@
 	include('Natures_Laboratory.shopify.class.php');
 	include('Natures_Laboratory.shopifys.class.php');
 	
+	function importStock(){
+
+		$stock = new Natures_Laboratory_Shopifys();
+		
+		$stock->importStock();
+	   
+	}
+	
 	function timemoto_log($name,$timeLoggedRounded,$attendanceStatus,$data){
 
 		$Time = new Natures_Laboratory_Staff_Member_Times();

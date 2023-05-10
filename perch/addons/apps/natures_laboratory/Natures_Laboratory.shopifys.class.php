@@ -19,7 +19,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		$csvFile = file('../sagedata/perchstock.csv');
 		$i = 0;
 	    foreach ($csvFile as $line) {
-		    if($i>=0){
+		    if($i>=1){
 		        $data = str_getcsv($line);
 		        $str = '';
 		        foreach($data as $item){

@@ -20,7 +20,7 @@ error_reporting(E_ALL);
 	
 	ob_end_clean();
     
-    fputcsv($output, array("Handle", "Title", "Option1 Name", "Option1 Value", "Variant SKU", "Variant Inventory Qty", "Variant Price"));
+    fputcsv($output, array("Handle", "Title", "Option1 Name", "Option1 Value", "Variant SKU", "Variant Grams", "Variant Inventory Qty", "Variant Price"));
     
     
     /** CHEMICALS **/
@@ -105,7 +105,7 @@ error_reporting(E_ALL);
 		
 		$taxable = "TRUE";
 		
-		$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
+		$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "", "$qty", "$row[SALES_PRICE]");
 
 		fputcsv($output, $data);
     }
@@ -136,11 +136,11 @@ error_reporting(E_ALL);
 			$stock = $individual['QTY_IN_STOCK']-$individual['QTY_ALLOCATED'];
 			$qty = floor($stock/6);
 			
-			$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
+			$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "", "$qty", "$row[SALES_PRICE]");
 			
 		}else{
 		
-			$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
+			$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "", "$qty", "$row[SALES_PRICE]");
 		
 		}
 
@@ -167,7 +167,7 @@ error_reporting(E_ALL);
 		
 		$tags = str_replace("’","","$row[WEB_CATEGORY_1],$row[WEB_CATEGORY_2],$row[WEB_CATEGORY_3]");
 		
-		$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
+		$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "", "$qty", "$row[SALES_PRICE]");
 
 		fputcsv($output, $data);
     }
@@ -268,7 +268,7 @@ error_reporting(E_ALL);
 				$parentSKU = $sku;
 				$parentQTY = $qty;
 				$parentPrice = $price;
-				$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+				$data = array($handle, $name, "Size", "$size", "$sku", "", "$qty", "$price");
 		
 				fputcsv($output, $data);
 				
@@ -283,6 +283,16 @@ error_reporting(E_ALL);
 					
 					$price = number_format($row['SALES_PRICE'],2);
 					
+					if($size=='250l' OR $size=='250g'){
+						$weight = 250;
+					}elseif($size=='500l' OR $size=='500g'){
+						$weight = 500;
+					}elseif($size=='1000l' OR $size=='1000ml'){
+						$weight = 1000;
+					}else{
+						$weight = 0;
+					}
+					
 					if($row['STOCK_CAT']==5 OR $row['STOCK_CAT']==6 OR $row['STOCK_CAT']==7 OR $row['STOCK_CAT']==17){
 						if($size=='500g'){
 							$qty = $parentQty*2;
@@ -294,7 +304,7 @@ error_reporting(E_ALL);
 						if($qty<1){$qty = 0;}	
 					}
 					
-					$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+					$data = array($handle, $name, "Size", "$size", "$sku", "$weight", "$qty", "$price");
 					fputcsv($output, $data);
 			    }
 			    
@@ -306,7 +316,7 @@ error_reporting(E_ALL);
 					    $qty = 0;
 				    }
 				    $price = number_format(($parentPrice*5)*0.975, 2, '.', '');
-				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+				    $data = array($handle, $name, "Size", "$size", "$sku", "5000", "$qty", "$price");
 					fputcsv($output, $data);
 					
 					$size = '10l';
@@ -316,7 +326,7 @@ error_reporting(E_ALL);
 					    $qty = 0;
 				    }
 				    $price = number_format(($parentPrice*10)*0.95, 2, '.', '');
-				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+				    $data = array($handle, $name, "Size", "$size", "$sku", "10000", "$qty", "$price");
 					fputcsv($output, $data);
 					
 					$size = '25l';
@@ -326,7 +336,7 @@ error_reporting(E_ALL);
 					    $qty = 0;
 				    }
 				    $price = number_format(($parentPrice*25)*0.90, 2, '.', '');
-				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+				    $data = array($handle, $name, "Size", "$size", "$sku", "25000", "$qty", "$price");
 					fputcsv($output, $data);
 			    }
 			    
@@ -338,7 +348,7 @@ error_reporting(E_ALL);
 					    $qty = 0;
 				    }
 				    $price = number_format(($parentPrice*5)*0.975, 2, '.', '');
-				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+				    $data = array($handle, $name, "Size", "$size", "$sku", "5000", "$qty", "$price");
 					fputcsv($output, $data);
 					
 					$size = '10kg';
@@ -348,7 +358,7 @@ error_reporting(E_ALL);
 					    $qty = 0;
 				    }
 				    $price = number_format(($parentPrice*10)*0.95, 2, '.', '');
-				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+				    $data = array($handle, $name, "Size", "$size", "$sku", "10000", "$qty", "$price");
 					fputcsv($output, $data);
 					
 					$size = '25kg';
@@ -358,7 +368,7 @@ error_reporting(E_ALL);
 					    $qty = 0;
 				    }
 				    $price = number_format(($parentPrice*25)*0.90, 2, '.', '');
-				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+				    $data = array($handle, $name, "Size", "$size", "$sku", "25000", "$qty", "$price");
 					fputcsv($output, $data);
 			    }
 			    
@@ -375,7 +385,7 @@ error_reporting(E_ALL);
 						$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];
 						$price = number_format($row['SALES_PRICE'],2);
 						
-						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+						$data = array($handle, $name, "Size", "$size", "$sku", "", "$qty", "$price");
 						fputcsv($output, $data);
 				    }
 			    }
@@ -401,7 +411,7 @@ error_reporting(E_ALL);
 					$qty = $organic['QTY_IN_STOCK']-$organic['QTY_ALLOCATED'];
 					if($qty<1){$qty = 0;}
 					
- 				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+ 				    $data = array($handle, $name, "Size", "$size", "$sku", "", "$qty", "$price");
 					fputcsv($output, $data);
 					
 					$children = $NaturesLaboratoryShopify->getOrganicChildren($organic['STOCK_CODE']);
@@ -418,7 +428,7 @@ error_reporting(E_ALL);
 						$qty = $child['QTY_IN_STOCK']-$child['QTY_ALLOCATED'];
 						if($qty<1){$qty = 0;}
 						
-					    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+					    $data = array($handle, $name, "Size", "$size", "$sku", "", "$qty", "$price");
 						fputcsv($output, $data);
 				    }
 			    

@@ -283,11 +283,11 @@ error_reporting(E_ALL);
 					
 					$price = number_format($row['SALES_PRICE'],2);
 					
-					if($size=='250l' OR $size=='250g'){
+					if($size=='250ml' OR $size=='250g'){
 						$weight = 250;
-					}elseif($size=='500l' OR $size=='500g'){
+					}elseif($size=='500ml' OR $size=='500g'){
 						$weight = 500;
-					}elseif($size=='1000l' OR $size=='1000ml'){
+					}elseif($size=='1000ml' OR $size=='1000g'){
 						$weight = 1000;
 					}else{
 						$weight = 0;

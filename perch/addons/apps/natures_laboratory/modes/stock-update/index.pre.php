@@ -420,7 +420,7 @@ error_reporting(E_ALL);
 					$qty = $organic['QTY_IN_STOCK']-$organic['QTY_ALLOCATED'];
 					if($qty<1){$qty = 0;}
 					
- 				    $data = array($handle, $name, "Size", "$size", "$sku", "", "$qty", "$price");
+ 				    $data = array($handle, $name, "Size", "$size", "$sku", "1000", "$qty", "$price");
 					fputcsv($output, $data);
 					
 					$children = $NaturesLaboratoryShopify->getOrganicChildren($organic['STOCK_CODE']);
@@ -437,7 +437,17 @@ error_reporting(E_ALL);
 						$qty = $child['QTY_IN_STOCK']-$child['QTY_ALLOCATED'];
 						if($qty<1){$qty = 0;}
 						
-					    $data = array($handle, $name, "Size", "$size", "$sku", "", "$qty", "$price");
+						if($size=='250ml' OR $size=='250g'){
+							$weight = 250;
+						}elseif($size=='500ml' OR $size=='500g'){
+							$weight = 500;
+						}elseif($size=='1000ml' OR $size=='1000g'){
+							$weight = 1000;
+						}else{
+							$weight = 0;
+						}
+						
+					    $data = array($handle, $name, "Size", "$size", "$sku", "$weight", "$qty", "$price");
 						fputcsv($output, $data);
 				    }
 			    

@@ -265,6 +265,9 @@ error_reporting(E_ALL);
 			
 			if($row['SALES_PRICE']>0){
 			
+				$parentSKU = $sku;
+				$parentQTY = $qty;
+				$parentPrice = $price;
 				$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
 		
 				fputcsv($output, $data);
@@ -292,6 +295,70 @@ error_reporting(E_ALL);
 					}
 					
 					$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+					fputcsv($output, $data);
+			    }
+			    
+			    if($row['STOCK_CAT']=='2' OR $row['STOCK_CAT']=='4'){
+				    $size = '5l';
+				    $sku = $parentSKU."/5000";
+				    $qty = floor($parentQTY/5);
+				    if($qty<0){
+					    $qty = 0;
+				    }
+				    $price = ($parentPrice*5)*0.975;
+				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+					fputcsv($output, $data);
+					
+					$size = '10l';
+				    $sku = $parentSKU."/10000";
+				    $qty = floor($parentQTY/10);
+				    if($qty<0){
+					    $qty = 0;
+				    }
+				    $price = ($parentPrice*10)*0.95;
+				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+					fputcsv($output, $data);
+					
+					$size = '25l';
+				    $sku = $parentSKU."/25000";
+				    $qty = floor($parentQTY/25);
+				    if($qty<0){
+					    $qty = 0;
+				    }
+				    $price = ($parentPrice*10)*0.90;
+				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+					fputcsv($output, $data);
+			    }
+			    
+			    if($row['STOCK_CAT']=='5' OR $row['STOCK_CAT']=='6' OR $row['STOCK_CAT']=='7' OR $row['STOCK_CAT']=='17'){
+				    $size = '5kg';
+				    $sku = $parentSKU."/5000";
+				    $qty = floor($parentQTY/5);
+				    if($qty<0){
+					    $qty = 0;
+				    }
+				    $price = ($parentPrice*5)*0.975;
+				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+					fputcsv($output, $data);
+					
+					$size = '10kg';
+				    $sku = $parentSKU."/10000";
+				    $qty = floor($parentQTY/10);
+				    if($qty<0){
+					    $qty = 0;
+				    }
+				    $price = ($parentPrice*10)*0.95;
+				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+					fputcsv($output, $data);
+					
+					$size = '25kg';
+				    $sku = $parentSKU."/25000";
+				    $qty = floor($parentQTY/25);
+				    if($qty<0){
+					    $qty = 0;
+				    }
+				    $price = ($parentPrice*10)*0.90;
+				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
 					fputcsv($output, $data);
 			    }
 			    

@@ -301,7 +301,7 @@ error_reporting(E_ALL);
 			    if($row['STOCK_CAT']=='2' OR $row['STOCK_CAT']=='4'){
 				    $size = '5l';
 				    $sku = $parentSKU."/5000";
-				    $qty = floor($parentQTY/5);
+				    $qty = number_format(floor($parentQTY/5),2);
 				    if($qty<0){
 					    $qty = 0;
 				    }
@@ -311,7 +311,7 @@ error_reporting(E_ALL);
 					
 					$size = '10l';
 				    $sku = $parentSKU."/10000";
-				    $qty = floor($parentQTY/10);
+				    $qty = number_format(floor($parentQTY/5),2);
 				    if($qty<0){
 					    $qty = 0;
 				    }
@@ -321,7 +321,7 @@ error_reporting(E_ALL);
 					
 					$size = '25l';
 				    $sku = $parentSKU."/25000";
-				    $qty = floor($parentQTY/25);
+				    $qty = number_format(floor($parentQTY/5),2);
 				    if($qty<0){
 					    $qty = 0;
 				    }
@@ -333,7 +333,7 @@ error_reporting(E_ALL);
 			    if($row['STOCK_CAT']=='5' OR $row['STOCK_CAT']=='6' OR $row['STOCK_CAT']=='7' OR $row['STOCK_CAT']=='17'){
 				    $size = '5kg';
 				    $sku = $parentSKU."/5000";
-				    $qty = floor($parentQTY/5);
+				    $qty = number_format(floor($parentQTY/5),2);
 				    if($qty<0){
 					    $qty = 0;
 				    }
@@ -343,7 +343,7 @@ error_reporting(E_ALL);
 					
 					$size = '10kg';
 				    $sku = $parentSKU."/10000";
-				    $qty = floor($parentQTY/10);
+					$qty = number_format(floor($parentQTY/5),2);
 				    if($qty<0){
 					    $qty = 0;
 				    }
@@ -353,7 +353,7 @@ error_reporting(E_ALL);
 					
 					$size = '25kg';
 				    $sku = $parentSKU."/25000";
-				    $qty = floor($parentQTY/25);
+				    $qty = number_format(floor($parentQTY/5),2);
 				    if($qty<0){
 					    $qty = 0;
 				    }

@@ -305,7 +305,7 @@ error_reporting(E_ALL);
 				    if($qty<0){
 					    $qty = 0;
 				    }
-				    $price = number_format(($parentPrice*10)*0.975, 2, '.', '');
+				    $price = number_format(($parentPrice*5)*0.975, 2, '.', '');
 				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
 					fputcsv($output, $data);
 					
@@ -325,7 +325,7 @@ error_reporting(E_ALL);
 				    if($qty<0){
 					    $qty = 0;
 				    }
-				    $price = number_format(($parentPrice*10)*0.90, 2, '.', '');
+				    $price = number_format(($parentPrice*25)*0.90, 2, '.', '');
 				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
 					fputcsv($output, $data);
 			    }
@@ -337,7 +337,7 @@ error_reporting(E_ALL);
 				    if($qty<0){
 					    $qty = 0;
 				    }
-				    $price = number_format(($parentPrice*10)*0.975, 2, '.', '');
+				    $price = number_format(($parentPrice*5)*0.975, 2, '.', '');
 				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
 					fputcsv($output, $data);
 					
@@ -357,7 +357,7 @@ error_reporting(E_ALL);
 				    if($qty<0){
 					    $qty = 0;
 				    }
-				    $price = number_format(($parentPrice*10)*0.90, 2, '.', '');
+				    $price = number_format(($parentPrice*25)*0.90, 2, '.', '');
 				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
 					fputcsv($output, $data);
 			    }

@@ -268,7 +268,16 @@ error_reporting(E_ALL);
 				$parentSKU = $sku;
 				$parentQTY = $qty;
 				$parentPrice = $price;
-				$data = array($handle, $name, "Size", "$size", "$sku", "", "$qty", "$price");
+				
+				$parts = explode(" ", $row['DESCRIPTION']);
+				$size = end($parts);
+				if($size=='1000ml' OR $size=='1000g'){
+					$weight = 1000;
+				}else{
+					$weight = 0;
+				}    
+				    
+				$data = array($handle, $name, "Size", "$size", "$sku", "$weight", "$qty", "$price");
 		
 				fputcsv($output, $data);
 				

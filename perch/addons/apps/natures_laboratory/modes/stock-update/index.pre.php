@@ -268,6 +268,16 @@ error_reporting(E_ALL);
 				$parentSKU = $sku;
 				$parentQTY = $qty;
 				$parentPrice = $price;
+				
+				if($row['STOCK_CAT']=='8'){
+					if($qty==0){
+						$skuParts = explode("V", $sku);
+						$powderSKU = substr($skuParts[0],1);
+						$powderData = $NaturesLaboratoryShopify->getBySKU($powderSKU);
+						$qty = floor(($powderData['QTY_IN_STOCK']-$powderData['QTY_ALLOCATED'])*1.5);
+					}
+				}
+				
 				$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
 		
 				fputcsv($output, $data);

@@ -27,7 +27,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		        $str = '';
 		        foreach($data as $item){
 			       if($item){
-				       $str.="'$item', ";
+				       $str.="'".addslashes($item)."', ";
 			       }else{
 				       $str .= "0, ";
 			       }

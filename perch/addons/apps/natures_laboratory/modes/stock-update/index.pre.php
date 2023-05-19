@@ -199,7 +199,7 @@ error_reporting(E_ALL);
 
 			$price = number_format($row['SALES_PRICE'],2);
 			
-			$handle = str_replace(array("%",":","/"),"",$name);
+			$handle = str_replace(array("%",":","/","'"),"",$name);
 			$handle = strtolower(str_replace(" ","-",$handle));
 			$handle = strtolower(str_replace("--","-",$handle));
 			$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];

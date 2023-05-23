@@ -343,35 +343,37 @@ error_reporting(E_ALL);
 			    }
 			    
 			    if($row['STOCK_CAT']=='5' OR $row['STOCK_CAT']=='6' OR $row['STOCK_CAT']=='7' OR $row['STOCK_CAT']=='17'){
-				    $size = '5kg';
-				    $sku = $parentSKU."/5000";
-				    $qty = floor($parentQTY/5);
-				    if($qty<0){
-					    $qty = 0;
-				    }
-				    $price = number_format(($parentPrice*5)*0.975, 2, '.', '');
-				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
-					fputcsv($output, $data);
-					
-					$size = '10kg';
-				    $sku = $parentSKU."/10000";
-				    $qty = floor($parentQTY/10);
-				    if($qty<0){
-					    $qty = 0;
-				    }
-				    $price = number_format(($parentPrice*10)*0.95, 2, '.', '');
-				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
-					fputcsv($output, $data);
-					
-					$size = '25kg';
-				    $sku = $parentSKU."/25000";
-				    $qty = floor($parentQTY/25);
-				    if($qty<0){
-					    $qty = 0;
-				    }
-				    $price = number_format(($parentPrice*25)*0.90, 2, '.', '');
-				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
-					fputcsv($output, $data);
+				    if(!str_contains($row['DESCRIPTION'], 'Pessaries')){
+					    $size = '5kg';
+					    $sku = $parentSKU."/5000";
+					    $qty = floor($parentQTY/5);
+					    if($qty<0){
+						    $qty = 0;
+					    }
+					    $price = number_format(($parentPrice*5)*0.975, 2, '.', '');
+					    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+						fputcsv($output, $data);
+						
+						$size = '10kg';
+					    $sku = $parentSKU."/10000";
+					    $qty = floor($parentQTY/10);
+					    if($qty<0){
+						    $qty = 0;
+					    }
+					    $price = number_format(($parentPrice*10)*0.95, 2, '.', '');
+					    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+						fputcsv($output, $data);
+						
+						$size = '25kg';
+					    $sku = $parentSKU."/25000";
+					    $qty = floor($parentQTY/25);
+					    if($qty<0){
+						    $qty = 0;
+					    }
+					    $price = number_format(($parentPrice*25)*0.90, 2, '.', '');
+					    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+						fputcsv($output, $data);
+					}
 			    }
 			    
 			    if($row['STOCK_CAT']=='8'){

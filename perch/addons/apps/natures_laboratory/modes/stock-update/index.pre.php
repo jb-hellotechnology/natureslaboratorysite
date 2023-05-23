@@ -1,10 +1,8 @@
 <?php
 	
-/*
 	ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-*/
 
 	if (!$CurrentUser->has_priv('natures_laboratory.labels')) exit;
     
@@ -343,7 +341,7 @@ error_reporting(E_ALL);
 			    }
 			    
 			    if($row['STOCK_CAT']=='5' OR $row['STOCK_CAT']=='6' OR $row['STOCK_CAT']=='7' OR $row['STOCK_CAT']=='17'){
-				    if(!str_contains($row['DESCRIPTION'], 'Pessaries')){
+				    if(strpos($row['DESCRIPTION'], 'Pessaries') === false){
 					    $size = '5kg';
 					    $sku = $parentSKU."/5000";
 					    $qty = floor($parentQTY/5);

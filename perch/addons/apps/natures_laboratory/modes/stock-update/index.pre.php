@@ -270,11 +270,13 @@ error_reporting(E_ALL);
 				$parentPrice = $price;
 				
 				if($row['STOCK_CAT']=='8'){
-					if($qty==0 AND !str_contains($row['DESCRIPTION'], 'ICF')){
+					if($qty==0){
 						$skuParts = explode("V", $sku);
 						$powderSKU = substr($skuParts[0],1);
-						$powderData = $NaturesLaboratoryShopify->getBySKU($powderSKU);
-						$qty = floor(($powderData['QTY_IN_STOCK']-$powderData['QTY_ALLOCATED'])*1.5);
+						if(strlen($powderSKU)>3){
+							$powderData = $NaturesLaboratoryShopify->getBySKU($powderSKU);
+							$qty = floor(($powderData['QTY_IN_STOCK']-$powderData['QTY_ALLOCATED'])*1.5);
+						}
 					}
 				}
 				

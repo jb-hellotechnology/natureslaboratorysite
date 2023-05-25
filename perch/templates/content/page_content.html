@@ -8,6 +8,33 @@
     </section>
     </perch:block>
     
+    <perch:block label="Eventbrite" type="eventbrite">
+    <section>
+	    <div class="flow">
+		    <div id="eventbrite-widget-container-643020661107"></div>
+
+			<script src="https://www.eventbrite.co.uk/static/widgets/eb_widgets.js"></script>
+			
+			<script type="text/javascript">
+			    var exampleCallback = function() {
+			        console.log('Order complete!');
+			    };
+			
+			    window.EBWidgets.createWidget({
+			        // Required
+			        widgetType: 'checkout',
+			        eventId: '643020661107',
+			        iframeContainerId: 'eventbrite-widget-container-643020661107',
+			
+			        // Optional
+			        iframeContainerHeight: 425,  // Widget height in pixels. Defaults to a minimum of 425px if not provided
+			        onOrderComplete: exampleCallback  // Method called when an order has successfully completed
+			    });
+			</script>
+	    </div>
+    </section>
+    </perch:block>
+    
     <perch:block label="Social Media" type="socialmedia">
     <section>
 	    <div>

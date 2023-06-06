@@ -10,6 +10,14 @@ class Natures_Laboratory_Labels extends PerchAPI_Factory
 	
 	public $static_fields = array('perch3_natures_laboratory_labelID,','productCode','batch','bbe','size','quantity','labelDynamicFields');	
 	
+	public function getStock(){
+		
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock ORDER BY STOCK_CODE ASC';
+		$data = $this->db->get_rows($sql);
+		return $data;
+		
+	}
+	
 	public function getLabels(){
 		
 		$today = date('Y-m-d');

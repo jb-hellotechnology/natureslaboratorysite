@@ -26,7 +26,7 @@
 
 
     # Do anything you want to do before output is started
-    include('../../modes/production/add/index.pre.php');
+    include('../../modes/production/schedule/index.pre.php');
     
     
     # Top layout
@@ -34,7 +34,7 @@
 
     
     # Display your page
-    include('../../modes/production/add/index.post.php');
+    include('../../modes/production/schedule/index.post.php');
     
     
     # Bottom layout

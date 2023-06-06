@@ -16,8 +16,20 @@
 
 	$Smartbar->add_item([
 	    'active' => true,
-	    'title' => 'Processes',
+	    'title' => 'Shortfall',
 	    'link'  => $API->app_nav().'/production/',
+	]);
+	
+	$Smartbar->add_item([
+	    'active' => false,
+	    'title' => 'Scheduled',
+	    'link'  => $API->app_nav().'/production/scheduled/',
+	]);
+	
+	$Smartbar->add_item([
+	    'active' => false,
+	    'title' => 'In Production',
+	    'link'  => $API->app_nav().'/production/in-production/',
 	]);
 	
 	$Smartbar->add_item([
@@ -32,6 +44,35 @@
 
     ?>
 
+	<table class="d">
+        <thead>
+            <tr>
+	            <th class="first">SKU</th>
+	            <th>Description</th>
+                <th>Stock Level</th>
+                <th>Re-Order Level</th> 
+                <th class="action last">Schedule</th>
+            </tr>
+        </thead>
+        <tbody>
+<?php
+    foreach($shortfall as $Shortfall) {
+?>
+            <tr>
+	            <td><?php echo $Shortfall['STOCK_CODE']; ?>
+                <td><?php echo $Shortfall['DESCRIPTION'] ?></td>
+                <td><?php echo $Shortfall['QTY_IN_STOCK']; ?></td>
+                <td><?php echo $Shortfall['QTY_REORDER_LEVEL']; ?></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Shortfall['STOCK_CODE'])); ?>" class="delete inline-delete"><?php echo 'Go'; ?></a></td>
+            </tr>
+<?php
+	}
+?>
+	    </tbody>
+    </table>
+
+
+<!--
     <table class="d">
         <thead>
             <tr>
@@ -64,3 +105,4 @@
 ?>
 	    </tbody>
     </table>
+-->

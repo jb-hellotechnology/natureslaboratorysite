@@ -10,6 +10,14 @@ class Natures_Laboratory_Goods_Stocks extends PerchAPI_Factory
 	
 	public $static_fields = array('natures_laboratory_goods_stockID,','stockCode','description','component1','component2','component3','component4','component5','component6','qty1','qty2','qty3','qty4','qty5','qty6','restriction','goods_stockDynamicFields');	
 	
+	public function getStock(){
+		
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock ORDER BY STOCK_CODE ASC';
+		$data = $this->db->get_rows($sql);
+		return $data;
+		
+	}
+	
 	public function getByCode($code){
 		
 		$sql = 'SELECT * FROM perch3_natures_laboratory_goods_stock WHERE stockCode="'.$code.'"';

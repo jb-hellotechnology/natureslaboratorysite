@@ -20,11 +20,13 @@
 	    'link'  => $API->app_nav().'/goods-in/',
 	]);
 	
+/*
 	$Smartbar->add_item([
 	    'active' => false,
 	    'title' => 'Stock',
 	    'link'  => $API->app_nav().'/goods-in/stock/',
 	]);
+*/
 	
 	$Smartbar->add_item([
 	    'active' => false,

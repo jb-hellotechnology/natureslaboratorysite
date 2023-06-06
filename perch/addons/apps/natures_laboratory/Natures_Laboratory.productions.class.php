@@ -10,6 +10,14 @@ class Natures_Laboratory_Productions extends PerchAPI_Factory
 	
 	public $static_fields = array('perch3_natures_laboratory_productionID','description','batch','water','alcoho','herb','programme','startTime','flow','status','productionDynamicFields');	
 	
+	public function getShortfall(){
+		
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE QTY_IN_STOCK<=QTY_REORDER_LEVEL AND QTY_REORDER_LEVEL>0 ORDER BY STOCK_CODE ASC';
+		$data = $this->db->get_rows($sql);
+		return $data;
+		
+	}
+	
 	public function getProcesses(){
 		
 		$sql = 'SELECT * FROM perch3_natures_laboratory_production WHERE status="on" OR status="paused" ORDER BY startTime ASC';

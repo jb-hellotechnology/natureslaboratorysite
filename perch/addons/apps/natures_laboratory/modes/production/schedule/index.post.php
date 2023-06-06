@@ -16,8 +16,20 @@
 
 	$Smartbar->add_item([
 	    'active' => true,
-	    'title' => 'Processes',
+	    'title' => 'Shortfall',
 	    'link'  => $API->app_nav().'/production/',
+	]);
+	
+	$Smartbar->add_item([
+	    'active' => false,
+	    'title' => 'Scheduled',
+	    'link'  => $API->app_nav().'/production/scheduled/',
+	]);
+	
+	$Smartbar->add_item([
+	    'active' => false,
+	    'title' => 'In Production',
+	    'link'  => $API->app_nav().'/production/in-production/',
 	]);
 	
 	$Smartbar->add_item([

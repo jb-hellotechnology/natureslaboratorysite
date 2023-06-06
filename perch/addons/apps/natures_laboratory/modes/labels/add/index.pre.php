@@ -11,7 +11,7 @@
     $Goods = array();
     $details = array();
     
-    $products = $NaturesLaboratoryLabels->products();
+    $products = $NaturesLaboratoryLabels->getStock();
 
     if($Form->submitted()) {
     

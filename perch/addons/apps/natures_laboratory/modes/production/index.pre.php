@@ -7,5 +7,5 @@
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
     
-    $processes = array();
-    $processes = $NaturesLaboratoryProduction->getProcesses();
+    $shortfall = array();
+    $shortfall = $NaturesLaboratoryProduction->getShortfall();

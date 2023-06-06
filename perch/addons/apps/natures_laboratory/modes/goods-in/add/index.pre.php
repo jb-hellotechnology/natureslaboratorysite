@@ -17,7 +17,7 @@ error_reporting(E_ALL);
     $Goods = array();
     $details = array();
     
-    $stock = $NaturesLaboratoryGoodsStock->all();
+    $stock = $NaturesLaboratoryGoodsStock->getStock();
     $supplier = $NaturesLaboratoryGoodsSuppliers->all();
 	$country = $NaturesLaboratoryCOACountries->all();
 	

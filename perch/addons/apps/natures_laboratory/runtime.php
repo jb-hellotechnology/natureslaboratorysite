@@ -39,7 +39,7 @@
 
 		$orders = new Natures_Laboratory_Orders();
 		
-		$orders->importStock();
+		$orders->importOrders();
 	   
 	}
 	

@@ -14,7 +14,7 @@ class Natures_Laboratory_Orders extends PerchAPI_Factory
 		$sql = 'TRUNCATE TABLE perch3_natureslaboratory_stock';
 		$this->db->execute($sql);
 		
-		$dir = '../incoming/*');
+		$dir = '../incoming/*';
 		foreach(glob($dir) as $file) 
 		{
 			$csvFile = file('../incoming/'.$file);

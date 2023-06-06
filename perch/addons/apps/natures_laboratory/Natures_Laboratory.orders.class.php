@@ -33,6 +33,7 @@ class Natures_Laboratory_Orders extends PerchAPI_Factory
 			}
 			
 			/** DELETE FILE**/
+			unlink('../incoming/'.$file);
 		}
 	}
 }

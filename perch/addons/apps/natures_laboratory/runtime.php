@@ -26,12 +26,22 @@
 	include('Natures_Laboratory.goodsins.class.php');
 	include('Natures_Laboratory.shopify.class.php');
 	include('Natures_Laboratory.shopifys.class.php');
+	include('Natures_Laboratory.order.class.php');
+	include('Natures_Laboratory.orders.class.php');
 	
 	function importStock(){
 
 		$stock = new Natures_Laboratory_Shopifys();
 		
 		$stock->importStock();
+	   
+	}
+	
+	function importOrders(){
+
+		$orders = new Natures_Laboratory_Orders();
+		
+		$orders->importStock();
 	   
 	}
 	

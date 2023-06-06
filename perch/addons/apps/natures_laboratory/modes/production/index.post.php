@@ -41,6 +41,8 @@
 	echo $Smartbar->render();
 
     echo $HTML->main_panel_start();
+    
+    print_r($shortfall);
 
     ?>
 

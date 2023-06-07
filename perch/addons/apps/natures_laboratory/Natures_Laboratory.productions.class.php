@@ -8,7 +8,7 @@ class Natures_Laboratory_Productions extends PerchAPI_Factory
 	
 	protected $default_sort_column = 'natures_laboratory_productionID';
 	
-	public $static_fields = array('perch3_natures_laboratory_productionID','description','batch','water','alcoho','herb','programme','startTime','flow','status','productionDynamicFields');	
+	public $static_fields = array('perch3_natures_laboratory_productionID','sku','units','specification','packaging','labelling','date','datePressed','dateSageUpdated','sageUpdatedBy','barrel','status','productionDynamicFields');	
 	
 	public function getShortfall(){
 		
@@ -41,9 +41,44 @@ class Natures_Laboratory_Productions extends PerchAPI_Factory
 		
 	}
 	
+	public function getProduction(){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_production WHERE status="in production"';
+		$data = $this->db->get_rows($sql);
+		return $data;
+		
+	}
+	
 	public function getProcess($id){
 		
 		$sql = 'SELECT * FROM perch3_natures_laboratory_production WHERE natures_laboratory_productionID="'.$id.'"';
+		$data = $this->db->get_row($sql);
+		return $data;
+		
+	}
+	
+	
+	public function getBatches($productCode){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_goods_in WHERE productCode="'.$productCode.'" ORDER BY dateIn DESC LIMIT 5';
+		$data = $this->db->get_rows($sql);
+		return $data;
+		
+	}
+	
+	public function saveIngredientBatch($productionID,$ingredient,$batch){
+		
+		$sql = 'DELETE FROM perch3_natures_laboratory_production_batches WHERE perch3_natures_laboratory_productionID="'.$productionID.'" AND productCode="'.$ingredient.'"';
+		$data = $this->db->execute($sql);
+		
+		$sql = 'INSERT INTO perch3_natures_laboratory_production_batches (perch3_natures_laboratory_productionID, productCode, batchCode) VALUES ("'.$productionID.'", "'.$ingredient.'", "'.$batch.'")';
+		$data = $this->db->execute($sql);
+		
+	}
+	
+	public function getBatchData($productionID,$productCode){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_production_batches WHERE perch3_natures_laboratory_productionID="'.$productionID.'" AND productCode="'.$productCode.'"';
 		$data = $this->db->get_row($sql);
 		return $data;
 		
@@ -76,6 +111,14 @@ class Natures_Laboratory_Productions extends PerchAPI_Factory
 	public function products(){
 		
 		$sql = 'SELECT * FROM perch3_natures_laboratory_labels_products ORDER BY productCode ASC';
+		$data = $this->db->get_rows($sql);
+		return $data;
+		
+	}
+	
+	public function getProducts(){
+		
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CODE NOT LIKE "%/%" ORDER BY STOCK_CODE ASC';
 		$data = $this->db->get_rows($sql);
 		return $data;
 		

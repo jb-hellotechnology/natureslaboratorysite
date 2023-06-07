@@ -7,7 +7,7 @@
     'heading' => 'Production',
     'button'  => [
             'text' => $Lang->get('Production'),
-            'link' => $API->app_nav().'/production/add',
+            'link' => $API->app_nav().'/production/?add=true',
             'icon' => 'core/plus',
         ],
     ], $CurrentUser);
@@ -41,6 +41,21 @@
 	echo $Smartbar->render();
 
     echo $HTML->main_panel_start();
+    
+    if($_GET['add']){
+	    
+	    echo '<form method="get" action="/perch/addons/apps/natures_laboratory/production/schedule/" enctype="multipart/form-data" id="" class="app form-simple">';
+	    
+	    $products = $NaturesLaboratoryProduction->getProducts();
+	    foreach($products as $Product){
+    		$productsList[] = array('label'=>"$Product[STOCK_CODE] | $Product[DESCRIPTION]", 'value'=>$Product['STOCK_CODE']);
+    	}
+		echo $Form->select_field("id","Product",$productsList,'');
+	    echo $Form->submit_field('btnSubmit', 'Go', $API->app_path());
+	    
+	    echo $Form->form_end();
+	    
+    }else{
 
     ?>
 
@@ -63,7 +78,7 @@
                 <td><?php echo $Shortfall['DESCRIPTION'] ?></td>
                 <td><?php echo $Shortfall['QTY_IN_STOCK']; ?></td>
                 <td><?php echo $Shortfall['QTY_REORDER_LEVEL']; ?></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Shortfall['STOCK_CODE'])); ?>" class="delete inline-delete"><?php echo 'Go'; ?></a></td>
+                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Shortfall['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
             </tr>
 <?php
 	}
@@ -71,38 +86,5 @@
 	    </tbody>
     </table>
 
-
-<!--
-    <table class="d">
-        <thead>
-            <tr>
-	            <th class="first">Vessel</th>
-	            <th>Batch</th>
-                <th>Start Time</th>
-                <th>Description</th> 
-                <th>Status</th>  
-                <th>Flow</th>
-                <th>Programme</th>
-                <th class="action last">Edit</th>
-            </tr>
-        </thead>
-        <tbody>
-<?php
-    foreach($processes as $Process) {
-?>
-            <tr>
-	            <td><?php echo $Process['vessel']; ?>
-                <td><?php echo $Process['batch'] ?></td>
-                <td><?php echo $Process['startTime']; ?></td>
-                <td><?php echo $Process['description']; ?></td>
-                <td><?php echo $Process['status']; ?></td>
-                <td><?php echo $Process['flow']; ?></td>
-                <td><?php echo $Process['programme']; ?></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/production/edit/?id=<?php echo $HTML->encode(urlencode($Process['natures_laboratory_productionID'])); ?>" class="delete inline-delete"><?php echo 'Edit'; ?></a></td>
-            </tr>
 <?php
 	}
-?>
-	    </tbody>
-    </table>
--->

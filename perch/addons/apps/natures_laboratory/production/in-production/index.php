@@ -7,19 +7,15 @@
 */
 	
     # include the API
-    include('../../../../core/inc/api.php');
+    include('../../../../../core/inc/api.php');
     
     $API  = new PerchAPI(1.0, 'natures_laboratory');
 
     # include your class files
-    
-    require('../fpdf/fpdf.php');
-    include('../phpqrcode/qrlib.php');
-    
-    include('../Natures_Laboratory.class.php');
-    include('../Natures_Laboratorys.class.php');
-    include('../Natures_Laboratory.production.class.php');
-    include('../Natures_Laboratory.productions.class.php');
+    include('../../Natures_Laboratory.class.php');
+    include('../../Natures_Laboratorys.class.php');
+    include('../../Natures_Laboratory.production.class.php');
+    include('../../Natures_Laboratory.productions.class.php');
     
     # Grab an instance of the Lang class for translations
     $Lang = $API->get('Lang');
@@ -27,13 +23,12 @@
     # Set the page title
     $Perch->page_title = 'Nature\'s Laboratory';
     
-    
     # Set Subnav
-    include('../modes/_subnav.php');
+    include('../../modes/_subnav.php');
 
 
     # Do anything you want to do before output is started
-    include('../modes/production/index.pre.php');
+    include('../../modes/production/in-production/index.pre.php');
     
     
     # Top layout
@@ -41,7 +36,7 @@
 
     
     # Display your page
-    include('../modes/production/index.post.php');
+    include('../../modes/production/in-production/index.post.php');
     
     
     # Bottom layout

@@ -50,51 +50,63 @@
 		
 		echo $Form->form_start();
 		
-		$productCodeList[] = array('label'=>'Item', 'value'=>'Value');
+		$product = $NaturesLaboratoryProduction->getProduct($_GET['id']);
+		echo '<h2>'.$_GET['id'].' - '.$product['DESCRIPTION'].'</h2>';
 		
-		echo $Form->select_field("productCode","Product Code",$productCodeList,'');
+		echo '<br /><p>Ingredients</p>
 		
-		echo $Form->text_field("description","Description",'');
+		<table class="d">
+        <thead>
+            <tr>
+	            <th class="first">#</th>
+	            <th>SKU</th>
+                <th>Qty in Stock</th>
+                <th>Qty Required/Unit</th> 
+            </tr>
+        </thead>
+        <tbody>';
+		
+		$i = 1;
+		$units = 100000000;
+		while($i<=50){
+			$iQty = $NaturesLaboratoryProduction->getIngredient($_GET['id'],$i);
+			if($iQty){
+				echo '<tr>
+						<td>'.$i.'</td>
+						<td>'.$iQty['STOCK_CODE'].'</td>
+						<td>'.$iQty['QTY_IN_STOCK'].'</td>
+						<td>'.$product['COMPONENT_QTY_'.$i].'</td>
+					</tr>';
+				if($iQty['QTY_IN_STOCK']>0){
+					$maxUnits = floor((float)$iQty['QTY_IN_STOCK']/(float)$product['COMPONENT_QTY_'.$i]);
+					if($maxUnits<$units){
+						$units = $maxUnits;
+					}
+				}
+				$i++;
+			}else{
+				break;
+			}
+		}
+		
+		echo '</tbody>
+		</table>';
+		
+		echo "<br /><p>How Much Do You Want To Make?</p>";
+		
+		echo $Form->hidden("sku",$_GET['id']);
+		
+		echo $Form->text_field("units","Units",$units);
+		
+		echo "<br /><p>Additional Requirements</p>";
 		
 		echo $Form->text_field("specification","Specification",'');
+		echo $Form->text_field("packaging","Packaging Requirements",'');
+		echo $Form->text_field("labelling","Labelling Requirements",'');
 		
-		echo $Form->text_field("packagingRequirements","Packaging Requirements",'');
-		
-		echo $Form->text_field("labellingRequirements","Labelling Requirements",'');
-		
-		echo $Form->text_field("quantityRequired","Quantity Required",'');
-		
-		echo $Form->text_field("quantityRequired","Quantity Required",'');
-		
-		echo $Form->fields_from_template($Template, '', $NaturesLaboratoryProduction->static_fields);
-		
-		echo $Form->date_field("dateIn","Date Went Into Production",'');
-		
-		echo $Form->date_field("dateDueToPress","Date Due To Press",'');
-		
-		echo $Form->date_field("datePressed","Date Pressed",'');
-
-		echo $Form->text_field("description","Description",'');
-		echo $Form->text_field("batch","Batch Number",'');
-		echo $Form->text_field("water","Water Volume",'');
-		echo $Form->text_field("alcohol","Alcohol Volume",'');
-		echo $Form->text_field("herb","Herb Weight",'');
-		
-		$productionList[] = array('label'=>'Test', 'value'=>'test');
-		$productionList[] = array('label'=>'Fluid Extract', 'value'=>'fluid-extract');
-		$productionList[] = array('label'=>'Tincture 1:2', 'value'=>'tincture-1-2');
-		$productionList[] = array('label'=>'Tincture 1:3', 'value'=>'tincture-1-3');
-		echo $Form->select_field("programme","Programme",$productionList,'');
-		
-		echo $Form->text_field("startTime","Start Time",date('Y-m-d H:i:s'));
-		echo $Form->text_field("flow","Flow",'0s');
-		
-		$statusList[] = array('label'=>'On', 'value'=>'on');
-		$statusList[] = array('label'=>'Paused', 'value'=>'paused');
-		$statusList[] = array('label'=>'Completed', 'value'=>'completed');
-		echo $Form->select_field("status","Status",$statusList,'');
+		echo $Form->hidden("status",'scheduled');
 		    
-		echo $Form->submit_field('btnSubmit', 'Create Process', $API->app_path());
+		echo $Form->submit_field('btnSubmit', 'Schedule', $API->app_path());
 		
 		echo $Form->form_end();
 	

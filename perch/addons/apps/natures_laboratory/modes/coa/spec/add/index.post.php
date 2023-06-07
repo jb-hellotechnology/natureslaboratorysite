@@ -53,7 +53,26 @@
 
 		echo $Form->text_field("commonName","Common Name",'');
 		echo $Form->text_field("biologicalSource","Biological Source",'');
-		echo $Form->text_field("plantPart","Plant Part",'');
+		
+		$plantList[] = array('label'=>'Please Select', 'value'=>0);
+		$plantList[] = array('label'=>'Leaf', 'value'=>'Leaf');
+		$plantList[] = array('label'=>'Root', 'value'=>'Root');
+		$plantList[] = array('label'=>'Whole Herb', 'value'=>'Whole Herb');
+		$plantList[] = array('label'=>'Flower', 'value'=>'Flower');
+		$plantList[] = array('label'=>'Fruit', 'value'=>'Fruit');
+		$plantList[] = array('label'=>'Bark', 'value'=>'Bark');
+		$plantList[] = array('label'=>'Seed', 'value'=>'Seed');
+		$plantList[] = array('label'=>'Aerial Herb', 'value'=>'Aerial Herb');
+		$plantList[] = array('label'=>'Thallus', 'value'=>'Thallus');
+		$plantList[] = array('label'=>'Resin', 'value'=>'Resin');
+		$plantList[] = array('label'=>'Berries', 'value'=>'Berries');
+		$plantList[] = array('label'=>'Tops & Berries', 'value'=>'Tops & Berries');
+		$plantList[] = array('label'=>'Moss', 'value'=>'Moss');
+		$plantList[] = array('label'=>'Bamboo Shoot', 'value'=>'Bamboo Shoot');
+		$plantList[] = array('label'=>'Fungi', 'value'=>'Fungi');
+		$plantList[] = array('label'=>'Shells of the Fruit', 'value'=>'Shells of the Fruit');
+		echo $Form->select_field("plantPart","Plant Part",$plantList,'');
+		
 		echo $Form->text_field("productDescription","Product Description",'');
 		
 		$countryList[] = array('label'=>'Please Select', 'value'=>0);

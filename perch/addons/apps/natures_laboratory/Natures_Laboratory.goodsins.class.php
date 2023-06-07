@@ -54,7 +54,7 @@ class Natures_Laboratory_Goods_Ins extends PerchAPI_Factory
 	
 	public function stockItem($stockCode){
 		
-		$sql = 'SELECT * FROM perch3_natures_laboratory_goods_stock WHERE stockCode="'.$stockCode.'"';
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CODE="'.$stockCode.'"';
 		$data = $this->db->get_row($sql);
 		return $data;
 		
@@ -83,7 +83,7 @@ class Natures_Laboratory_Goods_Ins extends PerchAPI_Factory
 	
 	public function checkCodes($code,$batch){
 		
-		$sql = 'SELECT * FROM perch3_natures_laboratory_goods_stock WHERE stockCode="'.$code.'"';
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CODE="'.$code.'"';
 		$data = $this->db->get_row($sql);
 		if($data['category']=='5' OR $data['category']=='6' OR $data['category']=='7'){
 			

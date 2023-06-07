@@ -13,7 +13,7 @@
     $Goods = array();
     $details = array();
     
-    $stock = $NaturesLaboratoryGoodsStock->all();
+    $stock = $NaturesLaboratoryGoodsStock->getStock();
     $supplier = $NaturesLaboratoryGoodsSuppliers->all();
     
     $goodsID = (int) $_GET['id'];  

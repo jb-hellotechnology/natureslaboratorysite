@@ -51,7 +51,7 @@
 		echo $Form->hidden('staff',$_SESSION['userID']);
 		$stockList[] = array('label'=>'Please Select', 'value'=>0);
 		foreach($stock as $Stock){
-			$stockList[] = array('label'=>$Stock->stockCode()." | ".$Stock->description(), 'value'=>$Stock->stockCode()." | ".$Stock->description());
+			$stockList[] = array('label'=>$Stock['STOCK_CODE']." | ".$Stock['DESCRIPTION'], 'value'=>$Stock['STOCK_CODE']." | ".$Stock['DESCRIPTION']);
 		}
 		echo $Form->select_field("productCode","Product Code",$stockList,$details['productCode']." | ".$details['productDescription']);
 		

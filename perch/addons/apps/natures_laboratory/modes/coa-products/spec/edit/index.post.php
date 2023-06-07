@@ -71,7 +71,8 @@
 		$plantList[] = array('label'=>'Moss', 'value'=>'Moss');
 		$plantList[] = array('label'=>'Bamboo Shoot', 'value'=>'Bamboo Shoot');
 		$plantList[] = array('label'=>'Fungi', 'value'=>'Fungi');
-		echo $Form->select_field("plantPart","Plant Part",$plantList,$details['plantPart']);
+		$plantList[] = array('label'=>'Shells of the Fruit', 'value'=>'Shells of the Fruit');
+		echo $Form->select_field("plantPart","Plant Part",$plantList,'');
 		
 		echo $Form->text_field("strengthVolume","Strength/Volume",$details['strengthVolume']);
 		echo $Form->text_field("alcoholContent","Alcohol Content",$details['alcoholContent']);

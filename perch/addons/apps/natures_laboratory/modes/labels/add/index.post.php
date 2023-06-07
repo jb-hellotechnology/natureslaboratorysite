@@ -20,13 +20,11 @@
 	    'link'  => $API->app_nav().'/labels/',
 	]);
 	
-/*
 	$Smartbar->add_item([
 	    'active' => false,
 	    'title' => 'Products',
 	    'link'  => $API->app_nav().'/labels/products/',
 	]);
-*/
 	
 	echo $Smartbar->render();
 
@@ -43,8 +41,7 @@
 		echo $Form->hidden('staff',$_SESSION['userID']);
 		$productList[] = array('label'=>'Please Select', 'value'=>0);
 		foreach($products as $Product){
-			$name = substr($Product['DESCRIPTION'], 0, strrpos($Product['DESCRIPTION'], " "));
-			$productList[] = array('label'=>$Product['STOCK_CODE']." | ".$name, 'value'=>$Product['STOCK_CODE']);
+			$productList[] = array('label'=>$Product['productCode']." | ".$Product['productName'], 'value'=>$Product['productCode']);
 		}
 		echo $Form->select_field("productCode","Product Code",$productList,'');
 		

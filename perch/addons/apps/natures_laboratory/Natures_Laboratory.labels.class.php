@@ -12,7 +12,7 @@ class Natures_Laboratory_Labels extends PerchAPI_Factory
 	
 	public function getStock(){
 		
-		$sql = 'SELECT * FROM perch3_natureslaboratory_stock ORDER BY STOCK_CODE ASC';
+		$sql = 'SELECT * FROM perch3_natures_laboratory_labels_products ORDER BY productCode ASC';
 		$data = $this->db->get_rows($sql);
 		return $data;
 		
@@ -48,7 +48,7 @@ class Natures_Laboratory_Labels extends PerchAPI_Factory
 	
 	public function getProduct($productID){
 		
-		$sql = 'SELECT * FROM perch3_natures_laboratory_labels_products WHERE productCode="'.$productID.'"';
+		$sql = 'SELECT * FROM perch3_natureslaboratory_labels_products WHERE productCode="'.$productID.'"';
 		$data = $this->db->get_row($sql);
 		return $data;
 		

@@ -1,18 +1,13 @@
 <?php
 	
-/*
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
-*/
 	
     # include the API
     include('../../../../../core/inc/api.php');
     
     $API  = new PerchAPI(1.0, 'natures_laboratory');
-    
-    require('../../fpdf/fpdf.php');
-    include('../../phpqrcode/qrlib.php');
 
     # include your class files
     include('../../Natures_Laboratory.class.php');
@@ -31,7 +26,7 @@
 
 
     # Do anything you want to do before output is started
-    include('../../modes/production/in-production/index.pre.php');
+    include('../../modes/production/complete/index.pre.php');
     
     
     # Top layout
@@ -39,7 +34,7 @@
 
     
     # Display your page
-    include('../../modes/production/in-production/index.post.php');
+    include('../../modes/production/complete/index.post.php');
     
     
     # Bottom layout

@@ -35,7 +35,7 @@ class Natures_Laboratory_Productions extends PerchAPI_Factory
 	
 	public function getScheduled(){
 		
-		$sql = 'SELECT * FROM perch3_natures_laboratory_production WHERE status="scheduled"';
+		$sql = 'SELECT * FROM perch3_natures_laboratory_production WHERE status="scheduled" ORDER BY natures_laboratory_productionID DESC';
 		$data = $this->db->get_rows($sql);
 		return $data;
 		
@@ -43,7 +43,15 @@ class Natures_Laboratory_Productions extends PerchAPI_Factory
 	
 	public function getProduction(){
 		
-		$sql = 'SELECT * FROM perch3_natures_laboratory_production WHERE status="in production"';
+		$sql = 'SELECT * FROM perch3_natures_laboratory_production WHERE status="in production" ORDER BY natures_laboratory_productionID DESC';
+		$data = $this->db->get_rows($sql);
+		return $data;
+		
+	}
+	
+	public function getCompleted(){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_production WHERE status="completed" ORDER BY natures_laboratory_productionID DESC';
 		$data = $this->db->get_rows($sql);
 		return $data;
 		
@@ -66,12 +74,12 @@ class Natures_Laboratory_Productions extends PerchAPI_Factory
 		
 	}
 	
-	public function saveIngredientBatch($productionID,$ingredient,$batch){
+	public function saveIngredientBatch($productionID,$ingredient,$batch,$batchAlt){
 		
 		$sql = 'DELETE FROM perch3_natures_laboratory_production_batches WHERE perch3_natures_laboratory_productionID="'.$productionID.'" AND productCode="'.$ingredient.'"';
 		$data = $this->db->execute($sql);
 		
-		$sql = 'INSERT INTO perch3_natures_laboratory_production_batches (perch3_natures_laboratory_productionID, productCode, batchCode) VALUES ("'.$productionID.'", "'.$ingredient.'", "'.$batch.'")';
+		$sql = 'INSERT INTO perch3_natures_laboratory_production_batches (perch3_natures_laboratory_productionID, productCode, batchCode, batchCodeAlt) VALUES ("'.$productionID.'", "'.$ingredient.'", "'.$batch.'", "'.$batchAlt.'")';
 		$data = $this->db->execute($sql);
 		
 	}
@@ -81,6 +89,27 @@ class Natures_Laboratory_Productions extends PerchAPI_Factory
 		$sql = 'SELECT * FROM perch3_natures_laboratory_production_batches WHERE perch3_natures_laboratory_productionID="'.$productionID.'" AND productCode="'.$productCode.'"';
 		$data = $this->db->get_row($sql);
 		return $data;
+		
+	}
+	
+	public function getBatchBBE($batchCode){
+		
+		$sql = 'SELECT bbe FROM perch3_natures_laboratory_goods_in WHERE ourBatch="'.$batchCode.'"';
+		$data = $this->db->get_row($sql);
+		return $data;
+		
+	}
+	
+	public function getBatchNumber(){
+		
+		$sql = 'SELECT finishedBatch FROM perch3_natures_laboratory_production ORDER BY finishedBatch DESC LIMIT 1';
+		$data = $this->db->get_row($sql);
+		if($data['finishedBatch']){
+			$number = $data['finishedBatch']+1;
+		}else{
+			$number = 100000;
+		}
+		return $number;
 		
 	}
 	

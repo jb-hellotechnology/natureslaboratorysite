@@ -13,8 +13,10 @@
     if($Form->submitted()) {
     
         //FOR ITEMS PROGRAMMATICALLY ADDED TO FORM
-        $postvars = array('sku','units','specification','packaging','labelling','status');	   
+        $postvars = array('sku','units','specification','packaging','labelling','status','scheduledBy');	   
     	$data = $Form->receive($postvars);     
+    	
+    	$data['scheduledOn'] = date('Y-m-d');
 
         $new_production = $NaturesLaboratoryProduction->create($data);
 

@@ -117,9 +117,23 @@
 			$alphas[] = array('label'=>'Z', 'value'=>'Z');
 			echo $Form->select_field("barrel","Barrel (if Applicable)",$alphas,'');
 			
+			echo $Form->select_field("producedBy","Produced By",$names,'');
+			
 			echo $Form->submit_field('btnSubmit', 'Into Production', $API->app_path());
 			
 			echo $Form->hidden("status",'in production');
+			
+			if($product['STOCK_CAT']=='1'){$batchPrefix = 'A';}
+			if($product['STOCK_CAT']=='2'){$batchPrefix = 'N';}
+			if($product['STOCK_CAT']=='4'){$batchPrefix = 'N';}
+			if($product['STOCK_CAT']=='8'){$batchPrefix = 'C';}
+			if($product['STOCK_CAT']=='10'){$batchPrefix = 'B';}
+			if($product['STOCK_CAT']=='11'){$batchPrefix = 'R';}
+			if($product['STOCK_CAT']=='17'){$batchPrefix = 'C';}
+			if($product['STOCK_CAT']=='18'){$batchPrefix = 'ON';}
+			if($product['STOCK_CAT']=='40'){$batchPrefix = 'L';}
+			
+			echo $Form->hidden("batchPrefix",$batchPrefix);
 			
 			echo $Form->form_end();
 			

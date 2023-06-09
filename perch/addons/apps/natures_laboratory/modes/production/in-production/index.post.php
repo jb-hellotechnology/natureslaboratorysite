@@ -108,6 +108,8 @@
 			$alphas[] = array('label'=>'Z', 'value'=>'Z');
 			echo $Form->select_field("barrel","Barrel",$alphas,$scheduled['barrel']);
 			
+			echo $Form->select_field("producedBy","Produced By",$names,$scheduled['producedBy']);
+			
 			echo '<br /><p>Ingredients</p>
 			
 			<table class="d">
@@ -147,7 +149,12 @@
 							<td>'.$i.'</td>
 							<td>'.$iQty['STOCK_CODE'].'</td>
 							<td>'.$required.'</td>
-							<td>'; if($b){echo $Form->select_field("batch_".$i,"",$batches,$batchData['batchCode']);} echo $Form->hidden("ingredient_".$i,$iQty['STOCK_CODE']); echo '</td>
+							<td>'; 
+								if($b){
+									echo $Form->select_field("batch_".$i,"",$batches,$batchData['batchCode']);
+									echo $Form->select_field("batch_alt_".$i,"",$batches,$batchData['batchCodeAlt']);
+								} 
+								echo $Form->hidden("ingredient_".$i,$iQty['STOCK_CODE']); echo '</td>
 						</tr>';
 					$i++;
 				}else{
@@ -177,8 +184,9 @@
 	<table class="d">
         <thead>
             <tr>
-	            <th class="first">Download WPO</th>
-	            <th>Download Label</th>
+	            <th class="first">Batch #</th>
+	            <th>Download WPO</th>
+	            <th>Download Labels</th>
 	            <th>SKU</th>
 	            <th>Description</th>
                 <th>Units</th>
@@ -198,15 +206,16 @@
 	    $endDate = "$eParts[2]/$eParts[1]/$eParts[0]";
 ?>
             <tr>
-	            <td><?php echo $Form->radio("wpo",'wpo',$Production['natures_laboratory_productionID'],''); ?></td>
-	            <td><?php echo $Form->radio("label",'label',$Production['natures_laboratory_productionID'],''); ?></td>
+	            <td>P<?php echo str_pad($Production['natures_laboratory_productionID'], 6, '0', STR_PAD_LEFT); ?></td>
+	            <td><?php echo $Form->radio("download",'download','wpo_'.$Production['natures_laboratory_productionID'],''); ?></td>
+	            <td><?php echo $Form->radio("download",'download','label_'.$Production['natures_laboratory_productionID'],''); ?></td>
 	            <td><?php echo $Production['sku']; ?>
                 <td><?php echo $stock['DESCRIPTION'] ?></td>
                 <td><?php echo $Production['units']; ?></td>
                 <td><?php echo $startDate; ?></td>
                 <td><?php echo $endDate; ?></td>
                 <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/in-production/?id=<?php echo $HTML->encode(urlencode($Production['natures_laboratory_productionID'])); ?>"><?php echo 'Go'; ?></a></td>
-				<td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/in-production/?id=<?php echo $HTML->encode(urlencode($Production['natures_laboratory_productionID'])); ?>"><?php echo 'Go'; ?></a></td>
+				<td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/complete/?id=<?php echo $HTML->encode(urlencode($Production['natures_laboratory_productionID'])); ?>"><?php echo 'Go'; ?></a></td>
 			</tr>
 <?php
 	}
@@ -215,6 +224,16 @@
     </table>
 
 <?php
+		$numbers[] = array('label'=>'1', 'value'=>'1');
+		$numbers[] = array('label'=>'2', 'value'=>'2');
+		$numbers[] = array('label'=>'3', 'value'=>'3');
+		$numbers[] = array('label'=>'4', 'value'=>'4');
+		$numbers[] = array('label'=>'5', 'value'=>'5');
+		$numbers[] = array('label'=>'6', 'value'=>'6');
+		$numbers[] = array('label'=>'7', 'value'=>'7');
+		$numbers[] = array('label'=>'8', 'value'=>'8');
+		
+		echo $Form->select_field("labels","How Many Labels?",$numbers);
 		echo $Form->submit_field('btnSubmit', 'Download', $API->app_path());
 		echo $Form->form_end();
 	}

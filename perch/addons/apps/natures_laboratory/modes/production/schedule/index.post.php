@@ -104,6 +104,14 @@
 		echo $Form->text_field("packaging","Packaging Requirements",'');
 		echo $Form->text_field("labelling","Labelling Requirements",'');
 		
+		echo "<br /><p>Other</p>";
+		
+		$names[] = array('label'=>'Please Select', 'value'=>'');
+		$names[] = array('label'=>'Andy', 'value'=>'Andy');
+		$names[] = array('label'=>'Sean', 'value'=>'Sean');
+		$names[] = array('label'=>'Tom', 'value'=>'Tom');
+		echo $Form->select_field("scheduledBy","Scheduled By",$names,'');
+		
 		echo $Form->hidden("status",'scheduled');
 		    
 		echo $Form->submit_field('btnSubmit', 'Schedule', $API->app_path());

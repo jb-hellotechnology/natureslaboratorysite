@@ -52,11 +52,10 @@
 						
 						function Footer()
 						{
-							$this->Line(0,276,300,276);
 						    $this->SetY(-24);
 						    $this->SetY(-17);$this->SetX(10);
 						    $this->SetFont('Arial','',6);
-						    $this->Cell(0,3,"For Office Use Only",0,1,'L');
+						    $this->Cell(0,3,"For Internal Use Only",0,1,'L');
 						    $this->SetY(-14);$this->SetX(10);
 							$this->Cell(0,3,"Record Produced at ". date('H:i:s d/m/Y'),0,1,'L');
 						    

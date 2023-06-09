@@ -60,7 +60,6 @@
 	    	if($_POST['download']){
 		    	$parts = explode("_", $_POST['download']);
 		    	$process = $parts[1];
-		    	
 		    	if($parts[0]=='wpo'){
 		    		//DOWNLOAD WPO	
 		    		
@@ -74,14 +73,12 @@
 						
 						function Footer()
 						{
-							$this->Line(0,276,300,276);
 						    $this->SetY(-24);
 						    $this->SetY(-17);$this->SetX(10);
 						    $this->SetFont('Arial','',6);
-						    $this->Cell(0,3,"For Office Use Only",0,1,'L');
+						    $this->Cell(0,3,"For Internal Use Only",0,1,'L');
 						    $this->SetY(-14);$this->SetX(10);
-							$this->Cell(0,3,"WPO Produced at ". date('H:i:s d/m/Y'),0,1,'L');
-						    
+							$this->Cell(0,3,"WPO Produced at ". date('H:i:s d/m/Y'),0,1,'L');					    
 						}
 						
 						protected $B = 0;
@@ -363,15 +360,51 @@
 					$pdf->BasicTable2($header,$data);
 					
 					$pdf->Output('D',"Natures Laboratory WPO - ".$wpo.".pdf");
-					exit();
-					
-			    }
-		    		
-		    	}else{
+				}else{
 			    	//DOWNLOAD LABEL
+			    	$label = $process;
 			    	
-		    	}
-		    	
-	    	}
-	        
-	    }
+			    	$labelBg = '../labels/'.$label.'/label.png';
+					
+					$currentLabel = 0;
+					$firstLabel = 1;
+					$pageLabel = $firstLabel;
+					$totalLabels = $_POST['labels'];
+					
+					//print_r($labelList);
+					
+					$pdf = new FPDF();
+					$pdf->AddPage();
+		
+					while($currentLabel<$totalLabels){
+						if($pageLabel==1){
+								$pdf->Image($labelBg,3.7,12,99.1,67.8);
+						}elseif($pageLabel==2){
+							$pdf->Image($labelBg,105.1,12,99.1,67.8);
+						}elseif($pageLabel==3){
+							$pdf->Image($labelBg,3.7,79.8,99.1,67.8);
+						}elseif($pageLabel==4){
+							$pdf->Image($labelBg,105.1,79.8,99.1,67.8);
+						}elseif($pageLabel==5){
+							$pdf->Image($labelBg,3.7,147.8,99.1,67.8);
+						}elseif($pageLabel==6){
+							$pdf->Image($labelBg,105.1,147.8,99.1,67.8);
+						}elseif($pageLabel==7){
+							$pdf->Image($labelBg,3.7,215.6,99.1,67.8);
+						}elseif($pageLabel==8){
+							$pdf->Image($labelBg,105.1,215.6,99.1,67.8);
+						}
+						$pageLabel++;
+						$currentLabel++;
+						if($pageLabel==9){
+							$pdf->AddPage();
+							$pageLabel = 1;
+						}
+					}
+		
+					$pdf->Output("D", "labels.pdf");
+		    	}	    	
+		    }
+		}
+	}
+		    

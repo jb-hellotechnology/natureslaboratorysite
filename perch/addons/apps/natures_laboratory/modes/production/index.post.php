@@ -58,6 +58,8 @@
     }else{
 
     ?>
+    
+    <h2>Chemicals</h2>
 
 	<table class="d">
         <thead>
@@ -71,14 +73,246 @@
         </thead>
         <tbody>
 <?php
-    foreach($shortfall as $Shortfall) {
+    foreach($chemicals as $Product) {
 ?>
             <tr>
-	            <td><?php echo $Shortfall['STOCK_CODE']; ?>
-                <td><?php echo $Shortfall['DESCRIPTION'] ?></td>
-                <td><?php echo $Shortfall['QTY_IN_STOCK']; ?></td>
-                <td><?php echo $Shortfall['QTY_REORDER_LEVEL']; ?></td>
-                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Shortfall['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
+	            <td><?php echo $Product['STOCK_CODE']; ?>
+                <td><?php echo $Product['DESCRIPTION'] ?></td>
+                <td><?php echo $Product['QTY_IN_STOCK']; ?></td>
+                <td><?php echo $Product['QTY_REORDER_LEVEL']; ?></td>
+                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
+            </tr>
+<?php
+	}
+?>
+	    </tbody>
+    </table>
+    
+    <h2>Tinctures</h2>
+
+	<table class="d">
+        <thead>
+            <tr>
+	            <th class="first">SKU</th>
+	            <th>Description</th>
+                <th>Stock Level</th>
+                <th>Re-Order Level</th> 
+                <th class="action last">Schedule</th>
+            </tr>
+        </thead>
+        <tbody>
+<?php
+    foreach($tinctures as $Product) {
+?>
+            <tr>
+	            <td><?php echo $Product['STOCK_CODE']; ?>
+                <td><?php echo $Product['DESCRIPTION'] ?></td>
+                <td><?php echo $Product['QTY_IN_STOCK']; ?></td>
+                <td><?php echo $Product['QTY_REORDER_LEVEL']; ?></td>
+                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
+            </tr>
+<?php
+	}
+?>
+	    </tbody>
+    </table>
+    
+    <h2>Fluid Extracts</h2>
+
+	<table class="d">
+        <thead>
+            <tr>
+	            <th class="first">SKU</th>
+	            <th>Description</th>
+                <th>Stock Level</th>
+                <th>Re-Order Level</th> 
+                <th class="action last">Schedule</th>
+            </tr>
+        </thead>
+        <tbody>
+<?php
+    foreach($fluids as $Product) {
+?>
+            <tr>
+	            <td><?php echo $Product['STOCK_CODE']; ?>
+                <td><?php echo $Product['DESCRIPTION'] ?></td>
+                <td><?php echo $Product['QTY_IN_STOCK']; ?></td>
+                <td><?php echo $Product['QTY_REORDER_LEVEL']; ?></td>
+                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
+            </tr>
+<?php
+	}
+?>
+	    </tbody>
+    </table>
+    
+    <h2>Capsules</h2>
+
+	<table class="d">
+        <thead>
+            <tr>
+	            <th class="first">SKU</th>
+	            <th>Description</th>
+                <th>Stock Level</th>
+                <th>Re-Order Level</th> 
+                <th class="action last">Schedule</th>
+            </tr>
+        </thead>
+        <tbody>
+<?php
+    foreach($capsules as $Product) {
+?>
+            <tr>
+	            <td><?php echo $Product['STOCK_CODE']; ?>
+                <td><?php echo $Product['DESCRIPTION'] ?></td>
+                <td><?php echo $Product['QTY_IN_STOCK']; ?></td>
+                <td><?php echo $Product['QTY_REORDER_LEVEL']; ?></td>
+                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
+            </tr>
+<?php
+	}
+?>
+	    </tbody>
+    </table>
+    
+    <h2>Creams</h2>
+
+	<table class="d">
+        <thead>
+            <tr>
+	            <th class="first">SKU</th>
+	            <th>Description</th>
+                <th>Stock Level</th>
+                <th>Re-Order Level</th> 
+                <th class="action last">Schedule</th>
+            </tr>
+        </thead>
+        <tbody>
+<?php
+    foreach($creams as $Product) {
+?>
+            <tr>
+	            <td><?php echo $Product['STOCK_CODE']; ?>
+                <td><?php echo $Product['DESCRIPTION'] ?></td>
+                <td><?php echo $Product['QTY_IN_STOCK']; ?></td>
+                <td><?php echo $Product['QTY_REORDER_LEVEL']; ?></td>
+                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
+            </tr>
+<?php
+	}
+?>
+	    </tbody>
+    </table>
+    
+    <h2>Essential Oils</h2>
+
+	<table class="d">
+        <thead>
+            <tr>
+	            <th class="first">SKU</th>
+	            <th>Description</th>
+                <th>Stock Level</th>
+                <th>Re-Order Level</th> 
+                <th class="action last">Schedule</th>
+            </tr>
+        </thead>
+        <tbody>
+<?php
+    foreach($essentialOils as $Product) {
+?>
+            <tr>
+	            <td><?php echo $Product['STOCK_CODE']; ?>
+                <td><?php echo $Product['DESCRIPTION'] ?></td>
+                <td><?php echo $Product['QTY_IN_STOCK']; ?></td>
+                <td><?php echo $Product['QTY_REORDER_LEVEL']; ?></td>
+                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
+            </tr>
+<?php
+	}
+?>
+	    </tbody>
+    </table>
+    
+    <h2>Fixed Oils</h2>
+
+	<table class="d">
+        <thead>
+            <tr>
+	            <th class="first">SKU</th>
+	            <th>Description</th>
+                <th>Stock Level</th>
+                <th>Re-Order Level</th> 
+                <th class="action last">Schedule</th>
+            </tr>
+        </thead>
+        <tbody>
+<?php
+    foreach($fixedOils as $Product) {
+?>
+            <tr>
+	            <td><?php echo $Product['STOCK_CODE']; ?>
+                <td><?php echo $Product['DESCRIPTION'] ?></td>
+                <td><?php echo $Product['QTY_IN_STOCK']; ?></td>
+                <td><?php echo $Product['QTY_REORDER_LEVEL']; ?></td>
+                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
+            </tr>
+<?php
+	}
+?>
+	    </tbody>
+    </table>
+    
+    <h2>Sweet Cecily's</h2>
+
+	<table class="d">
+        <thead>
+            <tr>
+	            <th class="first">SKU</th>
+	            <th>Description</th>
+                <th>Stock Level</th>
+                <th>Re-Order Level</th> 
+                <th class="action last">Schedule</th>
+            </tr>
+        </thead>
+        <tbody>
+<?php
+    foreach($sweetCecilys as $Product) {
+?>
+            <tr>
+	            <td><?php echo $Product['STOCK_CODE']; ?>
+                <td><?php echo $Product['DESCRIPTION'] ?></td>
+                <td><?php echo $Product['QTY_IN_STOCK']; ?></td>
+                <td><?php echo $Product['QTY_REORDER_LEVEL']; ?></td>
+                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
+            </tr>
+<?php
+	}
+?>
+	    </tbody>
+    </table>
+    
+    <h2>Contract</h2>
+
+	<table class="d">
+        <thead>
+            <tr>
+	            <th class="first">SKU</th>
+	            <th>Description</th>
+                <th>Stock Level</th>
+                <th>Re-Order Level</th> 
+                <th class="action last">Schedule</th>
+            </tr>
+        </thead>
+        <tbody>
+<?php
+    foreach($contract as $Product) {
+?>
+            <tr>
+	            <td><?php echo $Product['STOCK_CODE']; ?>
+                <td><?php echo $Product['DESCRIPTION'] ?></td>
+                <td><?php echo $Product['QTY_IN_STOCK']; ?></td>
+                <td><?php echo $Product['QTY_REORDER_LEVEL']; ?></td>
+                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
             </tr>
 <?php
 	}

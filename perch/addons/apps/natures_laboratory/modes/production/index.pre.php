@@ -7,5 +7,32 @@
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
     
-    $shortfall = array();
-    $shortfall = $NaturesLaboratoryProduction->getShortfall();
+    $chemicals = array();
+    $chemicals = $NaturesLaboratoryProduction->getShortfall(1);
+    
+    $tinctures = array();
+    $tinctures = $NaturesLaboratoryProduction->getShortfall(2);
+    
+    $fluids = array();
+    $fluids = $NaturesLaboratoryProduction->getShortfall(4);
+    
+    $beevital = array();
+    $beevital = $NaturesLaboratoryProduction->getShortfall(10);
+    
+    $creams = array();
+    $creams = $NaturesLaboratoryProduction->getShortfall(11);
+    
+    $essentialOils = array();
+    $essentialOils = $NaturesLaboratoryProduction->getShortfall(2);
+    
+    $fixedOils = array();
+    $fixedOils = $NaturesLaboratoryProduction->getShortfall(13);
+    
+    $capsules = array();
+    $capsules = $NaturesLaboratoryProduction->getShortfall(8);
+    
+    $sweetCecilys = array();
+    $sweetCecilys = $NaturesLaboratoryProduction->getShortfall(22);
+    
+    $contract = array();
+    $contract = $NaturesLaboratoryProduction->getShortfall(40);

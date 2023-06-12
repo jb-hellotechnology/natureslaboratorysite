@@ -4,7 +4,7 @@
     echo $HTML->side_panel_end();
     
     echo $HTML->title_panel([
-    'heading' => 'Goods In',
+    'heading' => 'Goods In > Edit',
     'button'  => [
             'text' => $Lang->get('Print Labels'),
             'link' => $API->app_nav().'/goods-in/edit/?print=1&id='.$_GET['id'],
@@ -51,7 +51,7 @@
 		echo $Form->hidden('staff',$_SESSION['userID']);
 		$stockList[] = array('label'=>'Please Select', 'value'=>0);
 		foreach($stock as $Stock){
-			$stockList[] = array('label'=>$Stock['stockCode']." | ".$Stock['description'], 'value'=>$Stock['stockCode']);
+			$stockList[] = array('label'=>$Stock['STOCK_CODE']." | ".$Stock['DESCRIPTION'], 'value'=>$Stock['STOCK_CODE']);
 		}
 		echo $Form->select_field("productCode","Product Code",$stockList,$details['productCode']);
 		

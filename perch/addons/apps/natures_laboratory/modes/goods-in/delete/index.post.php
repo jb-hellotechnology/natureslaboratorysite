@@ -4,7 +4,7 @@
     echo $HTML->side_panel_end();
     
     echo $HTML->title_panel([
-    'heading' => 'Goods In',
+    'heading' => 'Goods In > Delete',
     'button'  => [
             'text' => $Lang->get('Goods In'),
             'link' => $API->app_nav().'/goods-in/add',

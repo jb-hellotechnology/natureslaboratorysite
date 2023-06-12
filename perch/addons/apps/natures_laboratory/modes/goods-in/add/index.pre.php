@@ -1,9 +1,7 @@
 <?php
-/*
 	ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-*/
 	if (!$CurrentUser->has_priv('natures_laboratory.goodsin')) exit;
 	
 	$NaturesLaboratoryGoodsIn = new Natures_Laboratory_Goods_Ins($API);
@@ -17,7 +15,7 @@ error_reporting(E_ALL);
     $Goods = array();
     $details = array();
     
-    $stock = $NaturesLaboratoryGoodsStock->getStock();
+    $stock = $NaturesLaboratoryGoodsIn->getStock();
     $supplier = $NaturesLaboratoryGoodsSuppliers->all();
 	$country = $NaturesLaboratoryCOACountries->all();
 	
@@ -58,10 +56,10 @@ error_reporting(E_ALL);
         
         // GET PRODUCT DATA
         $product = $NaturesLaboratoryGoodsStock->getByCode($data['productCode']);
-        $productCode = $product['stockCode'];
-        $productType = $product['category'];
-        $productName = $product['description'];
-        $productRestriction = $product['restriction'];
+        $productCode = $product['STOCK_CODE'];
+        $productType = $product['STOCK_CAT'];
+        $productName = $product['DESCRIPTION'];
+        $productRestriction = $NaturesLaboratoryGoodsIn->getRestriction($data['productCode']);
         
         if($productType=='1'){$productType = 'Unclassified';}
 		if($productType=='2'){$productType = 'Tincture';}

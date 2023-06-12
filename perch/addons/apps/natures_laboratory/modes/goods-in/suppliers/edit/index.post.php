@@ -4,7 +4,7 @@
     echo $HTML->side_panel_end();
     
     echo $HTML->title_panel([
-    'heading' => 'Suppliers',
+    'heading' => 'Goods In > Suppliers > Edit',
     'button'  => [
             'text' => $Lang->get('Supplier'),
             'link' => $API->app_nav().'/goods-in/suppliers/add',

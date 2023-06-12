@@ -22,8 +22,6 @@
     include('../Natures_Laboratory.goodsins.class.php');
     include('../Natures_Laboratory.goodsin.supplier.class.php');
     include('../Natures_Laboratory.goodsin.suppliers.class.php');
-    include('../Natures_Laboratory.goodsin.stock.class.php');
-    include('../Natures_Laboratory.goodsin.stocks.class.php');
     
     # Grab an instance of the Lang class for translations
     $Lang = $API->get('Lang');

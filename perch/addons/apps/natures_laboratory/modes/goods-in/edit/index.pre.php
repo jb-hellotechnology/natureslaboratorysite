@@ -3,7 +3,6 @@
 	if (!$CurrentUser->has_priv('natures_laboratory.goodsin')) exit;
 
 	$NaturesLaboratoryGoodsIn = new Natures_Laboratory_Goods_Ins($API);
-	$NaturesLaboratoryGoodsStock = new Natures_Laboratory_Goods_Stocks($API); 
 	$NaturesLaboratoryGoodsSuppliers = new Natures_Laboratory_Goods_Suppliers($API);    
 	$NaturesLaboratoryCOACountries = new Natures_Laboratory_COA_Countries($API);  
     
@@ -13,7 +12,7 @@
     $Goods = array();
     $details = array();
     
-    $stock = $NaturesLaboratoryGoodsStock->getStock();
+    $stock = $NaturesLaboratoryGoodsIn->getStock();
     $supplier = $NaturesLaboratoryGoodsSuppliers->all();
     
     $goodsID = (int) $_GET['id'];  

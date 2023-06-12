@@ -8,7 +8,7 @@ error_reporting(E_ALL);
     
     $NaturesLaboratoryGoodsIn = new Natures_Laboratory_Goods_Ins($API); 
     $NaturesLaboratoryGoodsSuppliers = new Natures_Laboratory_Goods_Suppliers($API); 
-    $NaturesLaboratoryGoodsStock = new Natures_Laboratory_Goods_Stocks($API); 
+    $NaturesLaboratoryGoodsStock = new Natures_Laboratory_Goods_Ins($API); 
     
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');

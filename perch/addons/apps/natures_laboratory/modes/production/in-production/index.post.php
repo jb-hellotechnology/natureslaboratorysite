@@ -234,6 +234,7 @@
 		$numbers[] = array('label'=>'8', 'value'=>'8');
 		
 		echo $Form->select_field("labels","How Many Labels?",$numbers);
+		echo $Form->select_field("start","Start Label",$numbers);
 		echo $Form->submit_field('btnSubmit', 'Download', $API->app_path());
 		echo $Form->form_end();
 	}

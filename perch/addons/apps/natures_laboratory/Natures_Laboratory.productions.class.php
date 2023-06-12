@@ -19,7 +19,7 @@ class Natures_Laboratory_Productions extends PerchAPI_Factory
 	}
 	
 	public function notInProduction($sku){
-		$sql = 'SELECT * FROM perch3_natures_laboratory_production WHERE sku="'.$sku.'" AND status="scheduled" OR status="in production"';
+		$sql = 'SELECT * FROM perch3_natures_laboratory_production WHERE sku="'.$sku.'" AND (status="scheduled" OR status="in production")';
 		$data = $this->db->get_rows($sql);
 		if($data){
 			return false;

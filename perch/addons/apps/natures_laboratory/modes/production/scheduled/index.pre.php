@@ -29,11 +29,6 @@
     	unset($data['datePressed_year']);
     	unset($data['datePressed_month']);
     	unset($data['datePressed_day']);
-    	
-    	$data['dateSageUpdated'] = "$data[dateSageUpdated_year]-$data[dateSageUpdated_month]-$data[dateSageUpdated_day]";
-    	unset($data['dateSageUpdated_year']);
-    	unset($data['dateSageUpdated_month']);
-    	unset($data['dateSageUpdated_day']);
 
         $new_schedule = $schedule->update($data);
         

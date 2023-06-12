@@ -367,7 +367,7 @@
 			    	$labelBg = '../labels/'.$label.'/label.png';
 					
 					$currentLabel = 0;
-					$firstLabel = 1;
+					$firstLabel = $_POST['start'];
 					$pageLabel = $firstLabel;
 					$totalLabels = $_POST['labels'];
 					

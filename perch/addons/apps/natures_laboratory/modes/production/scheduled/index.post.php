@@ -58,19 +58,26 @@
 			echo "<h2>$product[STOCK_CODE] | $product[DESCRIPTION]</h2>";
 			
 			echo '<table class="d">
-	        <tbody>
-	        <tr>
+	        <tbody>';
+	        if($scheduled['specification']){
+	        echo '<tr>
 	        	<td>Specification</td>
 	        	<td>'.$scheduled['specification'].'</td>
-	        </tr>
-	        <tr>
+	        </tr>';
+	        }
+	        if($scheduled['packaging']){
+	        echo '<tr>
 	        	<td>Packaging Requirements</td>
 	        	<td>'.$scheduled['packaging'].'</td>
-	        </tr>
-	        <tr>
+	        </tr>';
+	        }
+	        if($scheduled['labelling']){
+	        echo '<tr>
 	        	<td>Labelling Requirements</td>
 	        	<td>'.$scheduled['labelling'].'</td>
-	        </tr>
+	        </tr>';
+	        }
+	        echo '
 	        <tr>
 	        	<td>Quantity Required</td>
 	        	<td>'.$scheduled['units'].'</td>
@@ -79,14 +86,14 @@
 	        </table>';
 	        
 	        echo $Form->date_field("date","Date Into Production",'');
-	        echo $Form->date_field("datePressed","Date Due To Complete",'');
-	        echo $Form->date_field("dateSageUpdated","Date Sage Updated",'');
+	        
+	        $weekToday = date("M-d-Y", mktime(0, 0, 0, date('m'), date('d')+7, date('Y')));
+	        echo $Form->date_field("datePressed","Date Due To Complete",$weekToday);
 	        
 	        $names[] = array('label'=>'Please Select', 'value'=>'');
 			$names[] = array('label'=>'Andy', 'value'=>'Andy');
 			$names[] = array('label'=>'Sean', 'value'=>'Sean');
 			$names[] = array('label'=>'Tom', 'value'=>'Tom');
-			echo $Form->select_field("sageUpdatedBy","Sage Updated By",$names,'');
 	        
 	        $alphas[] = array('label'=>'Please Select', 'value'=>'');
 			$alphas[] = array('label'=>'A', 'value'=>'A');

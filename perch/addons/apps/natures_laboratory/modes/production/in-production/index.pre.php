@@ -330,8 +330,8 @@
 						$required = round($product['COMPONENT_QTY_'.$i]*$process['units'],2);
 						
 						if($iQty){
-							$batchData = $NaturesLaboratoryProduction->getBatchData($_GET['id'],$iQty['STOCK_CODE']);
-							$data .= "$iQty[STOCK_CODE],$iQty[DESCRIPTION], ,$required;";
+							$batchData = $NaturesLaboratoryProduction->getBatchData($process['natures_laboratory_productionID'],$iQty['STOCK_CODE']);
+							$data .= "$iQty[STOCK_CODE],$iQty[DESCRIPTION],$batchData[batchCode],$required;";
 							$i++;
 						}else{
 							break;

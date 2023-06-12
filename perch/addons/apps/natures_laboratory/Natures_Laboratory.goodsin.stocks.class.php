@@ -26,4 +26,10 @@ class Natures_Laboratory_Goods_Stocks extends PerchAPI_Factory
 		
 	}
 	
+	public function getDescription($code){
+		$sql = 'SELECT DESCRIPTION FROM perch3_natureslaboratory_stock WHERE STOCK_CODE="'.$code.'"';
+		$data = $this->db->get_row($sql);
+		return $data;
+	}
+	
 }

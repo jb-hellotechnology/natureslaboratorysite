@@ -65,12 +65,13 @@
     foreach($goodsIn as $Goods) {
 	    
 	    $COA = $NaturesLaboratoryGoodsIn->coaExists($Goods['ourBatch']);
+	    $DESCRIPTION = $NaturesLaboratoryGoodsIn->getDescription($Goods['productCode']);
 ?>
             <tr>
 	            <td><?php echo $Form->checkbox("batch_".$Goods['ourBatch'],'on',''); ?></td>
                 <td><?php echo $Goods['staff'] ?></td>
                 <td><?php echo $Goods['productCode']; ?></td>
-                <td><?php echo $Goods['productDescription']; ?></td>
+                <td><?php echo $DESCRIPTION; ?></td>
                 <td><?php echo $Goods['dateIn']; ?></td>
                 <td>
 	                <?php

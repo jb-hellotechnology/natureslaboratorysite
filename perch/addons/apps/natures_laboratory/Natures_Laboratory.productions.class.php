@@ -18,6 +18,16 @@ class Natures_Laboratory_Productions extends PerchAPI_Factory
 		
 	}
 	
+	public function notInProduction($sku){
+		$sql = 'SELECT * FROM perch3_natures_laboratory_production WHERE sku="'.$sku.'" AND status="scheduled" OR status="in production"';
+		$data = $this->db->get_rows($sql);
+		if($data){
+			return false;
+		}else{
+			return true;
+		}
+	}
+	
 	public function getIngredient($STOCK_CODE,$i){
 		
 		$sql = 'SELECT COMPONENT_CODE_'.$i.' FROM perch3_natureslaboratory_stock WHERE STOCK_CODE="'.$STOCK_CODE.'"';

@@ -74,6 +74,7 @@
         <tbody>
 <?php
     foreach($chemicals as $Product) {
+	    if($NaturesLaboratoryProduction->notInProduction($Product['STOCK_CODE'])){
 ?>
             <tr>
 	            <td><?php echo $Product['STOCK_CODE']; ?>
@@ -83,6 +84,7 @@
                 <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
             </tr>
 <?php
+		}
 	}
 ?>
 	    </tbody>
@@ -103,6 +105,7 @@
         <tbody>
 <?php
     foreach($tinctures as $Product) {
+	    if($NaturesLaboratoryProduction->notInProduction($Product['STOCK_CODE'])){
 ?>
             <tr>
 	            <td><?php echo $Product['STOCK_CODE']; ?>
@@ -112,6 +115,7 @@
                 <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
             </tr>
 <?php
+		}
 	}
 ?>
 	    </tbody>
@@ -132,6 +136,7 @@
         <tbody>
 <?php
     foreach($fluids as $Product) {
+	    if($NaturesLaboratoryProduction->notInProduction($Product['STOCK_CODE'])){
 ?>
             <tr>
 	            <td><?php echo $Product['STOCK_CODE']; ?>
@@ -141,6 +146,7 @@
                 <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
             </tr>
 <?php
+		}
 	}
 ?>
 	    </tbody>
@@ -161,6 +167,7 @@
         <tbody>
 <?php
     foreach($capsules as $Product) {
+	    if($NaturesLaboratoryProduction->notInProduction($Product['STOCK_CODE'])){
 ?>
             <tr>
 	            <td><?php echo $Product['STOCK_CODE']; ?>
@@ -170,6 +177,7 @@
                 <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
             </tr>
 <?php
+		}
 	}
 ?>
 	    </tbody>
@@ -190,6 +198,7 @@
         <tbody>
 <?php
     foreach($creams as $Product) {
+	    if($NaturesLaboratoryProduction->notInProduction($Product['STOCK_CODE'])){
 ?>
             <tr>
 	            <td><?php echo $Product['STOCK_CODE']; ?>
@@ -199,6 +208,7 @@
                 <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
             </tr>
 <?php
+		}
 	}
 ?>
 	    </tbody>
@@ -219,6 +229,7 @@
         <tbody>
 <?php
     foreach($essentialOils as $Product) {
+	    if($NaturesLaboratoryProduction->notInProduction($Product['STOCK_CODE'])){
 ?>
             <tr>
 	            <td><?php echo $Product['STOCK_CODE']; ?>
@@ -228,6 +239,7 @@
                 <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
             </tr>
 <?php
+		}
 	}
 ?>
 	    </tbody>
@@ -248,6 +260,7 @@
         <tbody>
 <?php
     foreach($fixedOils as $Product) {
+	    if($NaturesLaboratoryProduction->notInProduction($Product['STOCK_CODE'])){
 ?>
             <tr>
 	            <td><?php echo $Product['STOCK_CODE']; ?>
@@ -257,6 +270,7 @@
                 <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
             </tr>
 <?php
+		}
 	}
 ?>
 	    </tbody>
@@ -277,6 +291,7 @@
         <tbody>
 <?php
     foreach($sweetCecilys as $Product) {
+	    if($NaturesLaboratoryProduction->notInProduction($Product['STOCK_CODE'])){
 ?>
             <tr>
 	            <td><?php echo $Product['STOCK_CODE']; ?>
@@ -286,6 +301,7 @@
                 <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
             </tr>
 <?php
+		}
 	}
 ?>
 	    </tbody>
@@ -306,6 +322,7 @@
         <tbody>
 <?php
     foreach($contract as $Product) {
+	    if($NaturesLaboratoryProduction->notInProduction($Product['STOCK_CODE'])){
 ?>
             <tr>
 	            <td><?php echo $Product['STOCK_CODE']; ?>
@@ -315,6 +332,7 @@
                 <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
             </tr>
 <?php
+		}
 	}
 ?>
 	    </tbody>

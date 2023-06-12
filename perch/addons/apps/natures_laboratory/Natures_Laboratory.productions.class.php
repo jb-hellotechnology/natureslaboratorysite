@@ -45,7 +45,7 @@ class Natures_Laboratory_Productions extends PerchAPI_Factory
 	
 	public function getScheduled(){
 		
-		$sql = 'SELECT * FROM perch3_natures_laboratory_production WHERE status="scheduled" ORDER BY natures_laboratory_productionID DESC';
+		$sql = 'SELECT * FROM perch3_natures_laboratory_production WHERE status="scheduled" ORDER BY natures_laboratory_productionID ASC';
 		$data = $this->db->get_rows($sql);
 		return $data;
 		
@@ -53,7 +53,7 @@ class Natures_Laboratory_Productions extends PerchAPI_Factory
 	
 	public function getProduction(){
 		
-		$sql = 'SELECT * FROM perch3_natures_laboratory_production WHERE status="in production" ORDER BY natures_laboratory_productionID DESC';
+		$sql = 'SELECT * FROM perch3_natures_laboratory_production WHERE status="in production" ORDER BY natures_laboratory_productionID ASC';
 		$data = $this->db->get_rows($sql);
 		return $data;
 		

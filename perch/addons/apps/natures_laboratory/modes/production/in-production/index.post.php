@@ -106,7 +106,11 @@
 			$alphas[] = array('label'=>'X', 'value'=>'X');
 			$alphas[] = array('label'=>'Y', 'value'=>'Y');
 			$alphas[] = array('label'=>'Z', 'value'=>'Z');
-			echo $Form->select_field("barrel","Barrel",$alphas,$scheduled['barrel']);
+			echo $Form->select_field("barrel","Barrel #1",$alphas,$scheduled['barrel']);
+			echo $Form->select_field("barrel2","Barrel #2",$alphas,$scheduled['barrel2']);
+			echo $Form->select_field("barrel3","Barrel #3",$alphas,$scheduled['barrel3']);
+			echo $Form->select_field("barrel4","Barrel #4",$alphas,$scheduled['barrel4']);
+			echo $Form->select_field("barrel5","Barrel #5",$alphas,$scheduled['barrel5']);
 			
 			echo $Form->select_field("producedBy","Produced By",$names,$scheduled['producedBy']);
 			

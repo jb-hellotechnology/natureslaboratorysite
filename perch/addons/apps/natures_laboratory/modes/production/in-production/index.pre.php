@@ -356,7 +356,7 @@
 					$pdf->SetFont('Arial','B',8);
 					
 					$header = array('Item','Detail');
-					$data = "Barrel,".$process['barrel'].";Date Went Into Production,".$process['date'].";Date Due To Press,".$process['datePressed'].";Finished Batch Number,".$process['batchPrefix'].''.$process['finishedBatch'];
+					$data = "Barrel,".$process['barrel']." ".$process['barrel2']." ".$process['barrel3']." ".$process['barrel4']." ".$process['barrel5'].";Date Went Into Production,".$process['date'].";Date Due To Press,".$process['datePressed'].";Finished Batch Number,".$process['batchPrefix'].''.$process['finishedBatch'];
 					$pdf->BasicTable2($header,$data);
 					
 					$pdf->Output('D',"Natures Laboratory WPO - ".$wpo.".pdf");

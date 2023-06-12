@@ -81,7 +81,16 @@
 	        <tr>
 	        	<td>Quantity Required</td>
 	        	<td>'.$scheduled['units'].'</td>
-	        </tr>
+	        </tr>';
+	        if($product['STOCK_CAT']=='2' OR $product['STOCK_CAT']=='4'){
+			$raw = $NaturesLaboratoryProduction->getProduct($product['COMPONENT_CODE_1']);
+		    echo '
+	        <tr>
+	        	<td>Raw Material Available (SKU: '.$raw['STOCK_CODE'].')</td>
+	        	<td>'.$raw['QTY_IN_STOCK'].'</td>
+	        </tr>';  
+	        }
+	        echo '
 	        </tbody>
 	        </table>';
 	        
@@ -122,7 +131,11 @@
 			$alphas[] = array('label'=>'X', 'value'=>'X');
 			$alphas[] = array('label'=>'Y', 'value'=>'Y');
 			$alphas[] = array('label'=>'Z', 'value'=>'Z');
-			echo $Form->select_field("barrel","Barrel (if Applicable)",$alphas,'');
+			echo $Form->select_field("barrel","Barrel #1 (if Applicable)",$alphas,'');
+			echo $Form->select_field("barrel2","Barrel #2 (if Applicable)",$alphas,'');
+			echo $Form->select_field("barrel3","Barrel #3 (if Applicable)",$alphas,'');
+			echo $Form->select_field("barrel4","Barrel #4 (if Applicable)",$alphas,'');
+			echo $Form->select_field("barrel5","Barrel #5 (if Applicable)",$alphas,'');
 			
 			echo $Form->select_field("producedBy","Produced By",$names,'');
 			

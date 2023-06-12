@@ -15,7 +15,7 @@
     if($Form->submitted()) {
     
         //FOR ITEMS PROGRAMMATICALLY ADDED TO FORM
-        $postvars = array('sku','date_day','date_month','date_year','datePressed_day','datePressed_month','datePressed_year','dateSageUpdated_day','dateSageUpdated_month','dateSageUpdated_year','sageUpdatedBy','barrel','status', 'producedBy', 'batchPrefix');	   
+        $postvars = array('sku','date_day','date_month','date_year','datePressed_day','datePressed_month','datePressed_year','dateSageUpdated_day','dateSageUpdated_month','dateSageUpdated_year','sageUpdatedBy','barrel','barrel2', 'barrel3', 'barrel4', 'barrel5', 'status', 'producedBy', 'batchPrefix');	   
     	$data = $Form->receive($postvars);     
     	
     	$data['finishedBatch'] = $NaturesLaboratoryProduction->getBatchNumber();

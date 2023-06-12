@@ -214,8 +214,8 @@
                 <td><?php echo $Production['units']; ?></td>
                 <td><?php echo $startDate; ?></td>
                 <td><?php echo $endDate; ?></td>
-                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/in-production/?id=<?php echo $HTML->encode(urlencode($Production['natures_laboratory_productionID'])); ?>"><?php echo 'Go'; ?></a></td>
-				<td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/complete/?id=<?php echo $HTML->encode(urlencode($Production['natures_laboratory_productionID'])); ?>"><?php echo 'Go'; ?></a></td>
+                <td><a class="button button-small action-info" href="<?php echo $HTML->encode($API->app_path()); ?>/production/in-production/?id=<?php echo $HTML->encode(urlencode($Production['natures_laboratory_productionID'])); ?>"><?php echo 'Edit'; ?></a></td>
+				<td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/complete/?id=<?php echo $HTML->encode(urlencode($Production['natures_laboratory_productionID'])); ?>"><?php echo 'Complete'; ?></a></td>
 			</tr>
 <?php
 	}

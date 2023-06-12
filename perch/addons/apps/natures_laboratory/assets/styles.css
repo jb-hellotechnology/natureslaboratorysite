@@ -3,3 +3,9 @@
 #calendar table{margin-bottom:0px;}
 #calendar table a.fc-event{color:#fff !important;background:#777;border:none !important;font-size:1rem;padding:6px;margin-bottom:0px;}
 #calendar table tr:hover{background:white !important;}
+
+span{
+	width:auto !important;
+	display:block !important;
+	text-align: center !important;
+}

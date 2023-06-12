@@ -161,7 +161,7 @@
 	            <td><?php echo $Scheduled['sku']; ?>
                 <td><?php echo $stock['DESCRIPTION'] ?></td>
                 <td><?php echo $Scheduled['units']; ?></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/production/scheduled/?id=<?php echo $HTML->encode(urlencode($Scheduled['natures_laboratory_productionID'])); ?>" class="button button-small action-success"><?php echo 'Go'; ?></a></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/production/scheduled/?id=<?php echo $HTML->encode(urlencode($Scheduled['natures_laboratory_productionID'])); ?>" class="button button-small action-success"><?php echo 'Produce'; ?></a></td>
             </tr>
 <?php
 	}

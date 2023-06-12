@@ -45,7 +45,7 @@
         <thead>
             <tr>
                 <th class="first">Name</th>
-                <th>View/Edit</th>
+                <th>Edit</th>
 	            <th>Delete</th>
             </tr>
         </thead>
@@ -56,8 +56,8 @@
 ?>
             <tr>
                 <td><?php echo $Supplier->name(); ?></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/goods-in/suppliers/edit/?id=<?php echo $HTML->encode(urlencode($Supplier->natures_laboratory_goods_suppliersID())); ?>" class="delete inline-delete"><?php echo 'View/Edit'; ?></a></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/goods-in/suppliers/delete/?id=<?php echo $HTML->encode(urlencode($Supplier->natures_laboratory_goods_suppliersID())); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/goods-in/suppliers/edit/?id=<?php echo $HTML->encode(urlencode($Supplier->natures_laboratory_goods_suppliersID())); ?>" class="button button-small action-info"><?php echo 'Edit'; ?></a></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/goods-in/suppliers/delete/?id=<?php echo $HTML->encode(urlencode($Supplier->natures_laboratory_goods_suppliersID())); ?>" class="button button-small action-alert"><?php echo 'Delete'; ?></a></td>
             </tr>
 <?php
 	}

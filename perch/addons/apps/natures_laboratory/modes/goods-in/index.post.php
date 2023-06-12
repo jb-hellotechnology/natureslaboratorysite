@@ -56,7 +56,7 @@
                 <th>BBE</th>
                 <th>QA Check</th>
                 <th>COA</th>
-                <th>View/Edit</th>
+                <th>Edit</th>
                 <th class="action last">Delete</th>
             </tr>
         </thead>
@@ -86,17 +86,35 @@
                 <td><?php echo $Goods['suppliersBatch']; ?></td>
                 <td><?php echo $Goods['ourBatch']; ?></td>
                 <td><?php if($Goods['bbe']<>'1970-01-01'){echo $Goods['bbe'];} ?></td>
-                <td <?php if($Goods['qa']=='FALSE'){echo "class='notification notification-alert'";}elseif($Goods['qa']=='NOT REQUIRED'){echo "class='notification notification-success'";}elseif($Goods['qa']=='TRUE'){echo "class='notification notification-success'";}?>><?php echo $Goods['qa']; ?></td>
-                <td <?php if($Goods['noCOA']=='TRUE'){echo "class='notification notification-success'";}elseif($COA=='FALSE'){echo "class='notification notification-alert'";}elseif($COA=='TRUE'){echo "class='notification notification-success'";}?>><?php if($Goods['noCOA']=='TRUE'){echo 'NOT REQUIRED';}else{echo $COA;} ?></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/goods-in/edit/?id=<?php echo $HTML->encode(urlencode($Goods['natures_laboratory_goods_inID'])); ?>"><?php echo 'View/Edit'; ?></a></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/goods-in/delete/?id=<?php echo $HTML->encode(urlencode($Goods['natures_laboratory_goods_inID'])); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
+                <td>
+	                <span<?php if($Goods['qa']=='FALSE'){echo " class='notification notification-warning'";}elseif($Goods['qa']=='NOT REQUIRED'){echo " class='notification notification-success'";}elseif($Goods['qa']=='TRUE'){echo " class='notification notification-success'";}?>>
+	                	<?php 
+		                	if($Goods['qa']=='TRUE'){
+			                	echo 'COMPLETE';
+			                }else{
+				                echo 'INCOMPLETE';
+				            } 
+				        ?>
+	                </span>
+	            </td>
+                <td>
+	                <span<?php if($Goods['noCOA']=='TRUE'){echo " class='notification notification-success'";}elseif($COA=='FALSE'){echo " class='notification notification-alert'";}elseif($COA=='TRUE'){echo " class='notification notification-success'";}?>><?php if($Goods['noCOA']=='TRUE'){echo 'N/A';}elseif($COA=='TRUE'){echo 'COMPLETE';}else{echo 'INCOMPLETE';} ?>
+	                </span>
+	            </td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/goods-in/edit/?id=<?php echo $HTML->encode(urlencode($Goods['natures_laboratory_goods_inID'])); ?>" class="button button-small action-info"><?php echo 'Edit'; ?></a></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/goods-in/delete/?id=<?php echo $HTML->encode(urlencode($Goods['natures_laboratory_goods_inID'])); ?>" class="button button-small action-alert"><?php echo 'Delete'; ?></a></td>
             </tr>
 <?php
 	}
 ?>
 	    </tbody>
     </table>
-
+<style>
+	span{
+	width:auto !important;
+	display:block !important;
+	text-align: center !important;
+}</style>
 <?php    
 	echo $Form->submit_field('btnSubmit', 'Generate Labels', $API->app_path());	
 	echo $Form->form_end();

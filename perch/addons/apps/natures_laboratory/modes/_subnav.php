@@ -13,7 +13,16 @@
             'label'=> 'Staff'
         ],
         [
-            'page' => 'natures_laboratory/goods-in',
+            'page' => [
+            	'natures_laboratory/goods-in',
+            	'natures_laboratory/goods-in/add',
+            	'natures_laboratory/goods-in/edit',
+            	'natures_laboratory/goods-in/delete',
+            	'natures_laboratory/goods-in/suppliers',
+            	'natures_laboratory/goods-in/suppliers/add',
+            	'natures_laboratory/goods-in/suppliers/edit',
+            	'natures_laboratory/goods-in/suppliers/delete',
+            ],
             'label'=> 'Goods In'
         ],
         [

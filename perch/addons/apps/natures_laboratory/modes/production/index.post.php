@@ -81,7 +81,7 @@
                 <td><?php echo $Product['DESCRIPTION'] ?></td>
                 <td><?php echo $Product['QTY_IN_STOCK']; ?></td>
                 <td><?php echo $Product['QTY_REORDER_LEVEL']; ?></td>
-                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
+                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Schedule'; ?></a></td>
             </tr>
 <?php
 		}
@@ -112,7 +112,7 @@
                 <td><?php echo $Product['DESCRIPTION'] ?></td>
                 <td><?php echo $Product['QTY_IN_STOCK']; ?></td>
                 <td><?php echo $Product['QTY_REORDER_LEVEL']; ?></td>
-                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
+                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Schedule'; ?></a></td>
             </tr>
 <?php
 		}
@@ -143,7 +143,7 @@
                 <td><?php echo $Product['DESCRIPTION'] ?></td>
                 <td><?php echo $Product['QTY_IN_STOCK']; ?></td>
                 <td><?php echo $Product['QTY_REORDER_LEVEL']; ?></td>
-                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
+                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Schedule'; ?></a></td>
             </tr>
 <?php
 		}
@@ -174,7 +174,7 @@
                 <td><?php echo $Product['DESCRIPTION'] ?></td>
                 <td><?php echo $Product['QTY_IN_STOCK']; ?></td>
                 <td><?php echo $Product['QTY_REORDER_LEVEL']; ?></td>
-                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
+                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Schedule'; ?></a></td>
             </tr>
 <?php
 		}
@@ -205,7 +205,7 @@
                 <td><?php echo $Product['DESCRIPTION'] ?></td>
                 <td><?php echo $Product['QTY_IN_STOCK']; ?></td>
                 <td><?php echo $Product['QTY_REORDER_LEVEL']; ?></td>
-                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
+                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Schedule'; ?></a></td>
             </tr>
 <?php
 		}
@@ -236,7 +236,7 @@
                 <td><?php echo $Product['DESCRIPTION'] ?></td>
                 <td><?php echo $Product['QTY_IN_STOCK']; ?></td>
                 <td><?php echo $Product['QTY_REORDER_LEVEL']; ?></td>
-                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
+                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Schedule'; ?></a></td>
             </tr>
 <?php
 		}
@@ -267,7 +267,7 @@
                 <td><?php echo $Product['DESCRIPTION'] ?></td>
                 <td><?php echo $Product['QTY_IN_STOCK']; ?></td>
                 <td><?php echo $Product['QTY_REORDER_LEVEL']; ?></td>
-                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
+                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Schedule'; ?></a></td>
             </tr>
 <?php
 		}
@@ -298,7 +298,7 @@
                 <td><?php echo $Product['DESCRIPTION'] ?></td>
                 <td><?php echo $Product['QTY_IN_STOCK']; ?></td>
                 <td><?php echo $Product['QTY_REORDER_LEVEL']; ?></td>
-                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
+                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Schedule'; ?></a></td>
             </tr>
 <?php
 		}
@@ -329,7 +329,7 @@
                 <td><?php echo $Product['DESCRIPTION'] ?></td>
                 <td><?php echo $Product['QTY_IN_STOCK']; ?></td>
                 <td><?php echo $Product['QTY_REORDER_LEVEL']; ?></td>
-                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Go'; ?></a></td>
+                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Schedule'; ?></a></td>
             </tr>
 <?php
 		}

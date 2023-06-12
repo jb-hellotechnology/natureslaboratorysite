@@ -23,7 +23,7 @@
     $creams = $NaturesLaboratoryProduction->getShortfall(11);
     
     $essentialOils = array();
-    $essentialOils = $NaturesLaboratoryProduction->getShortfall(2);
+    $essentialOils = $NaturesLaboratoryProduction->getShortfall(12);
     
     $fixedOils = array();
     $fixedOils = $NaturesLaboratoryProduction->getShortfall(13);

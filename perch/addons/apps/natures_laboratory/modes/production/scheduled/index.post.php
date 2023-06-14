@@ -131,6 +131,16 @@
 			$alphas[] = array('label'=>'X', 'value'=>'X');
 			$alphas[] = array('label'=>'Y', 'value'=>'Y');
 			$alphas[] = array('label'=>'Z', 'value'=>'Z');
+			$alphas[] = array('label'=>'1', 'value'=>'1');
+			$alphas[] = array('label'=>'2', 'value'=>'2');
+			$alphas[] = array('label'=>'3', 'value'=>'3');
+			$alphas[] = array('label'=>'4', 'value'=>'4');
+			$alphas[] = array('label'=>'5', 'value'=>'5');
+			$alphas[] = array('label'=>'6', 'value'=>'6');
+			$alphas[] = array('label'=>'7', 'value'=>'7');
+			$alphas[] = array('label'=>'8', 'value'=>'8');
+			$alphas[] = array('label'=>'9', 'value'=>'9');
+			$alphas[] = array('label'=>'10', 'value'=>'10');
 			echo $Form->select_field("barrel","Barrel #1 (if Applicable)",$alphas,'');
 			echo $Form->select_field("barrel2","Barrel #2 (if Applicable)",$alphas,'');
 			echo $Form->select_field("barrel3","Barrel #3 (if Applicable)",$alphas,'');

@@ -328,6 +328,9 @@
 					while($i<=50){
 						$iQty = $NaturesLaboratoryProduction->getIngredient($process['sku'],$i);
 						$required = round($product['COMPONENT_QTY_'.$i]*$process['units'],2);
+						if($iQty['STOCK_CODE']=='ALC96'){
+							$required = round($required*1.04,2);
+						}
 						
 						if($iQty){
 							$batchData = $NaturesLaboratoryProduction->getBatchData($process['natures_laboratory_productionID'],$iQty['STOCK_CODE']);

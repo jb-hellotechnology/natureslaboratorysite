@@ -76,6 +76,10 @@
 			
 		}
 		
+		echo "<br /><p>BBE</p>";
+		
+		echo $Form->date_field("bbe","BBE Date",'');
+		
 		echo "<br /><p>Completed By</p>";
 		
 		$names[] = array('label'=>'Please Select', 'value'=>'');

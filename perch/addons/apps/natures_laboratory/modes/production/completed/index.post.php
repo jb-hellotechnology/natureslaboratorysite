@@ -288,6 +288,7 @@
             <tr>
 	            <th class="first">Batch #</th>
 	            <th>Download Production Record</th>
+	            <th>Download Labels</th>
 	            <th>SKU</th>
 	            <th>Description</th>
                 <th>Units</th>
@@ -308,6 +309,7 @@
             <tr>
 	            <td>P<?php echo str_pad($Production['natures_laboratory_productionID'], 6, '0', STR_PAD_LEFT); ?></td>
 	            <td><?php echo $Form->radio("download",'download','wpo_'.$Production['natures_laboratory_productionID'],''); ?></td>
+	            <td><?php echo $Form->radio("download",'download','labels_'.$Production['natures_laboratory_productionID'],''); ?></td>
 	            <td><?php echo $Production['sku']; ?>
                 <td><?php echo $stock['DESCRIPTION'] ?></td>
                 <td><?php echo $Production['units']; ?></td>
@@ -322,6 +324,16 @@
     </table>
 
 <?php
+	$numbers[] = array('label'=>'1', 'value'=>'1');
+		$numbers[] = array('label'=>'2', 'value'=>'2');
+		$numbers[] = array('label'=>'3', 'value'=>'3');
+		$numbers[] = array('label'=>'4', 'value'=>'4');
+		$numbers[] = array('label'=>'5', 'value'=>'5');
+		$numbers[] = array('label'=>'6', 'value'=>'6');
+		$numbers[] = array('label'=>'7', 'value'=>'7');
+		$numbers[] = array('label'=>'8', 'value'=>'8');
+		
+		echo $Form->select_field("start","Start Label",$numbers);
 		echo $Form->submit_field('btnSubmit', 'Download', $API->app_path());
 		echo $Form->form_end();
 	}

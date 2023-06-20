@@ -386,14 +386,54 @@ error_reporting(E_ALL);
 					$pdf->Output('D',"Natures Laboratory WPO - ".$wpo.".pdf");
 					exit();
 					
-			    }
-		    		
-		    	}else{
+			    }else{
 			    	//DOWNLOAD LABEL
+			    	$label = $process;
 			    	
-		    	}
-		    	
-	    	}
+			    	$dir = '../productlabels/'.$label;
+			    	$files = scandir($dir);
 
-	    
+					$currentLabel = 0;
+					$firstLabel = $_POST['start'];
+					
+					$pageLabel = $firstLabel;
+					$totalLabels = count($files);
+					
+					//print_r($labelList);
+					
+					$pdf = new FPDF();
+					$pdf->AddPage();
+		
+					foreach($files as $labelFile){
+						if($labelFile<>'.' && $labelFile<>'..' && $labelFile<>'.DS_Store'){
+							if($pageLabel==1){
+								$pdf->Image('../productlabels/'.$label.'/'.$labelFile,3.7,12,99.1,67.8);
+							}elseif($pageLabel==2){
+								$pdf->Image('../productlabels/'.$label.'/'.$labelFile,105.1,12,99.1,67.8);
+							}elseif($pageLabel==3){
+								$pdf->Image('../productlabels/'.$label.'/'.$labelFile,3.7,79.8,99.1,67.8);
+							}elseif($pageLabel==4){
+								$pdf->Image('../productlabels/'.$label.'/'.$labelFile,105.1,79.8,99.1,67.8);
+							}elseif($pageLabel==5){
+								$pdf->Image('../productlabels/'.$label.'/'.$labelFile,3.7,147.8,99.1,67.8);
+							}elseif($pageLabel==6){
+								$pdf->Image('../productlabels/'.$label.'/'.$labelFile,105.1,147.8,99.1,67.8);
+							}elseif($pageLabel==7){
+								$pdf->Image('../productlabels/'.$label.'/'.$labelFile,3.7,215.6,99.1,67.8);
+							}elseif($pageLabel==8){
+								$pdf->Image('../productlabels/'.$label.'/'.$labelFile,105.1,215.6,99.1,67.8);
+							}
+							$pageLabel++;
+							$currentLabel++;
+							if($pageLabel==9){
+								$pdf->AddPage();
+								$pageLabel = 1;
+							}
+						}
+					}
+		
+					$pdf->Output("D", "labels.pdf");
+		    	}
+		    }
+	    }
     }

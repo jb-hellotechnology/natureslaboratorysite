@@ -381,7 +381,7 @@
 		
 					while($currentLabel<$totalLabels){
 						if($pageLabel==1){
-								$pdf->Image($labelBg,3.7,12,99.1,67.8);
+							$pdf->Image($labelBg,3.7,12,99.1,67.8);
 						}elseif($pageLabel==2){
 							$pdf->Image($labelBg,105.1,12,99.1,67.8);
 						}elseif($pageLabel==3){

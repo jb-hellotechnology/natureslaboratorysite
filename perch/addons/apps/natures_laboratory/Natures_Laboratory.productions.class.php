@@ -8,7 +8,7 @@ class Natures_Laboratory_Productions extends PerchAPI_Factory
 	
 	protected $default_sort_column = 'natures_laboratory_productionID';
 	
-	public $static_fields = array('perch3_natures_laboratory_productionID','sku','units','specification','packaging','labelling','date','datePressed','dateSageUpdated','sageUpdatedBy','barrel','status','productionDynamicFields');	
+	public $static_fields = array('perch3_natures_laboratory_productionID','sku','units','specification','packaging','labelling','date','datePressed','dateSageUpdated','sageUpdatedBy','barrel','status','bbe','productionDynamicFields');	
 	
 	public function getShortfall($category){
 		
@@ -166,6 +166,14 @@ class Natures_Laboratory_Productions extends PerchAPI_Factory
 	public function getProduct($productID){
 		
 		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CODE="'.$productID.'"';
+		$data = $this->db->get_row($sql);
+		return $data;
+		
+	}
+	
+	public function getLabelSpec($productID){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_labels_products WHERE productCode="'.$productID.'"';
 		$data = $this->db->get_row($sql);
 		return $data;
 		

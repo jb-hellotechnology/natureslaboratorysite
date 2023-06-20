@@ -1,8 +1,10 @@
 <?php
 	
+/*
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
+*/
 	
     # include the API
     include('../../../../../core/inc/api.php');
@@ -10,6 +12,8 @@
     $API  = new PerchAPI(1.0, 'natures_laboratory');
 
     # include your class files
+    include('../../phpqrcode/qrlib.php');
+    
     include('../../Natures_Laboratory.class.php');
     include('../../Natures_Laboratorys.class.php');
     include('../../Natures_Laboratory.production.class.php');

@@ -28,6 +28,8 @@
     	$data['completedDate'] = date('Y-m-d');
 
         $new_task = $task->update($data);
+        
+        $NaturesLaboratoryProduction->storeFormulation($_GET['id']);
 
         // SHOW RELEVANT MESSAGE
         if ($new_task) {

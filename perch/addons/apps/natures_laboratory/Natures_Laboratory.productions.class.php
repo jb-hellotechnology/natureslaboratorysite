@@ -178,4 +178,36 @@ class Natures_Laboratory_Productions extends PerchAPI_Factory
 		
 	}
 	
+	public function storeFormulation($id){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_production WHERE natures_laboratory_productionID="'.$id.'"';
+		$productionData = $this->db->get_row($sql);
+		
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CODE="'.$productionData['sku'].'"';
+		$productData = $this->db->get_row($sql);
+		
+		$i = 1;
+		$json = '[';
+		while($i<=50){
+			
+			$ingredient = $productData['COMPONENT_CODE_'.$i];
+			$qty = $productData['COMPONENT_QTY_'.$i];
+			
+			$batchQty = $productionData['units']*$qty;
+			if($ingredient=='ALC96'){
+				$batchQty = round($batchQty*1.04,2);
+			}
+			
+			$json .= '{"'.$ingredient.'":"'.$batchQty.'"},';
+			
+			$i++;	
+		}
+		$json = substr($json,0,-1);
+		$json .= ']';
+		
+		$sql = "UPDATE perch3_natures_laboratory_production SET formulationLog='".$json."' WHERE natures_laboratory_productionID='".$id."'";
+		$update = $this->db->execute($sql);
+		
+	}
+	
 }

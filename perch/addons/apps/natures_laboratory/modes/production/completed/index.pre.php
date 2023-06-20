@@ -1,5 +1,10 @@
 <?php
-	
+/*
+	ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+*/
+
 	if (!$CurrentUser->has_priv('natures_laboratory.labels')) exit;
     
     $NaturesLaboratoryProduction = new Natures_Laboratory_Productions($API); 
@@ -305,6 +310,25 @@
 					
 					$i = 1;
 					$units = 100000000;
+					
+					$formulationLog = json_decode($process['formulationLog'],true);
+					
+					foreach($formulationLog as $ingredient){
+						$key = array_keys($ingredient);
+						$ingredientSKU = $key[0];
+						if($ingredientSKU<>'0'){
+							$product = $NaturesLaboratoryProduction->getProduct($ingredientSKU);
+							$batchData = $NaturesLaboratoryProduction->getBatchData($process['natures_laboratory_productionID'],$ingredientSKU);
+							$bbe = $NaturesLaboratoryProduction->getBatchBBE($batchData['batchCode']);
+							
+							$data .= "$ingredientSKU, $product[DESCRIPTION], $batchData[batchCode], $bbe[bbe], $ingredient[$ingredientSKU];";
+							if($batchData['batchCodeAlt']){
+								$data .= "$ingredientSKU, $product[DESCRIPTION], $batchData[batchCodeAlt], $bbe[bbe],;";	
+							}
+						}
+					}
+					
+/*
 					while($i<=50){
 						$iQty = $NaturesLaboratoryProduction->getIngredient($process['sku'],$i);
 						$required = round($product['COMPONENT_QTY_'.$i]*$process['units'],2);
@@ -325,6 +349,7 @@
 							break;
 						}
 					}
+*/
 					
 					$i--;
 					

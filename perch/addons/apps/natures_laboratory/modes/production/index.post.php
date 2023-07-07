@@ -46,7 +46,7 @@
 	    
 	    echo '<form method="get" action="/perch/addons/apps/natures_laboratory/production/schedule/" enctype="multipart/form-data" id="" class="app form-simple">';
 	    
-	    $products = $NaturesLaboratoryProduction->getProducts();
+	    $products = $NaturesLaboratoryProduction->getProductsAll();
 	    foreach($products as $Product){
     		$productsList[] = array('label'=>"$Product[STOCK_CODE] | $Product[DESCRIPTION]", 'value'=>$Product['STOCK_CODE']);
     	}

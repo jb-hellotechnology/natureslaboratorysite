@@ -163,6 +163,14 @@ class Natures_Laboratory_Productions extends PerchAPI_Factory
 		
 	}
 	
+	public function getProductsAll(){
+		
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock ORDER BY STOCK_CODE ASC';
+		$data = $this->db->get_rows($sql);
+		return $data;
+		
+	}
+	
 	public function getProduct($productID){
 		
 		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CODE="'.$productID.'"';

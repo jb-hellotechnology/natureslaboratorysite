@@ -6,7 +6,7 @@
 	$NaturesLaboratoryCOACountries = new Natures_Laboratory_COA_Countries($API); 
 	$NaturesLaboratoryGoodsStock = new Natures_Laboratory_Goods_Stocks($API);   
     
-    $stock = $NaturesLaboratoryGoodsStock->all();
+    $stock = $NaturesLaboratoryGoodsStock->getStock();
     $country = $NaturesLaboratoryCOACountries->all();
     
     $HTML = $API->get('HTML');

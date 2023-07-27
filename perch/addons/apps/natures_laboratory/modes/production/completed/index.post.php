@@ -319,7 +319,7 @@
                 <td>
 	                <span<?php if($Production['qcCheck']==''){echo " class='notification notification-warning'";}elseif($Production['qcCheck']=='Shankar'){echo " class='notification notification-success'";}elseif($Goods['qa']=='TRUE'){echo " class='notification notification-success'";}?>>
 	                	<?php 
-		                	if($Goods['qcCheck']=='Shankar'){
+		                	if($Production['qcCheck']=='Shankar'){
 			                	echo 'COMPLETE';
 			                }else{
 				                echo 'INCOMPLETE';

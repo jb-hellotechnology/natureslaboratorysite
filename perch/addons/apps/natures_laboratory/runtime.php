@@ -323,7 +323,7 @@
 		$pdf->SetFont('Arial','',9);
 		if($specDetails['productType']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Type of Preparation: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$specDetails['productType'],0,1);}
 		if($specDetails['productCode']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Code: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$specDetails['productCode'],0,1);}
-		if($details['ourBatch']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Batch Number: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$details['ourBatch'],0,1);}
+		if($details['ourBatch']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Batch Number: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,strtoupper($details['ourBatch']),0,1);}
 		if($specDetails['biologicalSource']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Biological Source: ',0,0);$pdf->SetFont('Arial','',9);$pdf->SetFont('Arial','I',9);$pdf->Cell(0,5,$specDetails['biologicalSource'],0,1);$pdf->SetFont('Arial','',9);}
 		if($specDetails['plantPart']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Plant Part:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['plantPart'],0,1);}
 		if($specDetails['strengthVolume']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Strength Volume:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['strengthVolume'],0,1);}

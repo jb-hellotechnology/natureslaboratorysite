@@ -34,6 +34,18 @@
 	    'link'  => $API->app_nav().'/goods-in/suppliers/',
 	]);
 	
+	$Smartbar->add_item([
+        'active' => false,
+        'type'   => 'search',
+        'data'   => [
+            'search' => 'goods',
+        ],
+        'title'  => 'Search',
+        'arg'    => 'q',
+        'icon'   => 'core/search',
+        'position' => 'end',
+    ]);
+	
 	echo $Smartbar->render();
 
     echo $HTML->main_panel_start();

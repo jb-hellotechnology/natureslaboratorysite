@@ -14,7 +14,7 @@ error_reporting(E_ALL);
     $Form = $API->get('Form');
     
     $goodsIn = array();
-    $goodsIn = $NaturesLaboratoryGoodsIn->getGoodsIn();
+    $goodsIn = $NaturesLaboratoryGoodsIn->getGoodsIn($_GET['q']);
     
     if($Form->submitted()) {
 		//MAKE LABELS

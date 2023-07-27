@@ -294,6 +294,7 @@
                 <th>Units</th>
                 <th>Start Date</th>
                 <th>End Date</th>
+                <th>QC Check</th>
                 <th class="action">View</th>
             </tr>
         </thead>
@@ -315,6 +316,17 @@
                 <td><?php echo $Production['units']; ?></td>
                 <td><?php echo $startDate; ?></td>
                 <td><?php echo $endDate; ?></td>
+                <td>
+	                <span<?php if($Production['qcCheck']==''){echo " class='notification notification-warning'";}elseif($Production['qcCheck']=='Shankar'){echo " class='notification notification-success'";}elseif($Goods['qa']=='TRUE'){echo " class='notification notification-success'";}?>>
+	                	<?php 
+		                	if($Goods['qcCheck']=='Shankar'){
+			                	echo 'COMPLETE';
+			                }else{
+				                echo 'INCOMPLETE';
+				            } 
+				        ?>
+	                </span>
+	            </td>
                 <td><a class="button button-small action-info" href="<?php echo $HTML->encode($API->app_path()); ?>/production/completed/?id=<?php echo $HTML->encode(urlencode($Production['natures_laboratory_productionID'])); ?>"><?php echo 'View'; ?></a></td>
 			</tr>
 <?php

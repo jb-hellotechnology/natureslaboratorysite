@@ -85,6 +85,7 @@
 		$alcoholList[] = array('label'=>'50%', 'value'=>'50%');
 		$alcoholList[] = array('label'=>'60%', 'value'=>'60%');
 		$alcoholList[] = array('label'=>'70%', 'value'=>'70%');
+		$alcoholList[] = array('label'=>'75%', 'value'=>'75%');
 		$alcoholList[] = array('label'=>'90%', 'value'=>'90%');
 		echo $Form->select_field("alcoholContent","Alcohol Content",$alcoholList,'');
 		

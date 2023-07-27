@@ -13,7 +13,7 @@ class Natures_Laboratory_Goods_Ins extends PerchAPI_Factory
 	public function getGoodsIn($q){
 		
 		$today = date('Y-m-d');
-		$date = strtotime($today.' -1 year');
+		$date = strtotime($today.' -12 weeks');
 		$date = date('Y-m-d', $date);
 		
 		if($q){

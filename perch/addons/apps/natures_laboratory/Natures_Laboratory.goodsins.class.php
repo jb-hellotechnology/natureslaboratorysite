@@ -88,7 +88,6 @@ class Natures_Laboratory_Goods_Ins extends PerchAPI_Factory
 	public function stockItem($stockCode){
 		
 		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CODE="'.$stockCode.'"';
-		echo $sql;
 		$data = $this->db->get_row($sql);
 		return $data;
 		

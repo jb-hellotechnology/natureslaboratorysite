@@ -48,7 +48,7 @@
 		
 		$stockList[] = array('label'=>'Please Select', 'value'=>0);
 		foreach($stock as $Stock){
-			$stockList[] = array('label'=>$Stock->stockCode()." | ".$Stock->description(), 'value'=>$Stock->stockCode());
+			$stockList[] = array('label'=>$Stock['STOCK_CODE']." | ".$Stock['DESCRIPTION'], 'value'=>$Stock['STOCK_CODE']);
 		}
 		echo $Form->select_field("productCode_new","Product Code",$stockList,'');
 		

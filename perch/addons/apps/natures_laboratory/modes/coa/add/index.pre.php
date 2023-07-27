@@ -11,7 +11,7 @@
     $Form = $API->get('Form');
     
     $batch = $NaturesLaboratoryGoodsIn->all();
-    $stock = $NaturesLaboratoryGoodsStock->all();
+	$stock = $NaturesLaboratoryGoodsStock->getStock();
     $country = $NaturesLaboratoryCOACountries->all();
     
     $Goods = array();

@@ -39,7 +39,7 @@
         // GET BG IMAGE
         $productLabel = '../../label_standard.jpg';
         if($productOrganic == 'organic' AND $productRestriction==''){
-	        if($product['productType']=='Cut Herb' OR $product['productType']=='Whole Herb' OR $product['productType']=='Powder'){
+	        if($product['productType']=='Cut Herb' OR $product['productType']=='Whole Herb' OR $product['productType']=='Whole' OR $product['productType']=='Powder'){
 	        	$productLabel = '../../label_organic_herb.jpg';
 	        }else{
 		        $productLabel = '../../label_organic.jpg';
@@ -49,13 +49,13 @@
         }elseif($productRestriction == 'poison' AND $productOrganic==''){
 	        $productLabel = '../../label_poison.jpg';
         }elseif($productOrganic=='organic' AND $productRestriction=='allergen'){
-	        if($product['productType']=='Cut Herb' OR $product['productType']=='Whole Herb' OR $product['productType']=='Powder'){
+	        if($product['productType']=='Cut Herb' OR $product['productType']=='Whole Herb' OR $product['productType']=='Whole' OR $product['productType']=='Powder'){
 	        	$productLabel = '../../label_organic_herb_allergen.jpg';
 	        }else{
 		        $productLabel = '../../label_organic_allergen.jpg';
 	        }
         }elseif($productOrganic=='organic' AND $productRestriction=='poison'){
-	        if($product['productType']=='Cut Herb' OR $product['productType']=='Whole Herb' OR $product['productType']=='Powder'){
+	        if($product['productType']=='Cut Herb' OR $product['productType']=='Whole Herb' OR $product['productType']=='Whole' OR $product['productType']=='Powder'){
 	        	$productLabel = '../../label_organic_herb_poison.jpg';
 	        }else{
 		        $productLabel = '../../label_organic_poison.jpg';

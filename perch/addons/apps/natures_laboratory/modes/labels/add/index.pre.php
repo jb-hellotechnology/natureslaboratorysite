@@ -38,6 +38,7 @@
         
         // GET BG IMAGE
         $productLabel = '../../label_standard.jpg';
+        print_r($product);
         if($productOrganic == 'organic' AND $productRestriction==''){
 	        if($product['productType']=='Cut Herb' OR $product['productType']=='Whole Herb' OR $product['productType']=='Whole' OR $product['productType']=='Powder'){
 	        	$productLabel = '../../label_organic_herb.jpg';

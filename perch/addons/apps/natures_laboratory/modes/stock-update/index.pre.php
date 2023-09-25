@@ -32,6 +32,11 @@ error_reporting(E_ALL);
     $export = $NaturesLaboratoryShopify->getParents(2,true,false);
     exportData($export,$output,'Tinctures','1000ml');
     
+    /** BIODYNAMIC **/
+    
+    $export = $NaturesLaboratoryShopify->getParentsBiodynamic(2,true,false);
+    exportData($export,$output,'Biodynamic','1000ml');
+    
     /** FLUID EXTRACTS **/
     
     $export = $NaturesLaboratoryShopify->getParents(4,true,false);
@@ -212,7 +217,7 @@ error_reporting(E_ALL);
 				$taxable = "";
 			}
 			
-			if($row['STOCK_CAT']=='2'){
+			if($row['STOCK_CAT']=='2' OR $row['STOCK_CAT']=='80'){
 				//TINCTURE
 				$nameParts = explode(" ",$name);
 				$partsCount = count($nameParts);

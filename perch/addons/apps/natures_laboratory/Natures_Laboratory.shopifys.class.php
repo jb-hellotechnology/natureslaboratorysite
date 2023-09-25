@@ -96,6 +96,16 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		return $data;
 	}
 	
+	public function getParentsBiodynamic($stock){
+		$stockLevel = '';
+		if($stock){
+			$stockLevel = 'AND QTY_IN_STOCK>0 ';
+		}
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE WEB_PUBLISH="1" AND STOCK_CODE LIKE "B%" AND STOCK_CAT="80" '.$stockLevel.'ORDER BY STOCK_CODE ASC';
+		$data = $this->db->get_rows($sql);
+		return $data;
+	}
+	
 	public function getParentsPessaries($stock){
 		$stockLevel = '';
 		if($stock){

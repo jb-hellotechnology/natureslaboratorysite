@@ -311,8 +311,10 @@ error_reporting(E_ALL);
 						if($qty<1){$qty = 0;}	
 					}
 					
-					$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
-					fputcsv($output, $data);
+					if($row['STOCK_CAT']<>'15'){
+						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+						fputcsv($output, $data);
+					}
 			    }
 			    
 			    if($row['STOCK_CAT']=='2' OR $row['STOCK_CAT']=='4'){

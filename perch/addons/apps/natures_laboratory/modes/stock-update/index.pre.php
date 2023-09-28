@@ -189,7 +189,9 @@ error_reporting(E_ALL);
 		    $name = str_replace(" ".$quantity, "", $row['DESCRIPTION']);
 		    
 		    //WHITBY TEA
-		    $name = str_replace(" 100g", "", $row['DESCRIPTION']);
+		    if(strpos($row['DESCRIPTION'], 'Whitby') === true){
+		    	$name = str_replace(" 100g", "", $row['DESCRIPTION']);
+		    }
 		    
 			$sku = $row['STOCK_CODE'];
 			$parentSku = $sku;

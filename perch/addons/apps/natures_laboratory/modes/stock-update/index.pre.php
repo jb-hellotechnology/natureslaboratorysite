@@ -89,7 +89,7 @@ error_reporting(E_ALL);
     
     /** WAXES AND GUMS **/
     
-    $export = $NaturesLaboratoryShopify->getParents(15,true,false);
+    $export = $NaturesLaboratoryShopify->getParents(15,false,false);
     exportData($export,$output,'Waxes and Gums','1000g');
     
     /** PACKAGING **/

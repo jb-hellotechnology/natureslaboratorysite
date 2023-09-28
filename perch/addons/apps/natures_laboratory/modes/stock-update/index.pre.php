@@ -191,6 +191,7 @@ error_reporting(E_ALL);
 		    //WHITBY TEA
 		    if(strpos($row['DESCRIPTION'], 'Whitby') !== false){
 		    	$name = str_replace(" 100g", "", $row['DESCRIPTION']);
+		    	$name = str_replace(" 1000g", "", $row['DESCRIPTION']);
 		    }
 		    
 			$sku = $row['STOCK_CODE'];

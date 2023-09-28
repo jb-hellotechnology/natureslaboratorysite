@@ -187,6 +187,10 @@ error_reporting(E_ALL);
 		    $weight = preg_replace("/[^0-9]/", "", $size);
 		    $unit = preg_replace('/[0-9]+/', '', $size);
 		    $name = str_replace(" ".$quantity, "", $row['DESCRIPTION']);
+		    
+		    //WHITBY TEA
+		    $name = str_replace(" 100g", "", $row['DESCRIPTION']);
+		    
 			$sku = $row['STOCK_CODE'];
 			$parentSku = $sku;
 			

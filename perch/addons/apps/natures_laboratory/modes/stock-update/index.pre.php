@@ -189,7 +189,7 @@ error_reporting(E_ALL);
 		    $name = str_replace(" ".$quantity, "", $row['DESCRIPTION']);
 		    
 		    //WHITBY TEA
-		    if(strpos($row['DESCRIPTION'], 'Whitby') === true){
+		    if(strpos($row['DESCRIPTION'], 'Whitby') !== false){
 		    	$name = str_replace(" 100g", "", $row['DESCRIPTION']);
 		    }
 		    

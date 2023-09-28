@@ -350,7 +350,7 @@ error_reporting(E_ALL);
 			    }
 			    
 			    if($row['STOCK_CAT']=='5' OR $row['STOCK_CAT']=='6' OR $row['STOCK_CAT']=='7' OR $row['STOCK_CAT']=='17'){
-				    if(strpos($row['DESCRIPTION'], 'Pessaries') === false){
+				    if(strpos($row['DESCRIPTION'], 'Pessaries') === false AND strpos($row['DESCRIPTION'], 'Whitby') === false){
 					    $size = '5kg';
 					    $sku = $parentSKU."/5000";
 					    $qty = floor($parentQTY/5);

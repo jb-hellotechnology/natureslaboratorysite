@@ -303,7 +303,33 @@ error_reporting(E_ALL);
 					fputcsv($output, $data);
 				}
 		
-			    
+			    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
+			    foreach($children as $row){
+				    $parts = explode(" ", $row['DESCRIPTION']);
+				    $size = end($parts);
+				    $weight = preg_replace("/[^0-9]/", "", $size);
+				    $unit = preg_replace('/[0-9]+/', '', $size);
+				    //$name = str_replace(" ".$quantity, "", $row['DESCRIPTION']);
+					$sku = $row['STOCK_CODE'];
+					
+					$price = number_format($row['SALES_PRICE'],2);
+					
+					if($row['STOCK_CAT']==5 OR $row['STOCK_CAT']==6 OR $row['STOCK_CAT']==7 OR $row['STOCK_CAT']==17){
+						if($size=='500g'){
+							$qty = $parentQty*2;
+						}elseif($size=='250g'){
+							$qty = $parentQty*4;
+						}
+					}else{
+						$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];
+						if($qty<1){$qty = 0;}	
+					}
+					
+					if($row['STOCK_CAT']<>'15'){
+						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+						fputcsv($output, $data);
+					}
+			    }
 			    
 			    if($row['STOCK_CAT']=='2' OR $row['STOCK_CAT']=='4'){
 				    $size = '5l';
@@ -372,7 +398,7 @@ error_reporting(E_ALL);
 			    }
 			    
 			    if($row['STOCK_CAT']=='8'){
-				    if(strpos($row['DESCRIPTION'], 'Hello ') == false){
+				    if(strpos($row['DESCRIPTION'], 'Hello ') === false){
 				    	$children = $NaturesLaboratoryShopify->getChildrenCapsules($row['STOCK_CODE']);
 					    foreach($children as $row){
 						    $parts = explode(" ", $row['DESCRIPTION']);

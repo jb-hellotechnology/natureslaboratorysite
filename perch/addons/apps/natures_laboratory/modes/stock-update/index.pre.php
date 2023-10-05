@@ -303,8 +303,6 @@ error_reporting(E_ALL);
 					fputcsv($output, $data);
 				}
 		
-				
-				
 			    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
 			    foreach($children as $row){
 				    $parts = explode(" ", $row['DESCRIPTION']);
@@ -327,7 +325,7 @@ error_reporting(E_ALL);
 						if($qty<1){$qty = 0;}	
 					}
 					
-					if($row['STOCK_CAT']<>'15'){
+					if($row['STOCK_CAT']<>'15' AND strpos($row['DESCRIPTION'], 'Hello ') == false){
 						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
 						fputcsv($output, $data);
 					}

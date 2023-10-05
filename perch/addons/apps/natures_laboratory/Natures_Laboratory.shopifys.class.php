@@ -60,6 +60,12 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		return $data;
 	}
 	
+	public function getCapsules(){
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE WEB_PUBLISH="1" AND STOCK_CAT="8" AND DESCRIPTION NOT LIKE "%/%" ORDER BY DESCRIPTION ASC';
+		$data = $this->db->get_rows($sql);
+		return $data;
+	}
+	
 	public function getBySKU($sku){
 		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE WEB_PUBLISH="1" AND STOCK_CODE="'.$sku.'"';
 		$data = $this->db->get_row($sql);

@@ -297,13 +297,13 @@ error_reporting(E_ALL);
 				
 				if(strpos($row['DESCRIPTION'], 'Hello ') !== false){
 					$data = array($handle, $name, "", "", "$sku", "$qty", "$price");
+					fputcsv($output, $data);
 				}else{
 					$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");	
+					fputcsv($output, $data);
 				}
-				
-				
 		
-				fputcsv($output, $data);
+				
 				
 			    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
 			    foreach($children as $row){
@@ -400,20 +400,22 @@ error_reporting(E_ALL);
 			    }
 			    
 			    if($row['STOCK_CAT']=='8'){
-			    	$children = $NaturesLaboratoryShopify->getChildrenCapsules($row['STOCK_CODE']);
-				    foreach($children as $row){
-					    $parts = explode(" ", $row['DESCRIPTION']);
-					    $size = '100 Capsules';
-					    $weight = preg_replace("/[^0-9]/", "", $size);
-					    $unit = preg_replace('/[0-9]+/', '', $size);
-					    //$name = str_replace(" ".$quantity, "", $row['DESCRIPTION']);
-						$sku = $row['STOCK_CODE'];
-						
-						$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];
-						$price = number_format($row['SALES_PRICE'],2);
-						
-						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
-						fputcsv($output, $data);
+				    if(strpos($row['DESCRIPTION'], 'Hello ') == false){
+				    	$children = $NaturesLaboratoryShopify->getChildrenCapsules($row['STOCK_CODE']);
+					    foreach($children as $row){
+						    $parts = explode(" ", $row['DESCRIPTION']);
+						    $size = '100 Capsules';
+						    $weight = preg_replace("/[^0-9]/", "", $size);
+						    $unit = preg_replace('/[0-9]+/', '', $size);
+						    //$name = str_replace(" ".$quantity, "", $row['DESCRIPTION']);
+							$sku = $row['STOCK_CODE'];
+							
+							$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];
+							$price = number_format($row['SALES_PRICE'],2);
+							
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+							fputcsv($output, $data);
+					    }
 				    }
 			    }
 			    

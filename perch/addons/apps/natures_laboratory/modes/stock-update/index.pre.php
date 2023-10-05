@@ -295,7 +295,13 @@ error_reporting(E_ALL);
 					}
 				}
 				
-				$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+				if(strpos($row['DESCRIPTION'], 'Hello ') !== false){
+					$data = array($handle, $name, "", "", "$sku", "$qty", "$price");
+				}else{
+					$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");	
+				}
+				
+				
 		
 				fputcsv($output, $data);
 				

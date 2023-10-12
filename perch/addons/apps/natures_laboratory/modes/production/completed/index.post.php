@@ -336,16 +336,6 @@
     </table>
 
 <?php
-	$numbers[] = array('label'=>'1', 'value'=>'1');
-		$numbers[] = array('label'=>'2', 'value'=>'2');
-		$numbers[] = array('label'=>'3', 'value'=>'3');
-		$numbers[] = array('label'=>'4', 'value'=>'4');
-		$numbers[] = array('label'=>'5', 'value'=>'5');
-		$numbers[] = array('label'=>'6', 'value'=>'6');
-		$numbers[] = array('label'=>'7', 'value'=>'7');
-		$numbers[] = array('label'=>'8', 'value'=>'8');
-		
-		echo $Form->select_field("start","Start Label",$numbers);
 		echo $Form->submit_field('btnSubmit', 'Download', $API->app_path());
 		echo $Form->form_end();
 	}

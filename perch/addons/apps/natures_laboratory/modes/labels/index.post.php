@@ -71,16 +71,6 @@
 
 <?php    
 	
-	$startList[] = array('label'=>'1', 'value'=>1);
-	$startList[] = array('label'=>'2', 'value'=>2);
-	$startList[] = array('label'=>'3', 'value'=>3);
-	$startList[] = array('label'=>'4', 'value'=>4);
-	$startList[] = array('label'=>'5', 'value'=>5);
-	$startList[] = array('label'=>'6', 'value'=>6);
-	$startList[] = array('label'=>'7', 'value'=>7);
-	$startList[] = array('label'=>'8', 'value'=>8);
-	echo $Form->select_field("start","Start Label",$startList,'');
-	
 	$taskList[] = array('label'=>'Generate Labels', 'value'=>'labels');
 	$taskList[] = array('label'=>'Delete', 'value'=>'delete');
 	echo $Form->select_field("task","Task",$taskList,'');

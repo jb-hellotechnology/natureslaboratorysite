@@ -1,5 +1,9 @@
 <?php
-	
+/*
+		ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+*/
 	if (!$CurrentUser->has_priv('natures_laboratory.labels')) exit;
     
     $NaturesLaboratoryProduction = new Natures_Laboratory_Productions($API); 
@@ -376,6 +380,18 @@
 					
 					//print_r($labelList);
 					
+					$pdf = new FPDF('L', 'in', array(4,3));
+
+					while($currentLabel<$totalLabels){
+						$pdf->AddPage();
+						$labelBg = $labelBg;
+						$pdf->Image($labelBg,0,0,4,3);
+						$currentLabel++;
+					}
+			
+					$pdf->Output("D", "labels.pdf");
+					
+/*
 					$pdf = new FPDF();
 					$pdf->AddPage();
 		
@@ -406,6 +422,7 @@
 					}
 		
 					$pdf->Output("D", "labels.pdf");
+*/
 		    	}	    	
 		    }
 		}

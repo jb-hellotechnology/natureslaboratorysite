@@ -57,6 +57,18 @@ error_reporting(E_ALL);
 			
 			//print_r($labelList);
 			
+			$pdf = new FPDF('L', 'in', array(4,3));
+
+			while($currentLabel<$totalLabels){
+				$pdf->AddPage();
+				$labelBg = $labelList[$currentLabel];
+				$pdf->Image($labelBg,0,0,4,3);
+				$currentLabel++;
+			}
+	
+			$pdf->Output("D", "labels.pdf");
+			
+/*
 			$pdf = new FPDF();
 			$pdf->AddPage();
 
@@ -88,6 +100,7 @@ error_reporting(E_ALL);
 			}
 
 			$pdf->Output("D", "labels.pdf");
+*/
 
 	    
 	    }elseif($data['task']=='delete'){

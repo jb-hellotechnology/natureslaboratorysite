@@ -80,7 +80,7 @@
 	    $DESCRIPTION = $NaturesLaboratoryGoodsIn->getDescription($Goods['productCode']);
 ?>
             <tr>
-	            <td><?php echo $Form->checkbox("batch_".$Goods['ourBatch'],'on',''); ?></td>
+	            <td><?php echo $Form->radio("download", 'download', "batch_".$Goods['ourBatch'],'on',''); ?></td>
                 <td><?php echo $Goods['staff'] ?></td>
                 <td><?php echo $Goods['productCode']; ?></td>
                 <td><?php echo $DESCRIPTION; ?></td>

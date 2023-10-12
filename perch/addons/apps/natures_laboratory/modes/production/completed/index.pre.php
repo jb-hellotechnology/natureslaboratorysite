@@ -400,7 +400,21 @@ error_reporting(E_ALL);
 					$totalLabels = count($files);
 					
 					//print_r($labelList);
+
+					$pdf = new FPDF('L', 'in', array(4,3));
+
+					foreach($files as $labelFile){
+						if($labelFile<>'.' && $labelFile<>'..' && $labelFile<>'.DS_Store'){
+							$pdf->AddPage();
+							$labelBg = $labelBg;
+							$pdf->Image('../productlabels/'.$label.'/'.$labelFile,0,0,4,3);
+							$currentLabel++;
+						}
+					}
+			
+					$pdf->Output("D", "labels.pdf");
 					
+/*
 					$pdf = new FPDF();
 					$pdf->AddPage();
 		
@@ -433,6 +447,7 @@ error_reporting(E_ALL);
 					}
 		
 					$pdf->Output("D", "labels.pdf");
+*/
 		    	}
 		    }
 	    }

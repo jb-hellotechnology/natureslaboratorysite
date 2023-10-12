@@ -1,7 +1,9 @@
 <?php
+/*
 	ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+*/
 	if (!$CurrentUser->has_priv('natures_laboratory.goodsin')) exit;
 	
 	$NaturesLaboratoryGoodsIn = new Natures_Laboratory_Goods_Ins($API);
@@ -106,10 +108,12 @@ error_reporting(E_ALL);
 		mkdir("../pngs/$labelsID", 0755);
 		$url = "../pngs/$labelsID";
 		
-		$name = wordwrap($productName, 22, "<br />");
+		$name = str_replace(array("250ml", "500ml", "1000ml", "250g", "500g", "1000g"), "", $productName);
+		
+		$name = wordwrap($name, 20, "<br />");
 		$nameLines = explode("<br />", $name);
 		
-		$notes = wordwrap($productNotes, 46, "<br />");
+		$notes = wordwrap($productNotes, 42, "<br />");
 		$notesLines = explode("<br />", $notes);
 		
 		$batch = $new_goods->ourBatch();
@@ -117,7 +121,7 @@ error_reporting(E_ALL);
 		$bag = 0;
 		while($bag<=$data['bags']){
 			// Create the image
-			$im = imagecreatetruecolor(1171, 800);
+			$im = imagecreatetruecolor(1200, 900);
 			
 			// Create some colors
 			$green = imagecolorallocate($im, 001, 149, 135);
@@ -129,12 +133,12 @@ error_reporting(E_ALL);
 			// Copy the stamp image onto our photo using the margin offsets and the photo 
 			// width to calculate positioning of the stamp. 
 			$background = imagecreatefromjpeg($productLabel);
-			imagecopy($im, $background, 0, 0, 0, 0, 1171, 800);
+			imagecopy($im, $background, 0, 0, 0, 0, 1200, 900);
 			
 			// Add the text
-			imagettftext($im, 28, 0, 40, 280, $green, $fontHeavy, ucwords($productType)."          ".ucwords($productCode));
+			imagettftext($im, 40, 0, 40, 280, $green, $fontHeavy, ucwords($productType)."     ".ucwords($productCode));
 			
-			$lineStart = 360;
+			$lineStart = 380;
 			foreach($nameLines as $line){
 				imagettftext($im, 40, 0, 40, $lineStart, $green, $fontLight, $line);
 				$lineStart = $lineStart + 60;
@@ -145,24 +149,24 @@ error_reporting(E_ALL);
 				$lineStart = $lineStart + 26;
 			}
 	
-			imagettftext($im, 20, 0, 40, 710, $green, $fontHeavy, "Batch");
-			imagettftext($im, 28, 0, 40, 750, $green, $fontLight, "$batch");
+			imagettftext($im, 20, 0, 40, 790, $green, $fontHeavy, "Batch");
+			imagettftext($im, 28, 0, 40, 850, $green, $fontLight, "$batch");
 			
-			imagettftext($im, 20, 0, 270, 710, $green, $fontHeavy, "BBE");
-			imagettftext($im, 28, 0, 270, 750, $green, $fontLight, "$productBBE");
+			imagettftext($im, 20, 0, 270, 790, $green, $fontHeavy, "BBE");
+			imagettftext($im, 28, 0, 270, 850, $green, $fontLight, "$productBBE");
 			
-			imagettftext($im, 20, 0, 500, 710, $green, $fontHeavy, "Size");
+			imagettftext($im, 20, 0, 500, 790, $green, $fontHeavy, "Size");
 			if($bag==$data['bags']){
-				imagettftext($im, 28, 0, 500, 750, $green, $fontLight, "SAMPLE");
+				imagettftext($im, 28, 0, 500, 850, $green, $fontLight, "SAMPLE");
 			}else{
-				imagettftext($im, 28, 0, 500, 750, $green, $fontLight, "$weights[$bag]");
+				imagettftext($im, 28, 0, 500, 850, $green, $fontLight, "$weights[$bag]".$data['unit']);
 			}
 			
 			$codeContents = "https://natureslaboratory.co.uk/perch/addons/apps/natures_laboratory/goods-in/go/?id=".$batch;
 		    $fileName = 'qr_'.str_replace("/","-",$batch).'.png';
 		    QRcode::png($codeContents, $fileName, QR_ECLEVEL_L, 7);
 		    $qr = imagecreatefrompng($fileName);
-		    imagecopyresized($im, $qr, 860, 238, 0, 0, 280, 280, 300, 300);
+		    imagecopyresized($im, $qr, 860, 214, 0, 0, 310, 310, 300, 300);
 			unlink($fileName);
 			
 			// Output and free memory

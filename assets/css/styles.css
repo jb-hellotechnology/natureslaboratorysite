@@ -555,6 +555,41 @@ ul.timeline li:nth-child(odd) img{
 	margin:0;
 }
 
+.wholesale_grid ul{
+	list-style:none;
+	margin:0;
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-column-gap: 2rem;
+	grid-row-gap: 4rem;
+	margin-top:2rem;
+}
+
+.wholesale_grid ul li img{
+	margin-bottom:1rem;
+}
+
+.wholesale_grid ul li p{
+	margin-bottom:1rem;
+}
+
+.wholesale_grid ul li small{
+	font-size:0.8rem;
+	display: block;
+	font-weight:700;
+}
+
+@media screen and (max-width:1024px){
+	.wholesale_grid ul{
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media screen and (max-width:640px){
+	.wholesale_grid ul{
+		grid-template-columns: 1fr;
+	}
+}
 
 /* MODIFIERS */
 

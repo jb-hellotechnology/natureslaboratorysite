@@ -91,7 +91,7 @@
 		imagecopy($im, $background, 0, 0, 0, 0, 1200, 900);
 		
 		// Add the text
-		imagettftext($im, 40, 0, 40, 280, $green, $fontHeavy, ucwords($productType)."     ".ucwords($productCode));
+		imagettftext($im, 40, 0, 40, 280, $green, $fontHeavy, ucwords($productType)." ".ucwords($productCode));
 		
 		$lineStart = 380;
 		foreach($nameLines as $line){

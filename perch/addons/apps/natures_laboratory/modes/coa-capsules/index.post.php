@@ -46,6 +46,7 @@
                 <th>Date Entered</th>
                 <th>Our Batch</th>
                 <th>Product Code</th>
+                <th>Common Name</th>
                 <th>View/Edit</th>
                 <th class="action last">Delete</th>
             </tr>
@@ -60,6 +61,7 @@
                 <td><?php echo $COA['dateEntered'] ?></td>
                 <td><?php echo $COA['ourBatch']; ?></td>
                 <td><?php echo $specData['productCode']; ?></td>
+                <td><?php echo $specData['commonName']; ?></td>
                 <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/coa-capsules/edit/?id=<?php echo $HTML->encode(urlencode($COA['natures_laboratory_coa_capsuleID'])); ?>"><?php echo 'View/Edit'; ?></a></td>
                 <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/coa-capsules/delete/?id=<?php echo $HTML->encode(urlencode($COA['natures_laboratory_coa_capsuleID'])); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
             </tr>

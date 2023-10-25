@@ -64,6 +64,7 @@
                 <th>Supplier</th>
                 <th>Quantity</th>
                 <th>Supplier's Batch</th>
+                <th>Country</th>
                 <th>Our Batch</th>
                 <th>BBE</th>
                 <th>QA Check</th>
@@ -97,6 +98,7 @@
 	            </td>
                 <td><?php echo $Goods['qty']; ?></td>
                 <td><?php echo $Goods['suppliersBatch']; ?></td>
+                <td><?php echo $Goods['countryOfOrigin']; ?></td>
                 <td><?php echo $Goods['ourBatch']; ?></td>
                 <td><?php if($Goods['bbe']<>'1970-01-01'){echo $Goods['bbe'];} ?></td>
                 <td>

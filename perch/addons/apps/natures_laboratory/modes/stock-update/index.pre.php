@@ -307,7 +307,7 @@ error_reporting(E_ALL);
 							$data = array($handle, $name, "Size", "60 Capsules x 6", "$sku", "$qty", "$price");	
 							fputcsv($output, $data);
 						}else{
-							$data = array($handle, $name, "Size", "60 Capsules", "$sku", "$qty", "$price");	
+							$data = array($handle."-60", $name, "Size", "60 Capsules", "$sku", "$qty", "$price");	
 							fputcsv($output, $data);						
 						}
 					}else{

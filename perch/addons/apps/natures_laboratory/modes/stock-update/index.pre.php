@@ -275,7 +275,7 @@ error_reporting(E_ALL);
 				//CAPSULES
 				$nameParts = explode(" / ",$name);
 				$herb = $nameParts[0];
-				$body = "<p>Powdered $herb contained in size ‘0’ Vegetable Cellulose Capsules. Sold in bags of 1000 Capsules or pots of 100 Capsules.</p>";
+				$body = "<p>Powdered $herb contained in size ‘0’ Vegetable Cellulose Capsules.</p>";
 			}elseif($row['STOCK_CAT']=='12'){
 				//ESSENTIAL OIL
 				$body = "<p><strong>Directions for Use</strong></p><ul><li><em>Diffusion:</em> Use three to four drops in the diffuser of your choice.</li><li><em>Topical use:</em> Apply one to two drops to desired area. Dilute with a carrier oil to minimize any skin sensitivity.</li></ul><p><strong>Cautions</strong></p><p>Possible skin sensitivity. Keep out of reach of children. If you are pregnant, nursing, or under a doctor’s care, consult your physician. Avoid contact with eyes, inner ears, and sensitive areas.</p>";
@@ -401,7 +401,7 @@ error_reporting(E_ALL);
 			    }
 			    
 			    if($row['STOCK_CAT']=='8'){
-				    if(strpos($row['DESCRIPTION'], 'Hello ') === false){
+				    if(strpos($row['DESCRIPTION'], 'Hello ') === false AND $quantity<>'60'){
 				    	$children = $NaturesLaboratoryShopify->getChildrenCapsules($row['STOCK_CODE']);
 					    foreach($children as $row){
 						    $parts = explode(" ", $row['DESCRIPTION']);

@@ -302,8 +302,13 @@ error_reporting(E_ALL);
 					$data = array($handle, $name, "", "", "$sku", "$qty", "$price");
 					fputcsv($output, $data);
 				}else{
-					$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");	
-					fputcsv($output, $data);
+					if($quantity=='60'){
+						$data = array($handle, $name, "Size", "60 Capsules", "$sku", "$qty", "$price");	
+						fputcsv($output, $data);						
+					}else{
+						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");	
+						fputcsv($output, $data);
+					}
 				}
 		
 			    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
@@ -417,6 +422,10 @@ error_reporting(E_ALL);
 							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
 							fputcsv($output, $data);
 					    }
+				    }
+				    
+				    if($quantity=='60'){
+					    
 				    }
 			    }
 			    

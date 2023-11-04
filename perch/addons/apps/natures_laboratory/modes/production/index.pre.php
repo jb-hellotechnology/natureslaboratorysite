@@ -16,8 +16,8 @@
     $fluids = array();
     $fluids = $NaturesLaboratoryProduction->getShortfall(4);
     
-    $beevital = array();
-    $beevital = $NaturesLaboratoryProduction->getShortfall(10);
+    $beeVital = array();
+    $beeVital = $NaturesLaboratoryProduction->getShortfall(10);
     
     $creams = array();
     $creams = $NaturesLaboratoryProduction->getShortfall(11);

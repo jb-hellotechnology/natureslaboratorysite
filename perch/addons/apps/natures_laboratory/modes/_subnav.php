@@ -42,6 +42,10 @@
             'label'=> 'COA - Products'
         ],
         [
+            'page' => 'natures_laboratory/msds',
+            'label'=> 'MSDS'
+        ],
+        [
             'page' => 'natures_laboratory/production',
             'label'=> 'Production'
         ],

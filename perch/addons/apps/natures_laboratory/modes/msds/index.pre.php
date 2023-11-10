@@ -41,8 +41,8 @@
 			{
 				$this->Line(0,276,300,276);
 			    $this->SetY(-24);
-			    //$this->Image('../organic.png',10,280,0,12);
-			    //$this->Image('../9001.jpg',30,280,0,12);
+			    $this->Image('../organic.png',10,280,0,12);
+			    $this->Image('../9001.jpg',30,280,0,12);
 			    $this->SetY(-17);$this->SetX(-10);
 			    $this->SetFont('Arial','',6);
 			    $this->Cell(0,3,"Nature's Laboratory Ltd",0,1,'R');

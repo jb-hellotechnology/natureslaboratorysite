@@ -245,4 +245,26 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		}
 	}
 	
+	public function onOffer($sku){
+		$sql = 'SELECT * FROM perch3_natures_laboratory_stock_offers WHERE STOCK_CODE="'.$sku.'"';
+		$data = $this->db->get_row($sql);
+		if($data){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	public function offerPrice($sku){
+		$sql = 'SELECT * FROM perch3_natures_laboratory_stock_offers WHERE STOCK_CODE="'.$sku.'"';
+		$data = $this->db->get_row($sql);
+		if($data){
+			$price = 'SELECT SALES_PRICE FROM perch3_natureslaboratory_stock WHERE STOCK_CODE="'.$sku.'"';
+			$price = $this->db->get_row($price);
+			$m = (100-$data['discount'])/100;
+			$offerPrice = number_format($price['SALES_PRICE']*$m,2);
+			return $offerPrice;
+		}
+	}
+	
 }

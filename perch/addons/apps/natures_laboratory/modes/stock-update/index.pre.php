@@ -20,7 +20,7 @@ error_reporting(E_ALL);
 	
 	ob_end_clean();
     
-    fputcsv($output, array("Handle", "Title", "Option1 Name", "Option1 Value", "Variant SKU", "Variant Inventory Qty", "Variant Price"));
+    fputcsv($output, array("Handle", "Title", "Option1 Name", "Option1 Value", "Variant SKU", "Variant Inventory Qty", "Variant Price", "Variant Compare At Price"));
     
     
     /** CHEMICALS **/
@@ -116,7 +116,12 @@ error_reporting(E_ALL);
 		
 		$taxable = "TRUE";
 		
-		$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
+		if($NaturesLaboratoryShopify->onOffer($row['STOCK_CODE'])){
+			$offerPrice = $NaturesLaboratoryShopify->offerPrice($row['STOCK_CODE']);
+			$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$offerPrice", "$row[SALES_PRICE]");
+		}else{	
+			$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]", "");
+		}
 
 		fputcsv($output, $data);
     }
@@ -147,11 +152,21 @@ error_reporting(E_ALL);
 			$stock = $individual['QTY_IN_STOCK']-$individual['QTY_ALLOCATED'];
 			$qty = floor($stock/6);
 			
-			$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
+			if($NaturesLaboratoryShopify->onOffer($row['STOCK_CODE'])){
+				$offerPrice = $NaturesLaboratoryShopify->offerPrice($row['STOCK_CODE']);
+				$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$offerPrice", "$row[SALES_PRICE]");
+			}else{	
+				$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]", "");
+			}
 			
 		}else{
 		
-			$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
+			if($NaturesLaboratoryShopify->onOffer($row['STOCK_CODE'])){
+				$offerPrice = $NaturesLaboratoryShopify->offerPrice($row['STOCK_CODE']);
+				$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$offerPrice", "$row[SALES_PRICE]");
+			}else{	
+				$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]", "");
+			}
 		
 		}
 
@@ -178,7 +193,12 @@ error_reporting(E_ALL);
 		
 		$tags = str_replace("’","","$row[WEB_CATEGORY_1],$row[WEB_CATEGORY_2],$row[WEB_CATEGORY_3]");
 		
-		$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]");
+		if($NaturesLaboratoryShopify->onOffer($row['STOCK_CODE'])){
+			$offerPrice = $NaturesLaboratoryShopify->offerPrice($row['STOCK_CODE']);
+			$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$offerPrice", "$row[SALES_PRICE]");
+		}else{	
+			$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]", "");
+		}
 
 		fputcsv($output, $data);
     }
@@ -299,19 +319,39 @@ error_reporting(E_ALL);
 				}
 				
 				if(strpos($row['DESCRIPTION'], 'Hello ') !== false){
-					$data = array($handle, $name, "", "", "$sku", "$qty", "$price");
+					if($NaturesLaboratoryShopify->onOffer($sku)){
+						$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+						$data = array($handle, $name, "", "", "$sku", "$qty", "$offerPrice", "$price");
+					}else{	
+						$data = array($handle, $name, "", "", "$sku", "$qty", "$price", "");
+					}	
 					fputcsv($output, $data);
 				}else{
 					if($quantity=='60'){
 						if(substr($sku, -1)=='T'){
-							$data = array($handle, $name, "Size", "60 Capsules x 6", "$sku", "$qty", "$price");	
+							if($NaturesLaboratoryShopify->onOffer($sku)){
+								$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+								$data = array($handle, $name, "Size", "60 Capsules x 6", "$sku", "$qty", "$offerPrice", "$price");
+							}else{	
+								$data = array($handle, $name, "Size", "60 Capsules x 6", "$sku", "$qty", "$price", "");
+							}	
 							fputcsv($output, $data);
 						}else{
-							$data = array($handle."-60", $name, "Size", "60 Capsules", "$sku", "$qty", "$price");	
+							if($NaturesLaboratoryShopify->onOffer($sku)){
+								$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+								$data = array($handle."-60", $name, "Size", "60 Capsules", "$sku", "$qty", "$offerPrice", "$price");
+							}else{	
+								$data = array($handle."-60", $name, "Size", "60 Capsules", "$sku", "$qty", "$price", "");
+							}	
 							fputcsv($output, $data);						
 						}
 					}else{
-						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");	
+						if($NaturesLaboratoryShopify->onOffer($sku)){
+							$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+						}else{	
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+						}	
 						fputcsv($output, $data);
 					}
 				}
@@ -339,7 +379,12 @@ error_reporting(E_ALL);
 					}
 					
 					if($row['STOCK_CAT']<>'15'){
-						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+						if($NaturesLaboratoryShopify->onOffer($sku)){
+							$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+						}else{	
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+						}
 						fputcsv($output, $data);
 					}
 			    }
@@ -352,7 +397,12 @@ error_reporting(E_ALL);
 					    $qty = 0;
 				    }
 				    $price = number_format(($parentPrice*5)*0.975, 2, '.', '');
-				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+				    if($NaturesLaboratoryShopify->onOffer($sku)){
+						$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+					}else{	
+						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+					}
 					fputcsv($output, $data);
 					
 					$size = '10l';
@@ -362,7 +412,12 @@ error_reporting(E_ALL);
 					    $qty = 0;
 				    }
 				    $price = number_format(($parentPrice*10)*0.95, 2, '.', '');
-				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+				    if($NaturesLaboratoryShopify->onOffer($sku)){
+						$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+					}else{	
+						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+					}
 					fputcsv($output, $data);
 					
 					$size = '25l';
@@ -372,7 +427,12 @@ error_reporting(E_ALL);
 					    $qty = 0;
 				    }
 				    $price = number_format(($parentPrice*25)*0.90, 2, '.', '');
-				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+				    if($NaturesLaboratoryShopify->onOffer($sku)){
+						$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+					}else{	
+						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+					}
 					fputcsv($output, $data);
 			    }
 			    
@@ -385,7 +445,12 @@ error_reporting(E_ALL);
 						    $qty = 0;
 					    }
 					    $price = number_format(($parentPrice*5)*0.975, 2, '.', '');
-					    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+					    if($NaturesLaboratoryShopify->onOffer($sku)){
+							$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+						}else{	
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+						}
 						fputcsv($output, $data);
 						
 						$size = '10kg';
@@ -395,7 +460,12 @@ error_reporting(E_ALL);
 						    $qty = 0;
 					    }
 					    $price = number_format(($parentPrice*10)*0.95, 2, '.', '');
-					    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+					    if($NaturesLaboratoryShopify->onOffer($sku)){
+							$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+						}else{	
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+						}
 						fputcsv($output, $data);
 						
 						$size = '25kg';
@@ -405,13 +475,24 @@ error_reporting(E_ALL);
 						    $qty = 0;
 					    }
 					    $price = number_format(($parentPrice*25)*0.90, 2, '.', '');
-					    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+					    if($NaturesLaboratoryShopify->onOffer($sku)){
+							$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+						}else{	
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+						}
 						fputcsv($output, $data);
 					}
 			    }
 			    
 			    if($row['STOCK_CAT']=='8'){
 				    if(strpos($row['DESCRIPTION'], 'Hello ') === false AND $quantity<>'60'){
+					    if($NaturesLaboratoryShopify->onOffer($row['STOCK_CODE'])){
+							$offerPrice = $NaturesLaboratoryShopify->offerPrice($row['STOCK_CODE']);
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+						}else{	
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+						}
 				    	$children = $NaturesLaboratoryShopify->getChildrenCapsules($row['STOCK_CODE']);
 					    foreach($children as $row){
 						    $parts = explode(" ", $row['DESCRIPTION']);
@@ -424,13 +505,14 @@ error_reporting(E_ALL);
 							$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];
 							$price = number_format($row['SALES_PRICE'],2);
 							
-							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+							if($NaturesLaboratoryShopify->onOffer($sku)){
+								$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+								$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+							}else{	
+								$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+							}
 							fputcsv($output, $data);
 					    }
-				    }
-				    
-				    if($quantity=='60'){
-					    
 				    }
 			    }
 			    
@@ -455,7 +537,12 @@ error_reporting(E_ALL);
 					$qty = $organic['QTY_IN_STOCK']-$organic['QTY_ALLOCATED'];
 					if($qty<1){$qty = 0;}
 					
- 				    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+ 				    if($NaturesLaboratoryShopify->onOffer($sku)){
+						$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+					}else{	
+						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+					}
 					fputcsv($output, $data);
 					
 					$children = $NaturesLaboratoryShopify->getOrganicChildren($organic['STOCK_CODE']);
@@ -472,7 +559,12 @@ error_reporting(E_ALL);
 						$qty = $child['QTY_IN_STOCK']-$child['QTY_ALLOCATED'];
 						if($qty<1){$qty = 0;}
 						
-					    $data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price");
+					    if($NaturesLaboratoryShopify->onOffer($sku)){
+							$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+						}else{	
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+						}
 						fputcsv($output, $data);
 				    }
 			    

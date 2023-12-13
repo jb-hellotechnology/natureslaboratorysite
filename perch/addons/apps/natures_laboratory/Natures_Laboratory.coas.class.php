@@ -19,7 +19,7 @@ class Natures_Laboratory_COAs extends PerchAPI_Factory
 		if($q){
 			$sql = 'SELECT * FROM perch3_natures_laboratory_coa WHERE dateEntered>="'.$date.'" AND productCode="'.$q.'" ORDER BY natures_laboratory_coaID DESC';
 		}else{
-			$sql = 'SELECT * FROM perch3_natures_laboratory_coa WHERE dateEntered>="'.$date.'" ORDER BY natures_laboratory_coaID DESC';
+			$sql = 'SELECT * FROM perch3_natures_laboratory_coa WHERE dateEntered>="'.$date.'" ORDER BY natures_laboratory_coaID DESC LIMIT 20';
 		}
 		$data = $this->db->get_rows($sql);
 		return $data;

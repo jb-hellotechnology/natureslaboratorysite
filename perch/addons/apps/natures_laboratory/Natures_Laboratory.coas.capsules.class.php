@@ -19,7 +19,7 @@ class Natures_Laboratory_COA_Capsules extends PerchAPI_Factory
 		if($q){
 			$sql = 'SELECT * FROM perch3_natures_laboratory_coa_capsules WHERE dateEntered>="'.$date.'" AND spec="'.$q.'" ORDER BY natures_laboratory_coa_capsuleID DESC';
 		}else{
-			$sql = 'SELECT * FROM perch3_natures_laboratory_coa_capsules WHERE dateEntered>="'.$date.'" ORDER BY natures_laboratory_coa_capsuleID DESC';
+			$sql = 'SELECT * FROM perch3_natures_laboratory_coa_capsules WHERE dateEntered>="'.$date.'" ORDER BY natures_laboratory_coa_capsuleID DESC LIMIT 20';
 		}
 		$data = $this->db->get_rows($sql);
 		return $data;

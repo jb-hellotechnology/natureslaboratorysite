@@ -32,6 +32,18 @@
 	    'link'  => $API->app_nav().'/coa-products/countries/',
 	]);
 	
+	$Smartbar->add_item([
+        'active' => false,
+        'type'   => 'search',
+        'data'   => [
+            'search' => 'coa',
+        ],
+        'title'  => 'Search',
+        'arg'    => 'q',
+        'icon'   => 'core/search',
+        'position' => 'end',
+    ]);
+	
 	echo $Smartbar->render();
 
     echo $HTML->main_panel_start();

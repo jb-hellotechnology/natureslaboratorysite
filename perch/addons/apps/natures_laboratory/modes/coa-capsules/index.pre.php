@@ -15,7 +15,7 @@ error_reporting(E_ALL);
     $Form = $API->get('Form');
     
     $coa = array();
-    $coa = $NaturesLaboratoryCOA->getCOAs();
+    $coa = $NaturesLaboratoryCOA->getCOAs($_GET['q']);
     
 	if($Form->submitted()){
 	   	$postvars = array('coa');	   

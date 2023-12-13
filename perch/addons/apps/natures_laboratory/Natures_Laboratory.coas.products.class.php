@@ -10,13 +10,17 @@ class Natures_Laboratory_COA_Products extends PerchAPI_Factory
 	
 	public $static_fields = array('natures_laboratory_coa_productID','spec','dateEntered','ourBatch','countryOfOrigin','colour','odour','taste','natures_laboratory_coa_productDynamicFields');	
 	
-	public function getCOAs(){
+	public function getCOAs($q){
 		
 		$today = date('Y-m-d');
 		$date = strtotime($today.' -1 year');
 		$date = date('Y-m-d', $date);
 		
-		$sql = 'SELECT * FROM perch3_natures_laboratory_coa_products WHERE dateEntered>="'.$date.'" ORDER BY natures_laboratory_coa_productID DESC';
+		if($q){
+			$sql = 'SELECT * FROM perch3_natures_laboratory_coa_products WHERE dateEntered>="'.$date.'" AND spec="'.$q.'" ORDER BY natures_laboratory_coa_productID DESC';
+		}else{
+			$sql = 'SELECT * FROM perch3_natures_laboratory_coa_products WHERE dateEntered>="'.$date.'" ORDER BY natures_laboratory_coa_productID DESC';
+		}
 		$data = $this->db->get_rows($sql);
 		return $data;
 		

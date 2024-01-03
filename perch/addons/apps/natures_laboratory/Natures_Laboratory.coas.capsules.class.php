@@ -17,7 +17,7 @@ class Natures_Laboratory_COA_Capsules extends PerchAPI_Factory
 		$date = date('Y-m-d', $date);
 		
 		if($q){
-			$sql = 'SELECT * FROM perch3_natures_laboratory_coa_capsules WHERE dateEntered>="'.$date.'" AND spec="'.$q.'" ORDER BY natures_laboratory_coa_capsuleID DESC';
+			$sql = 'SELECT perch3_natures_laboratory_coa_capsules.*, perch3_natureslaboratory_stock.* FROM perch3_natures_laboratory_coa_capsules, perch3_natureslaboratory_stock WHERE perch3_natures_laboratory_coa_capsules.dateEntered>="'.$date.'" AND (perch3_natures_laboratory_coa_capsules.spec="'.$q.'" OR perch3_natures_laboratory_coa_capsules.ourBatch="'.$q.'" OR perch3_natureslaboratory_stock.DESCRIPTION LIKE "%'.$q.'%") AND perch3_natureslaboratory_stock.STOCK_CODE=perch3_natures_laboratory_coa_capsules.spec ORDER BY perch3_natures_laboratory_coa_capsules.natures_laboratory_coa_capsuleID DESC';
 		}else{
 			$sql = 'SELECT * FROM perch3_natures_laboratory_coa_capsules WHERE dateEntered>="'.$date.'" ORDER BY natures_laboratory_coa_capsuleID DESC LIMIT 20';
 		}

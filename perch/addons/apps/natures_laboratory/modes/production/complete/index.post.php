@@ -84,6 +84,8 @@
 		
 		$names[] = array('label'=>'Please Select', 'value'=>'');
 		$names[] = array('label'=>'Andy', 'value'=>'Andy');
+		$names[] = array('label'=>'Ash', 'value'=>'Ash');
+		$names[] = array('label'=>'Chris', 'value'=>'Chris');
 		$names[] = array('label'=>'Sean', 'value'=>'Sean');
 		$names[] = array('label'=>'Tom', 'value'=>'Tom');
 		echo $Form->select_field("completedBy","",$names,'');

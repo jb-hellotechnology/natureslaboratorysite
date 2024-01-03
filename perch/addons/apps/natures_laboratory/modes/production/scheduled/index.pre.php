@@ -74,7 +74,7 @@
 		imagecopy($im, $background, 0, 0, 0, 0, 1200, 900);
 		
 		// Add the text
-		imagettftext($im, 40, 0, 40, 280, $green, $fontHeavy, ucwords($productType)."     ".ucwords($productCode));
+		imagettftext($im, 40, 0, 40, 280, $green, $fontHeavy, ucwords($productType)."     ".ucwords($productCode)."     Barrel: ".$data['barrel']);
 		
 		$lineStart = 380;
 		foreach($nameLines as $line){
@@ -86,19 +86,23 @@
 		$wpo = 'P'.str_pad($_GET['id'], 6, '0', STR_PAD_LEFT);
 
 		imagettftext($im, 20, 0, 40, 790, $green, $fontHeavy, "WPO");
-		imagettftext($im, 28, 0, 40, 850, $green, $fontLight, "$wpo");
+		imagettftext($im, 24, 0, 40, 850, $green, $fontLight, "$wpo");
 		
 		imagettftext($im, 20, 0, 270, 790, $green, $fontHeavy, "Batch");
-		imagettftext($im, 28, 0, 270, 850, $green, $fontLight, "$data[batchPrefix]$data[finishedBatch]");
+		imagettftext($im, 24, 0, 270, 850, $green, $fontLight, "$data[batchPrefix]$data[finishedBatch]");
 		
 		imagettftext($im, 20, 0, 500, 790, $green, $fontHeavy, "Date In");
-		imagettftext($im, 28, 0, 500, 850, $green, $fontLight, "$data[date]");
+		imagettftext($im, 24, 0, 500, 850, $green, $fontLight, "$data[date]");
 		
 		imagettftext($im, 20, 0, 730, 790, $green, $fontHeavy, "Date Out");
-		imagettftext($im, 28, 0, 730, 850, $green, $fontLight, "$data[datePressed]");
+		imagettftext($im, 24, 0, 730, 850, $green, $fontLight, "$data[datePressed]");
 		
-		imagettftext($im, 20, 0, 990, 790, $green, $fontHeavy, "Barrel");
-		imagettftext($im, 28, 0, 990, 850, $green, $fontLight, "$data[barrel]");
+		$dateParts = explode("-", $data['datePressed']);
+		$year = $dateParts[0]+3;
+		$bbe = "$year-$dateParts[1]-$dateParts[2]";
+		
+		imagettftext($im, 20, 0, 990, 790, $green, $fontHeavy, "BBE");
+		imagettftext($im, 24, 0, 990, 850, $green, $fontLight, "$bbe");
 
 		
 		// Output and free memory

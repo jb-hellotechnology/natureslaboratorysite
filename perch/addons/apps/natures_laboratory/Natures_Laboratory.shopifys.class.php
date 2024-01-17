@@ -45,7 +45,6 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		    echo "Error opening file: $filename<br />";
 		}
 		
-/*
 		if($rowCount>4000){
 
 			$sql = 'SELECT * FROM perch3_natureslaboratory_stock';
@@ -70,7 +69,6 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 				$rows = count($data);
 				
 				if($rows>4000){
-*/
 				
 					echo "More than 4000 rows in _stock_prev<br />Truncating _stock<br />";
 				
@@ -105,7 +103,6 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 						$i++;
 					}
 					echo "Done!<br />";
-/*
 				}else{
 					echo '.csv file is empty #1<br />';
 				}
@@ -116,7 +113,6 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 			echo '.csv file is empty #2';
 			mail('jack@natureslaboratory.co.uk','Stock Import Failed', 'HA Stock import failed');
 		}
-*/
 		
 		// UPDATE SHOPIFY STOCK LEVELS ON HA
 		$sql = "SELECT perch3_natureslaboratory_stock.STOCK_CODE AS STOCKCODE, perch3_natureslaboratory_stock.QTY_IN_STOCK AS NEWSTOCK, perch3_natureslaboratory_stock_prev.QTY_IN_STOCK AS OLDSTOCK FROM perch3_natureslaboratory_stock, perch3_natureslaboratory_stock_prev WHERE (perch3_natureslaboratory_stock.STOCK_CODE = perch3_natureslaboratory_stock_prev.STOCK_CODE) AND perch3_natureslaboratory_stock.QTY_IN_STOCK < perch3_natureslaboratory_stock_prev.QTY_IN_STOCK AND perch3_natureslaboratory_stock.STOCK_CAT=2 AND perch3_natureslaboratory_stock.WEB_PUBLISH=1 ORDER BY perch3_natureslaboratory_stock.STOCK_CODE ASC;";

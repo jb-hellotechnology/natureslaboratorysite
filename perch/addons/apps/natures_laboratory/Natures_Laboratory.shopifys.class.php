@@ -52,20 +52,8 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 			$this->db->execute($sql);
 			
 			$sql = 'SELECT * FROM perch3_natureslaboratory_stock_prev';
-$result = $this->db->get_rows($sql);
-
-// Check if the query was successful
-if ($result !== false && $result instanceof mysqli_result) {
-    // Get the number of rows
-    $rows = $result->num_rows;
-
-    // Output or use the row count as needed
-    echo "Number of rows: $rows";
-} else {
-    // Handle the case where the query fails
-    echo "Error executing query: " . $this->db->error;
-}
-
+			$data = $this->db->get_rows($sql);
+			$rows = count($data);
 			
 			if($rows>4000){
 			

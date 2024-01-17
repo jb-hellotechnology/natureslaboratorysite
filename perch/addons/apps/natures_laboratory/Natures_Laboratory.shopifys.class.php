@@ -56,7 +56,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 			$rows = $result->num_rows;
 			echo $rows;
 			
-			if($rows>4000){
+			
 			
 				$sql = 'TRUNCATE TABLE perch3_natureslaboratory_stock';
 				$this->db->execute($sql);
@@ -86,9 +86,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					}
 					$i++;
 				}
-			}else{
-				echo 'FILE IS EMPTY';
-			}
+	
 		
 		}else{
 			mail('jack@natureslaboratory.co.uk','Stock Import Failed', 'HA Stock import failed');

@@ -1,5 +1,5 @@
 <?php
-
+	
 class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 {
     protected $table     = 'natures_laboratory_shopify';
@@ -18,7 +18,32 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 	public function importStock(){
 		
 		$fp = file('../sagedata/perchstock.csv');
-		if(count($fp)>4000){
+		
+		$filename = '../sagedata/perchstock.csv';
+		$rowCount = 0;
+		
+		// Open the file for reading
+		$file = fopen($filename, 'r');
+		
+		// Check if the file was opened successfully
+		if ($file) {
+		    // Loop through each line in the file
+		    while (($line = fgetcsv($file)) !== false) {
+		        // Increment the row count for each line
+		        $rowCount++;
+		    }
+		
+		    // Close the file
+		    fclose($file);
+		
+		    // Output the total row count
+		    echo "Total rows in $filename: $rowCount";
+		} else {
+		    // Handle the case where the file couldn't be opened
+		    echo "Error opening file: $filename";
+		}
+		
+		if($linecount>40000){
 
 			$sql = 'TRUNCATE TABLE perch3_natureslaboratory_stock_prev';
 			$this->db->execute($sql);
@@ -54,7 +79,13 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 				}
 				$i++;
 			}
+		}else{
+			echo 'FILE IS EMPTY';
 		}
+		
+		// UPDATE SHOPIFY STOCK LEVELS ON HA
+		$sql = "SELECT perch3_natureslaboratory_stock.STOCK_CODE AS STOCKCODE, perch3_natureslaboratory_stock.QTY_IN_STOCK AS NEWSTOCK, perch3_natureslaboratory_stock_prev.QTY_IN_STOCK AS OLDSTOCK FROM perch3_natureslaboratory_stock, perch3_natureslaboratory_stock_prev WHERE (perch3_natureslaboratory_stock.STOCK_CODE = perch3_natureslaboratory_stock_prev.STOCK_CODE) AND perch3_natureslaboratory_stock.QTY_IN_STOCK < perch3_natureslaboratory_stock_prev.QTY_IN_STOCK AND perch3_natureslaboratory_stock.STOCK_CAT=2 AND perch3_natureslaboratory_stock.WEB_PUBLISH=1 ORDER BY perch3_natureslaboratory_stock.STOCK_CODE ASC;";
+		
 	}
 
 	public function getParents($category,$slash,$stock){

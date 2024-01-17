@@ -52,7 +52,6 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 			$data = $this->db->get_rows($sql);
 			$rows = count($data);
 			if($rows>4000){
-*/
 
 				echo "More than 4000 rows in _stock<br />Truncating _stock_prev<br />";
 				
@@ -71,6 +70,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 				$rows = count($data);
 				
 				if($rows>4000){
+*/
 				
 					echo "More than 4000 rows in _stock_prev<br />Truncating _stock<br />";
 				
@@ -105,11 +105,11 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 						$i++;
 					}
 					echo "Done!<br />";
+/*
 				}else{
 					echo '.csv file is empty #1<br />';
 				}
 			
-/*
 			}
 		
 		}else{

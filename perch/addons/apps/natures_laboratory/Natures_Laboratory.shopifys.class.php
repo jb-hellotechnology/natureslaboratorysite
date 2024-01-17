@@ -52,7 +52,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 			$this->db->execute($sql);
 			
 			$sql = 'SELECT * FROM perch3_natureslaboratory_stock_prev';
-$result = $this->db->execute($sql);
+$result = $this->db->query($sql);
 
 // Check if the query was successful
 if ($result !== false && $result instanceof mysqli_result) {

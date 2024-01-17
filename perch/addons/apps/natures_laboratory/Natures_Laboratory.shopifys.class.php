@@ -37,10 +37,10 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		    fclose($file);
 		
 		    // Output the total row count
-		    echo "Total rows in $filename: $rowCount";
+		    echo "Total rows in $filename: $rowCount<br />";
 		} else {
 		    // Handle the case where the file couldn't be opened
-		    echo "Error opening file: $filename";
+		    echo "Error opening file: $filename<br />";
 		}
 		
 		if($rowCount>4000){
@@ -50,11 +50,17 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 			$rows = count($data);
 			if($rows>4000){
 
+				echo "More than 4000 rows in _stock<br />Truncating _stock_prev<br />";
+				
 				$sql = 'TRUNCATE TABLE perch3_natureslaboratory_stock_prev';
 				$this->db->execute($sql);
 				
+				echo "Inserting * from _stock into _stock_prev<br />";
+				
 				$sql = 'INSERT INTO perch3_natureslaboratory_stock_prev SELECT * FROM perch3_natureslaboratory_stock';
 				$this->db->execute($sql);
+				
+				echo "Checking rows in _stock_prev<br />";
 				
 				$sql = 'SELECT * FROM perch3_natureslaboratory_stock_prev';
 				$data = $this->db->get_rows($sql);
@@ -62,8 +68,12 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 				
 				if($rows>4000){
 				
+					echo "More than 4000 rows in _stock_prev<br />Truncating _stock<br />";
+				
 					$sql = 'TRUNCATE TABLE perch3_natureslaboratory_stock';
 					$this->db->execute($sql);
+					
+					echo "Reading .csv file into _stock<br />";
 					
 					$csvFile = file('../sagedata/perchstock.csv');
 					$i = 0;
@@ -90,13 +100,15 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 						}
 						$i++;
 					}
+					echo "Done!<br />";
 				}else{
-					echo 'FILE IS EMPTY';
+					echo '.csv file is empty #1<br />';
 				}
 			
 			}
 		
 		}else{
+			echo '.csv file is empty #2';
 			mail('jack@natureslaboratory.co.uk','Stock Import Failed', 'HA Stock import failed');
 		}
 		

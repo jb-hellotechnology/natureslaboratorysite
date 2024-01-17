@@ -53,9 +53,10 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 			
 			$sql = 'SELECT * FROM perch3_natureslaboratory_stock_prev';
 			$result = $this->db->execute($sql);
-			$data = $result->fetch_all(MYSQLI_ASSOC);
+			$rows = $result->num_rows;
+			echo $rows;
 			
-			if(count($data)>4000){
+			if($rows>4000){
 			
 				$sql = 'TRUNCATE TABLE perch3_natureslaboratory_stock';
 				$this->db->execute($sql);

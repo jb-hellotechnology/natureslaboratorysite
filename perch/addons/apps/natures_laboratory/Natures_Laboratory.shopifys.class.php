@@ -42,8 +42,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		    // Handle the case where the file couldn't be opened
 		    echo "Error opening file: $filename";
 		}
-		
-		if($rowCount>4000){
+
 
 			$sql = 'TRUNCATE TABLE perch3_natureslaboratory_stock_prev';
 			$this->db->execute($sql);
@@ -86,11 +85,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					}
 					$i++;
 				}
-	
-		
-		}else{
-			mail('jack@natureslaboratory.co.uk','Stock Import Failed', 'HA Stock import failed');
-		}
+
 		
 		// UPDATE SHOPIFY STOCK LEVELS ON HA
 		$sql = "SELECT perch3_natureslaboratory_stock.STOCK_CODE AS STOCKCODE, perch3_natureslaboratory_stock.QTY_IN_STOCK AS NEWSTOCK, perch3_natureslaboratory_stock_prev.QTY_IN_STOCK AS OLDSTOCK FROM perch3_natureslaboratory_stock, perch3_natureslaboratory_stock_prev WHERE (perch3_natureslaboratory_stock.STOCK_CODE = perch3_natureslaboratory_stock_prev.STOCK_CODE) AND perch3_natureslaboratory_stock.QTY_IN_STOCK < perch3_natureslaboratory_stock_prev.QTY_IN_STOCK AND perch3_natureslaboratory_stock.STOCK_CAT=2 AND perch3_natureslaboratory_stock.WEB_PUBLISH=1 ORDER BY perch3_natureslaboratory_stock.STOCK_CODE ASC;";

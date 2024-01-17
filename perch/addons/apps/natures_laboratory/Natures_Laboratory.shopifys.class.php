@@ -10,10 +10,12 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 	
 	public $static_fields = array('perch3_natures_laboratory_productID','SKU','categoryID','name','qty','price','handle','productDynamicFields');	
 	
+/*
 	public function emptyStock(){
 		$sql = 'TRUNCATE TABLE perch3_natureslaboratory_stock';
 		$this->db->execute($sql);
 	}
+*/
 	
 	public function importStock(){
 		

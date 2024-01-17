@@ -49,12 +49,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 			
 			$sql = 'INSERT INTO perch3_natureslaboratory_stock_prev SELECT * FROM perch3_natureslaboratory_stock';
 			$this->db->execute($sql);
-			
-			$sql = 'SELECT * FROM perch3_natureslaboratory_stock_prev';
-			$result = $this->db->execute($sql);
-			$rows = $result->num_rows;
-			echo $rows;
-			
+
 			
 			
 				$sql = 'TRUNCATE TABLE perch3_natureslaboratory_stock';

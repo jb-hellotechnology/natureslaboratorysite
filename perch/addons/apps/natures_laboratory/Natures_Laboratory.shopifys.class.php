@@ -43,7 +43,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		    echo "Error opening file: $filename";
 		}
 		
-		if($linecount>4000){
+		if($rowCount>4000){
 
 			$sql = 'TRUNCATE TABLE perch3_natureslaboratory_stock_prev';
 			$this->db->execute($sql);
@@ -90,7 +90,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 			}
 		
 		}else{
-			mail('jack@natureslaboratory.co.uk','Stock Import Failed');
+			mail('jack@natureslaboratory.co.uk','Stock Import Failed', 'HA Stock import failed');
 		}
 		
 		// UPDATE SHOPIFY STOCK LEVELS ON HA

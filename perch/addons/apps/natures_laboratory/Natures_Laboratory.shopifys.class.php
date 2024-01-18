@@ -374,7 +374,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					curl_setopt($ch, CURLOPT_POSTFIELDS, "{\"location_id\":77880295744,\"inventory_item_id\":$productSh[inventory_item_id],\"available\":$qty}");
 					
 					$headers = array();
-					$headers[] = 'X-Shopify-Access-Token: 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';
+					$headers[] = 'X-Shopify-Access-Token: ';
 					$headers[] = 'Content-Type: application/json';
 					curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 					
@@ -409,7 +409,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					curl_setopt($ch, CURLOPT_POSTFIELDS, "{\"location_id\":77880295744,\"inventory_item_id\":$productSh[inventory_item_id],\"available\":$qty}");
 					
 					$headers = array();
-					$headers[] = 'X-Shopify-Access-Token: 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';
+					$headers[] = 'X-Shopify-Access-Token: ';
 					$headers[] = 'Content-Type: application/json';
 					curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 					
@@ -445,7 +445,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					curl_setopt($ch, CURLOPT_POSTFIELDS, "{\"location_id\":77880295744,\"inventory_item_id\":$productSh[inventory_item_id],\"available\":$qty}");
 					
 					$headers = array();
-					$headers[] = 'X-Shopify-Access-Token: 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';
+					$headers[] = 'X-Shopify-Access-Token: ';
 					$headers[] = 'Content-Type: application/json';
 					curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 					
@@ -481,7 +481,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					curl_setopt($ch, CURLOPT_POSTFIELDS, "{\"location_id\":77880295744,\"inventory_item_id\":$productSh[inventory_item_id],\"available\":$qty}");
 					
 					$headers = array();
-					$headers[] = 'X-Shopify-Access-Token: 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';
+					$headers[] = 'X-Shopify-Access-Token: ';
 					$headers[] = 'Content-Type: application/json';
 					curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 					
@@ -514,7 +514,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					curl_setopt($ch, CURLOPT_POSTFIELDS, "{\"location_id\":77880295744,\"inventory_item_id\":$productS[inventory_item_id],\"available\":$qty}");
 					
 					$headers = array();
-					$headers[] = 'X-Shopify-Access-Token: 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';
+					$headers[] = 'X-Shopify-Access-Token: ';
 					$headers[] = 'Content-Type: application/json';
 					curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 					
@@ -557,7 +557,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 				curl_setopt($ch, CURLOPT_POSTFIELDS, "{\"location_id\":77875183890,\"inventory_item_id\":$productS[inventory_item_id],\"available\":$qty}");
 				
 				$headers = array();
-				$headers[] = 'X-Shopify-Access-Token: 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';
+				$headers[] = 'X-Shopify-Access-Token: ';
 				$headers[] = 'Content-Type: application/json';
 				curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 				

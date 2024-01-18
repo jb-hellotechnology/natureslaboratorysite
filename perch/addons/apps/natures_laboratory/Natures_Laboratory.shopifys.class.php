@@ -9,6 +9,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 	protected $default_sort_column = 'natures_laboratory_productID';
 	
 	public $static_fields = array('perch3_natures_laboratory_productID','SKU','categoryID','name','qty','price','handle','productDynamicFields');	
+
 	
 /*
 	public function emptyStock(){
@@ -340,7 +341,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		}
 	}
 	
-	public function syncbv(){
+	public function syncbv($token){
 		
 		// Get Stock Levels for BV Products
 		$products = "SELECT * FROM perch3_natureslaboratory_stock WHERE LEFT(STOCK_CODE, 2)='BV'";
@@ -374,7 +375,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					curl_setopt($ch, CURLOPT_POSTFIELDS, "{\"location_id\":77880295744,\"inventory_item_id\":$productSh[inventory_item_id],\"available\":$qty}");
 					
 					$headers = array();
-					$headers[] = 'X-Shopify-Access-Token: ';
+					$headers[] = 'X-Shopify-Access-Token: '.$token;
 					$headers[] = 'Content-Type: application/json';
 					curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 					
@@ -409,7 +410,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					curl_setopt($ch, CURLOPT_POSTFIELDS, "{\"location_id\":77880295744,\"inventory_item_id\":$productSh[inventory_item_id],\"available\":$qty}");
 					
 					$headers = array();
-					$headers[] = 'X-Shopify-Access-Token: ';
+					$headers[] = 'X-Shopify-Access-Token: '.$token;
 					$headers[] = 'Content-Type: application/json';
 					curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 					
@@ -445,7 +446,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					curl_setopt($ch, CURLOPT_POSTFIELDS, "{\"location_id\":77880295744,\"inventory_item_id\":$productSh[inventory_item_id],\"available\":$qty}");
 					
 					$headers = array();
-					$headers[] = 'X-Shopify-Access-Token: ';
+					$headers[] = 'X-Shopify-Access-Token: '.$token;
 					$headers[] = 'Content-Type: application/json';
 					curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 					
@@ -481,7 +482,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					curl_setopt($ch, CURLOPT_POSTFIELDS, "{\"location_id\":77880295744,\"inventory_item_id\":$productSh[inventory_item_id],\"available\":$qty}");
 					
 					$headers = array();
-					$headers[] = 'X-Shopify-Access-Token: ';
+					$headers[] = 'X-Shopify-Access-Token: '.$token;
 					$headers[] = 'Content-Type: application/json';
 					curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 					
@@ -514,7 +515,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					curl_setopt($ch, CURLOPT_POSTFIELDS, "{\"location_id\":77880295744,\"inventory_item_id\":$productS[inventory_item_id],\"available\":$qty}");
 					
 					$headers = array();
-					$headers[] = 'X-Shopify-Access-Token: ';
+					$headers[] = 'X-Shopify-Access-Token: '.$token;
 					$headers[] = 'Content-Type: application/json';
 					curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 					
@@ -534,7 +535,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		
 	}
 	
-	public function syncsc(){
+	public function syncsc($token){
 		
 		$products = "SELECT * FROM perch3_natureslaboratory_stock WHERE LEFT(STOCK_CODE, 2)='SC'";
 		$products = $this->db->get_rows($products);
@@ -557,7 +558,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 				curl_setopt($ch, CURLOPT_POSTFIELDS, "{\"location_id\":77875183890,\"inventory_item_id\":$productS[inventory_item_id],\"available\":$qty}");
 				
 				$headers = array();
-				$headers[] = 'X-Shopify-Access-Token: ';
+				$headers[] = 'X-Shopify-Access-Token: '.$token;
 				$headers[] = 'Content-Type: application/json';
 				curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 				

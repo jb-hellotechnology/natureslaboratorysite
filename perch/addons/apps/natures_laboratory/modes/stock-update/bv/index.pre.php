@@ -10,11 +10,14 @@ error_reporting(E_ALL);
     
     $NaturesLaboratoryShopify = new Natures_Laboratory_Shopifys($API); 
     
+    $Settings = $API->get('Settings');
+	$token = $Settings->get('natures_laboratory_bv_shopify')->settingValue();
+    
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
     
     if($Form->submitted()){
 	    // Import Stock
-	    $NaturesLaboratoryShopify->syncbv();
+	    $NaturesLaboratoryShopify->syncbv($token);
 	    $message = $HTML->success_message('Stock levels successfully synchronised'); 
 	}

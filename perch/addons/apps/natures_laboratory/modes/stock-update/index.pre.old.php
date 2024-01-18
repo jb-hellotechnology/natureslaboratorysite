@@ -20,7 +20,7 @@ error_reporting(E_ALL);
 	
 	ob_end_clean();
     
-    fputcsv($output, array("Handle", "Title", "Option1 Name", "Option1 Value", "Variant SKU", "Variant Grams", "Variant Inventory Qty", "Variant Price"));
+    fputcsv($output, array("Handle", "Title", "Option1 Name", "Option1 Value", "Variant SKU", "Variant Inventory Qty", "Variant Price", "Variant Compare At Price"));
     
     
     /** CHEMICALS **/
@@ -31,6 +31,11 @@ error_reporting(E_ALL);
     
     $export = $NaturesLaboratoryShopify->getParents(2,true,false);
     exportData($export,$output,'Tinctures','1000ml');
+    
+    /** BIODYNAMIC **/
+    
+    $export = $NaturesLaboratoryShopify->getParentsBiodynamic(2,true,false);
+    exportData($export,$output,'Biodynamic','1000ml');
     
     /** FLUID EXTRACTS **/
     
@@ -61,6 +66,12 @@ error_reporting(E_ALL);
     
     $export = $NaturesLaboratoryShopify->getParentsCapsules(false);
     exportData($export,$output,'Capsules','1000');
+
+    $export = $NaturesLaboratoryShopify->getParentsRetailCapsules(false);
+    exportData($export,$output,'Capsules','60');
+    
+    $export = $NaturesLaboratoryShopify->getCapsules();
+    exportData($export,$output,'Capsules','1000g');
     
     /** PESSARIES **/
     
@@ -84,7 +95,7 @@ error_reporting(E_ALL);
     
     /** WAXES AND GUMS **/
     
-    $export = $NaturesLaboratoryShopify->getParents(15,true,false);
+    $export = $NaturesLaboratoryShopify->getParents(15,false,false);
     exportData($export,$output,'Waxes and Gums','1000g');
     
     /** PACKAGING **/
@@ -105,7 +116,12 @@ error_reporting(E_ALL);
 		
 		$taxable = "TRUE";
 		
-		$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "", "$qty", "$row[SALES_PRICE]");
+		if($NaturesLaboratoryShopify->onOffer($row['STOCK_CODE'])){
+			$offerPrice = $NaturesLaboratoryShopify->offerPrice($row['STOCK_CODE']);
+			$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$offerPrice", "$row[SALES_PRICE]");
+		}else{	
+			$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]", "");
+		}
 
 		fputcsv($output, $data);
     }
@@ -136,11 +152,21 @@ error_reporting(E_ALL);
 			$stock = $individual['QTY_IN_STOCK']-$individual['QTY_ALLOCATED'];
 			$qty = floor($stock/6);
 			
-			$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "", "$qty", "$row[SALES_PRICE]");
+			if($NaturesLaboratoryShopify->onOffer($row['STOCK_CODE'])){
+				$offerPrice = $NaturesLaboratoryShopify->offerPrice($row['STOCK_CODE']);
+				$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$offerPrice", "$row[SALES_PRICE]");
+			}else{	
+				$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]", "");
+			}
 			
 		}else{
 		
-			$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "", "$qty", "$row[SALES_PRICE]");
+			if($NaturesLaboratoryShopify->onOffer($row['STOCK_CODE'])){
+				$offerPrice = $NaturesLaboratoryShopify->offerPrice($row['STOCK_CODE']);
+				$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$offerPrice", "$row[SALES_PRICE]");
+			}else{	
+				$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]", "");
+			}
 		
 		}
 
@@ -167,7 +193,12 @@ error_reporting(E_ALL);
 		
 		$tags = str_replace("’","","$row[WEB_CATEGORY_1],$row[WEB_CATEGORY_2],$row[WEB_CATEGORY_3]");
 		
-		$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "", "$qty", "$row[SALES_PRICE]");
+		if($NaturesLaboratoryShopify->onOffer($row['STOCK_CODE'])){
+			$offerPrice = $NaturesLaboratoryShopify->offerPrice($row['STOCK_CODE']);
+			$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$offerPrice", "$row[SALES_PRICE]");
+		}else{	
+			$data = array($handle, $name, "Title", "Default Title", "$row[STOCK_CODE]", "$qty", "$row[SALES_PRICE]", "");
+		}
 
 		fputcsv($output, $data);
     }
@@ -182,6 +213,13 @@ error_reporting(E_ALL);
 		    $weight = preg_replace("/[^0-9]/", "", $size);
 		    $unit = preg_replace('/[0-9]+/', '', $size);
 		    $name = str_replace(" ".$quantity, "", $row['DESCRIPTION']);
+		    
+		    //WHITBY TEA
+		    if(strpos($row['DESCRIPTION'], 'Whitby') !== false){
+		    	$name = str_replace(" 100g", "", $row['DESCRIPTION']);
+		    	$name = str_replace(" 1000g", "", $name);
+		    }
+		    
 			$sku = $row['STOCK_CODE'];
 			$parentSku = $sku;
 			
@@ -199,7 +237,7 @@ error_reporting(E_ALL);
 
 			$price = number_format($row['SALES_PRICE'],2);
 			
-			$handle = str_replace(array("%",":","/"),"",$name);
+			$handle = str_replace(array("%",":","/","'"),"",$name);
 			$handle = strtolower(str_replace(" ","-",$handle));
 			$handle = strtolower(str_replace("--","-",$handle));
 			$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];
@@ -212,7 +250,7 @@ error_reporting(E_ALL);
 				$taxable = "";
 			}
 			
-			if($row['STOCK_CAT']=='2'){
+			if($row['STOCK_CAT']=='2' OR $row['STOCK_CAT']=='80'){
 				//TINCTURE
 				$nameParts = explode(" ",$name);
 				$partsCount = count($nameParts);
@@ -257,7 +295,7 @@ error_reporting(E_ALL);
 				//CAPSULES
 				$nameParts = explode(" / ",$name);
 				$herb = $nameParts[0];
-				$body = "<p>Powdered $herb contained in size ‘0’ Vegetable Cellulose Capsules. Sold in bags of 1000 Capsules or pots of 100 Capsules.</p>";
+				$body = "<p>Powdered $herb contained in size ‘0’ Vegetable Cellulose Capsules.</p>";
 			}elseif($row['STOCK_CAT']=='12'){
 				//ESSENTIAL OIL
 				$body = "<p><strong>Directions for Use</strong></p><ul><li><em>Diffusion:</em> Use three to four drops in the diffuser of your choice.</li><li><em>Topical use:</em> Apply one to two drops to desired area. Dilute with a carrier oil to minimize any skin sensitivity.</li></ul><p><strong>Cautions</strong></p><p>Possible skin sensitivity. Keep out of reach of children. If you are pregnant, nursing, or under a doctor’s care, consult your physician. Avoid contact with eyes, inner ears, and sensitive areas.</p>";
@@ -269,18 +307,55 @@ error_reporting(E_ALL);
 				$parentQTY = $qty;
 				$parentPrice = $price;
 				
-				$parts = explode(" ", $row['DESCRIPTION']);
-				$size = end($parts);
-				if($size=='1000ml' OR $size=='1000g'){
-					$weight = 1000;
-				}else{
-					$weight = 0;
-				}    
-				    
-				$data = array($handle, $name, "Size", "$size", "$sku", "$weight", "$qty", "$price");
-		
-				fputcsv($output, $data);
+				if($row['STOCK_CAT']=='8'){
+					if($qty==0){
+						$skuParts = explode("V", $sku);
+						$powderSKU = substr($skuParts[0],1);
+						if(strlen($powderSKU)>3){
+							$powderData = $NaturesLaboratoryShopify->getBySKU($powderSKU);
+							$qty = floor(($powderData['QTY_IN_STOCK']-$powderData['QTY_ALLOCATED'])*1.5);
+						}
+					}
+				}
 				
+				if(strpos($row['DESCRIPTION'], 'Hello ') !== false){
+					if($NaturesLaboratoryShopify->onOffer($sku)){
+						$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+						$data = array($handle, $name, "", "", "$sku", "$qty", "$offerPrice", "$price");
+					}else{	
+						$data = array($handle, $name, "", "", "$sku", "$qty", "$price", "");
+					}	
+					fputcsv($output, $data);
+				}else{
+					if($quantity=='60'){
+						if(substr($sku, -1)=='T'){
+							if($NaturesLaboratoryShopify->onOffer($sku)){
+								$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+								$data = array($handle, $name, "Size", "60 Capsules x 6", "$sku", "$qty", "$offerPrice", "$price");
+							}else{	
+								$data = array($handle, $name, "Size", "60 Capsules x 6", "$sku", "$qty", "$price", "");
+							}	
+							fputcsv($output, $data);
+						}else{
+							if($NaturesLaboratoryShopify->onOffer($sku)){
+								$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+								$data = array($handle."-60", $name, "Size", "60 Capsules", "$sku", "$qty", "$offerPrice", "$price");
+							}else{	
+								$data = array($handle."-60", $name, "Size", "60 Capsules", "$sku", "$qty", "$price", "");
+							}	
+							fputcsv($output, $data);						
+						}
+					}else{
+						if($NaturesLaboratoryShopify->onOffer($sku)){
+							$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+						}else{	
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+						}	
+						fputcsv($output, $data);
+					}
+				}
+		
 			    $children = $NaturesLaboratoryShopify->getChildren($row['STOCK_CODE']);
 			    foreach($children as $row){
 				    $parts = explode(" ", $row['DESCRIPTION']);
@@ -291,16 +366,6 @@ error_reporting(E_ALL);
 					$sku = $row['STOCK_CODE'];
 					
 					$price = number_format($row['SALES_PRICE'],2);
-					
-					if($size=='250ml' OR $size=='250g'){
-						$weight = 250;
-					}elseif($size=='500ml' OR $size=='500g'){
-						$weight = 500;
-					}elseif($size=='1000ml' OR $size=='1000g'){
-						$weight = 1000;
-					}else{
-						$weight = 0;
-					}
 					
 					if($row['STOCK_CAT']==5 OR $row['STOCK_CAT']==6 OR $row['STOCK_CAT']==7 OR $row['STOCK_CAT']==17){
 						if($size=='500g'){
@@ -313,8 +378,15 @@ error_reporting(E_ALL);
 						if($qty<1){$qty = 0;}	
 					}
 					
-					$data = array($handle, $name, "Size", "$size", "$sku", "$weight", "$qty", "$price");
-					fputcsv($output, $data);
+					if($row['STOCK_CAT']<>'15'){
+						if($NaturesLaboratoryShopify->onOffer($sku)){
+							$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+						}else{	
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+						}
+						fputcsv($output, $data);
+					}
 			    }
 			    
 			    if($row['STOCK_CAT']=='2' OR $row['STOCK_CAT']=='4'){
@@ -325,7 +397,12 @@ error_reporting(E_ALL);
 					    $qty = 0;
 				    }
 				    $price = number_format(($parentPrice*5)*0.975, 2, '.', '');
-				    $data = array($handle, $name, "Size", "$size", "$sku", "5000", "$qty", "$price");
+				    if($NaturesLaboratoryShopify->onOffer($sku)){
+						$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+					}else{	
+						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+					}
 					fputcsv($output, $data);
 					
 					$size = '10l';
@@ -335,7 +412,12 @@ error_reporting(E_ALL);
 					    $qty = 0;
 				    }
 				    $price = number_format(($parentPrice*10)*0.95, 2, '.', '');
-				    $data = array($handle, $name, "Size", "$size", "$sku", "10000", "$qty", "$price");
+				    if($NaturesLaboratoryShopify->onOffer($sku)){
+						$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+					}else{	
+						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+					}
 					fputcsv($output, $data);
 					
 					$size = '25l';
@@ -345,57 +427,92 @@ error_reporting(E_ALL);
 					    $qty = 0;
 				    }
 				    $price = number_format(($parentPrice*25)*0.90, 2, '.', '');
-				    $data = array($handle, $name, "Size", "$size", "$sku", "25000", "$qty", "$price");
+				    if($NaturesLaboratoryShopify->onOffer($sku)){
+						$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+					}else{	
+						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+					}
 					fputcsv($output, $data);
 			    }
 			    
 			    if($row['STOCK_CAT']=='5' OR $row['STOCK_CAT']=='6' OR $row['STOCK_CAT']=='7' OR $row['STOCK_CAT']=='17'){
-				    $size = '5kg';
-				    $sku = $parentSKU."/5000";
-				    $qty = floor($parentQTY/5);
-				    if($qty<0){
-					    $qty = 0;
-				    }
-				    $price = number_format(($parentPrice*5)*0.975, 2, '.', '');
-				    $data = array($handle, $name, "Size", "$size", "$sku", "5000", "$qty", "$price");
-					fputcsv($output, $data);
-					
-					$size = '10kg';
-				    $sku = $parentSKU."/10000";
-				    $qty = floor($parentQTY/10);
-				    if($qty<0){
-					    $qty = 0;
-				    }
-				    $price = number_format(($parentPrice*10)*0.95, 2, '.', '');
-				    $data = array($handle, $name, "Size", "$size", "$sku", "10000", "$qty", "$price");
-					fputcsv($output, $data);
-					
-					$size = '25kg';
-				    $sku = $parentSKU."/25000";
-				    $qty = floor($parentQTY/25);
-				    if($qty<0){
-					    $qty = 0;
-				    }
-				    $price = number_format(($parentPrice*25)*0.90, 2, '.', '');
-				    $data = array($handle, $name, "Size", "$size", "$sku", "25000", "$qty", "$price");
-					fputcsv($output, $data);
+				    if(strpos($row['DESCRIPTION'], 'Pessaries') === false AND strpos($row['DESCRIPTION'], 'Whitby') === false){
+					    $size = '5kg';
+					    $sku = $parentSKU."/5000";
+					    $qty = floor($parentQTY/5);
+					    if($qty<0){
+						    $qty = 0;
+					    }
+					    $price = number_format(($parentPrice*5)*0.975, 2, '.', '');
+					    if($NaturesLaboratoryShopify->onOffer($sku)){
+							$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+						}else{	
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+						}
+						fputcsv($output, $data);
+						
+						$size = '10kg';
+					    $sku = $parentSKU."/10000";
+					    $qty = floor($parentQTY/10);
+					    if($qty<0){
+						    $qty = 0;
+					    }
+					    $price = number_format(($parentPrice*10)*0.95, 2, '.', '');
+					    if($NaturesLaboratoryShopify->onOffer($sku)){
+							$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+						}else{	
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+						}
+						fputcsv($output, $data);
+						
+						$size = '25kg';
+					    $sku = $parentSKU."/25000";
+					    $qty = floor($parentQTY/25);
+					    if($qty<0){
+						    $qty = 0;
+					    }
+					    $price = number_format(($parentPrice*25)*0.90, 2, '.', '');
+					    if($NaturesLaboratoryShopify->onOffer($sku)){
+							$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+						}else{	
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+						}
+						fputcsv($output, $data);
+					}
 			    }
 			    
 			    if($row['STOCK_CAT']=='8'){
-			    	$children = $NaturesLaboratoryShopify->getChildrenCapsules($row['STOCK_CODE']);
-				    foreach($children as $row){
-					    $parts = explode(" ", $row['DESCRIPTION']);
-					    $size = '100 Capsules';
-					    $weight = preg_replace("/[^0-9]/", "", $size);
-					    $unit = preg_replace('/[0-9]+/', '', $size);
-					    //$name = str_replace(" ".$quantity, "", $row['DESCRIPTION']);
-						$sku = $row['STOCK_CODE'];
-						
-						$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];
-						$price = number_format($row['SALES_PRICE'],2);
-						
-						$data = array($handle, $name, "Size", "$size", "$sku", "", "$qty", "$price");
-						fputcsv($output, $data);
+				    if(strpos($row['DESCRIPTION'], 'Hello ') === false AND $quantity<>'60'){
+					    if($NaturesLaboratoryShopify->onOffer($row['STOCK_CODE'])){
+							$offerPrice = $NaturesLaboratoryShopify->offerPrice($row['STOCK_CODE']);
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+						}else{	
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+						}
+				    	$children = $NaturesLaboratoryShopify->getChildrenCapsules($row['STOCK_CODE']);
+					    foreach($children as $row){
+						    $parts = explode(" ", $row['DESCRIPTION']);
+						    $size = '100 Capsules';
+						    $weight = preg_replace("/[^0-9]/", "", $size);
+						    $unit = preg_replace('/[0-9]+/', '', $size);
+						    //$name = str_replace(" ".$quantity, "", $row['DESCRIPTION']);
+							$sku = $row['STOCK_CODE'];
+							
+							$qty = $row['QTY_IN_STOCK']-$row['QTY_ALLOCATED'];
+							$price = number_format($row['SALES_PRICE'],2);
+							
+							if($NaturesLaboratoryShopify->onOffer($sku)){
+								$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+								$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+							}else{	
+								$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+							}
+							fputcsv($output, $data);
+					    }
 				    }
 			    }
 			    
@@ -420,7 +537,12 @@ error_reporting(E_ALL);
 					$qty = $organic['QTY_IN_STOCK']-$organic['QTY_ALLOCATED'];
 					if($qty<1){$qty = 0;}
 					
- 				    $data = array($handle, $name, "Size", "$size", "$sku", "1000", "$qty", "$price");
+ 				    if($NaturesLaboratoryShopify->onOffer($sku)){
+						$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+					}else{	
+						$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
+					}
 					fputcsv($output, $data);
 					
 					$children = $NaturesLaboratoryShopify->getOrganicChildren($organic['STOCK_CODE']);
@@ -437,17 +559,12 @@ error_reporting(E_ALL);
 						$qty = $child['QTY_IN_STOCK']-$child['QTY_ALLOCATED'];
 						if($qty<1){$qty = 0;}
 						
-						if($size=='250ml' OR $size=='250g'){
-							$weight = 250;
-						}elseif($size=='500ml' OR $size=='500g'){
-							$weight = 500;
-						}elseif($size=='1000ml' OR $size=='1000g'){
-							$weight = 1000;
-						}else{
-							$weight = 0;
+					    if($NaturesLaboratoryShopify->onOffer($sku)){
+							$offerPrice = $NaturesLaboratoryShopify->offerPrice($sku);
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$offerPrice", "$price");
+						}else{	
+							$data = array($handle, $name, "Size", "$size", "$sku", "$qty", "$price", "");
 						}
-						
-					    $data = array($handle, $name, "Size", "$size", "$sku", "$weight", "$qty", "$price");
 						fputcsv($output, $data);
 				    }
 			    

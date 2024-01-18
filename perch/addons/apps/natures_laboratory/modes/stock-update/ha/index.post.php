@@ -10,7 +10,7 @@
     $Smartbar = new PerchSmartbar($CurrentUser, $HTML, $Lang);
 
 	$Smartbar->add_item([
-	    'active' => true,
+	    'active' => false,
 	    'title' => 'Import CSV',
 	    'link'  => $API->app_nav().'/stock-update/',
 	]);
@@ -28,7 +28,7 @@
 	]);
 	
 	$Smartbar->add_item([
-	    'active' => false,
+	    'active' => true,
 	    'title' => 'Sync Herbal Apothecary',
 	    'link'  => $API->app_nav().'/stock-update/ha/',
 	]);
@@ -42,17 +42,7 @@
 	}else{
     
 	    echo $Form->form_start();
-	    
-	    $filename = '../../../../../sagedata/perchstock.csv';
-	
-		if (file_exists($filename)) {
-			
-			$filesize = number_format(filesize($filename)/1024/1024,2);
-		    echo "<p><strong>Stock CSV was last uploaded: " . date ("F d Y H:i:s", filemtime($filename))." (".$filesize."MB)</strong></p>";
-		    
-		}
-	
-		echo $Form->submit_field('btnSubmit', 'Update Database', $API->app_path());	
+		echo $Form->submit_field('btnSubmit', "Sync Herbal Apothecary Website", $API->app_path());	
 		echo $Form->form_end();
 	
 	}

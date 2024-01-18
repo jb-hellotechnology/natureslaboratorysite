@@ -15,6 +15,6 @@ error_reporting(E_ALL);
     
     if($Form->submitted()){
 	    // Import Stock
-	    $NaturesLaboratoryShopify->importStock();
-	    $message = $HTML->success_message('CSV successfully imported'); 
+	    $NaturesLaboratoryShopify->syncha();
+	    $message = $HTML->success_message('Stock levels successfully synchronised'); 
 	}

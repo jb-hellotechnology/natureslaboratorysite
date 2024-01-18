@@ -51,11 +51,6 @@
         ],
 /*
         [
-            'page' => 'natures_laboratory/shopify',
-            'label'=> 'Shopify'
-        ],
-*/
-        [
             'page' => 'natures_laboratory/catalogue',
             'label'=> 'Catalogue'
         ],
@@ -63,18 +58,9 @@
             'page' => 'natures_laboratory/spreadsheet',
             'label'=> 'Spreadsheet'
         ],
-/*
-        [
-            'page' => 'natures_laboratory/sage',
-            'label'=> 'Sage Import'
-        ],
 */
         [
             'page' => 'natures_laboratory/stock-update',
-            'label'=> 'Herbal Apothecary Stock Update'
-        ],
-        [
-            'page' => 'natures_laboratory/beevital-stock-update',
-            'label'=> 'BeeVital Stock Update'
-        ],
+            'label'=> 'Stock Management'
+        ]
     ], $CurrentUser);

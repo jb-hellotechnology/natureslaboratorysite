@@ -747,11 +747,9 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		}
 		curl_close($ch);
 		
-/*
 		echo "$productS[STOCK_CODE] {\"location_id\":$location,\"inventory_item_id\":$product,\"available\":$qty}<br />";
 		print_r($result);
 		echo "<br />";
-*/
 		
 	}
 	

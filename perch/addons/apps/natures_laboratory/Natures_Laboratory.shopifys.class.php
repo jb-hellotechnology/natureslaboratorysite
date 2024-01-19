@@ -354,7 +354,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		
 		$output = "";
 		
-		$products = "SELECT perch3_natureslaboratory_stock.STOCK_CODE AS STOCKCODE, (perch3_natureslaboratory_stock.QTY_IN_STOCK - perch3_natureslaboratory_stock.QTY_ALLOCATED) AS NEWSTOCK, (perch3_natureslaboratory_stock_prev.QTY_IN_STOCK - perch3_natureslaboratory_stock_prev.QTY_ALLOCATED) AS OLDSTOCK FROM perch3_natureslaboratory_stock, perch3_natureslaboratory_stock_prev WHERE (perch3_natureslaboratory_stock.STOCK_CODE = perch3_natureslaboratory_stock_prev.STOCK_CODE) AND ((perch3_natureslaboratory_stock.QTY_IN_STOCK != perch3_natureslaboratory_stock_prev.QTY_IN_STOCK) OR (perch3_natureslaboratory_stock.QTY_ALLOCATED != perch3_natureslaboratory_stock_prev.QTY_ALLOCATED)) AND perch3_natureslaboratory_stock.STOCK_CAT=10 AND perch3_natureslaboratory_stock.WEB_PUBLISH=1 ORDER BY perch3_natureslaboratory_stock.STOCK_CODE ASC";
+		$products = "SELECT perch3_natureslaboratory_stock.STOCK_CODE AS STOCKCODE, (perch3_natureslaboratory_stock.QTY_IN_STOCK - perch3_natureslaboratory_stock.QTY_ALLOCATED) AS NEWSTOCK, (perch3_natureslaboratory_stock_prev.QTY_IN_STOCK - perch3_natureslaboratory_stock_prev.QTY_ALLOCATED) AS OLDSTOCK FROM perch3_natureslaboratory_stock, perch3_natureslaboratory_stock_prev WHERE (perch3_natureslaboratory_stock.STOCK_CODE = perch3_natureslaboratory_stock_prev.STOCK_CODE) AND ((perch3_natureslaboratory_stock.QTY_IN_STOCK != perch3_natureslaboratory_stock_prev.QTY_IN_STOCK) OR (perch3_natureslaboratory_stock.QTY_ALLOCATED != perch3_natureslaboratory_stock_prev.QTY_ALLOCATED)) AND perch3_natureslaboratory_stock.STOCK_CAT=10 AND perch3_natureslaboratory_stock.WEB_PUBLISH=1 AND RIGHT(perch3_natureslaboratory_stock.STOCK_CODE,1)<>'T' ORDER BY perch3_natureslaboratory_stock.STOCK_CODE ASC";
 		$products = $this->db->get_rows($products);
 		foreach($products as $product) {
 			
@@ -539,8 +539,40 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		
 		// CATEGORY 8 - Capsules
 		
+		$products = "SELECT perch3_natureslaboratory_stock.STOCK_CODE AS STOCKCODE, (perch3_natureslaboratory_stock.QTY_IN_STOCK - perch3_natureslaboratory_stock.QTY_ALLOCATED) AS NEWSTOCK, (perch3_natureslaboratory_stock_prev.QTY_IN_STOCK - perch3_natureslaboratory_stock_prev.QTY_ALLOCATED) AS OLDSTOCK FROM perch3_natureslaboratory_stock, perch3_natureslaboratory_stock_prev WHERE (perch3_natureslaboratory_stock.STOCK_CODE = perch3_natureslaboratory_stock_prev.STOCK_CODE) AND ((perch3_natureslaboratory_stock.QTY_IN_STOCK != perch3_natureslaboratory_stock_prev.QTY_IN_STOCK) OR (perch3_natureslaboratory_stock.QTY_ALLOCATED != perch3_natureslaboratory_stock_prev.QTY_ALLOCATED)) AND (perch3_natureslaboratory_stock.STOCK_CAT=8) AND perch3_natureslaboratory_stock.WEB_PUBLISH=1 ORDER BY perch3_natureslaboratory_stock.STOCK_CODE ASC";
+		$products = $this->db->get_rows($products);
+		foreach($products as $product) {
+			
+			$productS = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."'";
+			$productS = $this->db->get_row($productS);
+			if($productS){
+				
+				$output .= "$product[STOCKCODE] from ".number_format(floor($product['OLDSTOCK']))." -> ".number_format(floor($product['NEWSTOCK']))."<br />";
+				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format(floor($product['NEWSTOCK']),0),$token);
+				sleep(0.5);
+				
+			}
+			
+		}
+		
 		
 		// CATEGORY 10 - BeeVital
+		
+		$products = "SELECT perch3_natureslaboratory_stock.STOCK_CODE AS STOCKCODE, (perch3_natureslaboratory_stock.QTY_IN_STOCK - perch3_natureslaboratory_stock.QTY_ALLOCATED) AS NEWSTOCK, (perch3_natureslaboratory_stock_prev.QTY_IN_STOCK - perch3_natureslaboratory_stock_prev.QTY_ALLOCATED) AS OLDSTOCK FROM perch3_natureslaboratory_stock, perch3_natureslaboratory_stock_prev WHERE (perch3_natureslaboratory_stock.STOCK_CODE = perch3_natureslaboratory_stock_prev.STOCK_CODE) AND ((perch3_natureslaboratory_stock.QTY_IN_STOCK != perch3_natureslaboratory_stock_prev.QTY_IN_STOCK) OR (perch3_natureslaboratory_stock.QTY_ALLOCATED != perch3_natureslaboratory_stock_prev.QTY_ALLOCATED)) AND perch3_natureslaboratory_stock.STOCK_CAT=10 AND perch3_natureslaboratory_stock.WEB_PUBLISH=1 AND RIGHT(perch3_natureslaboratory_stock.STOCK_CODE,1)<>'T' ORDER BY perch3_natureslaboratory_stock.STOCK_CODE ASC";
+		$products = $this->db->get_rows($products);
+		foreach($products as $product) {
+			
+			$productS = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."'";
+			$productS = $this->db->get_row($productS);
+			if($productS){
+				
+				$output .= "$product[STOCKCODE] from ".number_format(floor($product['OLDSTOCK']))." -> ".number_format(floor($product['NEWSTOCK']))."<br />";
+				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format(floor($product['NEWSTOCK']),0),$token);
+				sleep(0.5);
+				
+			}
+			
+		}
 
 		
 		if($output==''){

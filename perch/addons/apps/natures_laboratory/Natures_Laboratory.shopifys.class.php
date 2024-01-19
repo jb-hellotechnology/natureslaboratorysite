@@ -655,8 +655,8 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 			$productS = $this->db->get_row($productS);
 			if($productS){
 				
-				if($productS['NEWSTOCK']<1){
-					$productS['NEWSTOCK'] = 0;
+				if($product['NEWSTOCK']<1){
+					$product['NEWSTOCK'] = 0;
 				}
 				
 				//KG

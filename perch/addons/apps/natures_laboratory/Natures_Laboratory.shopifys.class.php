@@ -555,7 +555,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 			if($productS){
 				
 				$output .= "$product[STOCKCODE] from ".number_format(floor($product['OLDSTOCK']))." -> ".number_format(floor($product['NEWSTOCK']))."<br />";
-				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format(floor($product['NEWSTOCK']),0),$token);
+				$this->shopifyInventory('sweet-cecilys.myshopify.com','77875183890',$productS['inventory_item_id'],number_format(floor($product['NEWSTOCK']),0),$token);
 				sleep(0.5);
 				
 			}

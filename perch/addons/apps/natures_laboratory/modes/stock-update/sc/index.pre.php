@@ -18,6 +18,6 @@ error_reporting(E_ALL);
     
     if($Form->submitted()){
 	    // Import Stock
-	    $NaturesLaboratoryShopify->syncsc($token);
+	    $output = $NaturesLaboratoryShopify->syncsc($token);
 	    $message = $HTML->success_message('Stock levels successfully synchronised'); 
 	}

@@ -587,4 +587,134 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		
 	}
 	
+	public function syncha($token){
+		
+		$output = "";
+		
+		// CATEGORY 1, 11, 12, 13, 14 & 15 - Chemicals, Creams, Essential Oils, Fixed Oils, Packaging, Waxes/Gums
+		
+		$products = "SELECT perch3_natureslaboratory_stock.STOCK_CODE AS STOCKCODE, (perch3_natureslaboratory_stock.QTY_IN_STOCK - perch3_natureslaboratory_stock.QTY_ALLOCATED) AS NEWSTOCK, (perch3_natureslaboratory_stock_prev.QTY_IN_STOCK - perch3_natureslaboratory_stock_prev.QTY_ALLOCATED) AS OLDSTOCK FROM perch3_natureslaboratory_stock, perch3_natureslaboratory_stock_prev WHERE (perch3_natureslaboratory_stock.STOCK_CODE = perch3_natureslaboratory_stock_prev.STOCK_CODE) AND ((perch3_natureslaboratory_stock.QTY_IN_STOCK != perch3_natureslaboratory_stock_prev.QTY_IN_STOCK) OR (perch3_natureslaboratory_stock.QTY_ALLOCATED != perch3_natureslaboratory_stock_prev.QTY_ALLOCATED)) AND (perch3_natureslaboratory_stock.STOCK_CAT=1 OR perch3_natureslaboratory_stock.STOCK_CAT=11 OR perch3_natureslaboratory_stock.STOCK_CAT=12 OR perch3_natureslaboratory_stock.STOCK_CAT=13 OR perch3_natureslaboratory_stock.STOCK_CAT=14 OR perch3_natureslaboratory_stock.STOCK_CAT=15) AND perch3_natureslaboratory_stock.WEB_PUBLISH=1 ORDER BY perch3_natureslaboratory_stock.STOCK_CODE ASC";
+		$products = $this->db->get_rows($products);
+		foreach($products as $product) {
+			
+			$productS = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCK_CODE']."'";
+			$productS = $this->db->get_row($productS);
+			if($productS){
+				
+				$output .= "$product[STOCKCODE] from $product[OLDSTOCK] -> $product[NEWSTOCK]<br />";
+				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],$product['NEWSTOCK'],$token);
+				sleep(0.5);
+				
+			}
+			
+		}
+		
+		// CATEGORY 2 & 4 - Tinctures and Fluid Extracts
+		
+		$products = "SELECT perch3_natureslaboratory_stock.STOCK_CODE AS STOCKCODE, (perch3_natureslaboratory_stock.QTY_IN_STOCK - perch3_natureslaboratory_stock.QTY_ALLOCATED) AS NEWSTOCK, (perch3_natureslaboratory_stock_prev.QTY_IN_STOCK - perch3_natureslaboratory_stock_prev.QTY_ALLOCATED) AS OLDSTOCK FROM perch3_natureslaboratory_stock, perch3_natureslaboratory_stock_prev WHERE (perch3_natureslaboratory_stock.STOCK_CODE = perch3_natureslaboratory_stock_prev.STOCK_CODE) AND ((perch3_natureslaboratory_stock.QTY_IN_STOCK != perch3_natureslaboratory_stock_prev.QTY_IN_STOCK) OR (perch3_natureslaboratory_stock.QTY_ALLOCATED != perch3_natureslaboratory_stock_prev.QTY_ALLOCATED)) AND (perch3_natureslaboratory_stock.STOCK_CAT=2 OR perch3_natureslaboratory_stock.STOCK_CAT=4) AND perch3_natureslaboratory_stock.WEB_PUBLISH=1 ORDER BY perch3_natureslaboratory_stock.STOCK_CODE ASC";
+		$products = $this->db->get_rows($products);
+		foreach($products as $product) {
+			
+			$productS = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCK_CODE']."'";
+			$productS = $this->db->get_row($productS);
+			if($productS){
+				
+				$output .= "$product[STOCKCODE] from $product[OLDSTOCK] -> $product[NEWSTOCK]<br />";
+				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],$product['NEWSTOCK'],$token);
+				sleep(0.5);
+				
+				//if single litre, update 5, 10 and 25 litres
+				if (!strpos($product['STOCKCODE'], '/')) {
+					//5000
+					$output .= "$product[STOCKCODE]/5000 from $product[OLDSTOCK] -> ".floor($product['NEWSTOCK']/5)."<br />";
+					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],floor($product['NEWSTOCK']/5),$token);
+					sleep(0.5);
+					
+					//10000
+					$output .= "$product[STOCKCODE]/10000 from $product[OLDSTOCK] -> ".floor($product['NEWSTOCK']/10)."<br />";
+					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],floor($product['NEWSTOCK']/10),$token);
+					sleep(0.5);
+					
+					//25000
+					$output .= "$product[STOCKCODE]/25000 from $product[OLDSTOCK] -> ".floor($product['NEWSTOCK']/25)."<br />";
+					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],floor($product['NEWSTOCK']/25),$token);
+					sleep(0.5);
+				}
+				
+			}
+			
+		}
+		
+		// CATEGORY 5, 6, 7 & 17 - Cuts, Wholes, Powders & Powder Blends
+		
+		$products = "SELECT perch3_natureslaboratory_stock.STOCK_CODE AS STOCKCODE, (perch3_natureslaboratory_stock.QTY_IN_STOCK - perch3_natureslaboratory_stock.QTY_ALLOCATED) AS NEWSTOCK, (perch3_natureslaboratory_stock_prev.QTY_IN_STOCK - perch3_natureslaboratory_stock_prev.QTY_ALLOCATED) AS OLDSTOCK FROM perch3_natureslaboratory_stock, perch3_natureslaboratory_stock_prev WHERE (perch3_natureslaboratory_stock.STOCK_CODE = perch3_natureslaboratory_stock_prev.STOCK_CODE) AND ((perch3_natureslaboratory_stock.QTY_IN_STOCK != perch3_natureslaboratory_stock_prev.QTY_IN_STOCK) OR (perch3_natureslaboratory_stock.QTY_ALLOCATED != perch3_natureslaboratory_stock_prev.QTY_ALLOCATED)) AND (perch3_natureslaboratory_stock.STOCK_CAT=5 OR perch3_natureslaboratory_stock.STOCK_CAT=6 OR perch3_natureslaboratory_stock.STOCK_CAT=7 OR perch3_natureslaboratory_stock.STOCK_CAT=17) AND perch3_natureslaboratory_stock.WEB_PUBLISH=1 AND perch3_natureslaboratory_stock.STOCK_CODE NOT LIKE '%/%' ORDER BY perch3_natureslaboratory_stock.STOCK_CODE ASC";
+		$products = $this->db->get_rows($products);
+		foreach($products as $product) {
+			
+			$productS = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCK_CODE']."'";
+			$productS = $this->db->get_row($productS);
+			if($productS){
+				
+				//KG
+				$output .= "$product[STOCKCODE] from $product[OLDSTOCK] -> $product[NEWSTOCK]<br />";
+				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],$product['NEWSTOCK'],$token);
+				sleep(0.5);
+				
+				//500g
+				$output .= "$product[STOCKCODE]/500 from $product[OLDSTOCK] -> ".floor($product['NEWSTOCK']*2)."<br />";
+				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],floor($product['NEWSTOCK']*2),$token);
+				sleep(0.5);
+				
+				//250g
+				$output .= "$product[STOCKCODE]/250 from $product[OLDSTOCK] -> ".floor($product['NEWSTOCK']*4)."<br />";
+				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],floor($product['NEWSTOCK']*4),$token);
+				sleep(0.5);
+				
+				//5kg
+				$output .= "$product[STOCKCODE]/5000 from $product[OLDSTOCK] -> ".floor($product['NEWSTOCK']/5)."<br />";
+				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],floor($product['NEWSTOCK']/5),$token);
+				sleep(0.5);
+				
+				//10kg
+				$output .= "$product[STOCKCODE]/10000 from $product[OLDSTOCK] -> ".floor($product['NEWSTOCK']/10)."<br />";
+				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],floor($product['NEWSTOCK']/10),$token);
+				sleep(0.5);
+				
+				//25kg
+				$output .= "$product[STOCKCODE]/25000 from $product[OLDSTOCK] -> ".floor($product['NEWSTOCK']/25)."<br />";
+				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],floor($product['NEWSTOCK']/25),$token);
+				sleep(0.5);
+			}
+			
+		}
+		
+		return $output;
+		
+	}
+	
+	public function shopifyInventory($url,$location,$product,$qty,$token){
+		
+		//echo "$url $location $product $qty $token<br />";
+				
+		// Generated by curl-to-PHP: http://incarnate.github.io/curl-to-php/
+		$ch = curl_init();
+		
+		curl_setopt($ch, CURLOPT_URL, 'https://' . $url. '/admin/api/2023-10/inventory_levels/set.json');
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, "{\"location_id\":$location,\"inventory_item_id\":$product,\"available\":$qty}");
+		
+		$headers = array();
+		$headers[] = 'X-Shopify-Access-Token: '.$token;
+		$headers[] = 'Content-Type: application/json';
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		
+		$result = curl_exec($ch);
+		if (curl_errno($ch)) {
+		    echo 'Error:' . curl_error($ch);
+		}
+		curl_close($ch);
+		
+	}
+	
 }

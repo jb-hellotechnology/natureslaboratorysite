@@ -39,6 +39,7 @@
     
     if($message){
 	    echo $message;
+	    echo "<br /><p><strong>Updated Stock:</strong></p><p>" . $output . "</p>";
 	}else{
     
 	    echo $Form->form_start();

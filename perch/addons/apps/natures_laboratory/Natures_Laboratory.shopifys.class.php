@@ -602,7 +602,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 			if($productS){
 				
 				$output .= "$product[STOCKCODE] from $product[OLDSTOCK] -> $product[NEWSTOCK]<br />";
-				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],$product['NEWSTOCK'],$token);
+				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format($product['NEWSTOCK'],0),$token);
 				sleep(0.5);
 				
 			}
@@ -620,7 +620,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 			if($productS){
 				
 				$output .= "$product[STOCKCODE] from $product[OLDSTOCK] -> $product[NEWSTOCK]<br />";
-				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],$product['NEWSTOCK'],$token);
+				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format($product['NEWSTOCK'],0),$token);
 				sleep(0.5);
 				
 				//if single litre, update 5, 10 and 25 litres
@@ -661,7 +661,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 				
 				//KG
 				$output .= "$product[STOCKCODE] from $product[OLDSTOCK] -> $product[NEWSTOCK]<br />";
-				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],$product['NEWSTOCK'],$token);
+				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format($product['NEWSTOCK'],0),$token);
 				sleep(0.5);
 				
 				//500g

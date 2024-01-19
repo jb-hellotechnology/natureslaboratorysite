@@ -597,7 +597,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		$products = $this->db->get_rows($products);
 		foreach($products as $product) {
 			
-			$productS = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCK_CODE']."'";
+			$productS = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."'";
 			$productS = $this->db->get_row($productS);
 			if($productS){
 				
@@ -615,7 +615,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		$products = $this->db->get_rows($products);
 		foreach($products as $product) {
 			
-			$productS = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCK_CODE']."'";
+			$productS = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."'";
 			$productS = $this->db->get_row($productS);
 			if($productS){
 				
@@ -651,7 +651,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		$products = $this->db->get_rows($products);
 		foreach($products as $product) {
 			
-			$productS = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCK_CODE']."'";
+			$productS = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."'";
 			$productS = $this->db->get_row($productS);
 			if($productS){
 				

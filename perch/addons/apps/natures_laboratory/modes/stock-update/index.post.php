@@ -48,7 +48,7 @@
 		if (file_exists($filename)) {
 			
 			$filesize = number_format(filesize($filename)/1024/1024,2);
-		    echo "<p><strong>Data was last updated:</strong> " . $lastImport . "</p>";
+		    echo "<p><strong>Databased was last updated:</strong> " . $lastImport . "</p>";
 		    echo "<p><strong>Stock CSV was last uploaded:</strong> " . date ("F d Y H:i:s", filemtime($filename))."</p>";
 		    echo "<p><strong>File size is:</strong> ".$filesize."MB</p>";
 		    if($filesize>4){

@@ -627,17 +627,17 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 				if (!strpos($product['STOCKCODE'], '/')) {
 					//5000
 					$output .= "$product[STOCKCODE]/5000 from $product[OLDSTOCK] -> ".floor($product['NEWSTOCK']/5)."<br />";
-					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],floor($product['NEWSTOCK']/5),$token);
+					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format(floor($product['NEWSTOCK']/5),0),$token);
 					sleep(0.5);
 					
 					//10000
 					$output .= "$product[STOCKCODE]/10000 from $product[OLDSTOCK] -> ".floor($product['NEWSTOCK']/10)."<br />";
-					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],floor($product['NEWSTOCK']/10),$token);
+					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format(floor($product['NEWSTOCK']/10),0),$token);
 					sleep(0.5);
 					
 					//25000
 					$output .= "$product[STOCKCODE]/25000 from $product[OLDSTOCK] -> ".floor($product['NEWSTOCK']/25)."<br />";
-					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],floor($product['NEWSTOCK']/25),$token);
+					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format(floor($product['NEWSTOCK']/25),0),$token);
 					sleep(0.5);
 				}
 				
@@ -666,27 +666,27 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 				
 				//500g
 				$output .= "$product[STOCKCODE]/500 from $product[OLDSTOCK] -> ".floor($product['NEWSTOCK']*2)."<br />";
-				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],floor($product['NEWSTOCK']*2),$token);
+				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format(floor($product['NEWSTOCK']*2),0),$token);
 				sleep(0.5);
 				
 				//250g
 				$output .= "$product[STOCKCODE]/250 from $product[OLDSTOCK] -> ".floor($product['NEWSTOCK']*4)."<br />";
-				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],floor($product['NEWSTOCK']*4),$token);
+				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format(floor($product['NEWSTOCK']*4),0),$token);
 				sleep(0.5);
 				
 				//5kg
 				$output .= "$product[STOCKCODE]/5000 from $product[OLDSTOCK] -> ".floor($product['NEWSTOCK']/5)."<br />";
-				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],floor($product['NEWSTOCK']/5),$token);
+				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format(floor($product['NEWSTOCK']/5),0),$token);
 				sleep(0.5);
 				
 				//10kg
 				$output .= "$product[STOCKCODE]/10000 from $product[OLDSTOCK] -> ".floor($product['NEWSTOCK']/10)."<br />";
-				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],floor($product['NEWSTOCK']/10),$token);
+				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format(floor($product['NEWSTOCK']/10),0),$token);
 				sleep(0.5);
 				
 				//25kg
 				$output .= "$product[STOCKCODE]/25000 from $product[OLDSTOCK] -> ".floor($product['NEWSTOCK']/25)."<br />";
-				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],floor($product['NEWSTOCK']/25),$token);
+				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format(floor($product['NEWSTOCK']/25),0),$token);
 				sleep(0.5);
 			}
 			

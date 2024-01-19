@@ -655,6 +655,10 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 			$productS = $this->db->get_row($productS);
 			if($productS){
 				
+				if($productS['NEWSTOCK']<1){
+					$productS['NEWSTOCK'] = 0;
+				}
+				
 				//KG
 				$output .= "$product[STOCKCODE] from $product[OLDSTOCK] -> $product[NEWSTOCK]<br />";
 				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],$product['NEWSTOCK'],$token);

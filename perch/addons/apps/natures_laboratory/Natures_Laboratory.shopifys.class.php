@@ -609,7 +609,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 			
 		}
 		
-		// CATEGORY 2 & 4 - Tinctures and Fluid Extracts
+		// CATEGORY 2, 4, 18 - Tinctures, Fluid Extracts & Organics
 		
 		$products = "SELECT perch3_natureslaboratory_stock.STOCK_CODE AS STOCKCODE, (perch3_natureslaboratory_stock.QTY_IN_STOCK - perch3_natureslaboratory_stock.QTY_ALLOCATED) AS NEWSTOCK, (perch3_natureslaboratory_stock_prev.QTY_IN_STOCK - perch3_natureslaboratory_stock_prev.QTY_ALLOCATED) AS OLDSTOCK FROM perch3_natureslaboratory_stock, perch3_natureslaboratory_stock_prev WHERE (perch3_natureslaboratory_stock.STOCK_CODE = perch3_natureslaboratory_stock_prev.STOCK_CODE) AND ((perch3_natureslaboratory_stock.QTY_IN_STOCK != perch3_natureslaboratory_stock_prev.QTY_IN_STOCK) OR (perch3_natureslaboratory_stock.QTY_ALLOCATED != perch3_natureslaboratory_stock_prev.QTY_ALLOCATED)) AND (perch3_natureslaboratory_stock.STOCK_CAT=2 OR perch3_natureslaboratory_stock.STOCK_CAT=4) AND perch3_natureslaboratory_stock.WEB_PUBLISH=1 ORDER BY perch3_natureslaboratory_stock.STOCK_CODE ASC";
 		$products = $this->db->get_rows($products);

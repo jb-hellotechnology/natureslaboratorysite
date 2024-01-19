@@ -591,59 +591,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		
 		$output = "";
 		
-		// CATEGORY 1, 11, 12, 13, 14 & 15 - Chemicals, Creams, Essential Oils, Fixed Oils, Packaging, Waxes/Gums
-		
-		$products = "SELECT perch3_natureslaboratory_stock.STOCK_CODE AS STOCKCODE, (perch3_natureslaboratory_stock.QTY_IN_STOCK - perch3_natureslaboratory_stock.QTY_ALLOCATED) AS NEWSTOCK, (perch3_natureslaboratory_stock_prev.QTY_IN_STOCK - perch3_natureslaboratory_stock_prev.QTY_ALLOCATED) AS OLDSTOCK FROM perch3_natureslaboratory_stock, perch3_natureslaboratory_stock_prev WHERE (perch3_natureslaboratory_stock.STOCK_CODE = perch3_natureslaboratory_stock_prev.STOCK_CODE) AND ((perch3_natureslaboratory_stock.QTY_IN_STOCK != perch3_natureslaboratory_stock_prev.QTY_IN_STOCK) OR (perch3_natureslaboratory_stock.QTY_ALLOCATED != perch3_natureslaboratory_stock_prev.QTY_ALLOCATED)) AND (perch3_natureslaboratory_stock.STOCK_CAT=1 OR perch3_natureslaboratory_stock.STOCK_CAT=11 OR perch3_natureslaboratory_stock.STOCK_CAT=12 OR perch3_natureslaboratory_stock.STOCK_CAT=13 OR perch3_natureslaboratory_stock.STOCK_CAT=14 OR perch3_natureslaboratory_stock.STOCK_CAT=15) AND perch3_natureslaboratory_stock.WEB_PUBLISH=1 ORDER BY perch3_natureslaboratory_stock.STOCK_CODE ASC";
-		$products = $this->db->get_rows($products);
-		foreach($products as $product) {
-			
-			$productS = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCK_CODE']."'";
-			$productS = $this->db->get_row($productS);
-			if($productS){
-				
-				$output .= "$product[STOCKCODE] from $product[OLDSTOCK] -> $product[NEWSTOCK]<br />";
-				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],$product['NEWSTOCK'],$token);
-				sleep(0.5);
-				
-			}
-			
-		}
-		
-		// CATEGORY 2 & 4 - Tinctures and Fluid Extracts
-		
-		$products = "SELECT perch3_natureslaboratory_stock.STOCK_CODE AS STOCKCODE, (perch3_natureslaboratory_stock.QTY_IN_STOCK - perch3_natureslaboratory_stock.QTY_ALLOCATED) AS NEWSTOCK, (perch3_natureslaboratory_stock_prev.QTY_IN_STOCK - perch3_natureslaboratory_stock_prev.QTY_ALLOCATED) AS OLDSTOCK FROM perch3_natureslaboratory_stock, perch3_natureslaboratory_stock_prev WHERE (perch3_natureslaboratory_stock.STOCK_CODE = perch3_natureslaboratory_stock_prev.STOCK_CODE) AND ((perch3_natureslaboratory_stock.QTY_IN_STOCK != perch3_natureslaboratory_stock_prev.QTY_IN_STOCK) OR (perch3_natureslaboratory_stock.QTY_ALLOCATED != perch3_natureslaboratory_stock_prev.QTY_ALLOCATED)) AND (perch3_natureslaboratory_stock.STOCK_CAT=2 OR perch3_natureslaboratory_stock.STOCK_CAT=4) AND perch3_natureslaboratory_stock.WEB_PUBLISH=1 ORDER BY perch3_natureslaboratory_stock.STOCK_CODE ASC";
-		$products = $this->db->get_rows($products);
-		foreach($products as $product) {
-			
-			$productS = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCK_CODE']."'";
-			$productS = $this->db->get_row($productS);
-			if($productS){
-				
-				$output .= "$product[STOCKCODE] from $product[OLDSTOCK] -> $product[NEWSTOCK]<br />";
-				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],$product['NEWSTOCK'],$token);
-				sleep(0.5);
-				
-				//if single litre, update 5, 10 and 25 litres
-				if (!strpos($product['STOCKCODE'], '/')) {
-					//5000
-					$output .= "$product[STOCKCODE]/5000 from $product[OLDSTOCK] -> ".floor($product['NEWSTOCK']/5)."<br />";
-					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],floor($product['NEWSTOCK']/5),$token);
-					sleep(0.5);
-					
-					//10000
-					$output .= "$product[STOCKCODE]/10000 from $product[OLDSTOCK] -> ".floor($product['NEWSTOCK']/10)."<br />";
-					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],floor($product['NEWSTOCK']/10),$token);
-					sleep(0.5);
-					
-					//25000
-					$output .= "$product[STOCKCODE]/25000 from $product[OLDSTOCK] -> ".floor($product['NEWSTOCK']/25)."<br />";
-					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],floor($product['NEWSTOCK']/25),$token);
-					sleep(0.5);
-				}
-				
-			}
-			
-		}
+
 		
 		// CATEGORY 5, 6, 7 & 17 - Cuts, Wholes, Powders & Powder Blends
 		

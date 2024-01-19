@@ -17,6 +17,15 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		$this->db->execute($sql);
 	}
 */
+
+	public function lastImport(){
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock ORDER BY CREATED DESC LIMIT 1';
+		$data = $this->db->get_row($sql);
+		$parts = explode(" ",$data['CREATED']);
+		$dateParts = explode("-",$parts[0]);
+		$timeParts = explode(":",$parts[1]);
+		return date("F d Y H:i:s", mktime($timeParts[0], $timeParts[1], $timeParts[2], $dateParts[1], $dateParts[2], $dateParts[0]));
+	}
 	
 	public function importStock(){
 		

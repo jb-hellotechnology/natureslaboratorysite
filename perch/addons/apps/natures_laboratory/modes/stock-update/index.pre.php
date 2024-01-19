@@ -13,6 +13,8 @@ error_reporting(E_ALL);
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
     
+    $lastImport = $NaturesLaboratoryShopify->lastImport();
+    
     if($Form->submitted()){
 	    // Import Stock
 	    $NaturesLaboratoryShopify->importStock();

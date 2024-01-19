@@ -719,6 +719,8 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		}
 		curl_close($ch);
 		
+		print_r($result);
+		
 	}
 	
 }

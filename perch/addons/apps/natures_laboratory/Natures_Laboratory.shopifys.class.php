@@ -602,7 +602,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 			if($productS){
 				
 				$output .= "$product[STOCKCODE] from $product[OLDSTOCK] -> $product[NEWSTOCK]<br />";
-				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format($product['NEWSTOCK'],0),$token);
+				$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format(floor($product['NEWSTOCK']),0),$token);
 				sleep(0.5);
 				
 			}
@@ -747,9 +747,11 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		}
 		curl_close($ch);
 		
+/*
 		echo "$productS[STOCK_CODE] {\"location_id\":$location,\"inventory_item_id\":$product,\"available\":$qty}<br />";
 		print_r($result);
 		echo "<br />";
+*/
 		
 	}
 	

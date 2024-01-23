@@ -65,6 +65,7 @@
 <div>
     <button id="flash-toggle">📸 Flash: <span id="flash-state">off</span></button>
 </div>
+-->
 <br>
 <b>Detected QR code: </b>
 <span id="cam-qr-result">None</span>
@@ -78,7 +79,6 @@
 
 <h1>Scan from File:</h1>
 <input type="file" id="file-selector">
--->
 <b>Detected QR code: </b>
 <span id="file-qr-result">None</span>
 

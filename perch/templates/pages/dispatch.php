@@ -55,6 +55,18 @@
         label.style.color = 'teal';
         clearTimeout(label.highlightTimeout);
         label.highlightTimeout = setTimeout(() => label.style.color = 'inherit', 100);
+        
+        // PARSE URL
+        const urlParams = new URLSearchParams(result.data);
+        
+        const product = urlParams.get('id')
+		console.log(product);
+		const size = urlParams.get('size')
+		console.log(size);
+		const bbe = urlParams.get('bbe')
+		console.log(bbe);
+		alert(product + ' - ' + size + ' - ' + bbe);
+
     }
 
     // ####### Web Cam Scanning #######

@@ -59,7 +59,7 @@
         // PARSE URL
         const urlParams = new URLSearchParams(result.data);
         
-        product = getAllUrlParams(result.data).id;
+        var product = getAllUrlParams(result.data).id;
 
 		const size = urlParams.get('size')
 		console.log(size);

@@ -27,44 +27,20 @@
 <div id="video-container">
     <video id="qr-video"></video>
 </div>
-<b>Detected QR code: </b>
-<span id="cam-qr-result">None</span>
-<br>
-<b>Last detected at: </b>
-<span id="cam-qr-result-timestamp"></span>
 
 <script type="module">
     import QrScanner from "../assets/js/qr-scanner.min.js";
 
     const video = document.getElementById('qr-video');
     const videoContainer = document.getElementById('video-container');
-    const camHasCamera = document.getElementById('cam-has-camera');
-    const camList = document.getElementById('cam-list');
-    const camHasFlash = document.getElementById('cam-has-flash');
-    const flashToggle = document.getElementById('flash-toggle');
-    const flashState = document.getElementById('flash-state');
-    const camQrResult = document.getElementById('cam-qr-result');
-    const camQrResultTimestamp = document.getElementById('cam-qr-result-timestamp');
-    const fileSelector = document.getElementById('file-selector');
-    const fileQrResult = document.getElementById('file-qr-result');
 
     function setResult(label, result) {
-        console.log(result.data);
-        label.textContent = result.data;
-        camQrResultTimestamp.textContent = new Date().toString();
-        label.style.color = 'teal';
-        clearTimeout(label.highlightTimeout);
-        label.highlightTimeout = setTimeout(() => label.style.color = 'inherit', 100);
-        
         // PARSE URL
         const urlParams = new URLSearchParams(result.data);
         
         var product = getAllUrlParams(result.data).id;
-
 		const size = urlParams.get('size')
-		console.log(size);
 		const bbe = urlParams.get('bbe')
-		console.log(bbe);
 		alert(product + ' - ' + size + ' - ' + bbe);
 
     }

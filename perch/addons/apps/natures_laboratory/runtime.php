@@ -27,6 +27,26 @@
 	include('Natures_Laboratory.order.class.php');
 	include('Natures_Laboratory.orders.class.php');
 	
+	function orderDetails($order){
+
+		$orders = new Natures_Laboratory_Orders();
+		
+		$orders = $orders->getOrderDetails($order);
+		
+		return $orders;
+	   
+	}
+	
+	function pendingOrders(){
+
+		$orders = new Natures_Laboratory_Orders();
+		
+		$orders = $orders->getOrders('pending');
+		
+		return $orders;
+	   
+	}
+	
 	function importStock(){
 
 		$stock = new Natures_Laboratory_Shopifys();

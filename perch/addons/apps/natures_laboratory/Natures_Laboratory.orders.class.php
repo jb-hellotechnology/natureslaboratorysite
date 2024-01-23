@@ -11,9 +11,6 @@ class Natures_Laboratory_Orders extends PerchAPI_Factory
 	public $static_fields = array('perch3_natures_laboratory_orderID', 'orderNumber', 'customer', 'orderDate', 'billing1', 'billing2', 'billing3', 'billing4', 'billing5', 'billing6', 'billing7', 'billing8', 'shipping1', 'shipping2', 'shipping3', 'shipping4', 'shipping5', 'shipping6', 'shipping7', 'shipping8', 'orderTotal', 'orderShipping', 'orderVat', 'orderGrandTotal', 'SKU', 'quantity', 'description', 'itemCost', 'lineCost', 'orderStatus', 'orderDynamicFields');	
 	
 	public function importOrders(){
-		$sql = 'TRUNCATE TABLE perch3_natureslaboratory_stock';
-		$this->db->execute($sql);
-		
 		$dir = '../incoming/*';
 		foreach(glob($dir) as $file) 
 		{
@@ -36,4 +33,21 @@ class Natures_Laboratory_Orders extends PerchAPI_Factory
 			unlink('../incoming/'.$file);
 		}
 	}
+	
+	public function getOrders($status){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_orders WHERE orderStatus="'.$status.'" ORDER BY orderNumber DESC';
+		$data = $this->db->get_rows($sql);
+		return $data;
+		
+	}
+	
+	public function getOrderDetails($order){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_orders WHERE orderNumber="'.$order.'"';
+		$data = $this->db->get_rows($sql);
+		return $data;
+		
+	}
+	
 }

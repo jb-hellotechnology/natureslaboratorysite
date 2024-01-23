@@ -59,13 +59,13 @@
         // PARSE URL
         const urlParams = new URLSearchParams(result.data);
         
-        const product = urlParams.get('id')
-		console.log(product);
+        const id = urlParams.get('id')
+		console.log(id);
 		const size = urlParams.get('size')
 		console.log(size);
 		const bbe = urlParams.get('bbe')
 		console.log(bbe);
-		alert(product + ' - ' + size + ' - ' + bbe);
+		alert(id + ' - ' + size + ' - ' + bbe);
 
     }
 

@@ -27,13 +27,11 @@
 <div id="video-container">
     <video id="qr-video"></video>
 </div>
-<!--
 <b>Detected QR code: </b>
 <span id="cam-qr-result">None</span>
 <br>
 <b>Last detected at: </b>
 <span id="cam-qr-result-timestamp"></span>
--->
 
 <script type="module">
     import QrScanner from "../assets/js/qr-scanner.min.js";

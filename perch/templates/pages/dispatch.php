@@ -27,6 +27,7 @@
 <div id="video-container">
     <video id="qr-video"></video>
 </div>
+<!--
 <div>
     <label>
         Highlight Style
@@ -77,6 +78,7 @@
 
 <h1>Scan from File:</h1>
 <input type="file" id="file-selector">
+-->
 <b>Detected QR code: </b>
 <span id="file-qr-result">None</span>
 
@@ -106,6 +108,7 @@
 
     // ####### Web Cam Scanning #######
 
+/*
     const scanner = new QrScanner(video, result => setResult(camQrResult, result), {
         onDecodeError: error => {
             camQrResult.textContent = error;
@@ -121,6 +124,7 @@
             flashToggle.style.display = hasFlash ? 'inline-block' : 'none';
         });
     };
+*/
 
     scanner.start().then(() => {
         updateFlashAvailability();
@@ -141,6 +145,7 @@
     // for debugging
     window.scanner = scanner;
 
+/*
     document.getElementById('scan-region-highlight-style-select').addEventListener('change', (e) => {
         videoContainer.className = e.target.value;
         scanner._updateOverlay(); // reposition the highlight because style 2 sets position: relative
@@ -172,6 +177,7 @@
     document.getElementById('stop-button').addEventListener('click', () => {
         scanner.stop();
     });
+*/
 
     // ####### File Scanning #######
 

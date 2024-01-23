@@ -24,8 +24,8 @@
 	}
 ?>
 
-<div id="video-container" style="width:250px;height:250px;">
-    <video id="qr-video" style="width:200px;height:200px;"></video>
+<div id="video-container">
+    <video id="qr-video"></video>
 </div>
 <!--
 <b>Detected QR code: </b>

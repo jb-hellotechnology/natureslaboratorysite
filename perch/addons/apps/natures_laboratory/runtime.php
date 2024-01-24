@@ -26,12 +26,54 @@
 	include('Natures_Laboratory.shopifys.class.php');
 	include('Natures_Laboratory.order.class.php');
 	include('Natures_Laboratory.orders.class.php');
+	include('Natures_Laboratory.production.class.php');
+	include('Natures_Laboratory.productions.class.php');
+	
+	function logItem($batch, $size, $bbe, $bbe_month, $bbe_year, $order){
+		
+		$orders = new Natures_Laboratory_Orders();
+		$production = new Natures_Laboratory_Productions();
+		$goods = new Natures_Laboratory_Goods_Ins();
+		
+		$product = $production->getByBatch($batch);
+		$goods = $goods->getByBatch($batch);
+		
+		if(!$bbe){
+			$bbe = "$bbe_year-$bbe_month-01";
+		}else{
+			$parts = explode("/", $bbe);
+			$bbe = "$parts[1]-$parts[0]-01";
+		}
+		
+		// Kind of product?
+		if($product){
+			$orders->logOrderItem($product['sku'],$batch, $size, $bbe, $order);
+			$message = "<p class=\"error\">Product</p>";
+		}elseif($goods){
+			$orders->logOrderItem($goods['productCode'], $batch, $size, $bbe, $order);
+			$message = "<p class=\"error\">Goods</p>";
+		}else{
+			$message = "<p class=\"error\">Can't find product</p>";
+		}
+		
+		return $message;
+	}
 	
 	function orderDetails($order){
 
 		$orders = new Natures_Laboratory_Orders();
 		
 		$orders = $orders->getOrderDetails($order);
+		
+		return $orders;
+	   
+	}
+	
+	function orderItems($order, $sku){
+
+		$orders = new Natures_Laboratory_Orders();
+		
+		$orders = $orders->getOrderItems($order, $sku);
 		
 		return $orders;
 	   

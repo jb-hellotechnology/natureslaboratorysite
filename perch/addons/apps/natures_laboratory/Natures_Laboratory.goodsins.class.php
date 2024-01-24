@@ -10,6 +10,14 @@ class Natures_Laboratory_Goods_Ins extends PerchAPI_Factory
 	
 	public $static_fields = array('natures_laboratory_goods_inID,','staff','productCode','productDescription','dateIn','supplier','qty','bagsList','suppliersBatch','ourBatch','bbe','qa','goods_inDynamicFields');	
 	
+	public function getByBatch($batch){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_goods_in WHERE ourBatch="'.$batch.'"';
+		$data = $this->db->get_row($sql);
+		return $data;
+		
+	}
+	
 	public function getGoodsIn($q){
 		
 		$today = date('Y-m-d');

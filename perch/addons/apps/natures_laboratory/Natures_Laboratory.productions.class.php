@@ -10,6 +10,14 @@ class Natures_Laboratory_Productions extends PerchAPI_Factory
 	
 	public $static_fields = array('perch3_natures_laboratory_productionID','sku','units','specification','packaging','labelling','date','datePressed','dateSageUpdated','sageUpdatedBy','barrel','status','bbe','productionDynamicFields');	
 	
+	public function getByBatch($batch){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_production WHERE finishedBatch="'.$batch.'"';
+		$data = $this->db->get_row($sql);
+		return $data;
+		
+	}
+	
 	public function getShortfall($category){
 		
 		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE QTY_IN_STOCK<=QTY_REORDER_LEVEL AND QTY_REORDER_LEVEL>0 AND STOCK_CAT="'.$category.'" ORDER BY STOCK_CODE ASC';

@@ -2,26 +2,62 @@
 <h1><a href="/dispatch/">Dispatch</a></h1>
 <?php
 	if($_GET['order']){
+		
+		if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+			if($_POST['delete']){
+				//$message = deleteItem($_POST['itemID']);
+			}else{
+				$message = logItem($_POST['id'], $_POST['size'], $_POST['bbe'], $_POST['bbe_month'], $_POST['bbe_year'], $_GET['order']);	
+			}
+		}
+		
+		if($message){
+			echo $message;
+		}
+		
 		// ORDER EXISTS
 		$orderDetails = orderDetails($_GET['order']);
 		echo "<p>Order items:</p><ul>";
 		foreach($orderDetails as $item){
-			echo "<li>".$item['SKU']." x ".$item['quantity']."</li>";
+			echo "<li>".$item['SKU']." x ".$item['quantity'];
+			// Logged Items Here
+			echo "<ul>";
+			$orderItems = orderItems($_GET['order'], $item['SKU']);
+			foreach($orderItems as $orderItem){
+				echo "<li>".$orderItem['SKU']." [".$orderItem['batch']."] [".$orderItem['bbe']."] [".$orderItem['size']."]</li>";
+			}	
+			echo "</ul>";
+			echo "</li>";
 		}
 		echo "</ul>";
-	}else{
-		// SHOW LIST OF ORDERS
-		$orders = pendingOrders();
-		echo "<p>Select an order:</p><ul>";
-		$orderNumber = "";
-		foreach($orders as $Order){
-			if($orderNumber<>$Order['orderNumber']){
-				echo "<li><a href=\"/dispatch/?order=".$Order['orderNumber']."\">".$Order['orderNumber']."</a></li>";
-				$orderNumber = $Order['orderNumber'];
-			}
-		}
-		echo "</ul>";
-	}
+		echo "<p><strong>Log Item:</strong></p>";
+		echo "<form method=\"POST\" id=\"log\" action=\"/dispatch/?order=".$_GET['order']."\">";
+		echo "<label>Batch Code</label><input type=\"text\" id=\"id\" name=\"id\" />";
+		echo "<label>Size</label><input type=\"text\" id=\"size\" name=\"size\" />";
+		echo "<label>BBE</label><input type=\"text\" id=\"bbe\" name=\"bbe\" />";
+		echo "<select id=\"bbe_month\" name=\"bbe_month\">
+				<option>01</option>
+				<option>02</option>
+				<option>03</option>
+				<option>04</option>
+				<option>05</option>
+				<option>06</option>
+				<option>07</option>
+				<option>08</option>
+				<option>09</option>
+				<option>10</option>
+				<option>11</option>
+				<option>12</option>
+			  </select>";
+		echo "<select id=\"bbe_year\" name=\"bbe_year\">
+				<option>2024</option>
+				<option>2025</option>
+				<option>2026</option>
+				<option>2027</option>
+				<option>2028</option>
+			  </select>";
+		echo "<input type=\"submit\" value=\"Submit\" />";
+		echo "</form>";
 ?>
 
 <div id="video-container">
@@ -56,7 +92,11 @@
         var product = getAllUrlParams(result.data).id;
 		const size = urlParams.get('size')
 		const bbe = urlParams.get('bbe')
-		alert(product + ' - ' + size + ' - ' + bbe);
+		document.getElementById("id").value = product;
+		document.getElementById("size").value = size;
+		document.getElementById("bbe").value = bbe;
+		
+		document.getElementById("log").submit(); 
 
     }
 
@@ -168,3 +208,19 @@
 	}
 
 </script>
+
+<?php
+	}else{
+		// SHOW LIST OF ORDERS
+		$orders = pendingOrders();
+		echo "<p>Select an order:</p><ul>";
+		$orderNumber = "";
+		foreach($orders as $Order){
+			if($orderNumber<>$Order['orderNumber']){
+				echo "<li><a href=\"/dispatch/?order=".$Order['orderNumber']."\">".$Order['orderNumber']."</a></li>";
+				$orderNumber = $Order['orderNumber'];
+			}
+		}
+		echo "</ul>";
+	}
+?>

@@ -45,7 +45,9 @@
 	    echo $Form->form_start();
 	    echo "<p><strong>Select Categories to Update:</strong></p>";
 		echo $Form->checkbox_field("chemicals","Chemicals, Creams, Essential Oils, Fixed Oils, Packaging, Waxes/Gums, Sweet Cecily's",'chemicals','');
-		echo $Form->checkbox_field("tinctures","Tinctures, Fluid Extracts & Organics",'tinctures','');
+		echo $Form->checkbox_field("tinctures","Tinctures",'tinctures','');
+		echo $Form->checkbox_field("fluids","Fluid Extracts",'fluids','');
+		echo $Form->checkbox_field("organics","Organics",'organics','');
 		echo $Form->checkbox_field("cuts","Cuts, Wholes, Powders & Powder Blends",'cuts','');
 		echo $Form->checkbox_field("capsules","Capsules",'capsules','');
 		echo $Form->checkbox_field("beevital","BeeVital",'beevital','');

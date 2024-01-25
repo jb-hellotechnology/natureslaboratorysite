@@ -433,7 +433,101 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		// CATEGORY 2, 4, 18 - Tinctures, Fluid Extracts & Organics
 		
 		if($data['tinctures']){
-			$products = "SELECT perch3_natureslaboratory_stock.STOCK_CODE AS STOCKCODE, (perch3_natureslaboratory_stock.QTY_IN_STOCK - perch3_natureslaboratory_stock.QTY_ALLOCATED) AS NEWSTOCK, (perch3_natureslaboratory_stock_prev.QTY_IN_STOCK - perch3_natureslaboratory_stock_prev.QTY_ALLOCATED) AS OLDSTOCK FROM perch3_natureslaboratory_stock, perch3_natureslaboratory_stock_prev WHERE (perch3_natureslaboratory_stock.STOCK_CODE = perch3_natureslaboratory_stock_prev.STOCK_CODE) AND ((perch3_natureslaboratory_stock.QTY_IN_STOCK != perch3_natureslaboratory_stock_prev.QTY_IN_STOCK) OR (perch3_natureslaboratory_stock.QTY_ALLOCATED != perch3_natureslaboratory_stock_prev.QTY_ALLOCATED)) AND (perch3_natureslaboratory_stock.STOCK_CAT=2 OR perch3_natureslaboratory_stock.STOCK_CAT=4) AND perch3_natureslaboratory_stock.WEB_PUBLISH=1 ORDER BY perch3_natureslaboratory_stock.STOCK_CODE ASC";
+			$products = "SELECT perch3_natureslaboratory_stock.STOCK_CODE AS STOCKCODE, (perch3_natureslaboratory_stock.QTY_IN_STOCK - perch3_natureslaboratory_stock.QTY_ALLOCATED) AS NEWSTOCK, (perch3_natureslaboratory_stock_prev.QTY_IN_STOCK - perch3_natureslaboratory_stock_prev.QTY_ALLOCATED) AS OLDSTOCK FROM perch3_natureslaboratory_stock, perch3_natureslaboratory_stock_prev WHERE (perch3_natureslaboratory_stock.STOCK_CODE = perch3_natureslaboratory_stock_prev.STOCK_CODE) AND ((perch3_natureslaboratory_stock.QTY_IN_STOCK != perch3_natureslaboratory_stock_prev.QTY_IN_STOCK) OR (perch3_natureslaboratory_stock.QTY_ALLOCATED != perch3_natureslaboratory_stock_prev.QTY_ALLOCATED)) AND perch3_natureslaboratory_stock.STOCK_CAT=2 AND perch3_natureslaboratory_stock.WEB_PUBLISH=1 ORDER BY perch3_natureslaboratory_stock.STOCK_CODE ASC";
+			$products = $this->db->get_rows($products);
+			foreach($products as $product) {
+				
+				$productS = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."'";
+				$productS = $this->db->get_row($productS);
+				if($productS){
+					
+					$output .= "$product[STOCKCODE] from ".number_format(floor($product['OLDSTOCK']))." -> ".number_format(floor($product['NEWSTOCK']))."<br />";
+					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format($product['NEWSTOCK'],0),$token);
+					sleep(0.5);
+					
+					//if single litre, update 5, 10 and 25 litres
+					if (!strpos($product['STOCKCODE'], '/')) {
+						
+						$productV = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."/5000'";
+						$productV = $this->db->get_row($productV);
+						
+						//5000
+						$output .= "$product[STOCKCODE]/5000 from ".number_format(floor($product['OLDSTOCK']/5))." -> ".number_format(floor($product['NEWSTOCK']/5))."<br />";
+						$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productV['inventory_item_id'],number_format(floor($product['NEWSTOCK']/5),0),$token);
+						sleep(0.5);
+						
+						$productV = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."/10000'";
+						$productV = $this->db->get_row($productV);
+						
+						//10000
+						$output .= "$product[STOCKCODE]/10000 from ".number_format(floor($product['OLDSTOCK']/10))." -> ".number_format(floor($product['NEWSTOCK']/10))."<br />";
+						$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productV['inventory_item_id'],number_format(floor($product['NEWSTOCK']/10),0),$token);
+						sleep(0.5);
+						
+						$productV = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."/25000'";
+						$productV = $this->db->get_row($productV);
+						
+						//25000
+						$output .= "$product[STOCKCODE]/25000 from ".number_format(floor($product['OLDSTOCK']/25))." -> ".number_format(floor($product['NEWSTOCK']/25))."<br />";
+						$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productV['inventory_item_id'],number_format(floor($product['NEWSTOCK']/25),0),$token);
+						sleep(0.5);
+						
+					}
+					
+				}
+				
+			}
+		}
+		
+		if($data['fluids']){
+			$products = "SELECT perch3_natureslaboratory_stock.STOCK_CODE AS STOCKCODE, (perch3_natureslaboratory_stock.QTY_IN_STOCK - perch3_natureslaboratory_stock.QTY_ALLOCATED) AS NEWSTOCK, (perch3_natureslaboratory_stock_prev.QTY_IN_STOCK - perch3_natureslaboratory_stock_prev.QTY_ALLOCATED) AS OLDSTOCK FROM perch3_natureslaboratory_stock, perch3_natureslaboratory_stock_prev WHERE (perch3_natureslaboratory_stock.STOCK_CODE = perch3_natureslaboratory_stock_prev.STOCK_CODE) AND ((perch3_natureslaboratory_stock.QTY_IN_STOCK != perch3_natureslaboratory_stock_prev.QTY_IN_STOCK) OR (perch3_natureslaboratory_stock.QTY_ALLOCATED != perch3_natureslaboratory_stock_prev.QTY_ALLOCATED)) AND perch3_natureslaboratory_stock.STOCK_CAT=4 AND perch3_natureslaboratory_stock.WEB_PUBLISH=1 ORDER BY perch3_natureslaboratory_stock.STOCK_CODE ASC";
+			$products = $this->db->get_rows($products);
+			foreach($products as $product) {
+				
+				$productS = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."'";
+				$productS = $this->db->get_row($productS);
+				if($productS){
+					
+					$output .= "$product[STOCKCODE] from ".number_format(floor($product['OLDSTOCK']))." -> ".number_format(floor($product['NEWSTOCK']))."<br />";
+					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format($product['NEWSTOCK'],0),$token);
+					sleep(0.5);
+					
+					//if single litre, update 5, 10 and 25 litres
+					if (!strpos($product['STOCKCODE'], '/')) {
+						
+						$productV = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."/5000'";
+						$productV = $this->db->get_row($productV);
+						
+						//5000
+						$output .= "$product[STOCKCODE]/5000 from ".number_format(floor($product['OLDSTOCK']/5))." -> ".number_format(floor($product['NEWSTOCK']/5))."<br />";
+						$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productV['inventory_item_id'],number_format(floor($product['NEWSTOCK']/5),0),$token);
+						sleep(0.5);
+						
+						$productV = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."/10000'";
+						$productV = $this->db->get_row($productV);
+						
+						//10000
+						$output .= "$product[STOCKCODE]/10000 from ".number_format(floor($product['OLDSTOCK']/10))." -> ".number_format(floor($product['NEWSTOCK']/10))."<br />";
+						$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productV['inventory_item_id'],number_format(floor($product['NEWSTOCK']/10),0),$token);
+						sleep(0.5);
+						
+						$productV = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."/25000'";
+						$productV = $this->db->get_row($productV);
+						
+						//25000
+						$output .= "$product[STOCKCODE]/25000 from ".number_format(floor($product['OLDSTOCK']/25))." -> ".number_format(floor($product['NEWSTOCK']/25))."<br />";
+						$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productV['inventory_item_id'],number_format(floor($product['NEWSTOCK']/25),0),$token);
+						sleep(0.5);
+						
+					}
+					
+				}
+				
+			}
+		}
+		
+		if($data['organics']){
+			$products = "SELECT perch3_natureslaboratory_stock.STOCK_CODE AS STOCKCODE, (perch3_natureslaboratory_stock.QTY_IN_STOCK - perch3_natureslaboratory_stock.QTY_ALLOCATED) AS NEWSTOCK, (perch3_natureslaboratory_stock_prev.QTY_IN_STOCK - perch3_natureslaboratory_stock_prev.QTY_ALLOCATED) AS OLDSTOCK FROM perch3_natureslaboratory_stock, perch3_natureslaboratory_stock_prev WHERE (perch3_natureslaboratory_stock.STOCK_CODE = perch3_natureslaboratory_stock_prev.STOCK_CODE) AND ((perch3_natureslaboratory_stock.QTY_IN_STOCK != perch3_natureslaboratory_stock_prev.QTY_IN_STOCK) OR (perch3_natureslaboratory_stock.QTY_ALLOCATED != perch3_natureslaboratory_stock_prev.QTY_ALLOCATED)) AND perch3_natureslaboratory_stock.STOCK_CAT=18 AND perch3_natureslaboratory_stock.WEB_PUBLISH=1 ORDER BY perch3_natureslaboratory_stock.STOCK_CODE ASC";
 			$products = $this->db->get_rows($products);
 			foreach($products as $product) {
 				

@@ -18,6 +18,8 @@ error_reporting(E_ALL);
     
     if($Form->submitted()){
 	    // Import Stock
-	    $output = $NaturesLaboratoryShopify->syncha($token);
+        $postvars = array('chemicals','tinctures','cuts','capsules','beevital');	   
+    	$data = $Form->receive($postvars);
+	    $output = $NaturesLaboratoryShopify->syncha($token,$data);
 	    $message = $HTML->success_message('Stock levels successfully synchronised'); 
 	}

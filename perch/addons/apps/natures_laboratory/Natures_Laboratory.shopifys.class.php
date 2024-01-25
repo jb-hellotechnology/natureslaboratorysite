@@ -364,7 +364,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 				
 				$output .= "$product[STOCKCODE] from ".number_format(floor($product['OLDSTOCK']))." -> ".number_format(floor($product['NEWSTOCK']))."<br />";
 				$this->shopifyInventory('beevital-propolis.myshopify.com','77880295744',$productS['inventory_item_id'],number_format(floor($product['NEWSTOCK']),0),$token);
-				sleep(0.5);
+				sleep(0.1);
 				
 			}
 			
@@ -392,7 +392,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 				
 				$output .= "$product[STOCKCODE] from ".number_format(floor($product['OLDSTOCK']))." -> ".number_format(floor($product['NEWSTOCK']))."<br />";
 				$this->shopifyInventory('sweet-cecilys.myshopify.com','77875183890',$productS['inventory_item_id'],number_format(floor($product['NEWSTOCK']),0),$token);
-				sleep(0.5);
+				sleep(0.1);
 				
 			}
 			
@@ -423,7 +423,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					
 					$output .= "$product[STOCKCODE] from ".number_format(floor($product['OLDSTOCK']))." -> ".number_format(floor($product['NEWSTOCK']))."<br />";
 					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format(floor($product['NEWSTOCK']),0),$token);
-					sleep(0.5);
+					sleep(0.1);
 					
 				}
 				
@@ -443,7 +443,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					
 					$output .= "$product[STOCKCODE] from ".number_format(floor($product['OLDSTOCK']))." -> ".number_format(floor($product['NEWSTOCK']))."<br />";
 					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format($product['NEWSTOCK'],0),$token);
-					sleep(0.5);
+					sleep(0.1);
 					
 					//if single litre, update 5, 10 and 25 litres
 					if (!strpos($product['STOCKCODE'], '/')) {
@@ -454,7 +454,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 						//5000
 						$output .= "$product[STOCKCODE]/5000 from ".number_format(floor($product['OLDSTOCK']/5))." -> ".number_format(floor($product['NEWSTOCK']/5))."<br />";
 						$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productV['inventory_item_id'],number_format(floor($product['NEWSTOCK']/5),0),$token);
-						sleep(0.5);
+						sleep(0.1);
 						
 						$productV = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."/10000'";
 						$productV = $this->db->get_row($productV);
@@ -462,7 +462,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 						//10000
 						$output .= "$product[STOCKCODE]/10000 from ".number_format(floor($product['OLDSTOCK']/10))." -> ".number_format(floor($product['NEWSTOCK']/10))."<br />";
 						$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productV['inventory_item_id'],number_format(floor($product['NEWSTOCK']/10),0),$token);
-						sleep(0.5);
+						sleep(0.1);
 						
 						$productV = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."/25000'";
 						$productV = $this->db->get_row($productV);
@@ -470,7 +470,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 						//25000
 						$output .= "$product[STOCKCODE]/25000 from ".number_format(floor($product['OLDSTOCK']/25))." -> ".number_format(floor($product['NEWSTOCK']/25))."<br />";
 						$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productV['inventory_item_id'],number_format(floor($product['NEWSTOCK']/25),0),$token);
-						sleep(0.5);
+						sleep(0.1);
 						
 					}
 					
@@ -490,7 +490,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					
 					$output .= "$product[STOCKCODE] from ".number_format(floor($product['OLDSTOCK']))." -> ".number_format(floor($product['NEWSTOCK']))."<br />";
 					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format($product['NEWSTOCK'],0),$token);
-					sleep(0.5);
+					sleep(0.1);
 					
 					//if single litre, update 5, 10 and 25 litres
 					if (!strpos($product['STOCKCODE'], '/')) {
@@ -501,7 +501,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 						//5000
 						$output .= "$product[STOCKCODE]/5000 from ".number_format(floor($product['OLDSTOCK']/5))." -> ".number_format(floor($product['NEWSTOCK']/5))."<br />";
 						$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productV['inventory_item_id'],number_format(floor($product['NEWSTOCK']/5),0),$token);
-						sleep(0.5);
+						sleep(0.1);
 						
 						$productV = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."/10000'";
 						$productV = $this->db->get_row($productV);
@@ -509,7 +509,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 						//10000
 						$output .= "$product[STOCKCODE]/10000 from ".number_format(floor($product['OLDSTOCK']/10))." -> ".number_format(floor($product['NEWSTOCK']/10))."<br />";
 						$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productV['inventory_item_id'],number_format(floor($product['NEWSTOCK']/10),0),$token);
-						sleep(0.5);
+						sleep(0.1);
 						
 						$productV = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."/25000'";
 						$productV = $this->db->get_row($productV);
@@ -517,7 +517,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 						//25000
 						$output .= "$product[STOCKCODE]/25000 from ".number_format(floor($product['OLDSTOCK']/25))." -> ".number_format(floor($product['NEWSTOCK']/25))."<br />";
 						$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productV['inventory_item_id'],number_format(floor($product['NEWSTOCK']/25),0),$token);
-						sleep(0.5);
+						sleep(0.1);
 						
 					}
 					
@@ -537,7 +537,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					
 					$output .= "$product[STOCKCODE] from ".number_format(floor($product['OLDSTOCK']))." -> ".number_format(floor($product['NEWSTOCK']))."<br />";
 					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format($product['NEWSTOCK'],0),$token);
-					sleep(0.5);
+					sleep(0.1);
 					
 					//if single litre, update 5, 10 and 25 litres
 					if (!strpos($product['STOCKCODE'], '/')) {
@@ -548,7 +548,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 						//5000
 						$output .= "$product[STOCKCODE]/5000 from ".number_format(floor($product['OLDSTOCK']/5))." -> ".number_format(floor($product['NEWSTOCK']/5))."<br />";
 						$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productV['inventory_item_id'],number_format(floor($product['NEWSTOCK']/5),0),$token);
-						sleep(0.5);
+						sleep(0.1);
 						
 						$productV = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."/10000'";
 						$productV = $this->db->get_row($productV);
@@ -556,7 +556,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 						//10000
 						$output .= "$product[STOCKCODE]/10000 from ".number_format(floor($product['OLDSTOCK']/10))." -> ".number_format(floor($product['NEWSTOCK']/10))."<br />";
 						$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productV['inventory_item_id'],number_format(floor($product['NEWSTOCK']/10),0),$token);
-						sleep(0.5);
+						sleep(0.1);
 						
 						$productV = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."/25000'";
 						$productV = $this->db->get_row($productV);
@@ -564,7 +564,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 						//25000
 						$output .= "$product[STOCKCODE]/25000 from ".number_format(floor($product['OLDSTOCK']/25))." -> ".number_format(floor($product['NEWSTOCK']/25))."<br />";
 						$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productV['inventory_item_id'],number_format(floor($product['NEWSTOCK']/25),0),$token);
-						sleep(0.5);
+						sleep(0.1);
 						
 					}
 					
@@ -591,7 +591,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					//KG
 					$output .= "$product[STOCKCODE] from ".number_format(floor($product['OLDSTOCK']))." -> ".number_format(floor($product['NEWSTOCK']))."<br />";
 					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format(floor($product['NEWSTOCK']),0),$token);
-					sleep(0.5);
+					sleep(0.1);
 					
 					$productV = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."/500'";
 					$productV = $this->db->get_row($productV);
@@ -599,7 +599,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					//500g
 					$output .= "$product[STOCKCODE]/500 from ".number_format(floor($product['OLDSTOCK']*2))." -> ".number_format(floor($product['NEWSTOCK']*2))."<br />";
 					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productV['inventory_item_id'],number_format(floor($product['NEWSTOCK']*2),0),$token);
-					sleep(0.5);
+					sleep(0.1);
 					
 					$productV = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."/250'";
 					$productV = $this->db->get_row($productV);
@@ -607,7 +607,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					//250g
 					$output .= "$product[STOCKCODE]/250 from ".number_format(floor($product['OLDSTOCK']*4))." -> ".number_format(floor($product['NEWSTOCK']*4))."<br />";
 					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productV['inventory_item_id'],number_format(floor($product['NEWSTOCK']*4),0),$token);
-					sleep(0.5);
+					sleep(0.1);
 					
 					$productV = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."/5000'";
 					$productV = $this->db->get_row($productV);
@@ -615,7 +615,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					//5kg
 					$output .= "$product[STOCKCODE]/5000 from ".number_format(floor($product['OLDSTOCK']/5))." -> ".number_format(floor($product['NEWSTOCK']/5))."<br />";
 					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productV['inventory_item_id'],number_format(floor($product['NEWSTOCK']/5),0),$token);
-					sleep(0.5);
+					sleep(0.1);
 					
 					$productV = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."/10000'";
 					$productV = $this->db->get_row($productV);
@@ -623,7 +623,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					//10kg
 					$output .= "$product[STOCKCODE]/10000 from ".number_format(floor($product['OLDSTOCK']/10))." -> ".number_format(floor($product['NEWSTOCK']/10))."<br />";
 					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productV['inventory_item_id'],number_format(floor($product['NEWSTOCK']/10),0),$token);
-					sleep(0.5);
+					sleep(0.1);
 					
 					$productV = "SELECT * FROM perch3_natures_laboratory_shopify_ha WHERE STOCK_CODE='".$product['STOCKCODE']."/25000'";
 					$productV = $this->db->get_row($productV);
@@ -631,7 +631,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					//25kg
 					$output .= "$product[STOCKCODE]/25000 from ".number_format(floor($product['OLDSTOCK']/25))." -> ".number_format(floor($product['NEWSTOCK']/25))."<br />";
 					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productV['inventory_item_id'],number_format(floor($product['NEWSTOCK']/25),0),$token);
-					sleep(0.5);
+					sleep(0.1);
 				}
 				
 			}
@@ -650,7 +650,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					
 					$output .= "$product[STOCKCODE] from ".number_format(floor($product['OLDSTOCK']))." -> ".number_format(floor($product['NEWSTOCK']))."<br />";
 					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format(floor($product['NEWSTOCK']),0),$token);
-					sleep(0.5);
+					sleep(0.1);
 					
 				}
 				
@@ -671,7 +671,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					
 					$output .= "$product[STOCKCODE] from ".number_format(floor($product['OLDSTOCK']))." -> ".number_format(floor($product['NEWSTOCK']))."<br />";
 					$this->shopifyInventory('herbal-apothecary-uk.myshopify.com','78941028643',$productS['inventory_item_id'],number_format(floor($product['NEWSTOCK']),0),$token);
-					sleep(0.5);
+					sleep(0.1);
 					
 				}
 				

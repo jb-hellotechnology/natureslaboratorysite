@@ -15,8 +15,10 @@ error_reporting(E_ALL);
     
     $lastImport = $NaturesLaboratoryShopify->lastImport();
     
+/*
     if($Form->submitted()){
 	    // Import Stock
 	    $NaturesLaboratoryShopify->importStock();
 	    $message = $HTML->success_message('CSV successfully imported'); 
 	}
+*/

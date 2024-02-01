@@ -35,7 +35,7 @@
 	]);
 */
 	
-	echo $Smartbar->render();
+// 	echo $Smartbar->render();
 
     echo $HTML->main_panel_start();
     

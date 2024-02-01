@@ -1,8 +1,10 @@
 <?php
 	
+/*
 	ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+*/
 
 	if (!$CurrentUser->has_priv('natures_laboratory.labels')) exit;
     
@@ -13,10 +15,8 @@ error_reporting(E_ALL);
     
     $lastImport = $NaturesLaboratoryShopify->lastImport();
     
-/*
     if($Form->submitted()){
 	    // Import Stock
 	    $NaturesLaboratoryShopify->importStock();
 	    $message = $HTML->success_message('CSV successfully imported'); 
 	}
-*/

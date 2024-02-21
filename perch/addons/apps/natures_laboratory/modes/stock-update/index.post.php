@@ -39,22 +39,22 @@
 
     echo $HTML->main_panel_start();
     
-	    $filename = '../../../../../sagedata/perchstock.csv';
-	
-		if (file_exists($filename)) {
-			
-			$filesize = number_format(filesize($filename)/1024/1024,2);
-		    echo "<p><strong>Database was last updated:</strong> " . $lastImport . "</p>";
-		    echo "<p><strong>Stock CSV was last uploaded:</strong> " . date ("F d Y H:i:s", filemtime($filename))."</p>";
-		    echo "<p><strong>File size is:</strong> ".$filesize."MB</p>";
-		    
-		}
+    $filename = '../../../../../sagedata/perchstock.csv';
+
+	if (file_exists($filename)) {
 		
-		echo "<br /><br /><h2>Sync Sage Data with Websites</h2>
-		<p><a href=\"https://natureslaboratory.co.uk/sync/stock_bv.php\" target=\"_blank\">Sync Stock Levels with beevitalpropolis.com</a></p>
-		<p><a href=\"https://natureslaboratory.co.uk/sync/stock_sc.php\" target=\"_blank\">Sync Stock Levels with sweetcecilys.com</a></p>
-		<p><a href=\"https://natureslaboratory.co.uk/sync/stock_ha.php\" target=\"_blank\">Download inventory CSV for herbalapothecaryuk.com</a></p>
-		<p><a href=\"https://natureslaboratory.co.uk/sync/pricing_ha.php\" target=\"_blank\">Download price update CSV for herbalapothecaryuk.com</a></p>";
-	
+		$filesize = number_format(filesize($filename)/1024/1024,2);
+	    echo "<p><strong>Database was last updated:</strong> " . $lastImport . "</p>";
+	    echo "<p><strong>Stock CSV was last uploaded:</strong> " . date ("F d Y H:i:s", filemtime($filename))."</p>";
+	    echo "<p><strong>File size is:</strong> ".$filesize."MB</p>";
+	    
 	}
+	
+	echo "<br /><br /><h2>Sync Sage Data with Websites</h2>
+	<p><a href=\"https://natureslaboratory.co.uk/sync/stock_bv.php\" target=\"_blank\">Sync Stock Levels with beevitalpropolis.com</a></p>
+	<p><a href=\"https://natureslaboratory.co.uk/sync/stock_sc.php\" target=\"_blank\">Sync Stock Levels with sweetcecilys.com</a></p>
+	<p><a href=\"https://natureslaboratory.co.uk/sync/stock_ha.php\" target=\"_blank\">Download inventory CSV for herbalapothecaryuk.com</a></p>
+	<p><a href=\"https://natureslaboratory.co.uk/sync/pricing_ha.php\" target=\"_blank\">Download price update CSV for herbalapothecaryuk.com</a></p>";
+	
+	
     echo $HTML->main_panel_end();

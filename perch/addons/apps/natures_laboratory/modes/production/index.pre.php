@@ -36,3 +36,12 @@
     
     $contract = array();
     $contract = $NaturesLaboratoryProduction->getShortfall(40);
+    
+    $cuts = array();
+    $cuts = $NaturesLaboratoryProduction->getShortfall(5);
+    
+    $wholes = array();
+    $wholes = $NaturesLaboratoryProduction->getShortfall(6);
+    
+    $powders = array();
+    $powders = $NaturesLaboratoryProduction->getShortfall(7);

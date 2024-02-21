@@ -461,6 +461,37 @@
 ?>
 	    </tbody>
     </table>
+    
+    <h2>Waxes &amp; Gums</h2>
+
+	<table class="d">
+        <thead>
+            <tr>
+	            <th class="first">SKU</th>
+	            <th>Description</th>
+                <th>Stock Level</th>
+                <th>Re-Order Level</th> 
+                <th class="action last">Schedule</th>
+            </tr>
+        </thead>
+        <tbody>
+<?php
+    foreach($waxes as $Product) {
+	    if($NaturesLaboratoryProduction->notInProduction($Product['STOCK_CODE'])){
+?>
+            <tr>
+	            <td><?php echo $Product['STOCK_CODE']; ?>
+                <td><?php echo $Product['DESCRIPTION'] ?></td>
+                <td><?php echo $Product['QTY_IN_STOCK']; ?></td>
+                <td><?php echo $Product['QTY_REORDER_LEVEL']; ?></td>
+                <td><a class="button button-small action-success" href="<?php echo $HTML->encode($API->app_path()); ?>/production/schedule/?id=<?php echo $HTML->encode(urlencode($Product['STOCK_CODE'])); ?>"><?php echo 'Schedule'; ?></a></td>
+            </tr>
+<?php
+		}
+	}
+?>
+	    </tbody>
+    </table>
 
 
 

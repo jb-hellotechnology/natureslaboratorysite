@@ -45,3 +45,6 @@
     
     $powders = array();
     $powders = $NaturesLaboratoryProduction->getShortfall(7);
+    
+    $waxes = array();
+    $waxes = $NaturesLaboratoryProduction->getShortfall(17);

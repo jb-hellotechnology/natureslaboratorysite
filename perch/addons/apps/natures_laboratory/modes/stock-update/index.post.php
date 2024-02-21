@@ -39,12 +39,6 @@
 
     echo $HTML->main_panel_start();
     
-    if($message){
-	    echo $message;
-	}else{
-    
-	    echo $Form->form_start();
-	    
 	    $filename = '../../../../../sagedata/perchstock.csv';
 	
 		if (file_exists($filename)) {
@@ -53,15 +47,8 @@
 		    echo "<p><strong>Database was last updated:</strong> " . $lastImport . "</p>";
 		    echo "<p><strong>Stock CSV was last uploaded:</strong> " . date ("F d Y H:i:s", filemtime($filename))."</p>";
 		    echo "<p><strong>File size is:</strong> ".$filesize."MB</p>";
-		    if($filesize>4){
-				echo $Form->submit_field('btnSubmit', 'Update Database', $API->app_path());				    
-			}else{
-				echo $HTML->warning_message('File is too small - please wait for next update before attempting import'); 
-			}
 		    
 		}
-
-		echo $Form->form_end();
 		
 		echo "<br /><br /><h2>Sync Sage Data with Websites</h2>
 		<p><a href=\"https://natureslaboratory.co.uk/sync/stock_bv.php\" target=\"_blank\">Sync Stock Levels with beevitalpropolis.com</a></p>

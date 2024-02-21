@@ -29,9 +29,9 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 	
 	public function importStock(){
 		
-		$fp = file('../../../../../sagedata/perchstock.csv');
+		$fp = file('../sagedata/perchstock.csv');
 		
-		$filename = '../../../../../sagedata/perchstock.csv';
+		$filename = '../sagedata/perchstock.csv';
 		$rowCount = 0;
 		
 		// Open the file for reading
@@ -87,7 +87,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 					
 					//echo "Reading .csv file into _stock<br />";
 					
-					$csvFile = file('../../../../../sagedata/perchstock.csv');
+					$csvFile = file('../sagedata/perchstock.csv');
 					$i = 0;
 				    foreach ($csvFile as $line) {
 					    if($i>=1){

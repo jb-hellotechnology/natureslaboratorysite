@@ -39,6 +39,7 @@ class Natures_Laboratory_Productions extends PerchAPI_Factory
 	public function getIngredient($STOCK_CODE,$i){
 		
 		$sql = 'SELECT COMPONENT_CODE_'.$i.' FROM perch3_natureslaboratory_stock WHERE STOCK_CODE="'.$STOCK_CODE.'"';
+		echo $sql;
 		$data = $this->db->get_row($sql);
 		$sql = 'SELECT * FROM perch3_natureslaboratory_stock WHERE STOCK_CODE="'.$data['COMPONENT_CODE_'.$i].'"';
 		$ingredient = $this->db->get_row($sql);

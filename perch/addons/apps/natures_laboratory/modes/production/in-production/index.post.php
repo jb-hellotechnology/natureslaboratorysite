@@ -143,6 +143,7 @@
 			$units = 100000000;
 			while($i<=50){
 				$iQty = $NaturesLaboratoryProduction->getIngredient($scheduled['sku'],$i);
+				echo $iQty['STOCK_CODE'];
 				$required = round($product['COMPONENT_QTY_'.$i]*$scheduled['units'],2);
 				if($iQty['STOCK_CODE']=='ALC96'){
 					$required = round($required*1.04,2);

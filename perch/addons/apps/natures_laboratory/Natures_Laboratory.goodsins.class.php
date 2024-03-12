@@ -31,7 +31,7 @@ class Natures_Laboratory_Goods_Ins extends PerchAPI_Factory
 			
 		}else{
 		
-			$sql = 'SELECT perch3_natures_laboratory_goods_in.*, perch3_natureslaboratory_stock.DESCRIPTION AS DESCRIPTION FROM perch3_natures_laboratory_goods_in, perch3_natureslaboratory_stock WHERE perch3_natures_laboratory_goods_in.dateIn>="'.$date.'" ORDER BY perch3_natures_laboratory_goods_in.ourBatch DESC;';
+			$sql = 'SELECT perch3_natures_laboratory_goods_in.*, perch3_natureslaboratory_stock.DESCRIPTION AS DESCRIPTION FROM perch3_natures_laboratory_goods_in, perch3_natureslaboratory_stock WHERE perch3_natures_laboratory_goods_in.dateIn>="'.$date.'" AND perch3_natures_laboratory_goods_in.productCode=perch3_natureslaboratory_stock.STOCK_CODE ORDER BY perch3_natures_laboratory_goods_in.ourBatch DESC';
 			$data = $this->db->get_rows($sql);
 		
 		}

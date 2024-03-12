@@ -76,11 +76,9 @@
         <tbody>
 <?php
     foreach($goodsIn as $Goods) {
-/*
 	    
 	    $COA = $NaturesLaboratoryGoodsIn->coaExists($Goods['ourBatch']);
 	    $DESCRIPTION = $NaturesLaboratoryGoodsIn->getDescription($Goods['productCode']);
-*/
 
 ?>
             <tr>

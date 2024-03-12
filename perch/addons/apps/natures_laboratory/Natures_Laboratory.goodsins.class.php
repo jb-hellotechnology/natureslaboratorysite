@@ -112,9 +112,9 @@ class Natures_Laboratory_Goods_Ins extends PerchAPI_Factory
 	
 	public function coaExists($batch){
 		
-		$sql = 'SELECT * FROM perch3_natures_laboratory_coa WHERE ourBatch="'.$batch.'"';
+		$sql = 'SELECT * FROM perch3_natures_laboratory_coa WHERE ourBatch="'.$batch.'" AND dateEntered<>""';
 		$data = $this->db->get_row($sql);
-		if($data['dateEntered']<>''){
+		if($data){
 			return 'TRUE';
 		}else{
 			return 'FALSE';

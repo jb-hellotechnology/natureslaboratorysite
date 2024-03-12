@@ -85,7 +85,7 @@
 	            <td><?php echo $Form->radio("download", 'download', "batch_".$Goods['ourBatch'],'on',''); ?></td>
                 <td><?php echo $Goods['staff'] ?></td>
                 <td><?php echo $Goods['productCode']; ?></td>
-                <td><?php echo $DESCRIPTION; ?></td>
+                <td><?php echo $Goods['DESCRIPTION']; ?></td>
                 <td><?php echo $Goods['dateIn']; ?></td>
                 <td>
 	                <?php

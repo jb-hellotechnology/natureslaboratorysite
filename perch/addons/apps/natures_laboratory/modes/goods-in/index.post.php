@@ -76,9 +76,12 @@
         <tbody>
 <?php
     foreach($goodsIn as $Goods) {
+/*
 	    
 	    $COA = $NaturesLaboratoryGoodsIn->coaExists($Goods['ourBatch']);
 	    $DESCRIPTION = $NaturesLaboratoryGoodsIn->getDescription($Goods['productCode']);
+*/
+
 ?>
             <tr>
 	            <td><?php echo $Form->radio("download", 'download', "batch_".$Goods['ourBatch'],'on',''); ?></td>
@@ -88,14 +91,12 @@
                 <td><?php echo $Goods['dateIn']; ?></td>
                 <td>
 	                <?php
-/*
 		                if($Goods['supplier']){
 			                $Supplier = $NaturesLaboratoryGoodsSuppliers->find($Goods['supplier'], true);
 			                if($Supplier){
 								echo $Supplier->name();
 							}
 		                }
-*/
 		            ?>
 	            </td>
                 <td><?php echo $Goods['qty']; ?></td>

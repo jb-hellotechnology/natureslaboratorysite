@@ -9,12 +9,12 @@
 
     $Smartbar = new PerchSmartbar($CurrentUser, $HTML, $Lang);
     
-    $staffID = (int) $_GET['id'];
+    $staffID = (int) $_GET['staffID'];
 
 	$Smartbar->add_item([
 	    'active' => false,
 	    'title' => 'Profile',
-	    'link'  => $API->app_nav().'/staff/?id='.$staffID,
+	    'link'  => $API->app_nav().'/staff/edit/?id='.$staffID,
 	]);
 
 	$Smartbar->add_item([

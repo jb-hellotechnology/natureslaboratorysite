@@ -228,8 +228,8 @@
 		                echo "$parts2[2]/$parts2[1]/$parts2[0] $parts[1]"; 
 		            ?>
 		        </td>
-                <td><a class="button button-small action-info" href="<?php echo $HTML->encode($API->app_path()); ?>/staff/hours/edit/?id=<?php echo $HTML->encode(urlencode($Time['natures_laboratory_staff_timeID'])); ?>"><?php echo 'View/Edit'; ?></a></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/staff/hours/delete/?id=<?php echo $HTML->encode(urlencode($Time['natures_laboratory_staff_timeID'])); ?>" class="button button-small action-alert"><?php echo 'Delete'; ?></a></td>
+                <td><a class="button button-small action-info" href="<?php echo $HTML->encode($API->app_path()); ?>/staff/hours/edit/?staffID=<?= $_GET['id'] ?>&id=<?php echo $HTML->encode(urlencode($Time['natures_laboratory_staff_timeID'])); ?>"><?php echo 'View/Edit'; ?></a></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/staff/hours/delete/?staffID=<?= $_GET['id'] ?>&id=<?php echo $HTML->encode(urlencode($Time['natures_laboratory_staff_timeID'])); ?>" class="button button-small action-alert"><?php echo 'Delete'; ?></a></td>
             </tr>
 <?php
 	}

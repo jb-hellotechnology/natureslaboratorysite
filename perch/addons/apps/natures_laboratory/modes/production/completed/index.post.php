@@ -301,7 +301,7 @@
         <tbody>
 <?php
     foreach($production as $Production) {
-	    $stock = $NaturesLaboratoryProduction->getProduct($Production['sku']);
+	    //$stock = $NaturesLaboratoryProduction->getProduct($Production['sku']);
 	    $sParts = explode("-", $Production['date']);
 	    $startDate = "$sParts[2]/$sParts[1]/$sParts[0]";
 	    $eParts = explode("-", $Production['datePressed']);
@@ -312,7 +312,7 @@
 	            <td><?php echo $Form->radio("download",'download','wpo_'.$Production['natures_laboratory_productionID'],''); ?></td>
 	            <td><?php echo $Form->radio("download",'download','labels_'.$Production['natures_laboratory_productionID'],''); ?></td>
 	            <td><?php echo $Production['sku']; ?>
-                <td><?php echo $stock['DESCRIPTION'] ?></td>
+                <td><?php echo $Production['DESCRIPTION'] ?></td>
                 <td><?php echo $Production['units']; ?></td>
                 <td><?php echo $startDate; ?></td>
                 <td><?php echo $endDate; ?></td>

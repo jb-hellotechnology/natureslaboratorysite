@@ -69,7 +69,7 @@ class Natures_Laboratory_Productions extends PerchAPI_Factory
 	
 	public function getCompleted(){
 		
-		$sql = 'SELECT * FROM perch3_natures_laboratory_production WHERE status="completed" ORDER BY natures_laboratory_productionID DESC';
+		$sql = 'SELECT perch3_natures_laboratory_production.*, perch3_natureslaboratory_stock.DESCRIPTION AS DESCRIPTION FROM perch3_natures_laboratory_production, perch3_natureslaboratory_stock WHERE perch3_natures_laboratory_production.status="completed" ORDER BY perch3_natures_laboratory_production.natures_laboratory_productionID DESC';
 		$data = $this->db->get_rows($sql);
 		return $data;
 		

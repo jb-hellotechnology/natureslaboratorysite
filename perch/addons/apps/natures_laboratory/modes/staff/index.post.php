@@ -44,12 +44,6 @@
 	    'link'  => $API->app_nav().'/staff/early-finishes/',
 	]);
 	
-	$Smartbar->add_item([
-	    'active' => false,
-	    'title' => 'Skills Matrix',
-	    'link'  => $API->app_nav().'/staff/skills-matrix/',
-	]);
-	
 	echo $Smartbar->render();
 
     echo $HTML->main_panel_start();
@@ -77,9 +71,14 @@
                 <td><?php echo $Staff->email(); ?></td>
                 <td><?php echo $Staff->phone(); ?></td>
                 <td><?php echo $Staff->address(); ?></td>
-                <td><?php echo $Staff->startDate(); ?></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/staff/edit/?id=<?php echo $HTML->encode(urlencode($Staff->natures_laboratory_staffID())); ?>"><?php echo 'View/Edit'; ?></a></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/staff/delete/?id=<?php echo $HTML->encode(urlencode($Staff->natures_laboratory_staffID())); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
+                <td>
+	                <?php 
+		                $parts = explode("-", $Staff->startDate());
+	                	echo "$parts[2]/$parts[1]/$parts[0]"; 
+	                ?>
+	            </td>
+                <td><a class="button button-small action-info" href="<?php echo $HTML->encode($API->app_path()); ?>/staff/edit/?id=<?php echo $HTML->encode(urlencode($Staff->natures_laboratory_staffID())); ?>"><?php echo 'View/Edit'; ?></a></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/staff/delete/?id=<?php echo $HTML->encode(urlencode($Staff->natures_laboratory_staffID())); ?>" class="button button-small action-alert"><?php echo 'Delete'; ?></a></td>
             </tr>
 <?php
 	}

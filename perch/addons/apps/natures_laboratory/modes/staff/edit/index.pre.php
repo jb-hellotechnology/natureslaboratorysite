@@ -13,6 +13,8 @@
     $staffID = (int) $_GET['id'];  
     $StaffMember = $NaturesLaboratoryStaff->find($staffID, true);
     $details = $StaffMember->to_array();
+    
+    $rfid = $NaturesLaboratoryStaff->rfid($staffID);
 
     // HANDLE BLOCKS FROM TEMPLATE
     $Form->handle_empty_block_generation($Template);
@@ -23,7 +25,7 @@
     if($Form->submitted()) {
     
         //FOR ITEMS PROGRAMMATICALLY ADDED TO FORM
-        $postvars = array('name','email','phone','address','startDate_day','startDate_month','startDate_year');	   
+        $postvars = array('name','email','phone','address','startDate_day','startDate_month','startDate_year', 'clockName', 'rfid');	   
     	$data = $Form->receive($postvars);      
     	
     	$data['startDate'] = "$data[startDate_year]-$data[startDate_month]-$data[startDate_day]";
@@ -40,14 +42,14 @@
         // GET DYNAMIC FIELDS AND CREATE JSON ARRAY FOR DB
         $dynamic_fields = $Form->receive_from_template_fields($Template, $previous_values, $NaturesLaboratoryStaff, $StaffMember);
         $data['natures_laboratory_staffDynamicFields'] = PerchUtil::json_safe_encode($dynamic_fields);
+        
+        $rfid = $NaturesLaboratoryStaff->updateRFID($staffID, $data['clockName'], $data['rfid']);
+        unset($data['clockName']);
+        unset($data['rfid']);
 
         $updated_staff = $StaffMember->update($data);
 
         // SHOW RELEVANT MESSAGE
-        if ($updated_staff) {
-            $message = $HTML->success_message('Staff member has been successfully updated. Return to %sStaff%s', '<a href="'.$API->app_path().'/staff/">', '</a>'); 
-        }else{
-            $message = $HTML->failure_message('Sorry, staff member could not be updated.');
-        }
+        $message = $HTML->success_message('Staff member has been successfully updated. Return to %sStaff%s', '<a href="'.$API->app_path().'/staff/">', '</a>'); 
         
     }

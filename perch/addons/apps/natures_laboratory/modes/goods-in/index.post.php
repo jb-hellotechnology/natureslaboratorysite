@@ -116,7 +116,7 @@
 	                <span<?php if($Goods['noCOA']=='TRUE'){echo " class='notification notification-success'";}elseif($COA=='FALSE'){echo " class='notification notification-alert'";}elseif($COA=='TRUE'){echo " class='notification notification-success'";}?>><?php if($Goods['noCOA']=='TRUE'){echo 'N/A';}elseif($COA=='TRUE'){echo 'COMPLETE';}else{echo 'INCOMPLETE';} ?>
 	                </span>
 	            </td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/goods-in/edit/?id=<?php echo $HTML->encode(urlencode($Goods['natures_laboratory_goods_inID'])); ?>" class="button button-small action-info"><?php echo 'Edit'; ?></a></td>
+                <td><a class="button button-small action-info" href="<?php echo $HTML->encode($API->app_path()); ?>/goods-in/edit/?id=<?php echo $HTML->encode(urlencode($Goods['natures_laboratory_goods_inID'])); ?>" class="button button-small action-info"><?php echo 'Edit'; ?></a></td>
                 <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/goods-in/delete/?id=<?php echo $HTML->encode(urlencode($Goods['natures_laboratory_goods_inID'])); ?>" class="button button-small action-alert"><?php echo 'Delete'; ?></a></td>
             </tr>
 <?php

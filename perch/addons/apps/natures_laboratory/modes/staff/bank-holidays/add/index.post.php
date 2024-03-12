@@ -45,12 +45,6 @@
 	    'link'  => $API->app_nav().'/staff/early-finishes/',
 	]);
 	
-	$Smartbar->add_item([
-	    'active' => false,
-	    'title' => 'Skills Matrix',
-	    'link'  => $API->app_nav().'/staff/skills-matrix/',
-	]);
-	
 	echo $Smartbar->render();
 
     echo $HTML->main_panel_start(); 

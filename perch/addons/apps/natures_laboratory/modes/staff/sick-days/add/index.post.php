@@ -57,7 +57,7 @@
 		
 		echo $Form->form_start();
 		
-		echo $Form->text_field("date","Date (format YYYY-MM-DD)",'');
+		echo $Form->date_field("date","Date",'');
 		    
 		echo $Form->submit_field('btnSubmit', 'Add Sick Day', $API->app_path());
 		

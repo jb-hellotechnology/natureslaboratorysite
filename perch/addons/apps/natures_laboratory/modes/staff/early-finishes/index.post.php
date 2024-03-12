@@ -45,13 +45,6 @@
 	    'link'  => $API->app_nav().'/staff/early-finishes/',
 	]);
 	
-	$Smartbar->add_item([
-	    'active' => false,
-	    'title' => 'Skills Matrix',
-	    'link'  => $API->app_nav().'/staff/skills-matrix/',
-	]);
-	
-	
 	echo $Smartbar->render();
 
     echo $HTML->main_panel_start(); 
@@ -61,7 +54,6 @@
         <thead>
             <tr>
                 <th class="first">Date</th>
-                <th>Value</th>
 	            <th>Delete</th>
             </tr>
         </thead>
@@ -71,9 +63,13 @@
 
 ?>
             <tr>
-                <td><?php echo $EarlyFinish->date(); ?></td>
-                <td><?php echo $EarlyFinish->targetHit(); ?></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/staff/early-finishes/delete/?id=<?php echo $HTML->encode(urlencode($EarlyFinish->natures_laboratory_staff_earlyfinishID())); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
+	            <td>
+	                <?php 
+		                $parts = explode("-", $EarlyFinish->date());
+	                	echo "$parts[2]/$parts[1]/$parts[0]"; 
+	                ?>
+	            </td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/staff/early-finishes/delete/?id=<?php echo $HTML->encode(urlencode($EarlyFinish->natures_laboratory_staff_earlyfinishID())); ?>" class="button button-small action-alert"><?php echo 'Delete'; ?></a></td>
             </tr>
 <?php
 	}

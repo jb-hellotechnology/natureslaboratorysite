@@ -17,10 +17,16 @@
     if($Form->submitted()) {
     
         //FOR ITEMS PROGRAMMATICALLY ADDED TO FORM
-        $postvars = array('date','length');	   
+        $postvars = array('date_day', 'date_month', 'date_year', 'length');	   
     	$data = $Form->receive($postvars);      
 
 		$data['staffID'] = $_GET['id'];
+		$data['date'] = "$data[date_year]-$data[date_month]-$data[date_day]";
+		
+		unset($data['date_day']);
+		unset($data['date_month']);
+		unset($data['date_year']);
+		
         $holiday = $NaturesLaboratoryStaffHolidays->create($data);
 
         $message = $HTML->success_message('Holiday has been successfully created. Return to %sHolidays%s', '<a href="'.$API->app_path().'/staff/holidays/?id="'.$_GET['id'].'>', '</a>'); 

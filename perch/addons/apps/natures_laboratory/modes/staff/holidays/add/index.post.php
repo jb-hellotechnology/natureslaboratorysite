@@ -40,12 +40,6 @@
 	    'link'  => $API->app_nav().'/staff/early-finishes/',
 	]);
 	
-	$Smartbar->add_item([
-	    'active' => false,
-	    'title' => 'Skills Matrix',
-	    'link'  => $API->app_nav().'/staff/skills-matrix/',
-	]);
-	
 	echo $Smartbar->render();
 
     echo $HTML->main_panel_start(); 
@@ -58,8 +52,11 @@
 		
 		echo $Form->form_start();
 		
-		echo $Form->text_field("date","Date (format YYYY-MM-DD)",'');
-		echo $Form->text_field("length","Length (1 or 0.5)",'');
+		echo $Form->date_field("date","Date",'');
+		
+		$length[] = array('label'=>'1 Day', 'value'=>'1');
+		$length[] = array('label'=>'0.5 Day', 'value'=>'0.5');
+		echo $Form->select_field("length","Length",$length,'');
 		    
 		echo $Form->submit_field('btnSubmit', 'Add Holiday', $API->app_path());
 		

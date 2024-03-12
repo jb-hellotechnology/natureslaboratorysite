@@ -39,7 +39,7 @@
 	    	$nameParts = explode(" ",$StaffMember->name());
 	    	$name = $nameParts[0];
 	    	
-	    	$message = "Hi $name,<br><br>Your holiday request has been confirmed for the follow dates:<ul>$list</ul>Thanks<br>Jack<br><br>w: www.natureslaboratory.co.uk<br>e: jack@natureslaboratory.co.uk<br>t: (01947) 602346<br><br>Nature’s Laboratory Ltd<br><br>Unit 3B, Enterprise Way, Whitby, North Yorkshire, YO22 4HN<br><br>This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Nature’s Laboratory Limited. If you are notthe intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.";
+	    	$message = "Hi $name,<br><br>Your holiday request has been confirmed for the follow dates:<ul>$list</ul>Thanks<br>Nature's Laboratory HR<br><br>w: www.natureslaboratory.co.uk<br>e: info@natureslaboratory.co.uk<br>t: (01947) 602346<br><br>Nature’s Laboratory Ltd<br><br>Unit 3B, Enterprise Way, Whitby, North Yorkshire, YO22 4HN<br><br>This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Nature’s Laboratory Limited. If you are notthe intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.";
 	    	
 	    	$to = $StaffMember->email();
 	    	$subject = 'Holiday Request Confirmation';
@@ -49,8 +49,8 @@
 			$headers[] = 'Content-type: text/html; charset=iso-8859-1';
 			
 			// Additional headers
-			$headers[] = 'From: jack@natureslaboratory.co.uk';
-			$headers[] = 'Cc: jack@natureslaboratory.co.uk';
+			$headers[] = 'From: info@natureslaboratory.co.uk';
+			$headers[] = 'Cc: info@natureslaboratory.co.uk';
 			
 			// Mail it
 			mail($to, $subject, $message, implode("\r\n", $headers));

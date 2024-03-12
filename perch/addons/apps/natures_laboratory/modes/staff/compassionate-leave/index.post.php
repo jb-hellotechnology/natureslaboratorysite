@@ -44,12 +44,6 @@
 	    'link'  => $API->app_nav().'/staff/compassionate-leave/?id='.$staffID,
 	]);
 	
-	$Smartbar->add_item([
-	    'active' => false,
-	    'title' => 'Volunteer Days',
-	    'link'  => $API->app_nav().'/staff/volunteer-days/?id='.$staffID,
-	]);
-	
 	echo $Smartbar->render();
 
     echo $HTML->main_panel_start(); 
@@ -69,8 +63,13 @@
 
 ?>
             <tr>
-                <td><?php echo $Day['date']; ?></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/staff/compassionate-leave/delete/?id=<?php echo $_GET['id']; ?>&compassionateID=<?php echo $HTML->encode(urlencode($Day['natures_laboratory_staff_compassionatedayID'])); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
+                <td>
+	                <?php 
+		                $parts = explode("-", $Day['date']);
+	                	echo "$parts[2]/$parts[1]/$parts[0]"; 
+		            ?>
+		        </td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/staff/compassionate-leave/delete/?id=<?php echo $_GET['id']; ?>&compassionateID=<?php echo $HTML->encode(urlencode($Day['natures_laboratory_staff_compassionatedayID'])); ?>" class="button button-small action-alert"><?php echo 'Delete'; ?></a></td>
             </tr>
 <?php
 	}

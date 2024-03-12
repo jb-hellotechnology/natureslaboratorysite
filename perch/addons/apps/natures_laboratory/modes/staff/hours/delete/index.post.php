@@ -33,18 +33,6 @@
 	    'link'  => $API->app_nav().'/staff/sick/',
 	]);
 	
-	$Smartbar->add_item([
-	    'active' => false,
-	    'title' => 'Volunteer Days',
-	    'link'  => $API->app_nav().'/staff/volunteer/',
-	]);
-	
-	$Smartbar->add_item([
-	    'active' => false,
-	    'title' => 'Skills Matrix',
-	    'link'  => $API->app_nav().'/staff/skills/',
-	]);
-	
 	echo $Smartbar->render();
 
     echo $HTML->main_panel_start(); 

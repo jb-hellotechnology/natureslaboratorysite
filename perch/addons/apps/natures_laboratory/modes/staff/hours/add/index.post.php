@@ -38,18 +38,6 @@
 	    'link'  => $API->app_nav().'/staff/sick/',
 	]);
 	
-	$Smartbar->add_item([
-	    'active' => false,
-	    'title' => 'Volunteer Days',
-	    'link'  => $API->app_nav().'/staff/volunteer/',
-	]);
-	
-	$Smartbar->add_item([
-	    'active' => false,
-	    'title' => 'Skills Matrix',
-	    'link'  => $API->app_nav().'/staff/skills/',
-	]);
-	
 	echo $Smartbar->render();
 
     echo $HTML->main_panel_start(); 
@@ -62,7 +50,9 @@
 		
 		echo $Form->form_start();
 		
-		echo $Form->text_field("timeType","Type (clock in or clock out)",'');
+		$type[] = array('label'=>'Clock In', 'value'=>'clock in');
+		$type[] = array('label'=>'Clock Out', 'value'=>'clock out');
+		echo $Form->select_field("timeType","Action",$type,'');
 		
 		echo $Form->text_field("timeStamp","Timestamp (format YYYY-MM-DD H:i:s)",'');
 		    

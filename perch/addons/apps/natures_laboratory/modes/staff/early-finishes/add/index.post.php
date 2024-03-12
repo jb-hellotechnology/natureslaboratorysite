@@ -40,12 +40,6 @@
 	    'link'  => $API->app_nav().'/staff/early-finishes/',
 	]);
 	
-	$Smartbar->add_item([
-	    'active' => false,
-	    'title' => 'Skills Matrix',
-	    'link'  => $API->app_nav().'/staff/skills-matrix/',
-	]);
-	
 	echo $Smartbar->render();
 
     echo $HTML->main_panel_start(); 
@@ -58,9 +52,9 @@
 		
 		echo $Form->form_start();
 		
-		echo $Form->text_field("date","Date (format YYYY-MM-DD)",'');
+		echo $Form->date_field("date","Date",'');
 		
-		echo $Form->text_field("targetHit","Target Hit (15000 or 20000)",'');
+		echo $Form->hidden("targetHit",'15000');
 		    
 		echo $Form->submit_field('btnSubmit', 'Add Early Finish', $API->app_path());
 		

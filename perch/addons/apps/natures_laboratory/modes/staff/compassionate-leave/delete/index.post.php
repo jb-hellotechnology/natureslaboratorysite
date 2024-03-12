@@ -39,12 +39,6 @@
 	    'link'  => $API->app_nav().'/staff/compassionate-leave/?id='.$staffID,
 	]);
 	
-	$Smartbar->add_item([
-	    'active' => false,
-	    'title' => 'Volunteer Days',
-	    'link'  => $API->app_nav().'/staff/volunteer-days/?id='.$staffID,
-	]);
-	
 	echo $Smartbar->render();
 
     echo $HTML->main_panel_start(); 

@@ -39,12 +39,6 @@
 	    'link'  => $API->app_nav().'/staff/compassionate-leave/?id='.$staffID,
 	]);
 	
-	$Smartbar->add_item([
-	    'active' => false,
-	    'title' => 'Volunteer Days',
-	    'link'  => $API->app_nav().'/staff/volunteer-days/?id='.$staffID,
-	]);
-	
 	echo $Smartbar->render();
 
     echo $HTML->main_panel_start(); 
@@ -57,7 +51,7 @@
 		
 		echo $Form->form_start();
 		
-		echo $Form->text_field("date","Date (format YYYY-MM-DD)",'');
+		echo $Form->date_field("date","Date",'');
 		    
 		echo $Form->submit_field('btnSubmit', 'Add Compassionate Leave', $API->app_path());
 		

@@ -56,12 +56,6 @@
 		    'title' => 'Compassionate Leave',
 		    'link'  => $API->app_nav().'/staff/compassionate-leave/?id='.$staffID,
 		]);
-		
-		$Smartbar->add_item([
-		    'active' => false,
-		    'title' => 'Volunteer Days',
-		    'link'  => $API->app_nav().'/staff/volunteer-days/?id='.$staffID,
-		]);
 	
 	}else{
 		
@@ -93,12 +87,6 @@
 		    'active' => false,
 		    'title' => 'Early Finishes',
 		    'link'  => $API->app_nav().'/staff/early-finishes/',
-		]);
-		
-		$Smartbar->add_item([
-		    'active' => false,
-		    'title' => 'Skills Matrix',
-		    'link'  => $API->app_nav().'/staff/skills-matrix/',
 		]);
 		
 	}
@@ -162,8 +150,8 @@
     	<table class="d">
 	        <thead>
 	            <tr>
-		            <th>2021/22 Allowance</th>
-		            <th>Days Bought Forward From 2020/21</th>
+		            <th>Yearly Allowance</th>
+		            <th>Days Bought Forward From Previous Year</th>
 		            <th>Extra Days Accrued To Date</th>
 		            <th>Total Entitlement</th>
 		            <th>Bank Holidays Taken</th>
@@ -171,7 +159,6 @@
 		            <th>Holidays Remaining</th>
 		            <th>Paid Sick Leave Remaining</th>
 		            <th>Compassionate Leave Remaining</th>
-		            <th>Volunteer Day Remaining</th>
 	            </tr>
 	        </thead>
 	        <tbody>
@@ -185,7 +172,6 @@
 			        <td><?php echo $remaining; ?></td>
 			        <td><?php echo $sick; ?></td>
 			        <td><?php echo $compassionate; ?></td>
-			        <td><?php echo $volunteer; ?></td>
 		        </tr>
 	        </tbody>
     	</table>
@@ -209,9 +195,14 @@
 		?>
 		<tr>
 				<td><?php echo $Form->checkbox("date_".$holiday['date'],$holiday['date'],''); ?></td>
-                <td><?php echo $holiday['date']; ?></td>
+                <td>
+	                <?php 
+		                $parts = explode("-", $holiday['date']);
+		                echo "$parts[2]/$parts[1]/$parts[0]"; 
+		            ?>
+		        </td>
                 <td><?php echo $holiday['length']; ?></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/staff/holidays/delete/?staffID=<?php echo $holiday['staffID'];?>&id=<?php echo $holiday['natures_laboratory_staff_holidayID']; ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/staff/holidays/delete/?staffID=<?php echo $holiday['staffID'];?>&id=<?php echo $holiday['natures_laboratory_staff_holidayID']; ?>" class="button button-small action-alert"><?php echo 'Delete'; ?></a></td>
             </tr>
 		<?php
 		    }

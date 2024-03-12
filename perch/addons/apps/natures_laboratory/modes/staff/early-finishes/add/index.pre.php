@@ -14,8 +14,14 @@
     if($Form->submitted()) {
     
         //FOR ITEMS PROGRAMMATICALLY ADDED TO FORM
-        $postvars = array('date','targetHit');	   
+        $postvars = array('date_day', 'date_month', 'date_year', 'targetHit');	   
     	$data = $Form->receive($postvars);      
+    	
+    	$data['date'] = "$data[date_year]-$data[date_month]-$data[date_day]";
+		
+		unset($data['date_day']);
+		unset($data['date_month']);
+		unset($data['date_year']);
 
         $new_time = $NaturesLaboratoryStaffEarlyfinishes->create($data);
 

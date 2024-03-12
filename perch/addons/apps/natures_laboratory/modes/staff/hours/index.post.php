@@ -55,12 +55,6 @@
 		    'title' => 'Compassionate Leave',
 		    'link'  => $API->app_nav().'/staff/compassionate-leave/?id='.$staffID,
 		]);
-		
-		$Smartbar->add_item([
-		    'active' => false,
-		    'title' => 'Volunteer Days',
-		    'link'  => $API->app_nav().'/staff/volunteer-days/?id='.$staffID,
-		]);
 	
 	}else{
 		
@@ -92,12 +86,6 @@
 		    'active' => false,
 		    'title' => 'Early Finishes',
 		    'link'  => $API->app_nav().'/staff/early-finishes/',
-		]);
-		
-		$Smartbar->add_item([
-		    'active' => false,
-		    'title' => 'Skills Matrix',
-		    'link'  => $API->app_nav().'/staff/skills-matrix/',
 		]);
 		
 	}
@@ -191,8 +179,8 @@
 			echo "
 			<tr class='$class'>
 				<td>".$humanDate."</td>
-				<td>";if($start['timeStamp']<>''){echo $start['timeStamp'];} echo "</td>
-				<td>";if($end['timeStamp']<>''){echo $end['timeStamp'];} echo "</td>
+				<td>";if($start['timeStamp']<>''){$parts = explode(" ", $start['timeStamp']); echo $parts[1];} echo "</td>
+				<td>";if($end['timeStamp']<>''){$parts = explode(" ", $end['timeStamp']); echo $parts[1];} echo "</td>
 				<td>$hoursWorked</td>
 			</tr>";
 			$i++;
@@ -233,9 +221,15 @@
 ?>
             <tr>
                 <td><?php echo ucwords($Time['timeType']); ?></td>
-                <td><?php echo $Time['timeStamp']; ?></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/staff/hours/edit/?id=<?php echo $HTML->encode(urlencode($Time['natures_laboratory_staff_timeID'])); ?>"><?php echo 'View/Edit'; ?></a></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/staff/hours/delete/?id=<?php echo $HTML->encode(urlencode($Time['natures_laboratory_staff_timeID'])); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
+                <td>
+	                <?php 
+		                $parts = explode(" ", $Time['timeStamp']);
+		                $parts2 = explode("-", $parts[0]);
+		                echo "$parts2[2]/$parts2[1]/$parts2[0] $parts[1]"; 
+		            ?>
+		        </td>
+                <td><a class="button button-small action-info" href="<?php echo $HTML->encode($API->app_path()); ?>/staff/hours/edit/?id=<?php echo $HTML->encode(urlencode($Time['natures_laboratory_staff_timeID'])); ?>"><?php echo 'View/Edit'; ?></a></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/staff/hours/delete/?id=<?php echo $HTML->encode(urlencode($Time['natures_laboratory_staff_timeID'])); ?>" class="button button-small action-alert"><?php echo 'Delete'; ?></a></td>
             </tr>
 <?php
 	}

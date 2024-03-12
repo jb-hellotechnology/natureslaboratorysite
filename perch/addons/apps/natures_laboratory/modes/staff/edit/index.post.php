@@ -39,12 +39,6 @@
 	    'link'  => $API->app_nav().'/staff/compassionate-leave/?id='.$staffID,
 	]);
 	
-	$Smartbar->add_item([
-	    'active' => false,
-	    'title' => 'Volunteer Days',
-	    'link'  => $API->app_nav().'/staff/volunteer-days/?id='.$staffID,
-	]);
-	
 	echo $Smartbar->render();
 
     echo $HTML->main_panel_start(); 
@@ -66,6 +60,9 @@
 		echo $Form->text_field("address","Address",$details['address']);
 		
 		echo $Form->date_field("startDate","Start Date",$details['startDate']);
+		
+		echo $Form->text_field("clockName","Time Clock Name",$rfid['name']);
+		echo $Form->text_field("rfid","RFID Number",$rfid['rfid']);
 		
 		echo $Form->fields_from_template($Template, $details, $NaturesLaboratoryStaff->static_fields);
 		    

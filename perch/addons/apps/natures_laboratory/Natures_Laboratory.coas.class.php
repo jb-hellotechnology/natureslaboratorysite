@@ -19,7 +19,7 @@ class Natures_Laboratory_COAs extends PerchAPI_Factory
 		if($q){
 			$sql = 'SELECT perch3_natures_laboratory_coa.*, perch3_natureslaboratory_stock.* FROM perch3_natures_laboratory_coa, perch3_natureslaboratory_stock WHERE perch3_natures_laboratory_coa.dateEntered>="'.$date.'" AND (perch3_natures_laboratory_coa.productCode="'.$q.'" OR perch3_natures_laboratory_coa.ourBatch="'.$q.'" OR perch3_natureslaboratory_stock.DESCRIPTION LIKE "%'.$q.'%") AND perch3_natureslaboratory_stock.STOCK_CODE=perch3_natures_laboratory_coa.productCode ORDER BY perch3_natures_laboratory_coa.natures_laboratory_coaID DESC';
 		}else{
-			$sql = 'SELECT * FROM perch3_natures_laboratory_coa WHERE dateEntered>="'.$date.'" ORDER BY natures_laboratory_coaID DESC LIMIT 20';
+			$sql = 'SELECT perch3_natures_laboratory_coa.*, perch3_natureslaboratory_stock.DESCRIPTION AS DESCRIPTION FROM perch3_natures_laboratory_coa, perch3_natureslaboratory_stock WHERE perch3_natures_laboratory_coa.dateEntered>="'.$date.'" AND perch3_natures_laboratory_coa.productCode = perch3_natureslaboratory_stock.STOCK_CODE ORDER BY perch3_natures_laboratory_coa.natures_laboratory_coaID DESC LIMIT 20';
 		}
 		$data = $this->db->get_rows($sql);
 		return $data;

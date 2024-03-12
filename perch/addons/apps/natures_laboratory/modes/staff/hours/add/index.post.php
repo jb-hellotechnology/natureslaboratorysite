@@ -13,29 +13,37 @@
     ], $CurrentUser);
 
     $Smartbar = new PerchSmartbar($CurrentUser, $HTML, $Lang);
+    
+    $staffID = (int) $_GET['id'];
 
 	$Smartbar->add_item([
 	    'active' => false,
-	    'title' => 'Staff',
-	    'link'  => $API->app_nav().'/staff/',
+	    'title' => 'Profile',
+	    'link'  => $API->app_nav().'/staff/?id='.$staffID,
 	]);
-	
+
 	$Smartbar->add_item([
 	    'active' => true,
 	    'title' => 'Hours',
-	    'link'  => $API->app_nav().'/staff/hours/?id='.$_GET['id'],
+	    'link'  => $API->app_nav().'/staff/hours/?id='.$staffID,
 	]);
 	
 	$Smartbar->add_item([
 	    'active' => false,
 	    'title' => 'Holidays',
-	    'link'  => $API->app_nav().'/staff/holidays/',
+	    'link'  => $API->app_nav().'/staff/holidays/?id='.$staffID,
 	]);
 	
 	$Smartbar->add_item([
 	    'active' => false,
-	    'title' => 'Sick Pay',
-	    'link'  => $API->app_nav().'/staff/sick/',
+	    'title' => 'Sick Days',
+	    'link'  => $API->app_nav().'/staff/sick-days/?id='.$staffID,
+	]);
+	
+	$Smartbar->add_item([
+	    'active' => false,
+	    'title' => 'Compassionate Leave',
+	    'link'  => $API->app_nav().'/staff/compassionate-leave/?id='.$staffID,
 	]);
 	
 	echo $Smartbar->render();

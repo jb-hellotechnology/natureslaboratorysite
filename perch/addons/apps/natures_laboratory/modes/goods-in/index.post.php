@@ -88,12 +88,14 @@
                 <td><?php echo $Goods['dateIn']; ?></td>
                 <td>
 	                <?php
+/*
 		                if($Goods['supplier']){
 			                $Supplier = $NaturesLaboratoryGoodsSuppliers->find($Goods['supplier'], true);
 			                if($Supplier){
 								echo $Supplier->name();
 							}
 		                }
+*/
 		            ?>
 	            </td>
                 <td><?php echo $Goods['qty']; ?></td>

@@ -63,8 +63,10 @@
             'page' => 'natures_laboratory/stock-update',
             'label'=> 'Stock Management'
         ],
+/*
         [
             'page' => 'natures_laboratory/orders',
             'label'=> 'Orders'
         ]
+*/
     ], $CurrentUser);

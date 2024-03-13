@@ -134,6 +134,16 @@
             'page' => 'natures_laboratory/stock-update',
             'label'=> 'Stock Management'
         ],
+        [
+            'page' => [
+            	'natures_laboratory/nonconformance',
+            	'natures_laboratory/nonconformance/add',
+            	'natures_laboratory/nonconformance/edit',
+            	'natures_laboratory/nonconformance/delete',
+            	'natures_laboratory/nonconformance/report',
+            ],
+            'label'=> 'Non Conformance'
+        ],
 /*
         [
             'page' => 'natures_laboratory/orders',

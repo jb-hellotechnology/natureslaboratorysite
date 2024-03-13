@@ -217,7 +217,7 @@ $section1<br><br />");
 		foreach($dynamic['images'] as $image){
 			//print_r($image);
 			//print_r($image['image']['_default']);
-			$pdf->Cell( 200, 80, $pdf->Image($image['image']['_default'], $pdf->GetX(), $pdf->GetY(), 180), 0, 1, 'L', false);
+			$pdf->Cell( 200, 80, $pdf->Image("../../../..".$image['image']['_default'], $pdf->GetX(), $pdf->GetY(), 180), 0, 1, 'L', false);
 		}
 
 		$pdf->WriteHTML("

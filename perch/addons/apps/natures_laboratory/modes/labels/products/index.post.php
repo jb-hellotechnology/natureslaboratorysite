@@ -52,8 +52,8 @@
 	            <td><?php echo $Product->productName(); ?></td>
 	            <td><?php echo $Product->productType(); ?></td>
 	            <td><?php echo $Product->notes(); ?></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/labels/products/edit/?id=<?php echo $HTML->encode(urlencode($Product->natures_laboratory_labels_productID())); ?>" class="delete inline-delete"><?php echo 'Edit'; ?></a></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/labels/products/delete/?id=<?php echo $HTML->encode(urlencode($Product->natures_laboratory_labels_productID())); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/labels/products/edit/?id=<?php echo $HTML->encode(urlencode($Product->natures_laboratory_labels_productID())); ?>" class="button button-small action-info"><?php echo 'Edit'; ?></a></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/labels/products/delete/?id=<?php echo $HTML->encode(urlencode($Product->natures_laboratory_labels_productID())); ?>" class="button button-small action-alert"><?php echo 'Delete'; ?></a></td>
             </tr>
 <?php
 	}

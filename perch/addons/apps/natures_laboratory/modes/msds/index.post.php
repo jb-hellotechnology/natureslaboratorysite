@@ -56,8 +56,8 @@
                 <td><?php echo $MSDS['productCode']; ?></td>
                 <td><?php echo $msdsTemplate['productType']; ?></td>
                 <td><?php echo $stockItem['DESCRIPTION']; ?></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/msds/edit/?id=<?php echo $HTML->encode(urlencode($MSDS['natures_laboratory_msdsID'])); ?>"><?php echo 'View/Edit'; ?></a></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/msds/delete/?id=<?php echo $HTML->encode(urlencode($MSDS['natures_laboratory_msdsID'])); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/msds/edit/?id=<?php echo $HTML->encode(urlencode($MSDS['natures_laboratory_msdsID'])); ?>" class="button button-small action-info"><?php echo 'View/Edit'; ?></a></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/msds/delete/?id=<?php echo $HTML->encode(urlencode($MSDS['natures_laboratory_msdsID'])); ?>" class="button button-small action-alert"><?php echo 'Delete'; ?></a></td>
             </tr>
 <?php
 		}

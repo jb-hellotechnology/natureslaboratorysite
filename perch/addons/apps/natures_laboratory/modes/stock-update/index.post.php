@@ -53,8 +53,9 @@
 	echo "<br /><br /><h2>Sync Sage Data with Websites</h2>
 	<p><a href=\"https://natureslaboratory.co.uk/sync/stock_bv.php\" target=\"_blank\">Sync Stock Levels with beevitalpropolis.com</a></p>
 	<p><a href=\"https://natureslaboratory.co.uk/sync/stock_sc.php\" target=\"_blank\">Sync Stock Levels with sweetcecilys.com</a></p>
-	<p><a href=\"https://natureslaboratory.co.uk/sync/stock_ha.php\" target=\"_blank\">Download inventory CSV for herbalapothecaryuk.com</a></p>
-	<p><a href=\"https://natureslaboratory.co.uk/sync/pricing_ha.php\" target=\"_blank\">Download price update CSV for herbalapothecaryuk.com</a></p>";
+	<p><a href=\"https://natureslaboratory.co.uk/sync/stock_ha.php\" target=\"_blank\">Download inventory CSV for herbalapothecaryuk.com</a></p>";
+	
+// 	<p><a href=\"https://natureslaboratory.co.uk/sync/pricing_ha.php\" target=\"_blank\">Download price update CSV for herbalapothecaryuk.com</a></p>
 	
 	
     echo $HTML->main_panel_end();

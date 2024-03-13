@@ -54,8 +54,8 @@
 ?>
             <tr>
                 <td><?php echo $Country->country(); ?></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/coa-products/countries/edit/?id=<?php echo $HTML->encode(urlencode($Country->natures_laboratory_coa_products_countryID())); ?>" class="delete inline-delete"><?php echo 'View/Edit'; ?></a></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/coa-products/countries/delete/?id=<?php echo $HTML->encode(urlencode($Country->natures_laboratory_coa_products_countryID())); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/coa-products/countries/edit/?id=<?php echo $HTML->encode(urlencode($Country->natures_laboratory_coa_products_countryID())); ?>" class="button button-small action-info"><?php echo 'View/Edit'; ?></a></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/coa-products/countries/delete/?id=<?php echo $HTML->encode(urlencode($Country->natures_laboratory_coa_products_countryID())); ?>" class="button button-small action-alert"><?php echo 'Delete'; ?></a></td>
             </tr>
 <?php
 	}

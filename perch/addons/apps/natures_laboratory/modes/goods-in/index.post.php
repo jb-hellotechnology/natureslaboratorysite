@@ -86,7 +86,11 @@
                 <td><?php echo $Goods['staff'] ?></td>
                 <td><?php echo $Goods['productCode']; ?></td>
                 <td><?php echo $Goods['DESCRIPTION']; ?></td>
-                <td><?php echo $Goods['dateIn']; ?></td>
+                <td><?php 
+	                $parts = explode("-", $Goods['dateIn']);
+		            echo "$parts[2]/$parts[1]/$parts[0]";
+	                ?>
+	            </td>
                 <td>
 	                <?php
 		                if($Goods['supplier']){
@@ -101,7 +105,13 @@
                 <td><?php echo $Goods['suppliersBatch']; ?></td>
                 <td><?php echo $Goods['countryOfOrigin']; ?></td>
                 <td><?php echo $Goods['ourBatch']; ?></td>
-                <td><?php if($Goods['bbe']<>'1970-01-01'){echo $Goods['bbe'];} ?></td>
+                <td><?php 
+	                if($Goods['bbe']<>'1970-01-01'){
+		                $parts = explode("-", $Goods['bbe']);
+		                echo "$parts[2]/$parts[1]/$parts[0]";
+	                }
+	                ?>
+	            </td>
                 <td>
 	                <span<?php if($Goods['qa']=='FALSE'){echo " class='notification notification-warning'";}elseif($Goods['qa']=='NOT REQUIRED'){echo " class='notification notification-success'";}elseif($Goods['qa']=='TRUE'){echo " class='notification notification-success'";}?>>
 	                	<?php 

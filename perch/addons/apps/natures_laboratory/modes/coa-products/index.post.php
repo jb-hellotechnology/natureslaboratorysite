@@ -75,8 +75,8 @@
                 <td><?php echo $COA['ourBatch']; ?></td>
                 <td><?php echo $specData['productCode']; ?></td>
                 <td><?php echo $specData['commonName']; ?></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/coa-products/edit/?id=<?php echo $HTML->encode(urlencode($COA['natures_laboratory_coa_productID'])); ?>"><?php echo 'View/Edit'; ?></a></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/coa-products/delete/?id=<?php echo $HTML->encode(urlencode($COA['natures_laboratory_coa_productID'])); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/coa-products/edit/?id=<?php echo $HTML->encode(urlencode($COA['natures_laboratory_coa_productID'])); ?>" class="button button-small action-info"><?php echo 'View/Edit'; ?></a></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/coa-products/delete/?id=<?php echo $HTML->encode(urlencode($COA['natures_laboratory_coa_productID'])); ?>" class="button button-small action-alert"><?php echo 'Delete'; ?></a></td>
             </tr>
 <?php
 	}

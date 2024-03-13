@@ -61,7 +61,7 @@
                 <td><?php echo $Label['size']; ?></td>
                 <td><?php echo $bbe ?></td>
                 <td><?php echo $Label['quantity']; ?></td>
-                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/labels/delete/?id=<?php echo $HTML->encode(urlencode($Label['natures_laboratory_labelID'])); ?>" class="delete inline-delete"><?php echo 'Delete'; ?></a></td>
+                <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/labels/delete/?id=<?php echo $HTML->encode(urlencode($Label['natures_laboratory_labelID'])); ?>" class="button button-small action-alert"><?php echo 'Delete'; ?></a></td>
             </tr>
 <?php
 	}

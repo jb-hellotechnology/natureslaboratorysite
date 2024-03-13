@@ -39,7 +39,7 @@
 ?>
         <tr>
             <td><?php echo $MSDSTemplate['productType']; ?></td>
-            <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/msds/templates/edit/?id=<?php echo $HTML->encode(urlencode($MSDSTemplate['natures_laboratory_msds_templateID'])); ?>"><?php echo 'Edit'; ?></a></td>
+            <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/msds/templates/edit/?id=<?php echo $HTML->encode(urlencode($MSDSTemplate['natures_laboratory_msds_templateID'])); ?>" class="button button-small action-info"><?php echo 'Edit'; ?></a></td>
         </tr>
 <?php
 	}

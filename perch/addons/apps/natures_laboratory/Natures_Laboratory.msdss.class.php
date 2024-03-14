@@ -102,7 +102,7 @@ class Natures_Laboratory_MSDSs extends PerchAPI_Factory
 		if($data){
 			return $data;	
 		}else{
-			$data['CAS'] = 'NO CAS AVAILABLE';
+			$data['CAS'] = 'AWAITING CAS NUMBER';
 			return $data;
 		}
 		

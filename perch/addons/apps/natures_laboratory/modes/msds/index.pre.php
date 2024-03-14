@@ -27,7 +27,7 @@
     	$templateDetails = $msdsTemplateData->to_array();
     	$msdsTData = json_decode($templateDetails['natures_laboratory_msds_templateDynamicFields'],true);
     	
-    	if($details['productType']=='Tincture' OR $details['productType']=='Fluid Extract'){
+    	if($details['productType']=='3' OR $details['productType']=='4'){
 	    	$coaDetails = $NaturesLaboratoryMSDS->findCOA($details['productCode']);
 	    	$coaDetails = $msdsTemplateData->to_array();
     	}

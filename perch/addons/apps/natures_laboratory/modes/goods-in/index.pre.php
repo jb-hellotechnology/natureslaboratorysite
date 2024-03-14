@@ -157,6 +157,6 @@ error_reporting(E_ALL);
 		  }
 		}
 		
-		header('Location: https://natureslaboratory.co.uk/perch/addons/apps/natures_laboratory/goods-in/');
+		header('Location: /perch/addons/apps/natures_laboratory/goods-in/');
     	
 	}

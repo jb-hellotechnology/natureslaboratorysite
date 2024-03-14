@@ -208,6 +208,8 @@ error_reporting(E_ALL);
 		
 		$dynamic = json_decode($details['natures_laboratory_nonconformanceDynamicFields'],true);
 		
+		$type = $details['type'];
+		
 		$details = $dynamic['details']['processed'];
 		$action = $dynamic['action']['processed'];
 		$investigation = $dynamic['investigation']['processed'];
@@ -216,7 +218,7 @@ error_reporting(E_ALL);
 		$review = $dynamic['review']['processed'];
 		
 		$pdf->WriteHTML("
-<b>Type:</b> $details[type]<br>
+<b>Type:</b> $type<br>
 <b>Originator:</b> $dynamic[originator]<br>
 <b>Date:</b> $thisDate<br>
 <b>Ref:</b> $dynamic[ref]<br><br>

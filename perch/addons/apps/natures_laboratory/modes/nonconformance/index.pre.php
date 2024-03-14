@@ -211,8 +211,26 @@ error_reporting(E_ALL);
 		$section1 = $dynamic['textarea']['processed'];
 		
 		$pdf->WriteHTML("
-<b>Textarea</b><br>
-$section1<br><br />");
+<b>Type:</b> $details[type]<br>
+<b>Originator:</b> $dynamic[originator]<br>
+<b>Date:</b> $thisDate<br>
+<b>Ref:</b> $dynamic[ref]<br><br>
+<b>Details of Non Conformance / Complaints / Feedback</b><br>
+$dynamic[details][processed]<br><br>
+<b>Immediate Action to be Taken</b><br>
+$dynamic[action][processed]<br><br>
+<b>Person Responsible:</b> $dynamic[actionPerson]   <b>Date:</b> $dynamic[actionDate]<br><br>
+<b>Details of Investigation into Cause</b><br>
+$dynamic[investigation][processed]<br><br>
+<b>Person Responsible:</b> $dynamic[investigationPerson]   <b>Date:</b> $dynamic[investigationDate]<br><br>
+<b>Corrective / Preventitive Action / Remarks on Complaints / Feedback</b><br>
+$dynamic[corrective][processed]<br><br>
+<b>Final Outcome</b><br>
+$dynamic[outcome][processed]<br><br>
+<b>Completed By:</b> $dynamic[outcomePerson]   <b>Date:</b> $dynamic[outcomeDate]<br><br>
+<b>Report Review</b><br>
+$dynamic[review][processed]<br><br>
+<b>Reviewed By:</b> $dynamic[reviewPerson] ($dynamic[reviewPosition])   <b>Date:</b> $dynamic[reviewDate]<br><br>");
 
 		foreach($dynamic['images'] as $image){
 			//print_r($image);

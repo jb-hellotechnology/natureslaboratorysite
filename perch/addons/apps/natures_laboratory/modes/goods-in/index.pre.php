@@ -156,7 +156,5 @@ error_reporting(E_ALL);
 		    unlink($file); // delete file
 		  }
 		}
-		
-		header('Location: /perch/addons/apps/natures_laboratory/goods-in/');
     	
 	}

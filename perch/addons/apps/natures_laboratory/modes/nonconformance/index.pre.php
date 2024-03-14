@@ -208,7 +208,7 @@ error_reporting(E_ALL);
 		
 		$dynamic = json_decode($details['natures_laboratory_nonconformanceDynamicFields'],true);
 		
-		$section1 = $dynamic['textarea']['processed'];
+		$details = $dynamic['details']['processed'];
 		
 		$pdf->WriteHTML("
 <b>Type:</b> $details[type]<br>
@@ -216,7 +216,7 @@ error_reporting(E_ALL);
 <b>Date:</b> $thisDate<br>
 <b>Ref:</b> $dynamic[ref]<br><br>
 <b>Details of Non Conformance / Complaints / Feedback</b><br>
-$dynamic[details][processed]<br><br>
+$details<br><br>
 <b>Immediate Action to be Taken</b><br>
 $dynamic[action][processed]<br><br>
 <b>Person Responsible:</b> $dynamic[actionPerson]   <b>Date:</b> $dynamic[actionDate]<br><br>

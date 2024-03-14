@@ -21,6 +21,8 @@
     	
     	$msdsData = $NaturesLaboratoryMSDS->find($msds,true);
     	$details = $msdsData->to_array();
+    	
+    	print_r($details);
     	$detailsData = json_decode($details['natures_laboratory_msds_DynamicFields'],true);
     	
     	print_r($detailsData);

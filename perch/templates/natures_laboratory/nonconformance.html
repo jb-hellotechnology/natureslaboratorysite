@@ -1,4 +1,24 @@
-<perch:nl id="textarea" label="Textarea" type="textarea" />
+<perch:nl id="originator" label="Originator" type="text" divider-before="Part 1" />
+<perch:nl id="ref" label="Ref/Order Number" type="text" help="Completed when Customer or Supplier" />
+<perch:nl id="details" label="Details of Non Conformance" type="textarea" />
+<perch:nl id="action" label="Immediate Action to be Taken" type="textarea" />
+<perch:nl id="actionPerson" label="Person Responsible for Action" type="text" />
+<perch:nl id="actionDate" label="Target Action Date" type="date" />
+
+<perch:nl id="investigation" label="Details of Investigation into Cause" type="textarea" divider-before="Part 2" />
+<perch:nl id="investigationPerson" label="Investigation By" type="text" />
+<perch:nl id="investigationDate" label="Date" type="date" />
+<perch:nl id="corrective" label="Corrective/Preventitive Action Taken" type="textarea" />
+
+<perch:nl id="outcome" label="Final Outcome" type="textarea" divider-before="Part 3" />
+<perch:nl id="outcomePerson" label="Completed By" type="text" />
+<perch:nl id="outcomeDate" label="Date" type="date" />
+
+<perch:nl id="review" label="Report Review" type="textarea" divider-before="Part 4" />
+<perch:nl id="reviewPerson" label="Reviewed By" type="text" />
+<perch:nl id="reviewPosition" label="Position" type="text" />
+<perch:nl id="reviewDate" label="Date" type="date" />
+
 <perch:repeater id="images" label="Images" divider-before="Supporting Documents">
 	<perch:nl id="image" label="Image" width="800" type="image" />
 </perch:repeater>

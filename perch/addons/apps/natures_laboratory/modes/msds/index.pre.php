@@ -29,7 +29,7 @@
     	
     	if($details['productType']=='3' OR $details['productType']=='4'){
 	    	$coaDetails = $NaturesLaboratoryMSDS->findCOA($details['productCode']);
-	    	$coaDetails = $msdsTemplateData->to_array();
+	    	$coaDetails = $coaDetails->to_array();
     	}
     	
     	$productData = $NaturesLaboratoryGoodsIn->getByCode($details['productCode']);

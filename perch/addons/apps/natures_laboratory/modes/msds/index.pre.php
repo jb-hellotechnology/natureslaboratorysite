@@ -21,6 +21,7 @@
     	
     	$msdsData = $NaturesLaboratoryMSDS->find($msds,true);
     	$details = $msdsData->to_array();
+    	$detailsData = json_decode($details['natures_laboratory_msds_DynamicFields'],true);
     	
     	$msdsTemplateData = $NaturesLaboratoryMSDSTemplate->find($details['productType'],true);
     	$templateDetails = $msdsTemplateData->to_array();
@@ -206,7 +207,7 @@
 		
 		$pdf->SetXY(10, 35);
 		$pdf->SetFont('Arial','B',16);
-		$pdf->Cell(0,10,'MSDS: '.$details['name'],0,1);
+		$pdf->Cell(0,10,'MSDS: '.$detailsData['name'],0,1);
 		$pdf->Line(0,44,300,44);
 		
 		$pdf->SetFont('Arial','B',11);
@@ -214,7 +215,7 @@
 		$pdf->SetFont('Arial','B',9);
 		$pdf->MultiCell(0,5,'1.1 Product identifiers:',0,1);
 		$pdf->SetFont('Arial','',9);
-		$pdf->MultiCell(0,5,'(a) Product Name: '.$details['name'],0,1);
+		$pdf->MultiCell(0,5,'(a) Product Name: '.$detailsData['name'],0,1);
 		$pdf->MultiCell(0,5,'(b) Product Number: '.$details['productCode'],0,1);
 		if($details['1_1_c']){$pdf->MultiCell(0,5,'(c) Brand: '.$details['1_1_c'],0,1);}else{$pdf->MultiCell(0,5,'(c) Brand: '.$msdsTData['1_1_c'],0,1);}
 		if($details['1_1_d']){$pdf->MultiCell(0,5,'(d) Index No.: '.$details['1_1_d'],0,1);}else{$pdf->MultiCell(0,5,'(d) Index No.: '.$msdsTData['1_1_d'],0,1);}

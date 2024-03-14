@@ -224,7 +224,7 @@
 		if($details['1_1_d']){$pdf->MultiCell(0,5,'(d) Index No.: '.$details['1_1_d'],0,1);}else{$pdf->MultiCell(0,5,'(d) Index No.: '.$msdsTData['1_1_d'],0,1);}
 		if($details['1_1_e']){$pdf->MultiCell(0,5,'(e) REACH No.: '.$details['1_1_e'],0,1);}else{$pdf->MultiCell(0,5,'(e) REACH No.: '.$msdsTData['1_1_e'],0,1);}
 		if($details['1_1_f']){$pdf->MultiCell(0,5,'(f) CAS No.: '.$details['1_1_f'],0,1);}else{$pdf->MultiCell(0,5,'(f) CAS No.: '.$msdsTData['1_1_f'],0,1);}
-		if($details['productType']=='Tincture' OR $details['productType']=='Fluid Extract'){
+		if($details['productType']=='3' OR $details['productType']=='4'){
 			$pdf->MultiCell(0,5,'(g) pH: '.$coaDetails['productCode'],0,1);
 			$pdf->MultiCell(0,5,'(h) Specific Gravity: '.$coaDetails['productCode'],0,1);
 		}

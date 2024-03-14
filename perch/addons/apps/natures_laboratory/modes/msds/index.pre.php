@@ -23,6 +23,8 @@
     	$details = $msdsData->to_array();
     	$detailsData = json_decode($details['natures_laboratory_msds_DynamicFields'],true);
     	
+    	print_r($detailsData);
+    	
     	$msdsTemplateData = $NaturesLaboratoryMSDSTemplate->find($details['productType'],true);
     	$templateDetails = $msdsTemplateData->to_array();
     	$msdsTData = json_decode($templateDetails['natures_laboratory_msds_templateDynamicFields'],true);

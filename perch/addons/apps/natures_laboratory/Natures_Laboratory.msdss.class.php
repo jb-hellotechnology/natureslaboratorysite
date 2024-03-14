@@ -47,4 +47,12 @@ class Natures_Laboratory_MSDSs extends PerchAPI_Factory
 		
 	}
 	
+	public function findCOA($sku){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_coa_products WHERE spec="'.$sku.'"';
+		$data = $this->db->get_row($sql);
+		return $data;
+		
+	}
+	
 }

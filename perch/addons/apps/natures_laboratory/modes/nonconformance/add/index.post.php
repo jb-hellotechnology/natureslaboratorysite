@@ -42,10 +42,10 @@
 		
 		echo $Form->text_field("title","Title",'');
 		
-		$type[] = array('label'=>"Internal Process", 'value'=>'internal process');
-		$type[] = array('label'=>"Quality Issue", 'value'=>'quality issue');
-		$type[] = array('label'=>"Customer Complaint", 'value'=>'customer complaint');
-		$type[] = array('label'=>"Delivery Problem", 'value'=>'delivery problem');
+		$type[] = array('label'=>"Customer", 'value'=>'Customer');
+		$type[] = array('label'=>"Supplier", 'value'=>'Supplier');
+		$type[] = array('label'=>"Internal", 'value'=>'Internal');
+		$type[] = array('label'=>"Deviation", 'value'=>'Deviation');
 		echo $Form->select_field('type','Type',$type,'');
 		
 		echo $Form->fields_from_template($Template, $details, $Properties->static_fields);

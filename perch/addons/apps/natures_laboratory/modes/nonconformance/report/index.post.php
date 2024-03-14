@@ -37,10 +37,10 @@
         <thead>
             <tr>
                 <th class="first">Month</th>
-                <th>Internal Process</th>
-                <th>Quality Issue</th>
-                <th>Customer Complaint</th>
-	            <th>Delivery Problem</th>
+                <th>Customer</th>
+                <th>Supplier</th>
+                <th>Internal</th>
+	            <th>Deviation</th>
             </tr>
         </thead>
         <tbody>
@@ -55,10 +55,10 @@
 		echo "
 		<tr>
 			<td>".$date2."</td>
-			<td>".$NaturesLaboratoryNonconformances->getCount($date, 'internal process')."</td>
-			<td>".$NaturesLaboratoryNonconformances->getCount($date, 'quality issue')."</td>
-			<td>".$NaturesLaboratoryNonconformances->getCount($date, 'customer complaint')."</td>
-			<td>".$NaturesLaboratoryNonconformances->getCount($date, 'delivery problem')."</td>
+			<td>".$NaturesLaboratoryNonconformances->getCount($date, 'Customer')."</td>
+			<td>".$NaturesLaboratoryNonconformances->getCount($date, 'Supplier')."</td>
+			<td>".$NaturesLaboratoryNonconformances->getCount($date, 'Internal')."</td>
+			<td>".$NaturesLaboratoryNonconformances->getCount($date, 'Deviation')."</td>
 		</tr>";
 		
 		$i++;

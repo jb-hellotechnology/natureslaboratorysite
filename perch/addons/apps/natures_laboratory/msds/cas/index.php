@@ -18,16 +18,12 @@
     include('../../Natures_Laboratorys.class.php');
     include('../../Natures_Laboratory.goodsin.class.php');
     include('../../Natures_Laboratory.goodsins.class.php');
-    include('../../Natures_Laboratory.goodsin.stock.class.php');
-    include('../../Natures_Laboratory.goodsin.stocks.class.php');
     include('../../Natures_Laboratory.coa.class.php');
     include('../../Natures_Laboratory.coas.class.php');
     include('../../Natures_Laboratory.coa.spec.class.php');
     include('../../Natures_Laboratory.coa.specs.class.php');
     include('../../Natures_Laboratory.msds.class.php');
     include('../../Natures_Laboratory.msdss.class.php');
-    include('../../Natures_Laboratory.msdstemplate.class.php');
-    include('../../Natures_Laboratory.msdstemplates.class.php');
     
     # Grab an instance of the Lang class for translations
     $Lang = $API->get('Lang');
@@ -41,7 +37,7 @@
 
 
     # Do anything you want to do before output is started
-    include('../../modes/msds/cas/add/index.pre.php');
+    include('../../modes/msds/cas/index.pre.php');
     
     
     # Top layout
@@ -49,7 +45,7 @@
 
     
     # Display your page
-    include('../../modes/msds/add/index.post.php');
+    include('../../modes/msds/cas/index.post.php');
     
     
     # Bottom layout

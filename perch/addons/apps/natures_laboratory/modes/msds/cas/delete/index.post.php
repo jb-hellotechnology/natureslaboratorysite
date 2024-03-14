@@ -4,13 +4,18 @@
     echo $HTML->side_panel_end();
     
     echo $HTML->title_panel([
-    'heading' => 'Edit MSDS - SKU: '.$details['productCode']
+    'heading' => 'MSDS > Delete CAS',
+    'button'  => [
+            'text' => $Lang->get('CAS'),
+            'link' => $API->app_nav().'/msds/cas/add',
+            'icon' => 'core/plus',
+        ],
     ], $CurrentUser);
 
     $Smartbar = new PerchSmartbar($CurrentUser, $HTML, $Lang);
 
 	$Smartbar->add_item([
-	    'active' => true,
+	    'active' => false,
 	    'title' => 'MSDS',
 	    'link'  => $API->app_nav().'/msds/',
 	]);
@@ -22,7 +27,7 @@
 	]);
 	
 	$Smartbar->add_item([
-	    'active' => false,
+	    'active' => true,
 	    'title' => 'CAS',
 	    'link'  => $API->app_nav().'/msds/cas/',
 	]);
@@ -35,16 +40,15 @@
 	    
 	    echo $message;
 	    
-	}else{
+	}
+	
+	if(!$deleted){
 		
 		echo $Form->form_start();
-		
-		echo $Form->fields_from_template($Template, $details, $NaturesLaboratoryMSDS->static_fields);
-		
-		echo $Form->submit_field('btnSubmit', 'Update Template', $API->app_path());
+		    
+		echo $Form->submit_field('btnSubmit', 'Delete CAS', $API->app_path());
 		
 		echo $Form->form_end();
 	
 	}
-
     echo $HTML->main_panel_end();

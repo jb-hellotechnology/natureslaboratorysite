@@ -106,6 +106,9 @@
             	'natures_laboratory/msds/delete',
             	'natures_laboratory/msds/templates',
             	'natures_laboratory/msds/templates/edit',
+            	'natures_laboratory/msds/cas',
+            	'natures_laboratory/msds/cas/add',
+            	'natures_laboratory/msds/cas/edit'
             ],
             'label'=> 'MSDS'
         ],

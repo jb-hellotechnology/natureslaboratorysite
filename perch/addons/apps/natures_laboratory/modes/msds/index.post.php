@@ -26,6 +26,12 @@
 	    'link'  => $API->app_nav().'/msds/templates/',
 	]);
 	
+	$Smartbar->add_item([
+	    'active' => false,
+	    'title' => 'CAS',
+	    'link'  => $API->app_nav().'/msds/cas/',
+	]);
+	
 	echo $Smartbar->render();
 
     echo $HTML->main_panel_start();

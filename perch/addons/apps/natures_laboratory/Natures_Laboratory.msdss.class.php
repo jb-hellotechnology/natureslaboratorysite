@@ -55,4 +55,65 @@ class Natures_Laboratory_MSDSs extends PerchAPI_Factory
 		
 	}
 	
+	public function getMSDSProducts(){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_cas ORDER BY STOCK_CODE ASC';
+		$data = $this->db->get_rows($sql);
+		return $data;
+		
+	}
+	
+	public function getProducts(){
+		
+		$sql = 'SELECT * FROM perch3_natureslaboratory_stock ORDER BY STOCK_CODE ASC';
+		$data = $this->db->get_rows($sql);
+		return $data;
+		
+	}
+	
+	public function createCAS($data){
+		
+		$sql = 'INSERT INTO perch3_natures_laboratory_cas (STOCK_CODE, CAS) VALUES ("'.$data['STOCK_CODE'].'", "'.$data['CAS'].'")';
+		$data = $this->db->execute($sql);
+		return $data;
+		
+	}
+	
+	public function updateCAS($data){
+		
+		$sql = 'UPDATE perch3_natures_laboratory_cas SET STOCK_CODE="'.$data['STOCK_CODE'].'", CAS="'.$data['CAS'].'" WHERE casID="'.$data['casID'].'"';
+		$data = $this->db->execute($sql);
+		return $data;
+		
+	}
+	
+	public function getCAS($id){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_cas WHERE casID="'.$id.'"';
+		$data = $this->db->get_row($sql);
+		return $data;
+		
+	}
+	
+	public function getCASCode($id){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_cas WHERE STOCK_CODE="'.$id.'"';
+		$data = $this->db->get_row($sql);
+		if($data){
+			return $data;	
+		}else{
+			$data['CAS'] = 'NO CAS AVAILABLE';
+			return $data;
+		}
+		
+	}
+	
+	public function deleteCAS($id){
+		
+		$sql = 'DELETE FROM perch3_natures_laboratory_cas WHERE casID="'.$id.'"';
+		$data = $this->db->execute($sql);
+		return $data;
+		
+	}
+	
 }

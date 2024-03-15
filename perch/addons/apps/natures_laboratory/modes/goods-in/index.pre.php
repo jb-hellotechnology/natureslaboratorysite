@@ -17,6 +17,8 @@ error_reporting(E_ALL);
     $goodsIn = $NaturesLaboratoryGoodsIn->getGoodsIn($_GET['q']);
     
     if($Form->submitted()) {
+	    
+	    unlink('labels.zip');
     	
     	$batches = array();
 	    foreach($_POST as $key=>$value){

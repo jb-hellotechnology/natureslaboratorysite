@@ -153,10 +153,12 @@ error_reporting(E_ALL);
 		ob_end_clean();
 		readfile($zipname);
 		
+/*
 		foreach($files as $file){ // iterate files
 		  if(is_file($file)) {
 		    unlink($file); // delete file
 		  }
 		}
+*/
     	
 	}

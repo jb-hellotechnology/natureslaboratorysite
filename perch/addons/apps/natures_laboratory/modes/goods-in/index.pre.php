@@ -145,20 +145,15 @@ error_reporting(E_ALL);
 		}
 		$zip->close();
 		
-/*
 		header('Content-Type: application/zip');
 		header('Content-disposition: attachment; filename='.$zipname);
 		header('Content-Length: ' . filesize($zipname));
-		ob_end_clean();
 		readfile($zipname);
-*/
 		
-/*
 		foreach($files as $file){ // iterate files
 		  if(is_file($file)) {
 		    unlink($file); // delete file
 		  }
 		}
-*/
     	
 	}

@@ -250,34 +250,55 @@
 		if($details['colour']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Colour:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$details['colour'],0,1);}
 		if($details['odour']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Odour:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$details['odour'],0,1);}
 
-		$pdf->SetFont('Arial','B',11);
-		$pdf->Cell(0,10,'Tests',0,1);
-		$pdf->SetFont('Arial','',9);
-		if($details['specificGravity']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Specific Gravity @ 20C:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$details['specificGravity'],0,1);}
-		if($details['refractiveIndex']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Refractive Index @ 20C:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$details['refractiveIndex'],0,1);}
-		if($details['opticalRotation']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Optical Rotation @ 20C:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$details['opticalRotation'],0,1);}
-
-		
-/*
 		if($details['dateManufacture']<>NULL AND $details['dateManufacture']>'1970-01-01'){$dateManufacture = explode("-",$details['dateManufacture']);$dateManufacture = "$dateManufacture[2]/$dateManufacture[1]/$dateManufacture[0]";$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Date of Manufacturing:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$dateManufacture,0,1);}
 		if($details['bbe']<>NULL AND $details['bbe']>'1970-01-01'){$bbe = explode("-",$details['bbe']);$bbe = "$bbe[2]/$bbe[1]/$bbe[0]";$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Best Before End:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$bbe,0,1);}
 		$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Country of Origin:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,'United Kingdom',0,1);
-		if($details['countryOfOrigin']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Raw Ingredient Country of Origin:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$details['countryOfOrigin'],0,1);}
-	
-*/
-		
+		if($details['countryOfOrigin']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Raw Ingredient Country of Origin:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$details['countryOfOrigin'],0,1);}	
 
-		if($details['pH']<>'' AND $details['gravity']<>''){	
+		if($details['productType']=='Essential Oil'){	
 			$pdf->SetFont('Arial','B',11);
 			$pdf->Cell(0,10,'Tests',0,1);
 			$pdf->SetFont('Arial','',9);	
 			$header = array('Test','Result','Specification');
 			$data = '';
-			if($details['pH']<>''){
-				$data = $data."pH,$details[pH],$specDetails[pH];";
+			if($details['specificGravity']<>''){
+				$data = $data."Specific Gravity,$details[specificGravity],$specDetails[specificGravity];";
 			}
-			if($details['gravity']<>''){
-				$data = $data."Specific Gravity,$details[gravity],Not Less Than $specDetails[specificGravity];";
+			if($details['refractiveIndex']<>''){
+				$data = $data."Refractive Index,$details[refractiveIndex],$specDetails[refractiveIndex];";
+			}
+			if($details['opticalRotation']<>''){
+				$data = $data."Optical Rotation,$details[opticalRotation],$specDetails[opticalRotation];";
+			}
+			$data = substr($data,0,-1);
+			$pdf->BasicTable($header,$data);
+			$pdf->Cell(0,3,'',0,1);
+		}else{
+			$pdf->SetFont('Arial','B',11);
+			$pdf->Cell(0,10,'Tests',0,1);
+			$pdf->SetFont('Arial','',9);	
+			$header = array('Test','Result','Specification');
+			$data = '';
+			if($details['specificGravity']<>''){
+				$data = $data."Specific Gravity,$details[specificGravity],$specDetails[specificGravity];";
+			}
+			if($details['refractiveIndex']<>''){
+				$data = $data."Refractive Index,$details[refractiveIndex],$specDetails[refractiveIndex];";
+			}
+			if($details['opticalRotation']<>''){
+				$data = $data."Optical Rotation,$details[opticalRotation],$specDetails[opticalRotation];";
+			}
+			if($details['fattyAcid']<>''){
+				$data = $data."Free Fatty Acid (% as Oleic),$details[fattyAcid],$specDetails[fattyAcid];";
+			}
+			if($details['peroxideValue']<>''){
+				$data = $data."Peroxide Value (meq O2/kg),$details[peroxideValue],$specDetails[peroxideValue];";
+			}
+			if($details['iodineValue']<>''){
+				$data = $data."Iodine Value (Calc.),$details[iodineValue],$specDetails[iodineValue];";
+			}
+			if($details['saponificationValue']<>''){
+				$data = $data."Saponification Value (mg KOH/g),$details[saponificationValue],$specDetails[saponificationValue];";
 			}
 			$data = substr($data,0,-1);
 			$pdf->BasicTable($header,$data);

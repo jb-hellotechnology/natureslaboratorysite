@@ -91,6 +91,11 @@
 		echo $Form->text_field("refractiveIndex","Refractive Index",'');
 		echo $Form->text_field("opticalRotation","Optical Rotation",'');
 		
+		echo $Form->text_field("fattyAcid","Free Fatty Acid (% as Oliec)",'');
+		echo $Form->text_field("peroxideValue","Peroxide Value (meq O2/kg)",'');
+		echo $Form->text_field("iodineValue","Iodine Value (Calc.)",'');
+		echo $Form->text_field("saponificationValue","Saponification Value (mg KOH/g)",'');
+		
 		echo $Form->fields_from_template($Template, $details, $Properties->static_fields);
 		    
 		echo $Form->submit_field('btnSubmit', 'Add Spec', $API->app_path());

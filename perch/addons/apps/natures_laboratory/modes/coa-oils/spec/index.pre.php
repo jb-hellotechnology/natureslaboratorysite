@@ -209,32 +209,24 @@
 		if($specDetails['productCode']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Product Code: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(100,5,$specDetails['productCode'],0,1);}
 		if($specDetails['biologicalSource']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Biological Source: ',0,0);$pdf->SetFont('Arial','',9);$pdf->SetFont('Arial','I',9);$pdf->Cell(0,5,$specDetails['biologicalSource'],0,1);$pdf->SetFont('Arial','',9);}
 		if($specDetails['plantPart']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Plant Part: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['plantPart'],0,1);}
-		if($specDetails['strengthVolume']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Strength Volume: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['strengthVolume'],0,1);}
-		if($specDetails['alcoholContent']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Alcohol Content: ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['alcoholContent'],0,1);}
 		
 		$pdf->SetFont('Arial','B',11);
 		$pdf->Cell(0,10,'Product Description',0,1);
 		$pdf->SetFont('Arial','',9);
+		if($specDetails['appearance']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Appearance:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['appearance'],0,1);}
 		if($specDetails['colour']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Colour:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['colour'],0,1);}
-		if($specDetails['odor']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Odour:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['odor'],0,1);}
-		if($specDetails['taste']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Taste:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['taste'],0,1);}
+		if($specDetails['odour']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Odour:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['odour'],0,1);}
 		
-		if($specDetails['pH']<>'' OR $specDetails['specificGravity']<>''){
-			$pdf->SetFont('Arial','B',11);
-			$pdf->Cell(0,10,'pH and Specific Gravity',0,1);
-			$pdf->SetFont('Arial','',9);
-			$header = array('Test','Limits');
-			$data = '';
-			if($specDetails['pH']<>''){
-				$data = $data."pH,".iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$specDetails['pH']).";";
-			}
-			if($specDetails['specificGravity']<>''){
-				$data = $data."Specific Gravity,".iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',$specDetails['specificGravity']).";";
-			}
-			$data = substr($data,0,-1);
-			$pdf->BasicTable($header,$data);
-			$pdf->Cell(0,3,'',0,1);
-		}
+		$pdf->SetFont('Arial','B',11);
+		$pdf->Cell(0,10,'Tests',0,1);
+		$pdf->SetFont('Arial','',9);
+		if($specDetails['specificGravity']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Specific Gravity:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['specificGravity'],0,1);}
+		if($specDetails['refractiveIndex']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Refractive Index:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['refractiveIndex'],0,1);}
+		if($specDetails['opticalRotation']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Optical Rotation:  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['opticalRotation'],0,1);}
+		if($specDetails['fattyAcid']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Free Fatty Acid (% as Oleic):  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['fattyAcid'],0,1);}
+		if($specDetails['peroxideValue']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Peroxide Value (meq O2/kg):  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['peroxideValue'],0,1);}
+		if($specDetails['iodineValue']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Iodine Value (Calc.):  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['iodineValue'],0,1);}
+		if($specDetails['saponificationValue']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Saponification Value (mg KOH/g):  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['saponficationValue'],0,1);}
 		
 		$pdf->SetFont('Arial','B',11);
 		$pdf->Cell(0,10,'Contaminants / Impurities',0,1);

@@ -18,7 +18,7 @@
     if($Form->submitted()) {
     
         //FOR ITEMS PROGRAMMATICALLY ADDED TO FORM
-        $postvars = array('productType','productCode','commonName','biologicalSource','plantPart','cas','einecs','manufacturingMethod','countryOfOrigin','colour','odour','appearance','specificGravity','refractiveIndex','opticalRotation');	   
+        $postvars = array('productType','productCode','commonName','biologicalSource','plantPart','cas','einecs','manufacturingMethod','countryOfOrigin','colour','odour','appearance','specificGravity','refractiveIndex','opticalRotation','fattyAcid','peroxideValue','iodineValue','saponificationValue');	   
     	$data = $Form->receive($postvars);     
     	
     	// READ IN DYNAMIC FIELDS FROM TEMPLATE

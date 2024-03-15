@@ -26,7 +26,7 @@
     if($Form->submitted()) {
     
         //FOR ITEMS PROGRAMMATICALLY ADDED TO FORM
-        $postvars = array('dateEntered_day','dateEntered_month','dateEntered_year','dateManufacture_day','dateManufacture_month','dateManufacture_year','bbe_day','bbe_month','bbe_year','spec','ourBatch','countryOfOrigin','colour','odour','appearance','specificGravity','refractiveIndex', 'opticalRotation');	   
+        $postvars = array('dateEntered_day','dateEntered_month','dateEntered_year','dateManufacture_day','dateManufacture_month','dateManufacture_year','bbe_day','bbe_month','bbe_year','spec','ourBatch','countryOfOrigin','colour','odour','appearance','specificGravity','refractiveIndex', 'opticalRotation', 'fattyAcid', 'peroxideValue', 'iodineValue', 'saponificationValue');	   
     	$data = $Form->receive($postvars);   
     	
     	$data['dateEntered'] = "$data[dateEntered_year]-$data[dateEntered_month]-$data[dateEntered_day]";

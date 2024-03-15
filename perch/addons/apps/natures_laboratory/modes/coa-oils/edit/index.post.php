@@ -73,6 +73,11 @@
 		echo $Form->text_field("specificGravity","Specific Gravity",$details['specificGravity']);
 		echo $Form->text_field("refractiveIndex","Refractive Index",$details['refractiveIndex']);
 		echo $Form->text_field("opticalRotation","Optical Rotation",$details['opticalRotation']);
+		
+		echo $Form->text_field("fattyAcid","Free Fatty Acid (% as Oliec)",$details['fattyAcid']);
+		echo $Form->text_field("peroxideValue","Peroxide Value (meq O2/kg)",$details['peroxideValue']);
+		echo $Form->text_field("iodineValue","Iodine Value (Calc.)",$details['iodineValue']);
+		echo $Form->text_field("saponificationValue","Saponification Value (mg KOH/g)",$details['saponificationValue']);
 		    
 		echo $Form->submit_field('btnSubmit', 'Update COA', $API->app_path());
 		

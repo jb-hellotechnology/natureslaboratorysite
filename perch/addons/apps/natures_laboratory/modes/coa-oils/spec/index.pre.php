@@ -226,7 +226,7 @@
 		if($specDetails['fattyAcid']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Free Fatty Acid (% as Oleic):  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['fattyAcid'],0,1);}
 		if($specDetails['peroxideValue']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Peroxide Value (meq O2/kg):  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['peroxideValue'],0,1);}
 		if($specDetails['iodineValue']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Iodine Value (Calc.):  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['iodineValue'],0,1);}
-		if($specDetails['saponificationValue']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Saponification Value (mg KOH/g):  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['saponficationValue'],0,1);}
+		if($specDetails['saponificationValue']<>''){$pdf->SetFont('Arial','B',9);$pdf->Cell(60,5,'Saponification Value (mg KOH/g):  ',0,0);$pdf->SetFont('Arial','',9);$pdf->Cell(0,5,$specDetails['saponificationValue'],0,1);}
 		
 		$pdf->SetFont('Arial','B',11);
 		$pdf->Cell(0,10,'Contaminants / Impurities',0,1);

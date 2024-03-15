@@ -100,6 +100,23 @@
         ],
         [
             'page' => [
+            	'natures_laboratory/coa-oils',
+            	'natures_laboratory/coa-oils/add',
+            	'natures_laboratory/coa-oils/edit',
+            	'natures_laboratory/coa-oils/delete',
+            	'natures_laboratory/coa-oils/spec',
+            	'natures_laboratory/coa-oils/spec/add',
+            	'natures_laboratory/coa-oils/spec/edit',
+            	'natures_laboratory/coa-oils/spec/delete',
+            	'natures_laboratory/coa-oils/countries',
+            	'natures_laboratory/coa-oils/countries/add',
+            	'natures_laboratory/coa-oils/countries/edit',
+            	'natures_laboratory/coa-oils/countries/delete',
+            ],
+            'label'=> 'COA - Oils'
+        ],
+        [
+            'page' => [
             	'natures_laboratory/msds',
             	'natures_laboratory/msds/add',
             	'natures_laboratory/msds/edit',

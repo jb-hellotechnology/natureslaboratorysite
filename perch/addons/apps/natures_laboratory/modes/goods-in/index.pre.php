@@ -157,5 +157,7 @@ error_reporting(E_ALL);
 		    unlink($file); // delete file
 		  }
 		}
+		
+		$message = $HTML->success_message('Labels created. %sClick here%s to download.', '<a href="'.$API->app_path().'/goods-in/labels.zip">', '</a>'); 
     	
 	}

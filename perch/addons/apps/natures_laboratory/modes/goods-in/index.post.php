@@ -50,6 +50,10 @@
 
     echo $HTML->main_panel_start();
     
+    if($message){
+	    echo $message;
+    }else{
+    
     echo $Form->form_start();
     ?>
 
@@ -144,4 +148,5 @@
 <?php    
 	echo $Form->submit_field('btnSubmit', 'Generate Labels', $API->app_path());	
 	echo $Form->form_end();
+	}
     echo $HTML->main_panel_end();

@@ -1,9 +1,7 @@
 <?php
-/*
 	ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(E_ALL); 
-*/   
+error_reporting(E_ALL);    
     if (!$CurrentUser->has_priv('natures_laboratory.goodsin')) exit;
     
     $NaturesLaboratoryGoodsIn = new Natures_Laboratory_Goods_Ins($API); 
@@ -147,11 +145,13 @@ error_reporting(E_ALL);
 		}
 		$zip->close();
 		
+/*
 		header('Content-Type: application/zip');
 		header('Content-disposition: attachment; filename='.$zipname);
 		header('Content-Length: ' . filesize($zipname));
 		ob_end_clean();
 		readfile($zipname);
+*/
 		
 /*
 		foreach($files as $file){ // iterate files

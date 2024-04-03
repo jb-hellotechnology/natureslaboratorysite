@@ -16,7 +16,7 @@
 
 	$Smartbar->add_item([
 	    'active' => true,
-	    'title' => 'Non Conformance',
+	    'title' => 'Tasks',
 	    'link'  => $API->app_nav().'/tasks/',
 	]);
 	

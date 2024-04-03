@@ -164,6 +164,15 @@
             ],
             'label'=> 'Non Conformance'
         ],
+        [
+            'page' => [
+            	'natures_laboratory/tasks',
+            	'natures_laboratory/tasks/add',
+            	'natures_laboratory/tasks/edit',
+            	'natures_laboratory/tasks/delete',
+            ],
+            'label'=> 'Tasks'
+        ],
 /*
         [
             'page' => 'natures_laboratory/orders',

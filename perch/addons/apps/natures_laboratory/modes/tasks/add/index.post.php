@@ -47,7 +47,7 @@
 		$assignedTo[] = array('label'=>"Jack", 'value'=>'Jack');
 		echo $Form->select_field('assignedTo','Assigned To',$assignedTo,'');
 		
-		echo $Form->fields_from_template($Template, $details, $Properties->static_fields);
+		echo $Form->fields_from_template($Template, $details, $NaturesLaboratoryTasks->static_fields);
 		    
 		echo $Form->submit_field('btnSubmit', 'Add Task', $API->app_path());
 		

@@ -89,7 +89,7 @@
 		echo $Form->text_field("pH","pH",$details['pH']);
 		echo $Form->text_field("specificGravity","Specific Gravity",$details['specificGravity']);
 		
-		echo $Form->fields_from_template($Template, $details, $Properties->static_fields);
+		echo $Form->fields_from_template($Template, $details, $NaturesLaboratoryCOASpec->static_fields);
 				
 		echo $Form->submit_field('btnSubmit', 'Update Spec', $API->app_path());
 		

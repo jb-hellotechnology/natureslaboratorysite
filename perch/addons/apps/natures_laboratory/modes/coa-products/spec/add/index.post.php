@@ -100,7 +100,7 @@
 		echo $Form->text_field("taste","Taste",'');
 		echo $Form->text_field("pH","pH",'');
 		
-		echo $Form->fields_from_template($Template, $details, $Properties->static_fields);
+		echo $Form->fields_from_template($Template, $details, $NaturesLaboratoryCOASpec->static_fields);
 		    
 		echo $Form->submit_field('btnSubmit', 'Add Spec', $API->app_path());
 		

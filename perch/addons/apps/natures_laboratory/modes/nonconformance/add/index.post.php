@@ -48,7 +48,7 @@
 		$type[] = array('label'=>"Deviation", 'value'=>'Deviation');
 		echo $Form->select_field('type','Type',$type,'');
 		
-		echo $Form->fields_from_template($Template, $details, $Properties->static_fields);
+		echo $Form->fields_from_template($Template, $details, $NaturesLaboratoryNonconformances->static_fields);
 		    
 		echo $Form->submit_field('btnSubmit', 'Add Non Conformance', $API->app_path());
 		

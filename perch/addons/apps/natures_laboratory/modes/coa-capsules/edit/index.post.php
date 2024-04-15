@@ -64,7 +64,7 @@
 		
 		echo $Form->text_field("odour","Odour",$details['odour']);
 		
-		echo $Form->fields_from_template($Template, $details, $Properties->static_fields);
+		echo $Form->fields_from_template($Template, $details, $NaturesLaboratoryCOA->static_fields);
 		    
 		echo $Form->submit_field('btnSubmit', 'Update COA', $API->app_path());
 		

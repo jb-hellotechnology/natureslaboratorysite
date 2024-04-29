@@ -3,6 +3,12 @@
 	// Define subnav links and titles
 	
 	PerchUI::set_subnav([
+		[
+            'page' => [
+            	'natures_laboratory'
+            ],
+            'label'=> 'Dashboard'
+        ],
         [
             'page' => [
             	'natures_laboratory/staff',

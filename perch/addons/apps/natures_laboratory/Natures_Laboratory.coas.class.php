@@ -47,4 +47,11 @@ class Natures_Laboratory_COAs extends PerchAPI_Factory
 		
 	}
 	
+	public function storageConditions($area, $time){
+		$timestamp = date("Y-m-d H:i:s", mktime(date('H'), date('i'), date('s'), date('m'), date('d')-$time, date('Y')));
+		$sql = "SELECT CAST(AVG(temperature) AS DECIMAL(10)) AS temperature, CAST(AVG(humidity) AS DECIMAL(10)) AS humidity FROM perch3_natures_laboratory_environment WHERE location='".$area."' AND timeStamp>'$timestamp'";
+		$data = $this->db->get_row($sql);
+		echo "$data[temperature]&deg;C $data[humidity]%";
+	}
+	
 }

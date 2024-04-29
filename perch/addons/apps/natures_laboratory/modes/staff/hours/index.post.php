@@ -286,8 +286,8 @@
 		                $hours = $parts[0];
 		                $minutes = $parts[1];
 		                
-		                $workedHours = $workedHours+$hours;
-		                $workedMinutes = $workedMinutes+$minutes;
+		                $workedHours = (int)$workedHours+(int)$hours;
+		                $workedMinutes = (int)$workedMinutes+(int)$minutes;
 		                
 		                $day = date("l", mktime(0, 0, 0, $month, $i, $year));
 		                $date = date("Y-m-d", mktime(0, 0, 0, $month, $i, $year));
@@ -363,9 +363,9 @@
 							if($dynamicFields['normalMonday']=='yes'){
 								$hoursWorked = '<i>8:30</i>';
 								$minutes = $minutes+30;
-								$hours = $hours+8;
-								$holidayHours = $holidayHours+8;
-								$holidayMinutes = $holidayMinutes+30;
+								$hours = (int)$hours+8;
+								$holidayHours = (int)$holidayHours+8;
+								$holidayMinutes = (int)$holidayMinutes+30;
 							}
 						}else{
 							$class = '';
@@ -406,10 +406,10 @@
 						if($holiday){
 							if($holiday[0]['length']=='1.0'){
 								$hoursWorked = '<i>8:30</i>';
-								$minutes = $minutes+30;
-								$hours = $hours+8;
-								$holidayHours = $holidayHours+8;
-								$holidayMinutes = $holidayMinutes+30;
+								$minutes = (int)$minutes+30;
+								$hours = (int)$hours+8;
+								$holidayHours = (int)$holidayHours+8;
+								$holidayMinutes = (int)$holidayMinutes+30;
 							}else{
 								$hoursWorked = '<i>4:15</i>';
 								$minutes = $minutes+15;
@@ -420,8 +420,8 @@
 							
 						}
 		                
-		                $totalHours = $totalHours+$hours;
-		                $totalMinutes = $totalMinutes+$minutes;
+		                $totalHours = (int)$totalHours+(int)$hours;
+		                $totalMinutes = (int)$totalMinutes+(int)$minutes;
 		                
 		                if($earlyFinish AND $hoursWorked<>''){
 		                	echo "<td class='$class'><strong>$hoursWorked + $extras</strong></td>";

@@ -1,0 +1,5 @@
+[30-Nov-2023 11:57:43 UTC] PHP Fatal error:  Uncaught Error: Call to a member function delete() on bool in /home/natureslab/public_html/perch/addons/apps/natures_laboratory/modes/staff/early-finishes/delete/index.pre.php:18
+Stack trace:
+#0 /home/natureslab/public_html/perch/addons/apps/natures_laboratory/staff/early-finishes/delete/index.php(35): include()
+#1 {main}
+  thrown in /home/natureslab/public_html/perch/addons/apps/natures_laboratory/modes/staff/early-finishes/delete/index.pre.php on line 18

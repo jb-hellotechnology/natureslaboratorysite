@@ -1,0 +1,4 @@
+[02-Apr-2024 15:04:47 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/natureslab/public_html/perch/addons/apps/natures_laboratory/modes/staff/edit/index.post.php on line 64
+[02-Apr-2024 15:04:47 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/natureslab/public_html/perch/addons/apps/natures_laboratory/modes/staff/edit/index.post.php on line 65
+[02-Apr-2024 15:04:56 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/natureslab/public_html/perch/addons/apps/natures_laboratory/modes/staff/edit/index.post.php on line 64
+[02-Apr-2024 15:04:56 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/natureslab/public_html/perch/addons/apps/natures_laboratory/modes/staff/edit/index.post.php on line 65

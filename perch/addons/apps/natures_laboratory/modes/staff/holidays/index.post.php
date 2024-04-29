@@ -113,8 +113,8 @@
 			$endYear = date('Y')+1;
 		}
 		
-		$start = "$startYear-04-06";
-		$end = "$endYear-04-05";
+		$start = "$startYear-04-01";
+		$end = "$endYear-03-31";
 	    
 	    $bankHolidays = $NaturesLaboratoryStaffBankholiday->getForYear($start,$end);
 	    $compassionate = $NaturesLaboratoryStaffCompassionate->getForYear($_GET['id'],$start,$end);
@@ -134,6 +134,15 @@
 			    $bankHolidaysTaken++;
 		    }
 		    if($dayofweek=='Tuesday' AND $json['normalTuesday']=='yes'){
+			    $bankHolidaysTaken++;
+		    }
+		    if($dayofweek=='Wednesday' AND $json['normalWednesday']=='yes'){
+			    $bankHolidaysTaken++;
+		    }
+		    if($dayofweek=='Thursday' AND $json['normalThursday']=='yes'){
+			    $bankHolidaysTaken++;
+		    }
+		    if($dayofweek=='Friday' AND $json['normalFriday']=='yes'){
 			    $bankHolidaysTaken++;
 		    }
 	    }

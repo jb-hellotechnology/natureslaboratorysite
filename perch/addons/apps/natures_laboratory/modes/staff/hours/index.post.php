@@ -412,10 +412,10 @@
 								$holidayMinutes = (int)$holidayMinutes+30;
 							}else{
 								$hoursWorked = '<i>4:15</i>';
-								$minutes = $minutes+15;
-								$hours = $hours+4;
-								$holidayHours = $holidayHours+4;
-								$holidayMinutes = $holidayMinutes+15;
+								$minutes = (int)$minutes+15;
+								$hours = (int)$hours+4;
+								$holidayHours = (int)$holidayHours+4;
+								$holidayMinutes = (int)$holidayMinutes+15;
 							}
 							
 						}

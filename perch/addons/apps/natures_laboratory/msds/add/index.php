@@ -43,7 +43,7 @@
 
 
     # Do anything you want to do before output is started
-    include('../../modes/msds/cas/add/index.pre.php');
+    include('../../modes/msds/add/index.pre.php');
     
     
     # Top layout

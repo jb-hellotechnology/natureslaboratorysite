@@ -34,8 +34,8 @@ error_reporting(E_ALL);
 			{
 				$this->Line(0,276,300,276);
 			    $this->SetY(-24);
-			    $this->Image('../organic.png',10,280,0,12);
-			    $this->Image('../9001.jpg',30,280,0,12);
+			    //$this->Image('../organic.png',10,280,0,12);
+			    $this->Image('../9001.jpg',10,280,0,12);
 			    $this->SetY(-17);$this->SetX(-10);
 			    $this->SetFont('Arial','',6);
 			    $this->Cell(0,3,"Nature's Laboratory Ltd",0,1,'R');
@@ -199,7 +199,7 @@ error_reporting(E_ALL);
 		
 		$pdf->SetXY(10, 35);
 		$pdf->SetFont('Arial','B',16);
-		$pdf->Cell(0,10,'Non Conformance: '.$details['title'],0,1);
+		$pdf->Cell(0,10,'Non Conformance #'.$nonconformance.': '.$details['title'],0,1);
 		$pdf->Line(0,44,300,44);
 		$pdf->SetFont('Arial','',9);
 		
@@ -248,7 +248,7 @@ $review<br><br>
 		$pdf->WriteHTML("
 <b>Date:</b> $thisDate<br><br>
 <b><i>Shankar Katekhaye</i></b><br>
-Quality Manager");
+Quality Director");
 		
 		$pdf->Output('D',"Natures Laboratory Non Conformance - $nonconformance.pdf");
 		exit();

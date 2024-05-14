@@ -20,9 +20,9 @@ class Natures_Laboratory_Staff_Member_Compassionatedays extends PerchAPI_Factory
 	
 	public function getForYear($staffID,$start,$end){
 		
-		$sql = 'SELECT * FROM perch3_natures_laboratory_staff_compassionatedays WHERE staffID="'.$staffID.'" AND (date>="'.$start.'" AND date<="'.$end.'")';
+		$sql = 'SELECT COUNT(*) as count FROM perch3_natures_laboratory_staff_compassionatedays WHERE staffID="'.$staffID.'" AND (date>="'.$start.'" AND date<="'.$end.'")';
 		$data = $this->db->get_rows($sql);
-		return count($data);
+		return $data['count'];
 		
 	}
 	

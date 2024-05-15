@@ -2,8 +2,9 @@
 	
 	if (!$CurrentUser->has_priv('natures_laboratory.coa')) exit;
 
-	$NaturesLaboratoryMSDSTemplate = new Natures_Laboratory_MSDS_Templates($API);
-	$NaturesLaboratoryMSDS = new Natures_Laboratory_MSDSs($API);   
+	$NaturesLaboratoryMSDS = new Natures_Laboratory_MSDSs($API); 
+	$NaturesLaboratoryMSDSTemplate = new Natures_Laboratory_MSDS_Templates($API); 
+	$NaturesLaboratoryGoodsStock = new Natures_Laboratory_Goods_Stocks($API); 
     
     $HTML = $API->get('HTML');
     $Form = $API->get('Form');
@@ -25,6 +26,9 @@
 	if($details['productType']=='6'){
 		$Template->set('natures_laboratory/msds_powder.html','nl');
 	}
+	
+	$msdsTemplates = $NaturesLaboratoryMSDSTemplate->allTemplates();
+    $stock = $NaturesLaboratoryGoodsStock->getStock();
 
     if($Form->submitted()) {
     

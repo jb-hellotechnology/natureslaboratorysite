@@ -271,14 +271,14 @@ error_reporting(E_ALL);
 		$pdf->SetFont('Arial','B',11);
 		$pdf->Cell(0,10,'Composition',0,1);
 		$pdf->SetFont('Arial','',9);
-		$header = array('Product Code','Botanical Source','Plant Part','Quantity Ratio');
+		$header = array('Product Code','Botanical Source','Plant Part');
 		$data = '';
 		
 		foreach($components['components'] as $component){
 			
 			$spec = $NaturesLaboratoryHerbSpec->getSpec($component['productCode']);
 			$spec = json_decode($spec,true);
-			$data .= "$component[productCode],$spec[biologicalSource],$spec[plantPart],$component[quantityRatio];";
+			$data .= "$component[productCode],$spec[biologicalSource],$spec[plantPart];";
 		}
 
 		$data = substr($data,0,-1);

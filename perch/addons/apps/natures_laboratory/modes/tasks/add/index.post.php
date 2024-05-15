@@ -42,6 +42,7 @@
 		$createdBy[] = array('label'=>"James", 'value'=>'James');
 		$createdBy[] = array('label'=>"Lucy", 'value'=>'Lucy');
 		$createdBy[] = array('label'=>"Tom", 'value'=>'Tom');
+		$createdBy[] = array('label'=>"Bhagyashree", 'value'=>'Bhagyashree');
 		echo $Form->select_field('createdBy','Created By',$createdBy,'');
 		
 		$assignedTo[] = array('label'=>"Jack", 'value'=>'Jack');

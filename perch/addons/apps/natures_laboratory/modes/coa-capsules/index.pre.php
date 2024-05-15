@@ -196,7 +196,7 @@ error_reporting(E_ALL);
 			    $this->SetLineWidth(.3);
 			    $this->SetFont('','B');
 			    // Header
-			    $w = array(40,40,40,40);
+			    $w = array(40,40,40);
 			    for($i=0;$i<count($header);$i++)
 			        $this->Cell($w[$i],7,$header[$i],1,0,'L',true);
 			    $this->Ln();
@@ -213,7 +213,6 @@ error_reporting(E_ALL);
 			        $this->Cell($w[0],6,$row[0],'LR',0,'L',$fill);
 			        $this->Cell($w[1],6,$row[1],'LR',0,'L',$fill);
 			        $this->Cell($w[2],6,$row[2],'LR',0,'L',$fill);
-			        $this->Cell($w[3],6,$row[3],'LR',0,'L',$fill);
 			        $this->Ln();
 			        $fill = !$fill;
 			    }

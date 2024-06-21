@@ -51,7 +51,8 @@
 	            <th class="first">Select</th>
                 <th>Date</th>
                 <th>Title</th> 
-                <th>Type</th>  
+                <th>Type</th> 
+                <th>Status</th>  
                 <th>Edit</th>
                 <th class="action last">Delete</th>
             </tr>
@@ -59,7 +60,7 @@
         <tbody>
 <?php
     foreach($nonconformances as $Nonconformance) {
-
+		$fields = json_decode($Nonconformance['natures_laboratory_nonconformanceDynamicFields'], true);
 ?>
             <tr>
 	            <td><?php echo $Form->radio("download", 'download', $Nonconformance['natures_laboratory_nonconformanceID'],'on',''); ?></td>
@@ -70,6 +71,9 @@
 	            </td>
                 <td><?php echo $Nonconformance['title'] ?></td>
                 <td><?php echo $Nonconformance['type']; ?></td>
+                <td>
+		            <?php if($fields['reviewPerson']==''){echo "<span class='notification notification-alert'>Pending</span>";}elseif($fields['reviewPerson']!==''){echo "<span class='notification notification-success'>Complete</span>";}?>
+		        </td>
                 <td><a class="button button-small action-info" href="<?php echo $HTML->encode($API->app_path()); ?>/nonconformance/edit/?id=<?php echo $HTML->encode(urlencode($Nonconformance['natures_laboratory_nonconformanceID'])); ?>" class="button button-small action-info"><?php echo 'Edit'; ?></a></td>
                 <td><a href="<?php echo $HTML->encode($API->app_path()); ?>/nonconformance/delete/?id=<?php echo $HTML->encode(urlencode($Nonconformance['natures_laboratory_nonconformanceID'])); ?>" class="button button-small action-alert"><?php echo 'Delete'; ?></a></td>
             </tr>

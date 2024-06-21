@@ -294,6 +294,7 @@
                 <th>Units</th>
                 <th>Start Date</th>
                 <th>End Date</th>
+                <th>Allocated Batch #</th>
                 <th>QC Check</th>
                 <th class="action">View</th>
             </tr>
@@ -316,6 +317,7 @@
                 <td><?php echo $Production['units']; ?></td>
                 <td><?php echo $startDate; ?></td>
                 <td><?php echo $endDate; ?></td>
+                <td><?php echo $Production['finishedBatch']; ?></td>
                 <td>
 	                <span<?php if($Production['qcCheck']==''){echo " class='notification notification-warning'";}elseif($Production['qcCheck']=='Shankar'){echo " class='notification notification-success'";}elseif($Goods['qa']=='TRUE'){echo " class='notification notification-success'";}?>>
 	                	<?php 

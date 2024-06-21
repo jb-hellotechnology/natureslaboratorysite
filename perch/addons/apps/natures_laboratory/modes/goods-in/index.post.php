@@ -89,7 +89,7 @@
 	            <td><?php echo $Form->checkbox("batch_".$Goods['ourBatch'],'on',''); ?></td>
                 <td><?php echo $Goods['staff'] ?></td>
                 <td><?php echo $Goods['productCode']; ?></td>
-                <td><?php echo $Goods['DESCRIPTION']; ?></td>
+                <td><?php echo $Goods['DESCRIPTION']; echo $Goods['productDescription']; ?></td>
                 <td><?php 
 	                $parts = explode("-", $Goods['dateIn']);
 		            echo "$parts[2]/$parts[1]/$parts[0]";

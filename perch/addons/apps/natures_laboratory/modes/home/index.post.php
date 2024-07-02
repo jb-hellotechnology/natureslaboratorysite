@@ -47,6 +47,22 @@
 					</tr>
 				</table>
 			</div>
+			<footer>
+				<form method="post" action="/perch/addons/apps/natures_laboratory/">
+					<label>Download Environmental Data</label>
+					<select name="date">
+						<?php
+							$i = 1;
+							while($i<=12){
+								$date = date("Y-m", mktime(0, 0, 0, date('m')-$i, 1, date('Y')));
+								echo '<option value="'.$date.'">'.$date.'</option>';
+								$i++;
+							}	
+						?>
+					</select>
+					<input type="submit" value="Download" />
+				</form>
+			</footer>
 		</div>
 	</div>
 </div>

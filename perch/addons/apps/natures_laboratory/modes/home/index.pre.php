@@ -9,3 +9,7 @@
     
     $staff = array();
     $staff = $NaturesLaboratoryStaff->signedIn();
+    
+    if($_POST['date']){
+	    $NaturesLaboratoryCOA->downloadEnvData($_POST['date']);
+    }

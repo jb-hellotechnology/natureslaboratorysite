@@ -54,4 +54,22 @@ class Natures_Laboratory_COAs extends PerchAPI_Factory
 		echo "$data[temperature]&deg;C $data[humidity]%";
 	}
 	
+	public function downloadEnvData($date){
+		$sql = "SELECT * FROM perch3_natures_laboratory_environment WHERE LEFT (timeStamp,7)='$date'";
+		$data = $this->db->get_rows($sql);
+		
+		header('Content-Type: text/csv; charset=utf-8');
+		header('Content-Disposition: attachment; filename=csv_export.csv');
+		
+		$header_args = array( 'timestamp', 'Location', 'Temperature', 'Humidity' );
+		ob_end_clean();
+		$output = fopen( 'php://output', 'w' );
+		fputcsv( $output, $header_args );
+		foreach($data as $data_item){
+		    fputcsv( $output, array($data_item['timeStamp'], $data_item['location'], $data_item['temperature'], $data_item['humidity']) );
+		}
+		fclose( $output );
+		exit;
+	}
+	
 }

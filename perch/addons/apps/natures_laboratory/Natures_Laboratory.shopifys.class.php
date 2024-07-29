@@ -55,7 +55,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		    //echo "Error opening file: $filename<br />";
 		}
 		
-		if($rowCount>4000){
+		if($rowCount>3000){
 
 			$sql = 'SELECT * FROM perch3_natureslaboratory_stock';
 			$data = $this->db->get_rows($sql);

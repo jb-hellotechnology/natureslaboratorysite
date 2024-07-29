@@ -121,7 +121,7 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 		
 		}else{
 			//echo '.csv file is empty #2';
-			mail('jack@natureslaboratory.co.uk','Stock Import Failed', 'HA Stock import failed');
+			mail('jack@hellotechnology.co.uk','Stock Import Failed', 'HA Stock import failed');
 		}
 		
 		// UPDATE SHOPIFY STOCK LEVELS ON HA

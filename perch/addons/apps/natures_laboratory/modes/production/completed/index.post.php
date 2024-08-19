@@ -269,6 +269,7 @@
 		$names[] = array('label'=>'Sean', 'value'=>'Sean');
 		$names[] = array('label'=>'Tom', 'value'=>'Tom');
 		$names[] = array('label'=>'Shankar', 'value'=>'Shankar');
+		$names[] = array('label'=>'Bhagyashree', 'value'=>'Bhagyashree');
 		
 		echo $Form->select_field("labelCheck","Labels Checked By",$names,$process['labelCheck']);
 		echo $Form->select_field("qcCheck","QC Check By",$names,$process['qcCheck']);

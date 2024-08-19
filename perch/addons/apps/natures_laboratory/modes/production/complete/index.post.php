@@ -88,6 +88,7 @@
 		$names[] = array('label'=>'Chris', 'value'=>'Chris');
 		$names[] = array('label'=>'Sean', 'value'=>'Sean');
 		$names[] = array('label'=>'Tom', 'value'=>'Tom');
+		$names[] = array('label'=>'Bhagyashree', 'value'=>'Bhagyashree');
 		echo $Form->select_field("completedBy","",$names,'');
 		
 		echo $Form->hidden("status",'completed');

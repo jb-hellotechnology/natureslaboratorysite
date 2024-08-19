@@ -79,6 +79,7 @@
 			$names[] = array('label'=>'Chris', 'value'=>'Chris');
 			$names[] = array('label'=>'Sean', 'value'=>'Sean');
 			$names[] = array('label'=>'Tom', 'value'=>'Tom');
+			$names[] = array('label'=>'Bhagyashree', 'value'=>'Bhagyashree');
 			echo $Form->select_field("sageUpdatedBy","Sage Updated By",$names,$scheduled['sageUpdatedBy']);
 	        
 	        $alphas[] = array('label'=>'Please Select', 'value'=>'');

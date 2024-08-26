@@ -30,4 +30,12 @@ class Natures_Laboratory_Nonconformances extends PerchAPI_Factory
 		
 	}
 	
+	public function getNCFs($data){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_nonconformance WHERE date>="'.$data['startDate'].'" AND date<="'.$data['endDate'].'"';
+		$data = $this->db->get_rows($sql);
+		return $data;
+		
+	}
+	
 }

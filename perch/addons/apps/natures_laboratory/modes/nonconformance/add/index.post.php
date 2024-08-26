@@ -22,6 +22,12 @@
 	
 	$Smartbar->add_item([
 	    'active' => false,
+	    'title' => 'Overview',
+	    'link'  => $API->app_nav().'/nonconformance/overview/',
+	]);
+	
+	$Smartbar->add_item([
+	    'active' => false,
 	    'title' => 'Report',
 	    'link'  => $API->app_nav().'/nonconformance/report/',
 	]);

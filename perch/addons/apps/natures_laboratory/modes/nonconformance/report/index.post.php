@@ -22,9 +22,15 @@
 	]);
 	
 	$Smartbar->add_item([
+	    'active' => false,
+	    'title' => 'Overview',
+	    'link'  => $API->app_nav().'/nonconformance/overview/',
+	]);
+	
+	$Smartbar->add_item([
 	    'active' => true,
 	    'title' => 'Report',
-	    'link'  => $API->app_nav().'/report/',
+	    'link'  => $API->app_nav().'/nonconformance/report/',
 	]);
 	
 	
@@ -32,42 +38,13 @@
 
     echo $HTML->main_panel_start(); 
 
-?>
-	<table class="d">
-        <thead>
-            <tr>
-                <th class="first">Month</th>
-                <th>Customer</th>
-                <th>Supplier</th>
-                <th>Internal</th>
-	            <th>Deviation</th>
-            </tr>
-        </thead>
-        <tbody>
-<?php
-	$max = 23;
-	$i = 0;
-    while($i<24) {
+	echo $Form->form_start();
+		
+	echo $Form->date_field("startDate","Start",'');
+	echo $Form->date_field("endDate","End",'');
 	    
-	    $date = date("Y-m", mktime(0, 0, 0, date('m')-$i, 1, date('Y')));
-	    $date2 = date("m/Y", mktime(0, 0, 0, date('m')-$i, 1, date('Y')));
-		
-		echo "
-		<tr>
-			<td>".$date2."</td>
-			<td>".$NaturesLaboratoryNonconformances->getCount($date, 'Customer')."</td>
-			<td>".$NaturesLaboratoryNonconformances->getCount($date, 'Supplier')."</td>
-			<td>".$NaturesLaboratoryNonconformances->getCount($date, 'Internal')."</td>
-			<td>".$NaturesLaboratoryNonconformances->getCount($date, 'Deviation')."</td>
-		</tr>";
-		
-		$i++;
-		
-	}
-?>
-	    </tbody>
-    </table>
-
-<?php		
+	echo $Form->submit_field('btnSubmit', 'Generate Report', $API->app_path());
+	
+	echo $Form->form_end();		
 
     echo $HTML->main_panel_end();

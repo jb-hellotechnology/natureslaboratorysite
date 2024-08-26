@@ -9,8 +9,6 @@
     # include the API
     include('../../../../../core/inc/api.php');
     
-    require('../../fpdf/fpdf.php');
-    
     $API  = new PerchAPI(1.0, 'natures_laboratory');
 
     # include your class files
@@ -31,7 +29,7 @@
 
 
     # Do anything you want to do before output is started
-    include('../../modes/nonconformance/report/index.pre.php');
+    include('../../modes/nonconformance/overview/index.pre.php');
     
     
     # Top layout
@@ -39,7 +37,7 @@
 
     
     # Display your page
-    include('../../modes/nonconformance/report/index.post.php');
+    include('../../modes/nonconformance/overview/index.post.php');
     
     
     # Bottom layout

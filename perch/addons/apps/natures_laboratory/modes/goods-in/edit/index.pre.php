@@ -24,7 +24,8 @@
     
         //FOR ITEMS PROGRAMMATICALLY ADDED TO FORM
         $postvars = array('staff','productCode','dateIn_day','dateIn_month','dateIn_year','supplier','qty','unit','bags','bagsList','suppliersBatch','bbe_day','bbe_month','bbe_year','noBBE','noCOA','qa','notes');	   
-    	$data = $Form->receive($postvars);   
+    	$data = $Form->receive($postvars);  
+    	
     	
     	$product = explode(" | ", $data['productCode']);
     	$data['productCode'] = $product[0];
@@ -40,6 +41,12 @@
 	    }else{
 	    	$data['bbe'] = "$data[bbe_year]-$data[bbe_month]-$data[bbe_day]";
     	}
+    	
+    	if(!$data['noCOA']){
+	    	$data['noCOA'] = FALSE;
+    	}
+    	
+    	//print_r($data);
     	
     	unset($data['bbe_year']);
     	unset($data['bbe_month']);

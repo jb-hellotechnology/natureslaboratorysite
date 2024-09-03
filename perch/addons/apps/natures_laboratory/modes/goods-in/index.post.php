@@ -129,7 +129,6 @@
 	            </td>
                 <td>
 	                <?php
-		                echo $COA;
 		                if($Goods['noCOA']==TRUE){
 			                echo '<span class="notification notification-success">NOT REQUIRED</span>';
 		                }else{

@@ -13,9 +13,9 @@ class Natures_Laboratory_Tasks extends PerchAPI_Factory
 	public function getTasks($q){
 		
 		if($q){
-			$sql = 'SELECT * FROM perch3_natures_laboratory_tasks WHERE title LIKE "%'.$q.'%" ORDER BY date DESC LIMIT 200';
+			$sql = 'SELECT * FROM perch3_natures_laboratory_tasks WHERE title LIKE "%'.$q.'%" ORDER BY date DESC LIMIT 2000';
 		}else{
-			$sql = 'SELECT * FROM perch3_natures_laboratory_tasks ORDER BY date DESC LIMIT 200';
+			$sql = 'SELECT * FROM perch3_natures_laboratory_tasks ORDER BY date DESC LIMIT 2000';
 		}
 		$data = $this->db->get_rows($sql);
 		return $data;

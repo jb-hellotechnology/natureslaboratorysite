@@ -35,4 +35,6 @@ footer,
 aside,
 .background_dark.minimal{
 	display:none !important;
+	height:0px !important;
+	overflow: hidden !important;
 }

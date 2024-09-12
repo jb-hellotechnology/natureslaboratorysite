@@ -29,6 +29,8 @@
 	<link rel="stylesheet" href="/assets/css/reset.css?v=<?php echo rand(); ?>">
 	<link rel="stylesheet" href="/assets/css/typography.css?v=<?php echo rand(); ?>">
 	<link rel="stylesheet" href="/assets/css/styles.css?v=<?php echo rand(); ?>">
+	
+	<link rel="stylesheet" href="/assets/css/print.css?v=<?php echo rand(); ?>" media="print">
 </head>
 
 <body>	

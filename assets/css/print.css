@@ -28,9 +28,7 @@ ol{
 img{
 	max-width:40% !important;
 	height:auto !important;
-	page-break-before: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
-    page-break-after: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
-    page-break-inside: avoid; /* or 'auto' */
+    page-break-inside: avoid !important;
 }
 
 header,

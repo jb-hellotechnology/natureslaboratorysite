@@ -17,15 +17,17 @@
     
         //FOR ITEMS PROGRAMMATICALLY ADDED TO FORM
         $postvars = array('productType','productCode');	   
-    	$data = $Form->receive($postvars);      
-
-        $new_msds = $NaturesLaboratoryMSDS->create($data);
+    	$data = $Form->receive($postvars);   
+    	
+    	if(!$NaturesLaboratoryMSDS->msds_exists($data['productCode'])){
+	    	$new_msds = $NaturesLaboratoryMSDS->create($data);	
+    	}
 
         // SHOW RELEVANT MESSAGE
         if ($new_msds) {
             $message = $HTML->success_message('MSDS has been successfully created. Return to %sMSDS%s', '<a href="'.$API->app_path().'/msds/">', '</a>'); 
         }else{
-            $message = $HTML->failure_message('Sorry, MSDS could not be created.');
+            $message = $HTML->failure_message('MSDS for this product code already exists.');
         }
         
     }

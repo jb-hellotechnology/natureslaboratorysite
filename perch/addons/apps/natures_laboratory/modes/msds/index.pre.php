@@ -734,7 +734,7 @@
 		
 		$pdf->WriteHTML("<i>The above information describes exclusively the safety requirements of the product and is based on our present-day knowledge. The information is intended to give you advice about the safe handling of the product named in this safety data sheet, for storage, processing, transport and disposal. The information cannot be transferred to other products. In the case of mixing the product with other products or in the case of processing, the information on this safety data sheet is not necessarily valid for the new made-up material.</i><br><br>Prepared By<br><b><i>Shankar Katekhaye</i></b><br>Quality Manager");
 		
-		$pdf->Output('D',"Natures Laboratory MSDS.pdf");
+		$pdf->Output('D',"MSDS $detailsData[name] $details[productCode].pdf");
 		exit();
 		
     }

@@ -18,6 +18,18 @@ class Natures_Laboratory_MSDSs extends PerchAPI_Factory
 		
 	}
 	
+	public function msds_exists($code){
+		
+		$sql = 'SELECT * FROM perch3_natures_laboratory_msds WHERE productCode="'.$code.'"';
+		$data = $this->db->get_rows($sql);
+		if(count($data)>0){
+			return true;
+		}else{
+			return false;
+		}
+		
+	}
+	
 	public function getMSDSTemplates(){
 		
 		$sql = 'SELECT * FROM perch3_natures_laboratory_msds_templates ORDER BY productType ASC';

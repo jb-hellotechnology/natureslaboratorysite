@@ -265,11 +265,13 @@
 		echo $Form->form_start();
 		
 		$names[] = array('label'=>'Please Select', 'value'=>'');
+		$names[] = array('label'=>'Alan', 'value'=>'Alan');
 		$names[] = array('label'=>'Andy', 'value'=>'Andy');
+		$names[] = array('label'=>'Ash', 'value'=>'Ash');
+		$names[] = array('label'=>'Bhagyashree', 'value'=>'Bhagyashree');
+		$names[] = array('label'=>'Chris', 'value'=>'Chris');
 		$names[] = array('label'=>'Sean', 'value'=>'Sean');
 		$names[] = array('label'=>'Tom', 'value'=>'Tom');
-		$names[] = array('label'=>'Shankar', 'value'=>'Shankar');
-		$names[] = array('label'=>'Bhagyashree', 'value'=>'Bhagyashree');
 		
 		echo $Form->select_field("labelCheck","Labels Checked By",$names,$process['labelCheck']);
 		echo $Form->select_field("qcCheck","QC Check By",$names,$process['qcCheck']);

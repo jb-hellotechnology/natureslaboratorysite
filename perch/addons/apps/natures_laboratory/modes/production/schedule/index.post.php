@@ -107,12 +107,13 @@
 		echo "<br /><p>Other</p>";
 		
 		$names[] = array('label'=>'Please Select', 'value'=>'');
+		$names[] = array('label'=>'Alan', 'value'=>'Alan');
 		$names[] = array('label'=>'Andy', 'value'=>'Andy');
 		$names[] = array('label'=>'Ash', 'value'=>'Ash');
+		$names[] = array('label'=>'Bhagyashree', 'value'=>'Bhagyashree');
 		$names[] = array('label'=>'Chris', 'value'=>'Chris');
 		$names[] = array('label'=>'Sean', 'value'=>'Sean');
 		$names[] = array('label'=>'Tom', 'value'=>'Tom');
-		$names[] = array('label'=>'Bhagyashree', 'value'=>'Bhagyashree');
 		echo $Form->select_field("scheduledBy","Scheduled By",$names,'');
 		
 		echo $Form->hidden("status",'scheduled');

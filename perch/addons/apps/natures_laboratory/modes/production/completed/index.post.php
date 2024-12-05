@@ -327,7 +327,7 @@
 	                <?php 
 		                if($Production['qcCheck']==''){
 		                	echo " class='notification notification-warning'";
-		                }elseif($Production['qcCheck']=='Shankar'){
+		                }elseif($Production['qcCheck']=='Shankar' OR $Production['qcCheck']=='Bhagyashree'){
 			                echo " class='notification notification-success'";
 			            }elseif($Goods['qa']=='TRUE'){
 				            echo " class='notification notification-success'";

@@ -363,8 +363,14 @@ class Natures_Laboratory_Shopifys extends PerchAPI_Factory
 			if($productS){
 				
 				$output .= "$product[STOCKCODE] from ".number_format(floor($product['OLDSTOCK']))." -> ".number_format(floor($product['NEWSTOCK']))."<br />";
-				$this->shopifyInventory('beevital-propolis.myshopify.com','77880295744',$productS['inventory_item_id'],number_format(floor($product['NEWSTOCK']),0),$token);
+// 				$this->shopifyInventory('beevital-propolis.myshopify.com','77880295744',$productS['inventory_item_id'],number_format(floor($product['NEWSTOCK']),0),$token);
 				sleep(0.1);
+				
+				$productT = "SELECT * FROM perch3_natures_laboratory_shopify_bv WHERE STOCK_CODE='".$product['STOCKCODE']."T'";
+				$productT = $this->db->get_row($productT);
+				if($productT){
+					echo "UPDATE BULK $productT[id]<br />";
+				}
 				
 			}
 			

@@ -4,7 +4,7 @@
     echo $HTML->side_panel_end();
     
     echo $HTML->title_panel([
-    'heading' => 'Non Conformance > Add',
+    'heading' => 'Non Conformance > Edit',
     'button'  => [
             'text' => $Lang->get('Non Conformance'),
             'link' => $API->app_nav().'/nonconformance/add',
@@ -41,6 +41,10 @@
 	    echo $message;
 	    
 	}else{
+		
+		echo "<h2>#";
+		echo str_pad($details['natures_laboratory_nonconformanceID'], 4, '0', STR_PAD_LEFT);
+		echo "</h2>";
 		
 		echo $Form->form_start();
 		

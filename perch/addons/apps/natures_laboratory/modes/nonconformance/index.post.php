@@ -55,6 +55,7 @@
         <thead>
             <tr>
 	            <th class="first">Select</th>
+	            <th>#</th>
                 <th>Date</th>
                 <th>Title</th> 
                 <th>Type</th> 
@@ -70,6 +71,7 @@
 ?>
             <tr>
 	            <td><?php echo $Form->radio("download", 'download', $Nonconformance['natures_laboratory_nonconformanceID'],'on',''); ?></td>
+	            <td><?php echo str_pad($Nonconformance['natures_laboratory_nonconformanceID'], 4, '0', STR_PAD_LEFT); ?></td>
 	            <td><?php 
 	                $parts = explode("-", $Nonconformance['date']);
 		            echo "$parts[2]/$parts[1]/$parts[0]";

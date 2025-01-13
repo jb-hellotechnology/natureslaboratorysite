@@ -18,6 +18,7 @@ error_reporting(E_ALL);
 		$postvars = array('download');	   
     	$data = $Form->receive($postvars);   
     	$nonconformance = $data['download'];
+    	$id = str_pad($data['download'], 4, '0', STR_PAD_LEFT);
     	
     	$nonconformanceData = $NaturesLaboratoryNonconformances->find($nonconformance,true);
     	$details = $nonconformanceData->to_array();
@@ -199,7 +200,7 @@ error_reporting(E_ALL);
 		
 		$pdf->SetXY(10, 35);
 		$pdf->SetFont('Arial','B',16);
-		$pdf->Cell(0,10,'Non Conformance #'.$nonconformance.': '.$details['title'],0,1);
+		$pdf->Cell(0,10,'Non Conformance #'.$id.': '.$details['title'],0,1);
 		$pdf->Line(0,44,300,44);
 		$pdf->SetFont('Arial','',9);
 		

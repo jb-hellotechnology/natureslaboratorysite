@@ -100,6 +100,7 @@
 	        echo $Form->date_field("datePressed","Date Due To Complete",$weekToday);
 	        
 	        $names[] = array('label'=>'Please Select', 'value'=>'');
+			$names[] = array('label'=>'Alan', 'value'=>'Alan');
 			$names[] = array('label'=>'Andy', 'value'=>'Andy');
 			$names[] = array('label'=>'Ash', 'value'=>'Ash');
 			$names[] = array('label'=>'Chris', 'value'=>'Chris');

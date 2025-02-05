@@ -515,7 +515,7 @@ ul.timeline li:nth-child(odd) img{
 
 .hexagons ul li{
 	display:inline-block;
-	margin-right:1rem;
+	margin-right:0;
 }
 
 .hexagons .cultural ul li{

@@ -519,7 +519,7 @@ ul.timeline li:nth-child(odd) img{
 }
 
 .hexagons .cultural ul li{
-	margin-left:1rem;
+	margin-left:0;
 	margin-right:0px;
 }
 
